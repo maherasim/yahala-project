@@ -1,0 +1,120 @@
+[{
+  "_id": "66728a0504ffd69e7a0fde2d",
+  "key": "group_educated_user",
+  "data": {
+    "create_group": {
+      "value": 1,
+      "size": "NaN"
+    },
+    "total_group": {
+      "value": 0,
+      "size": "8"
+    },
+    "voice_message": {
+      "value": 1,
+      "size": "30"
+    },
+    "share_video": {
+      "value": 0,
+      "size": "10"
+    },
+    "share_file": {
+      "value": 0,
+      "size": "40"
+    },
+    "share_image": {
+      "value": 1,
+      "size": "NaN"
+    },
+    "allowed_member": {
+      "value": 0,
+      "size": "3"
+    }
+  },
+  "updated_at": {
+    "$date": "2024-06-20T15:20:01.210Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  }
+},
+{
+  "_id": "66728a0504ffd69e7a0fde2e",
+  "key": "group_cultivated_user",
+  "data": {
+    "create_group": {
+      "value": 1,
+      "size": null
+    },
+    "total_group": {
+      "value": 0,
+      "size": "13"
+    },
+    "voice_message": {
+      "value": 0,
+      "size": "70"
+    },
+    "share_video": {
+      "value": 0,
+      "size": "0"
+    },
+    "share_file": {
+      "value": 1,
+      "size": "100"
+    },
+    "share_image": {
+      "value": 1,
+      "size": "NaN"
+    },
+    "allowed_member": {
+      "value": 0,
+      "size": "5"
+    }
+  },
+  "updated_at": {
+    "$date": "2024-06-20T15:27:17.007Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  }
+},
+{
+  "_id": "66728a0504ffd69e7a0fde2f",
+  "key": "group_acadmic_user",
+  "data": {
+    "create_group": {
+      "value": 0,
+      "size": "NaN"
+    },
+    "total_group": {
+      "value": 0,
+      "size": "12"
+    },
+    "voice_message": {
+      "value": 0,
+      "size": "100"
+    },
+    "share_video": {
+      "value": 1,
+      "size": "50"
+    },
+    "share_file": {
+      "value": 1,
+      "size": "80"
+    },
+    "share_image": {
+      "value": 1,
+      "size": "NaN"
+    },
+    "allowed_member": {
+      "value": 0,
+      "size": "5"
+    }
+  },
+  "updated_at": {
+    "$date": "2024-06-20T15:32:47.729Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  }
+}]

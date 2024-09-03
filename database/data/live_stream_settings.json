@@ -1,0 +1,108 @@
+[{
+  "_id": "66728a0504ffd69e7a0fde2d",
+  "key": "live_stream_educated_user",
+  "data": {
+    "live_stream": {
+      "value": 1,
+      "size": "0"
+    },
+    "call_duration": {
+      "value": 1,
+      "size": "20"
+    },
+    "voice_message": {
+      "value": 1,
+      "size": "60"
+    },
+    "allow_comments": {
+      "value": 1,
+      "size": "NaN"
+    },
+    "allow_emoji": {
+      "value": 1,
+      "size": null
+    },
+    "share_file": {
+      "value": 0,
+      "size": "80"
+    }
+  },
+  "updated_at": {
+    "$date": "2024-06-21T02:06:30.734Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  }
+},
+{
+  "_id": "66728a0504ffd69e7a0fde2e",
+  "key": "live_stream_cultivated_user",
+  "data": {
+    "live_stream": {
+      "value": 1,
+      "size": "0"
+    },
+    "call_duration": {
+      "value": 1,
+      "size": "60"
+    },
+    "voice_message": {
+      "value": 1,
+      "size": "100"
+    },
+    "allow_comments": {
+      "value": 1,
+      "size": "NaN"
+    },
+    "allow_emoji": {
+      "value": 0,
+      "size": "NaN"
+    },
+    "share_file": {
+      "value": 1,
+      "size": "10"
+    }
+  },
+  "updated_at": {
+    "$date": "2024-06-21T02:07:16.714Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  }
+},
+{
+  "_id": "66728a0504ffd69e7a0fde2f",
+  "key": "live_stream_acadmic_user",
+  "data": {
+    "live_stream": {
+      "value": 0,
+      "size": "0"
+    },
+    "call_duration": {
+      "value": 1,
+      "size": "70"
+    },
+    "voice_message": {
+      "value": 1,
+      "size": "50"
+    },
+    "allow_comments": {
+      "value": 1,
+      "size": "NaN"
+    },
+    "allow_emoji": {
+      "value": 1,
+      "size": "NaN"
+    },
+    "share_file": {
+      "value": 1,
+      "size": "60"
+    }
+  },
+  "updated_at": {
+    "$date": "2024-06-21T02:08:46.051Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  }
+}]

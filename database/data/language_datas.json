@@ -1,0 +1,644 @@
+[{
+  "_id": "665965e2162c603504074076",
+  "name": "Denied it",
+  "en": "Denied it",
+  "fr": "Denied it",
+  "cn": "否认了",
+  "id": "Menerimanya",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.360Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.247Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074078",
+  "name": "Elon Musk",
+  "en": "Elon Musk",
+  "fr": "Elon Musk",
+  "cn": "埃隆·马斯克",
+  "id": "Elon Musk",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.361Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.366Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074079",
+  "name": "User Name",
+  "en": "User Name",
+  "fr": "User Name",
+  "cn": "用户名称",
+  "id": "Nama pengguna",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.361Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.366Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407407a",
+  "name": "Video",
+  "en": "Video",
+  "fr": "Video",
+  "cn": "视频",
+  "id": "Video",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.361Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.366Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407407b",
+  "name": "End",
+  "en": "End",
+  "fr": "End",
+  "cn": "结",
+  "id": "Akhir",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.362Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.367Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407407c",
+  "name": "Accept policy and terms",
+  "en": "Accept policy and terms",
+  "fr": "Accept policy and terms",
+  "cn": "接受策略和条款",
+  "id": "Terima kebijakan dan ketentuan",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.362Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.367Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407407d",
+  "name": "Messages",
+  "en": "Messages",
+  "fr": "Messages",
+  "cn": "留言",
+  "id": "Pesan",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.362Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.367Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407407e",
+  "name": "Calls",
+  "en": "Calls",
+  "fr": "Calls",
+  "cn": "通话",
+  "id": "Panggilan",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.362Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.368Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407407f",
+  "name": "Groups",
+  "en": "Groups",
+  "fr": "Groups",
+  "cn": "团体",
+  "id": "Grups",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.363Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.368Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074080",
+  "name": "Allow Member to share files (*doc, PDF) in Group",
+  "en": "Allow Member to share files (*doc, PDF) in Group",
+  "fr": "Allow Member to share files (*doc, PDF) in Group",
+  "cn": "允许成员在群组中共享文件（*doc、PDF)",
+  "id": "Izinkan Anggota untuk berbagi file (*doc, PDF) di Grup",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.363Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.368Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074081",
+  "name": "Type the Group Name here",
+  "en": "Type the Group Name here",
+  "fr": "Type the Group Name here",
+  "cn": "在此输入组名称",
+  "id": "Ketik nama grup di sini",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.363Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.368Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074082",
+  "name": "Group Title",
+  "en": "Group Title",
+  "fr": "Group Title",
+  "cn": "团体名称",
+  "id": "Judul Grup",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.363Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.369Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074083",
+  "name": "Describe your Group",
+  "en": "Describe your Group",
+  "fr": "Describe your Group",
+  "cn": "描述一下你的小组",
+  "id": "Jelaskan grup Anda",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.363Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.369Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074084",
+  "name": "Member Permission",
+  "en": "Member Permission",
+  "fr": "Member Permission",
+  "cn": "会员许可",
+  "id": "Izin anggota",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.363Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.369Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074085",
+  "name": "Manage Permission for your Members",
+  "en": "Manage Permission for your Members",
+  "fr": "Manage Permission for your Members",
+  "cn": "管理会员的权限",
+  "id": "Kelola izin untuk anggota Anda",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.364Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.370Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074086",
+  "name": "Voice Message",
+  "en": "Voice Message",
+  "fr": "Voice Message",
+  "cn": "语音留言",
+  "id": "Pesan suara",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.364Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.370Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074087",
+  "name": "Allow Member to share voice messages in Group",
+  "en": "Allow Member to share voice messages in Group",
+  "fr": "Allow Member to share voice messages in Group",
+  "cn": "允许成员在群组中共享语音消息",
+  "id": "Izinkan Anggota untuk berbagi pesan suara di Grup",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.364Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.370Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074088",
+  "name": "Allow Member to share Videos in Group",
+  "en": "Allow Member to share Videos in Group",
+  "fr": "Allow Member to share Videos in Group",
+  "cn": "允许成员在群组中共享视频",
+  "id": "Izinkan Anggota untuk berbagi video di Grup",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.364Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.371Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074089",
+  "name": "Share Images",
+  "en": "Share Images",
+  "fr": "Share Images",
+  "cn": "分享图片",
+  "id": "Bagikan Gambar",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.365Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.371Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407408a",
+  "name": "Allow Member to share files (*jpg, *png) in Group",
+  "en": "Allow Member to share files (*jpg, *png) in Group",
+  "fr": "Allow Member to share files (*jpg, *png) in Group",
+  "cn": "允许成员在群组中共享文件 (*jpg、*png)",
+  "id": "Izinkan Anggota untuk berbagi file (*jpg, *png) di Grup",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.365Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.371Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407408b",
+  "name": "Allow Member to share Emojis (*gif.) in Group",
+  "en": "Allow Member to share Emojis (*gif.) in Group",
+  "fr": "Allow Member to share Emojis (*gif.) in Group",
+  "cn": "允许成员在群组中共享表情 (*gif.)",
+  "id": "Izinkan Anggota untuk berbagi emoji (*gif.) di Grup",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.365Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.371Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407408c",
+  "name": "Share Emojis",
+  "en": "Share Emojis",
+  "fr": "Share Emojis",
+  "cn": "分享表情",
+  "id": "Bagikan Emoji",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.365Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.372Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407408d",
+  "name": "Add Admin",
+  "en": "Add Admin",
+  "fr": "Add Admin",
+  "cn": "添加管理员",
+  "id": "Menambahkan Admin",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.365Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.372Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407408e",
+  "name": "Manage your Storage",
+  "en": "Manage your Storage",
+  "fr": "Manage your Storage",
+  "cn": "管理存储",
+  "id": "Kelola penyimpanan Anda",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.365Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.372Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407408f",
+  "name": "Can Manage whole Group Memeber and give rights",
+  "en": "Can Manage whole Group Memeber and give rights",
+  "fr": "Can Manage whole Group Memeber and give rights",
+  "cn": "可以管理整个群组成员并赋予权限",
+  "id": "Mengelola semua anggota grup dan memberikan hak akses",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.366Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.372Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074090",
+  "name": "Group Admin",
+  "en": "Group Admin",
+  "fr": "Group Admin",
+  "cn": "群组管理员",
+  "id": "Admin Grup",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.366Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.372Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074091",
+  "name": "Can Manage single Memeber and allow them option",
+  "en": "Can Manage single Memeber and allow them option",
+  "fr": "Can Manage single Memeber and allow them option",
+  "cn": "可以管理单个成员并允许他们的选项",
+  "id": "Mengelola satu anggota dan memberikan opsi mereka",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.366Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.373Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074092",
+  "name": "Security Admin",
+  "en": "Security Admin",
+  "fr": "Security Admin",
+  "cn": "安全管理员",
+  "id": "Admin Keamanan",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.366Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.373Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074093",
+  "name": "Can Manage the Member Reports and Block Member",
+  "en": "Can Manage the Member Reports and Block Member",
+  "fr": "Can Manage the Member Reports and Block Member",
+  "cn": "可以管理成员报告和屏蔽成员",
+  "id": "Mengelola laporan anggota dan memblokir anggota",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.366Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.373Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074094",
+  "name": "Manage your Stoarge",
+  "en": "Manage your Stoarge",
+  "fr": "Manage your Stoarge",
+  "cn": "管理存储",
+  "id": "Kelola penyimpanan Anda",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.367Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.373Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074095",
+  "name": "Share Videos",
+  "en": "Share Videos",
+  "fr": "Share Videos",
+  "cn": "分享视频",
+  "id": "Bagikan Video",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.367Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.373Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074096",
+  "name": "User Online",
+  "en": "User Online",
+  "fr": "User Online",
+  "cn": "用户在线",
+  "id": "Pengguna Online",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.367Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.373Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074097",
+  "name": "Own Groups",
+  "en": "Own Groups",
+  "fr": "Own Groups",
+  "cn": "欧文群组",
+  "id": "Grup Owen",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.367Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.374Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074098",
+  "name": "My Memebership",
+  "en": "My Memebership",
+  "fr": "My Memebership",
+  "cn": "我的会员关系",
+  "id": "Membership Saya",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.367Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.374Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074099",
+  "name": "Create your own Group",
+  "en": "Create your own Group",
+  "fr": "Create your own Group",
+  "cn": "创建自己的群组",
+  "id": "Buat grup sendiri",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.367Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.374Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407409a",
+  "name": "Establish community groups to foster effective idea exchange and identify shared interests, thereby enhancing team cohesion.",
+  "en": "Establish community groups to foster effective idea exchange and identify shared interests, thereby enhancing team cohesion.",
+  "fr": "Establish community groups to foster effective idea exchange and identify shared interests, thereby enhancing team cohesion.",
+  "cn": "建立社区团体，促进有效的思想交流并确定共同利益，从而增强团队凝聚力。",
+  "id": "Bentuk kelompok komunitas untuk mendorong pertukaran ide yang efektif dan mengidentifikasi kepentingan bersama, sehingga meningkatkan kohesi tim.",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.368Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.374Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407409b",
+  "name": "Group Information",
+  "en": "Group Information",
+  "fr": "Group Information",
+  "cn": "群组信息",
+  "id": "Informasi Grup",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.368Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.374Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407409c",
+  "name": "Group Description will be here",
+  "en": "Group Description will be here",
+  "fr": "Group Description will be here",
+  "cn": "群组说明将在此处",
+  "id": "Deskripsi grup akan disini",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.368Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.375Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407409d",
+  "name": "Group Name",
+  "en": "Group Name",
+  "fr": "Group Name",
+  "cn": "群组名称",
+  "id": "Nama Grup",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.368Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.375Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407409e",
+  "name": "Marked Messages",
+  "en": "Marked Messages",
+  "fr": "Marked Messages",
+  "cn": "标记消息",
+  "id": "Pesan yang ditandai",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.368Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.375Z"
+  }
+},
+{
+  "_id": "665965e2162c60350407409f",
+  "name": "Manage Marked Messages",
+  "en": "Manage Marked Messages",
+  "fr": "Manage Marked Messages",
+  "cn": "管理标记消息",
+  "id": "Pengaturan Pesan Ditandai",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.368Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.375Z"
+  }
+},
+{
+  "_id": "665965e2162c6035040740a0",
+  "name": "Shared Files",
+  "en": "Shared Files",
+  "fr": "Shared Files",
+  "cn": "共享文件",
+  "id": "File Terbagi",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.369Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.375Z"
+  }
+},
+{
+  "_id": "665965e2162c6035040740a1",
+  "name": "Manage Shared Images, Videos, documents",
+  "en": "Manage Shared Images, Videos, documents",
+  "fr": "Manage Shared Images, Videos, documents",
+  "cn": "管理共享图片、视频、文档",
+  "id": "Kelola Gambar, Video, dan Dokumen Terbagi",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.369Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.375Z"
+  }
+},
+{
+  "_id": "665965e2162c6035040740a2",
+  "name": "Report Member",
+  "en": "Report Member",
+  "fr": "Report Member",
+  "cn": "报告成员",
+  "id": "Laporkan Anggota",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.369Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.376Z"
+  }
+},
+{
+  "_id": "665965e2162c6035040740a3",
+  "name": "Report Messages, Memebers, Shared Content",
+  "en": "Report Messages, Memebers, Shared Content",
+  "fr": "Report Messages, Memebers, Shared Content",
+  "cn": "报告消息、成员、共享内容",
+  "id": "Laporkan Pesan, Anggota, dan Konten Terbagi",
+  "updated_at": {
+    "$date": "2024-06-04T06:01:54.369Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.376Z"
+  }
+},
+{
+  "_id": "665ff93d787078bfbd067ad4",
+  "name": "car",
+  "en": "car",
+  "fr": "voiture",
+  "cn": "车",
+  "id": "mobil",
+  "updated_at": {
+    "$date": "2024-06-05T05:35:57.876Z"
+  },
+  "created_at": {
+    "$date": "2024-06-05T05:35:57.876Z"
+  }
+}]

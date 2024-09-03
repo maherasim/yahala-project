@@ -1,0 +1,125 @@
+[{
+  "_id": "66728a0504ffd69e7a0fde2d",
+  "key": "chat_educated_user",
+  "data": {
+    "text_message": {
+      "value": 1,
+      "size": "NaN"
+    },
+    "voice_message": {
+      "value": 1,
+      "size": "70"
+    },
+    "share_image": {
+      "value": 1,
+      "size": "NaN"
+    },
+    "share_video": {
+      "value": 0,
+      "size": "40"
+    },
+    "share_file": {
+      "value": 1,
+      "size": "10"
+    },
+    "share_emoji": {
+      "value": 0,
+      "size": null
+    },
+    "$name": {
+      "size": "0",
+      "value": 1
+    },
+    "{$name}": {
+      "size": "0",
+      "value": 1
+    },
+    "text_messsage": {
+      "size": null,
+      "value": 0
+    }
+  },
+  "updated_at": {
+    "$date": "2024-06-20T12:18:56.342Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  },
+  "\"data": {
+    "share_emoji": {
+      "size": "0"
+    }
+  }
+},
+{
+  "_id": "66728a0504ffd69e7a0fde2e",
+  "key": "chat_cultivated_user",
+  "data": {
+    "text_message": {
+      "value": 0,
+      "size": "NaN"
+    },
+    "voice_message": {
+      "value": 1,
+      "size": "50"
+    },
+    "share_image": {
+      "value": 0,
+      "size": "NaN"
+    },
+    "share_video": {
+      "value": 1,
+      "size": "70"
+    },
+    "share_file": {
+      "value": 0,
+      "size": "20"
+    },
+    "share_emoji": {
+      "value": 1,
+      "size": "NaN"
+    }
+  },
+  "updated_at": {
+    "$date": "2024-06-20T12:52:51.767Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  }
+},
+{
+  "_id": "66728a0504ffd69e7a0fde2f",
+  "key": "chat_acadmic_user",
+  "data": {
+    "text_message": {
+      "value": 1,
+      "size": "NaN"
+    },
+    "voice_message": {
+      "value": 0,
+      "size": "100"
+    },
+    "share_image": {
+      "value": 0,
+      "size": "NaN"
+    },
+    "share_video": {
+      "value": 0,
+      "size": "100"
+    },
+    "share_file": {
+      "value": 0,
+      "size": "90"
+    },
+    "share_emoji": {
+      "value": 0,
+      "size": null
+    }
+  },
+  "updated_at": {
+    "$date": "2024-06-20T12:58:31.634Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  }
+}]

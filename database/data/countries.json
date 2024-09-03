@@ -1,0 +1,5250 @@
+[{
+  "_id": {
+    "$oid": "66a7bf316c0fb53751015071"
+  },
+  "conid": "1",
+  "name": "Afghanistan",
+  "dialcode": "004",
+  "iso3": "AFG",
+  "iso2": "AF",
+  "capital": "Kabul",
+  "currency": "AFN",
+  "currency_name": "Afghan afghani",
+  "currency_symbol": "؋",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:18.011Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:18.011Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf316c0fb53751015072"
+  },
+  "conid": "2",
+  "name": "Aland Islands",
+  "dialcode": "248",
+  "iso3": "ALA",
+  "iso2": "AX",
+  "capital": "Mariehamn",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:29.886Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:29.886Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf326c0fb53751015073"
+  },
+  "conid": "3",
+  "name": "Albania",
+  "dialcode": "008",
+  "iso3": "ALB",
+  "iso2": "AL",
+  "capital": "Tirana",
+  "currency": "ALL",
+  "currency_name": "Albanian lek",
+  "currency_symbol": "Lek",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:30.005Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:30.005Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf326c0fb53751015074"
+  },
+  "conid": "4",
+  "name": "Algeria",
+  "dialcode": "012",
+  "iso3": "DZA",
+  "iso2": "DZ",
+  "capital": "Algiers",
+  "currency": "DZD",
+  "currency_name": "Algerian dinar",
+  "currency_symbol": "دج",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:30.118Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:30.118Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf326c0fb53751015075"
+  },
+  "conid": "5",
+  "name": "American Samoa",
+  "dialcode": "016",
+  "iso3": "ASM",
+  "iso2": "AS",
+  "capital": "Pago Pago",
+  "currency": "USD",
+  "currency_name": "US Dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:30.237Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:30.237Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf326c0fb53751015076"
+  },
+  "conid": "6",
+  "name": "Andorra",
+  "dialcode": "020",
+  "iso3": "AND",
+  "iso2": "AD",
+  "capital": "Andorra la Vella",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:30.352Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:30.352Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf326c0fb53751015077"
+  },
+  "conid": "7",
+  "name": "Angola",
+  "dialcode": "024",
+  "iso3": "AGO",
+  "iso2": "AO",
+  "capital": "Luanda",
+  "currency": "AOA",
+  "currency_name": "Angolan kwanza",
+  "currency_symbol": "Kz",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:30.480Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:30.480Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf326c0fb53751015078"
+  },
+  "conid": "8",
+  "name": "Anguilla",
+  "dialcode": "660",
+  "iso3": "AIA",
+  "iso2": "AI",
+  "capital": "The Valley",
+  "currency": "XCD",
+  "currency_name": "East Caribbean dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:30.606Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:30.606Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf326c0fb53751015079"
+  },
+  "conid": "9",
+  "name": "Antarctica",
+  "dialcode": "010",
+  "iso3": "ATA",
+  "iso2": "AQ",
+  "capital": "",
+  "currency": "AAD",
+  "currency_name": "Antarctican dollar",
+  "currency_symbol": "$",
+  "region": "Polar",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:30.736Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:30.736Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf326c0fb5375101507a"
+  },
+  "conid": "10",
+  "name": "Antigua and Barbuda",
+  "dialcode": "028",
+  "iso3": "ATG",
+  "iso2": "AG",
+  "capital": "St. John's",
+  "currency": "XCD",
+  "currency_name": "Eastern Caribbean dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:30.858Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:30.858Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf326c0fb5375101507b"
+  },
+  "conid": "11",
+  "name": "Argentina",
+  "dialcode": "032",
+  "iso3": "ARG",
+  "iso2": "AR",
+  "capital": "Buenos Aires",
+  "currency": "ARS",
+  "currency_name": "Argentine peso",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:30.966Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:30.966Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf336c0fb5375101507c"
+  },
+  "conid": "12",
+  "name": "Armenia",
+  "dialcode": "051",
+  "iso3": "ARM",
+  "iso2": "AM",
+  "capital": "Yerevan",
+  "currency": "AMD",
+  "currency_name": "Armenian dram",
+  "currency_symbol": "֏",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:31.083Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:31.083Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf336c0fb5375101507d"
+  },
+  "conid": "13",
+  "name": "Aruba",
+  "dialcode": "533",
+  "iso3": "ABW",
+  "iso2": "AW",
+  "capital": "Oranjestad",
+  "currency": "AWG",
+  "currency_name": "Aruban florin",
+  "currency_symbol": "ƒ",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:31.198Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:31.198Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf336c0fb5375101507e"
+  },
+  "conid": "14",
+  "name": "Australia",
+  "dialcode": "036",
+  "iso3": "AUS",
+  "iso2": "AU",
+  "capital": "Canberra",
+  "currency": "AUD",
+  "currency_name": "Australian dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:31.301Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:31.301Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf336c0fb5375101507f"
+  },
+  "conid": "15",
+  "name": "Austria",
+  "dialcode": "040",
+  "iso3": "AUT",
+  "iso2": "AT",
+  "capital": "Vienna",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:31.426Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:31.426Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf336c0fb53751015080"
+  },
+  "conid": "16",
+  "name": "Azerbaijan",
+  "dialcode": "031",
+  "iso3": "AZE",
+  "iso2": "AZ",
+  "capital": "Baku",
+  "currency": "AZN",
+  "currency_name": "Azerbaijani manat",
+  "currency_symbol": "m",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:31.537Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:31.537Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf336c0fb53751015081"
+  },
+  "conid": "17",
+  "name": "The Bahamas",
+  "dialcode": "044",
+  "iso3": "BHS",
+  "iso2": "BS",
+  "capital": "Nassau",
+  "currency": "BSD",
+  "currency_name": "Bahamian dollar",
+  "currency_symbol": "B$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:31.661Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:31.661Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf336c0fb53751015082"
+  },
+  "conid": "18",
+  "name": "Bahrain",
+  "dialcode": "048",
+  "iso3": "BHR",
+  "iso2": "BH",
+  "capital": "Manama",
+  "currency": "BHD",
+  "currency_name": "Bahraini dinar",
+  "currency_symbol": ".د.ب",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:31.769Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:31.769Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf336c0fb53751015083"
+  },
+  "conid": "19",
+  "name": "Bangladesh",
+  "dialcode": "050",
+  "iso3": "BGD",
+  "iso2": "BD",
+  "capital": "Dhaka",
+  "currency": "BDT",
+  "currency_name": "Bangladeshi taka",
+  "currency_symbol": "৳",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:31.898Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:31.898Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf346c0fb53751015084"
+  },
+  "conid": "20",
+  "name": "Barbados",
+  "dialcode": "052",
+  "iso3": "BRB",
+  "iso2": "BB",
+  "capital": "Bridgetown",
+  "currency": "BBD",
+  "currency_name": "Barbadian dollar",
+  "currency_symbol": "Bds$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:32.021Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:32.021Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf346c0fb53751015085"
+  },
+  "conid": "21",
+  "name": "Belarus",
+  "dialcode": "112",
+  "iso3": "BLR",
+  "iso2": "BY",
+  "capital": "Minsk",
+  "currency": "BYN",
+  "currency_name": "Belarusian ruble",
+  "currency_symbol": "Br",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:32.126Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:32.126Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf346c0fb53751015086"
+  },
+  "conid": "22",
+  "name": "Belgium",
+  "dialcode": "056",
+  "iso3": "BEL",
+  "iso2": "BE",
+  "capital": "Brussels",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:32.230Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:32.230Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf346c0fb53751015087"
+  },
+  "conid": "23",
+  "name": "Belize",
+  "dialcode": "084",
+  "iso3": "BLZ",
+  "iso2": "BZ",
+  "capital": "Belmopan",
+  "currency": "BZD",
+  "currency_name": "Belize dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:32.355Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:32.355Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf346c0fb53751015088"
+  },
+  "conid": "24",
+  "name": "Benin",
+  "dialcode": "204",
+  "iso3": "BEN",
+  "iso2": "BJ",
+  "capital": "Porto-Novo",
+  "currency": "XOF",
+  "currency_name": "West African CFA franc",
+  "currency_symbol": "CFA",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:32.470Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:32.470Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf346c0fb53751015089"
+  },
+  "conid": "25",
+  "name": "Bermuda",
+  "dialcode": "060",
+  "iso3": "BMU",
+  "iso2": "BM",
+  "capital": "Hamilton",
+  "currency": "BMD",
+  "currency_name": "Bermudian dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:32.585Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:32.585Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf346c0fb5375101508a"
+  },
+  "conid": "26",
+  "name": "Bhutan",
+  "dialcode": "064",
+  "iso3": "BTN",
+  "iso2": "BT",
+  "capital": "Thimphu",
+  "currency": "BTN",
+  "currency_name": "Bhutanese ngultrum",
+  "currency_symbol": "Nu.",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:32.728Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:32.728Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf346c0fb5375101508b"
+  },
+  "conid": "27",
+  "name": "Bolivia",
+  "dialcode": "068",
+  "iso3": "BOL",
+  "iso2": "BO",
+  "capital": "Sucre",
+  "currency": "BOB",
+  "currency_name": "Bolivian boliviano",
+  "currency_symbol": "Bs.",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:32.831Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:32.831Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf346c0fb5375101508c"
+  },
+  "conid": "28",
+  "name": "Bosnia and Herzegovina",
+  "dialcode": "070",
+  "iso3": "BIH",
+  "iso2": "BA",
+  "capital": "Sarajevo",
+  "currency": "BAM",
+  "currency_name": "Bosnia and Herzegovina convertible mark",
+  "currency_symbol": "KM",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:32.954Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:32.954Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf356c0fb5375101508d"
+  },
+  "conid": "29",
+  "name": "Botswana",
+  "dialcode": "072",
+  "iso3": "BWA",
+  "iso2": "BW",
+  "capital": "Gaborone",
+  "currency": "BWP",
+  "currency_name": "Botswana pula",
+  "currency_symbol": "P",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:33.065Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:33.065Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf356c0fb5375101508e"
+  },
+  "conid": "30",
+  "name": "Bouvet Island",
+  "dialcode": "074",
+  "iso3": "BVT",
+  "iso2": "BV",
+  "capital": "",
+  "currency": "NOK",
+  "currency_name": "Norwegian Krone",
+  "currency_symbol": "kr",
+  "region": "",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:33.191Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:33.191Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf356c0fb5375101508f"
+  },
+  "conid": "31",
+  "name": "Brazil",
+  "dialcode": "076",
+  "iso3": "BRA",
+  "iso2": "BR",
+  "capital": "Brasilia",
+  "currency": "BRL",
+  "currency_name": "Brazilian real",
+  "currency_symbol": "R$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:33.312Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:33.312Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf356c0fb53751015090"
+  },
+  "conid": "32",
+  "name": "British Indian Ocean Territory",
+  "dialcode": "086",
+  "iso3": "IOT",
+  "iso2": "IO",
+  "capital": "Diego Garcia",
+  "currency": "USD",
+  "currency_name": "United States dollar",
+  "currency_symbol": "$",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:33.431Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:33.431Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf356c0fb53751015091"
+  },
+  "conid": "33",
+  "name": "Brunei",
+  "dialcode": "096",
+  "iso3": "BRN",
+  "iso2": "BN",
+  "capital": "Bandar Seri Begawan",
+  "currency": "BND",
+  "currency_name": "Brunei dollar",
+  "currency_symbol": "B$",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:33.538Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:33.538Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf356c0fb53751015092"
+  },
+  "conid": "34",
+  "name": "Bulgaria",
+  "dialcode": "100",
+  "iso3": "BGR",
+  "iso2": "BG",
+  "capital": "Sofia",
+  "currency": "BGN",
+  "currency_name": "Bulgarian lev",
+  "currency_symbol": "Лв.",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:33.668Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:33.668Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf356c0fb53751015093"
+  },
+  "conid": "35",
+  "name": "Burkina Faso",
+  "dialcode": "854",
+  "iso3": "BFA",
+  "iso2": "BF",
+  "capital": "Ouagadougou",
+  "currency": "XOF",
+  "currency_name": "West African CFA franc",
+  "currency_symbol": "CFA",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:33.775Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:33.775Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf356c0fb53751015094"
+  },
+  "conid": "36",
+  "name": "Burundi",
+  "dialcode": "108",
+  "iso3": "BDI",
+  "iso2": "BI",
+  "capital": "Bujumbura",
+  "currency": "BIF",
+  "currency_name": "Burundian franc",
+  "currency_symbol": "FBu",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:33.887Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:33.887Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf356c0fb53751015095"
+  },
+  "conid": "37",
+  "name": "Cambodia",
+  "dialcode": "116",
+  "iso3": "KHM",
+  "iso2": "KH",
+  "capital": "Phnom Penh",
+  "currency": "KHR",
+  "currency_name": "Cambodian riel",
+  "currency_symbol": "KHR",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:33.996Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:33.996Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf366c0fb53751015096"
+  },
+  "conid": "38",
+  "name": "Cameroon",
+  "dialcode": "120",
+  "iso3": "CMR",
+  "iso2": "CM",
+  "capital": "Yaounde",
+  "currency": "XAF",
+  "currency_name": "Central African CFA franc",
+  "currency_symbol": "FCFA",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:34.105Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:34.105Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf366c0fb53751015097"
+  },
+  "conid": "39",
+  "name": "Canada",
+  "dialcode": "124",
+  "iso3": "CAN",
+  "iso2": "CA",
+  "capital": "Ottawa",
+  "currency": "CAD",
+  "currency_name": "Canadian dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:34.242Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:34.242Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf366c0fb53751015098"
+  },
+  "conid": "40",
+  "name": "Cape Verde",
+  "dialcode": "132",
+  "iso3": "CPV",
+  "iso2": "CV",
+  "capital": "Praia",
+  "currency": "CVE",
+  "currency_name": "Cape Verdean escudo",
+  "currency_symbol": "$",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:34.425Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:34.425Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf366c0fb53751015099"
+  },
+  "conid": "41",
+  "name": "Cayman Islands",
+  "dialcode": "136",
+  "iso3": "CYM",
+  "iso2": "KY",
+  "capital": "George Town",
+  "currency": "KYD",
+  "currency_name": "Cayman Islands dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:34.540Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:34.540Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf366c0fb5375101509a"
+  },
+  "conid": "42",
+  "name": "Central African Republic",
+  "dialcode": "140",
+  "iso3": "CAF",
+  "iso2": "CF",
+  "capital": "Bangui",
+  "currency": "XAF",
+  "currency_name": "Central African CFA franc",
+  "currency_symbol": "FCFA",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:34.645Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:34.645Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf366c0fb5375101509b"
+  },
+  "conid": "43",
+  "name": "Chad",
+  "dialcode": "148",
+  "iso3": "TCD",
+  "iso2": "TD",
+  "capital": "N'Djamena",
+  "currency": "XAF",
+  "currency_name": "Central African CFA franc",
+  "currency_symbol": "FCFA",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:34.765Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:34.765Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf366c0fb5375101509c"
+  },
+  "conid": "44",
+  "name": "Chile",
+  "dialcode": "152",
+  "iso3": "CHL",
+  "iso2": "CL",
+  "capital": "Santiago",
+  "currency": "CLP",
+  "currency_name": "Chilean peso",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:34.887Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:34.887Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf376c0fb5375101509d"
+  },
+  "conid": "45",
+  "name": "China",
+  "dialcode": "156",
+  "iso3": "CHN",
+  "iso2": "CN",
+  "capital": "Beijing",
+  "currency": "CNY",
+  "currency_name": "Chinese yuan",
+  "currency_symbol": "¥",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:35.017Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:35.017Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf376c0fb5375101509e"
+  },
+  "conid": "46",
+  "name": "Christmas Island",
+  "dialcode": "162",
+  "iso3": "CXR",
+  "iso2": "CX",
+  "capital": "Flying Fish Cove",
+  "currency": "AUD",
+  "currency_name": "Australian dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:35.135Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:35.135Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf376c0fb5375101509f"
+  },
+  "conid": "47",
+  "name": "Cocos (Keeling) Islands",
+  "dialcode": "166",
+  "iso3": "CCK",
+  "iso2": "CC",
+  "capital": "West Island",
+  "currency": "AUD",
+  "currency_name": "Australian dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:35.277Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:35.277Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf376c0fb537510150a0"
+  },
+  "conid": "48",
+  "name": "Colombia",
+  "dialcode": "170",
+  "iso3": "COL",
+  "iso2": "CO",
+  "capital": "Bogotá",
+  "currency": "COP",
+  "currency_name": "Colombian peso",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:35.397Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:35.397Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf376c0fb537510150a1"
+  },
+  "conid": "49",
+  "name": "Comoros",
+  "dialcode": "174",
+  "iso3": "COM",
+  "iso2": "KM",
+  "capital": "Moroni",
+  "currency": "KMF",
+  "currency_name": "Comorian franc",
+  "currency_symbol": "CF",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:35.517Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:35.517Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf376c0fb537510150a2"
+  },
+  "conid": "50",
+  "name": "Congo",
+  "dialcode": "178",
+  "iso3": "COG",
+  "iso2": "CG",
+  "capital": "Brazzaville",
+  "currency": "XAF",
+  "currency_name": "Central African CFA franc",
+  "currency_symbol": "FC",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:35.638Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:35.638Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf376c0fb537510150a3"
+  },
+  "conid": "51",
+  "name": "Democratic Republic of the Congo",
+  "dialcode": "180",
+  "iso3": "COD",
+  "iso2": "CD",
+  "capital": "Kinshasa",
+  "currency": "CDF",
+  "currency_name": "Congolese Franc",
+  "currency_symbol": "FC",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:35.765Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:35.765Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf376c0fb537510150a4"
+  },
+  "conid": "52",
+  "name": "Cook Islands",
+  "dialcode": "184",
+  "iso3": "COK",
+  "iso2": "CK",
+  "capital": "Avarua",
+  "currency": "NZD",
+  "currency_name": "Cook Islands dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:35.877Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:35.877Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf386c0fb537510150a5"
+  },
+  "conid": "53",
+  "name": "Costa Rica",
+  "dialcode": "188",
+  "iso3": "CRI",
+  "iso2": "CR",
+  "capital": "San Jose",
+  "currency": "CRC",
+  "currency_name": "Costa Rican colón",
+  "currency_symbol": "₡",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:36.016Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:36.016Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf386c0fb537510150a6"
+  },
+  "conid": "54",
+  "name": "Cote D'Ivoire (Ivory Coast)",
+  "dialcode": "384",
+  "iso3": "CIV",
+  "iso2": "CI",
+  "capital": "Yamoussoukro",
+  "currency": "XOF",
+  "currency_name": "West African CFA franc",
+  "currency_symbol": "CFA",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:36.126Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:36.126Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf386c0fb537510150a7"
+  },
+  "conid": "55",
+  "name": "Croatia",
+  "dialcode": "191",
+  "iso3": "HRV",
+  "iso2": "HR",
+  "capital": "Zagreb",
+  "currency": "HRK",
+  "currency_name": "Croatian kuna",
+  "currency_symbol": "kn",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:36.235Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:36.235Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf386c0fb537510150a8"
+  },
+  "conid": "56",
+  "name": "Cuba",
+  "dialcode": "192",
+  "iso3": "CUB",
+  "iso2": "CU",
+  "capital": "Havana",
+  "currency": "CUP",
+  "currency_name": "Cuban peso",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:36.345Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:36.345Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf386c0fb537510150a9"
+  },
+  "conid": "57",
+  "name": "Cyprus",
+  "dialcode": "196",
+  "iso3": "CYP",
+  "iso2": "CY",
+  "capital": "Nicosia",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:36.483Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:36.483Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf386c0fb537510150aa"
+  },
+  "conid": "58",
+  "name": "Czech Republic",
+  "dialcode": "203",
+  "iso3": "CZE",
+  "iso2": "CZ",
+  "capital": "Prague",
+  "currency": "CZK",
+  "currency_name": "Czech koruna",
+  "currency_symbol": "Kč",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:36.628Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:36.628Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf386c0fb537510150ab"
+  },
+  "conid": "59",
+  "name": "Denmark",
+  "dialcode": "208",
+  "iso3": "DNK",
+  "iso2": "DK",
+  "capital": "Copenhagen",
+  "currency": "DKK",
+  "currency_name": "Danish krone",
+  "currency_symbol": "Kr.",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:36.752Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:36.752Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf386c0fb537510150ac"
+  },
+  "conid": "60",
+  "name": "Djibouti",
+  "dialcode": "262",
+  "iso3": "DJI",
+  "iso2": "DJ",
+  "capital": "Djibouti",
+  "currency": "DJF",
+  "currency_name": "Djiboutian franc",
+  "currency_symbol": "Fdj",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:36.881Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:36.881Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf386c0fb537510150ad"
+  },
+  "conid": "61",
+  "name": "Dominica",
+  "dialcode": "212",
+  "iso3": "DMA",
+  "iso2": "DM",
+  "capital": "Roseau",
+  "currency": "XCD",
+  "currency_name": "Eastern Caribbean dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:36.990Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:36.990Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf396c0fb537510150ae"
+  },
+  "conid": "62",
+  "name": "Dominican Republic",
+  "dialcode": "214",
+  "iso3": "DOM",
+  "iso2": "DO",
+  "capital": "Santo Domingo",
+  "currency": "DOP",
+  "currency_name": "Dominican peso",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:37.132Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:37.132Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf396c0fb537510150af"
+  },
+  "conid": "63",
+  "name": "Timor-Leste",
+  "dialcode": "626",
+  "iso3": "TLS",
+  "iso2": "TL",
+  "capital": "Dili",
+  "currency": "USD",
+  "currency_name": "United States dollar",
+  "currency_symbol": "$",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:37.244Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:37.244Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf396c0fb537510150b0"
+  },
+  "conid": "64",
+  "name": "Ecuador",
+  "dialcode": "218",
+  "iso3": "ECU",
+  "iso2": "EC",
+  "capital": "Quito",
+  "currency": "USD",
+  "currency_name": "United States dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:37.359Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:37.359Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf396c0fb537510150b1"
+  },
+  "conid": "65",
+  "name": "Egypt",
+  "dialcode": "818",
+  "iso3": "EGY",
+  "iso2": "EG",
+  "capital": "Cairo",
+  "currency": "EGP",
+  "currency_name": "Egyptian pound",
+  "currency_symbol": "ج.م",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:37.474Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:37.474Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf396c0fb537510150b2"
+  },
+  "conid": "66",
+  "name": "El Salvador",
+  "dialcode": "222",
+  "iso3": "SLV",
+  "iso2": "SV",
+  "capital": "San Salvador",
+  "currency": "USD",
+  "currency_name": "United States dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:37.595Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:37.595Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf396c0fb537510150b3"
+  },
+  "conid": "67",
+  "name": "Equatorial Guinea",
+  "dialcode": "226",
+  "iso3": "GNQ",
+  "iso2": "GQ",
+  "capital": "Malabo",
+  "currency": "XAF",
+  "currency_name": "Central African CFA franc",
+  "currency_symbol": "FCFA",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:37.742Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:37.742Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf396c0fb537510150b4"
+  },
+  "conid": "68",
+  "name": "Eritrea",
+  "dialcode": "232",
+  "iso3": "ERI",
+  "iso2": "ER",
+  "capital": "Asmara",
+  "currency": "ERN",
+  "currency_name": "Eritrean nakfa",
+  "currency_symbol": "Nfk",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:37.861Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:37.861Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf396c0fb537510150b5"
+  },
+  "conid": "69",
+  "name": "Estonia",
+  "dialcode": "233",
+  "iso3": "EST",
+  "iso2": "EE",
+  "capital": "Tallinn",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:37.990Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:37.990Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3a6c0fb537510150b6"
+  },
+  "conid": "70",
+  "name": "Ethiopia",
+  "dialcode": "231",
+  "iso3": "ETH",
+  "iso2": "ET",
+  "capital": "Addis Ababa",
+  "currency": "ETB",
+  "currency_name": "Ethiopian birr",
+  "currency_symbol": "Nkf",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:38.109Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:38.109Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3a6c0fb537510150b7"
+  },
+  "conid": "71",
+  "name": "Falkland Islands",
+  "dialcode": "238",
+  "iso3": "FLK",
+  "iso2": "FK",
+  "capital": "Stanley",
+  "currency": "FKP",
+  "currency_name": "Falkland Islands pound",
+  "currency_symbol": "£",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:38.230Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:38.230Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3a6c0fb537510150b8"
+  },
+  "conid": "72",
+  "name": "Faroe Islands",
+  "dialcode": "234",
+  "iso3": "FRO",
+  "iso2": "FO",
+  "capital": "Torshavn",
+  "currency": "DKK",
+  "currency_name": "Danish krone",
+  "currency_symbol": "Kr.",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:38.360Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:38.360Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3a6c0fb537510150b9"
+  },
+  "conid": "73",
+  "name": "Fiji Islands",
+  "dialcode": "242",
+  "iso3": "FJI",
+  "iso2": "FJ",
+  "capital": "Suva",
+  "currency": "FJD",
+  "currency_name": "Fijian dollar",
+  "currency_symbol": "FJ$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:38.484Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:38.484Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3a6c0fb537510150ba"
+  },
+  "conid": "74",
+  "name": "Finland",
+  "dialcode": "246",
+  "iso3": "FIN",
+  "iso2": "FI",
+  "capital": "Helsinki",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:38.601Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:38.601Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3a6c0fb537510150bb"
+  },
+  "conid": "75",
+  "name": "France",
+  "dialcode": "250",
+  "iso3": "FRA",
+  "iso2": "FR",
+  "capital": "Paris",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:38.717Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:38.717Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3a6c0fb537510150bc"
+  },
+  "conid": "76",
+  "name": "French Guiana",
+  "dialcode": "254",
+  "iso3": "GUF",
+  "iso2": "GF",
+  "capital": "Cayenne",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:38.847Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:38.847Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3a6c0fb537510150bd"
+  },
+  "conid": "77",
+  "name": "French Polynesia",
+  "dialcode": "258",
+  "iso3": "PYF",
+  "iso2": "PF",
+  "capital": "Papeete",
+  "currency": "XPF",
+  "currency_name": "CFP franc",
+  "currency_symbol": "₣",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:38.955Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:38.955Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3b6c0fb537510150be"
+  },
+  "conid": "78",
+  "name": "French Southern Territories",
+  "dialcode": "260",
+  "iso3": "ATF",
+  "iso2": "TF",
+  "capital": "Port-aux-Francais",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:39.077Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:39.077Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3b6c0fb537510150bf"
+  },
+  "conid": "79",
+  "name": "Gabon",
+  "dialcode": "266",
+  "iso3": "GAB",
+  "iso2": "GA",
+  "capital": "Libreville",
+  "currency": "XAF",
+  "currency_name": "Central African CFA franc",
+  "currency_symbol": "FCFA",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:39.220Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:39.220Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3b6c0fb537510150c0"
+  },
+  "conid": "80",
+  "name": "Gambia The",
+  "dialcode": "270",
+  "iso3": "GMB",
+  "iso2": "GM",
+  "capital": "Banjul",
+  "currency": "GMD",
+  "currency_name": "Gambian dalasi",
+  "currency_symbol": "D",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:39.364Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:39.364Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3b6c0fb537510150c1"
+  },
+  "conid": "81",
+  "name": "Georgia",
+  "dialcode": "268",
+  "iso3": "GEO",
+  "iso2": "GE",
+  "capital": "Tbilisi",
+  "currency": "GEL",
+  "currency_name": "Georgian lari",
+  "currency_symbol": "ლ",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:39.496Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:39.496Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3b6c0fb537510150c2"
+  },
+  "conid": "82",
+  "name": "Germany",
+  "dialcode": "276",
+  "iso3": "DEU",
+  "iso2": "DE",
+  "capital": "Berlin",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:39.611Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:39.611Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3b6c0fb537510150c3"
+  },
+  "conid": "83",
+  "name": "Ghana",
+  "dialcode": "288",
+  "iso3": "GHA",
+  "iso2": "GH",
+  "capital": "Accra",
+  "currency": "GHS",
+  "currency_name": "Ghanaian cedi",
+  "currency_symbol": "GH₵",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:39.735Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:39.735Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3b6c0fb537510150c4"
+  },
+  "conid": "84",
+  "name": "Gibraltar",
+  "dialcode": "292",
+  "iso3": "GIB",
+  "iso2": "GI",
+  "capital": "Gibraltar",
+  "currency": "GIP",
+  "currency_name": "Gibraltar pound",
+  "currency_symbol": "£",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:39.842Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:39.842Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3b6c0fb537510150c5"
+  },
+  "conid": "85",
+  "name": "Greece",
+  "dialcode": "300",
+  "iso3": "GRC",
+  "iso2": "GR",
+  "capital": "Athens",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:39.956Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:39.956Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3c6c0fb537510150c6"
+  },
+  "conid": "86",
+  "name": "Greenland",
+  "dialcode": "304",
+  "iso3": "GRL",
+  "iso2": "GL",
+  "capital": "Nuuk",
+  "currency": "DKK",
+  "currency_name": "Danish krone",
+  "currency_symbol": "Kr.",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:40.094Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:40.094Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3c6c0fb537510150c7"
+  },
+  "conid": "87",
+  "name": "Grenada",
+  "dialcode": "308",
+  "iso3": "GRD",
+  "iso2": "GD",
+  "capital": "St. George's",
+  "currency": "XCD",
+  "currency_name": "Eastern Caribbean dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:40.208Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:40.208Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3c6c0fb537510150c8"
+  },
+  "conid": "88",
+  "name": "Guadeloupe",
+  "dialcode": "312",
+  "iso3": "GLP",
+  "iso2": "GP",
+  "capital": "Basse-Terre",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:40.310Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:40.310Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3c6c0fb537510150c9"
+  },
+  "conid": "89",
+  "name": "Guam",
+  "dialcode": "316",
+  "iso3": "GUM",
+  "iso2": "GU",
+  "capital": "Hagatna",
+  "currency": "USD",
+  "currency_name": "US Dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:40.425Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:40.425Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3c6c0fb537510150ca"
+  },
+  "conid": "90",
+  "name": "Guatemala",
+  "dialcode": "320",
+  "iso3": "GTM",
+  "iso2": "GT",
+  "capital": "Guatemala City",
+  "currency": "GTQ",
+  "currency_name": "Guatemalan quetzal",
+  "currency_symbol": "Q",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:40.556Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:40.556Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3c6c0fb537510150cb"
+  },
+  "conid": "91",
+  "name": "Guernsey and Alderney",
+  "dialcode": "831",
+  "iso3": "GGY",
+  "iso2": "GG",
+  "capital": "St Peter Port",
+  "currency": "GBP",
+  "currency_name": "British pound",
+  "currency_symbol": "£",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:40.678Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:40.678Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3c6c0fb537510150cc"
+  },
+  "conid": "92",
+  "name": "Guinea",
+  "dialcode": "324",
+  "iso3": "GIN",
+  "iso2": "GN",
+  "capital": "Conakry",
+  "currency": "GNF",
+  "currency_name": "Guinean franc",
+  "currency_symbol": "FG",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:40.803Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:40.803Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3c6c0fb537510150cd"
+  },
+  "conid": "93",
+  "name": "Guinea-Bissau",
+  "dialcode": "624",
+  "iso3": "GNB",
+  "iso2": "GW",
+  "capital": "Bissau",
+  "currency": "XOF",
+  "currency_name": "West African CFA franc",
+  "currency_symbol": "CFA",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:40.926Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:40.926Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3d6c0fb537510150ce"
+  },
+  "conid": "94",
+  "name": "Guyana",
+  "dialcode": "328",
+  "iso3": "GUY",
+  "iso2": "GY",
+  "capital": "Georgetown",
+  "currency": "GYD",
+  "currency_name": "Guyanese dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:41.037Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:41.037Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3d6c0fb537510150cf"
+  },
+  "conid": "95",
+  "name": "Haiti",
+  "dialcode": "332",
+  "iso3": "HTI",
+  "iso2": "HT",
+  "capital": "Port-au-Prince",
+  "currency": "HTG",
+  "currency_name": "Haitian gourde",
+  "currency_symbol": "G",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:41.159Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:41.159Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3d6c0fb537510150d0"
+  },
+  "conid": "96",
+  "name": "Heard Island and McDonald Islands",
+  "dialcode": "334",
+  "iso3": "HMD",
+  "iso2": "HM",
+  "capital": "",
+  "currency": "AUD",
+  "currency_name": "Australian dollar",
+  "currency_symbol": "$",
+  "region": "",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:41.295Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:41.295Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3d6c0fb537510150d1"
+  },
+  "conid": "97",
+  "name": "Honduras",
+  "dialcode": "340",
+  "iso3": "HND",
+  "iso2": "HN",
+  "capital": "Tegucigalpa",
+  "currency": "HNL",
+  "currency_name": "Honduran lempira",
+  "currency_symbol": "L",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:41.407Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:41.407Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3d6c0fb537510150d2"
+  },
+  "conid": "98",
+  "name": "Hong Kong S.A.R.",
+  "dialcode": "344",
+  "iso3": "HKG",
+  "iso2": "HK",
+  "capital": "Hong Kong",
+  "currency": "HKD",
+  "currency_name": "Hong Kong dollar",
+  "currency_symbol": "$",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:41.527Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:41.527Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3d6c0fb537510150d3"
+  },
+  "conid": "99",
+  "name": "Hungary",
+  "dialcode": "348",
+  "iso3": "HUN",
+  "iso2": "HU",
+  "capital": "Budapest",
+  "currency": "HUF",
+  "currency_name": "Hungarian forint",
+  "currency_symbol": "Ft",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:41.658Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:41.658Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3d6c0fb537510150d4"
+  },
+  "conid": "100",
+  "name": "Iceland",
+  "dialcode": "352",
+  "iso3": "ISL",
+  "iso2": "IS",
+  "capital": "Reykjavik",
+  "currency": "ISK",
+  "currency_name": "Icelandic króna",
+  "currency_symbol": "kr",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:41.767Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:41.767Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3d6c0fb537510150d5"
+  },
+  "conid": "101",
+  "name": "India",
+  "dialcode": "356",
+  "iso3": "IND",
+  "iso2": "IN",
+  "capital": "New Delhi",
+  "currency": "INR",
+  "currency_name": "Indian rupee",
+  "currency_symbol": "₹",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:41.896Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:41.896Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3e6c0fb537510150d6"
+  },
+  "conid": "102",
+  "name": "Indonesia",
+  "dialcode": "360",
+  "iso3": "IDN",
+  "iso2": "ID",
+  "capital": "Jakarta",
+  "currency": "IDR",
+  "currency_name": "Indonesian rupiah",
+  "currency_symbol": "Rp",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:42.023Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:42.023Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3e6c0fb537510150d7"
+  },
+  "conid": "103",
+  "name": "Iran",
+  "dialcode": "364",
+  "iso3": "IRN",
+  "iso2": "IR",
+  "capital": "Tehran",
+  "currency": "IRR",
+  "currency_name": "Iranian rial",
+  "currency_symbol": "﷼",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:42.153Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:42.153Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3e6c0fb537510150d8"
+  },
+  "conid": "104",
+  "name": "Iraq",
+  "dialcode": "368",
+  "iso3": "IRQ",
+  "iso2": "IQ",
+  "capital": "Baghdad",
+  "currency": "IQD",
+  "currency_name": "Iraqi dinar",
+  "currency_symbol": "د.ع",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:42.264Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:42.264Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3e6c0fb537510150d9"
+  },
+  "conid": "105",
+  "name": "Ireland",
+  "dialcode": "372",
+  "iso3": "IRL",
+  "iso2": "IE",
+  "capital": "Dublin",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:42.390Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:42.390Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3e6c0fb537510150da"
+  },
+  "conid": "106",
+  "name": "Israel",
+  "dialcode": "376",
+  "iso3": "ISR",
+  "iso2": "IL",
+  "capital": "Jerusalem",
+  "currency": "ILS",
+  "currency_name": "Israeli new shekel",
+  "currency_symbol": "₪",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:42.507Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:42.507Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3e6c0fb537510150db"
+  },
+  "conid": "107",
+  "name": "Italy",
+  "dialcode": "380",
+  "iso3": "ITA",
+  "iso2": "IT",
+  "capital": "Rome",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:42.629Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:42.629Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3e6c0fb537510150dc"
+  },
+  "conid": "108",
+  "name": "Jamaica",
+  "dialcode": "388",
+  "iso3": "JAM",
+  "iso2": "JM",
+  "capital": "Kingston",
+  "currency": "JMD",
+  "currency_name": "Jamaican dollar",
+  "currency_symbol": "J$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:42.756Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:42.756Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3e6c0fb537510150dd"
+  },
+  "conid": "109",
+  "name": "Japan",
+  "dialcode": "392",
+  "iso3": "JPN",
+  "iso2": "JP",
+  "capital": "Tokyo",
+  "currency": "JPY",
+  "currency_name": "Japanese yen",
+  "currency_symbol": "¥",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:42.919Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:42.919Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3f6c0fb537510150de"
+  },
+  "conid": "110",
+  "name": "Jersey",
+  "dialcode": "832",
+  "iso3": "JEY",
+  "iso2": "JE",
+  "capital": "Saint Helier",
+  "currency": "GBP",
+  "currency_name": "British pound",
+  "currency_symbol": "£",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:43.041Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:43.041Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3f6c0fb537510150df"
+  },
+  "conid": "111",
+  "name": "Jordan",
+  "dialcode": "400",
+  "iso3": "JOR",
+  "iso2": "JO",
+  "capital": "Amman",
+  "currency": "JOD",
+  "currency_name": "Jordanian dinar",
+  "currency_symbol": "ا.د",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:43.158Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:43.158Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3f6c0fb537510150e0"
+  },
+  "conid": "112",
+  "name": "Kazakhstan",
+  "dialcode": "398",
+  "iso3": "KAZ",
+  "iso2": "KZ",
+  "capital": "Astana",
+  "currency": "KZT",
+  "currency_name": "Kazakhstani tenge",
+  "currency_symbol": "лв",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:43.327Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:43.327Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3f6c0fb537510150e1"
+  },
+  "conid": "113",
+  "name": "Kenya",
+  "dialcode": "404",
+  "iso3": "KEN",
+  "iso2": "KE",
+  "capital": "Nairobi",
+  "currency": "KES",
+  "currency_name": "Kenyan shilling",
+  "currency_symbol": "KSh",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:43.445Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:43.445Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3f6c0fb537510150e2"
+  },
+  "conid": "114",
+  "name": "Kiribati",
+  "dialcode": "296",
+  "iso3": "KIR",
+  "iso2": "KI",
+  "capital": "Tarawa",
+  "currency": "AUD",
+  "currency_name": "Australian dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:43.557Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:43.557Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3f6c0fb537510150e3"
+  },
+  "conid": "115",
+  "name": "North Korea",
+  "dialcode": "408",
+  "iso3": "PRK",
+  "iso2": "KP",
+  "capital": "Pyongyang",
+  "currency": "KPW",
+  "currency_name": "North Korean Won",
+  "currency_symbol": "₩",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:43.680Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:43.680Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3f6c0fb537510150e4"
+  },
+  "conid": "116",
+  "name": "South Korea",
+  "dialcode": "410",
+  "iso3": "KOR",
+  "iso2": "KR",
+  "capital": "Seoul",
+  "currency": "KRW",
+  "currency_name": "Won",
+  "currency_symbol": "₩",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:43.796Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:43.796Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf3f6c0fb537510150e5"
+  },
+  "conid": "117",
+  "name": "Kuwait",
+  "dialcode": "414",
+  "iso3": "KWT",
+  "iso2": "KW",
+  "capital": "Kuwait City",
+  "currency": "KWD",
+  "currency_name": "Kuwaiti dinar",
+  "currency_symbol": "ك.د",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:43.920Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:43.920Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf406c0fb537510150e6"
+  },
+  "conid": "118",
+  "name": "Kyrgyzstan",
+  "dialcode": "417",
+  "iso3": "KGZ",
+  "iso2": "KG",
+  "capital": "Bishkek",
+  "currency": "KGS",
+  "currency_name": "Kyrgyzstani som",
+  "currency_symbol": "лв",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:44.032Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:44.032Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf406c0fb537510150e7"
+  },
+  "conid": "119",
+  "name": "Laos",
+  "dialcode": "418",
+  "iso3": "LAO",
+  "iso2": "LA",
+  "capital": "Vientiane",
+  "currency": "LAK",
+  "currency_name": "Lao kip",
+  "currency_symbol": "₭",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:44.159Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:44.159Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf406c0fb537510150e8"
+  },
+  "conid": "120",
+  "name": "Latvia",
+  "dialcode": "428",
+  "iso3": "LVA",
+  "iso2": "LV",
+  "capital": "Riga",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:44.271Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:44.271Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf406c0fb537510150e9"
+  },
+  "conid": "121",
+  "name": "Lebanon",
+  "dialcode": "422",
+  "iso3": "LBN",
+  "iso2": "LB",
+  "capital": "Beirut",
+  "currency": "LBP",
+  "currency_name": "Lebanese pound",
+  "currency_symbol": "£",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:44.406Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:44.406Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf406c0fb537510150ea"
+  },
+  "conid": "122",
+  "name": "Lesotho",
+  "dialcode": "426",
+  "iso3": "LSO",
+  "iso2": "LS",
+  "capital": "Maseru",
+  "currency": "LSL",
+  "currency_name": "Lesotho loti",
+  "currency_symbol": "L",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:44.535Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:44.535Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf406c0fb537510150eb"
+  },
+  "conid": "123",
+  "name": "Liberia",
+  "dialcode": "430",
+  "iso3": "LBR",
+  "iso2": "LR",
+  "capital": "Monrovia",
+  "currency": "LRD",
+  "currency_name": "Liberian dollar",
+  "currency_symbol": "$",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:44.640Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:44.640Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf406c0fb537510150ec"
+  },
+  "conid": "124",
+  "name": "Libya",
+  "dialcode": "434",
+  "iso3": "LBY",
+  "iso2": "LY",
+  "capital": "Tripolis",
+  "currency": "LYD",
+  "currency_name": "Libyan dinar",
+  "currency_symbol": "د.ل",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:44.753Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:44.753Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf406c0fb537510150ed"
+  },
+  "conid": "125",
+  "name": "Liechtenstein",
+  "dialcode": "438",
+  "iso3": "LIE",
+  "iso2": "LI",
+  "capital": "Vaduz",
+  "currency": "CHF",
+  "currency_name": "Swiss franc",
+  "currency_symbol": "CHf",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:44.862Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:44.862Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf406c0fb537510150ee"
+  },
+  "conid": "126",
+  "name": "Lithuania",
+  "dialcode": "440",
+  "iso3": "LTU",
+  "iso2": "LT",
+  "capital": "Vilnius",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:44.968Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:44.968Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf416c0fb537510150ef"
+  },
+  "conid": "127",
+  "name": "Luxembourg",
+  "dialcode": "442",
+  "iso3": "LUX",
+  "iso2": "LU",
+  "capital": "Luxembourg",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:45.085Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:45.085Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf416c0fb537510150f0"
+  },
+  "conid": "128",
+  "name": "Macau S.A.R.",
+  "dialcode": "446",
+  "iso3": "MAC",
+  "iso2": "MO",
+  "capital": "Macao",
+  "currency": "MOP",
+  "currency_name": "Macanese pataca",
+  "currency_symbol": "$",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:45.193Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:45.193Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf416c0fb537510150f1"
+  },
+  "conid": "129",
+  "name": "North Macedonia",
+  "dialcode": "807",
+  "iso3": "MKD",
+  "iso2": "MK",
+  "capital": "Skopje",
+  "currency": "MKD",
+  "currency_name": "Denar",
+  "currency_symbol": "ден",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:45.312Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:45.312Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf416c0fb537510150f2"
+  },
+  "conid": "130",
+  "name": "Madagascar",
+  "dialcode": "450",
+  "iso3": "MDG",
+  "iso2": "MG",
+  "capital": "Antananarivo",
+  "currency": "MGA",
+  "currency_name": "Malagasy ariary",
+  "currency_symbol": "Ar",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:45.431Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:45.431Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf416c0fb537510150f3"
+  },
+  "conid": "131",
+  "name": "Malawi",
+  "dialcode": "454",
+  "iso3": "MWI",
+  "iso2": "MW",
+  "capital": "Lilongwe",
+  "currency": "MWK",
+  "currency_name": "Malawian kwacha",
+  "currency_symbol": "MK",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:45.557Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:45.557Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf416c0fb537510150f4"
+  },
+  "conid": "132",
+  "name": "Malaysia",
+  "dialcode": "458",
+  "iso3": "MYS",
+  "iso2": "MY",
+  "capital": "Kuala Lumpur",
+  "currency": "MYR",
+  "currency_name": "Malaysian ringgit",
+  "currency_symbol": "RM",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:45.678Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:45.678Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf416c0fb537510150f5"
+  },
+  "conid": "133",
+  "name": "Maldives",
+  "dialcode": "462",
+  "iso3": "MDV",
+  "iso2": "MV",
+  "capital": "Male",
+  "currency": "MVR",
+  "currency_name": "Maldivian rufiyaa",
+  "currency_symbol": "Rf",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:45.793Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:45.793Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf416c0fb537510150f6"
+  },
+  "conid": "134",
+  "name": "Mali",
+  "dialcode": "466",
+  "iso3": "MLI",
+  "iso2": "ML",
+  "capital": "Bamako",
+  "currency": "XOF",
+  "currency_name": "West African CFA franc",
+  "currency_symbol": "CFA",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:45.931Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:45.931Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf426c0fb537510150f7"
+  },
+  "conid": "135",
+  "name": "Malta",
+  "dialcode": "470",
+  "iso3": "MLT",
+  "iso2": "MT",
+  "capital": "Valletta",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:46.045Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:46.045Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf426c0fb537510150f8"
+  },
+  "conid": "136",
+  "name": "Man (Isle of)",
+  "dialcode": "833",
+  "iso3": "IMN",
+  "iso2": "IM",
+  "capital": "Douglas, Isle of Man",
+  "currency": "GBP",
+  "currency_name": "British pound",
+  "currency_symbol": "£",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:46.153Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:46.153Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf426c0fb537510150f9"
+  },
+  "conid": "137",
+  "name": "Marshall Islands",
+  "dialcode": "584",
+  "iso3": "MHL",
+  "iso2": "MH",
+  "capital": "Majuro",
+  "currency": "USD",
+  "currency_name": "United States dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:46.267Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:46.267Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf426c0fb537510150fa"
+  },
+  "conid": "138",
+  "name": "Martinique",
+  "dialcode": "474",
+  "iso3": "MTQ",
+  "iso2": "MQ",
+  "capital": "Fort-de-France",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:46.395Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:46.395Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf426c0fb537510150fb"
+  },
+  "conid": "139",
+  "name": "Mauritania",
+  "dialcode": "478",
+  "iso3": "MRT",
+  "iso2": "MR",
+  "capital": "Nouakchott",
+  "currency": "MRO",
+  "currency_name": "Mauritanian ouguiya",
+  "currency_symbol": "MRU",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:46.513Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:46.513Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf426c0fb537510150fc"
+  },
+  "conid": "140",
+  "name": "Mauritius",
+  "dialcode": "480",
+  "iso3": "MUS",
+  "iso2": "MU",
+  "capital": "Port Louis",
+  "currency": "MUR",
+  "currency_name": "Mauritian rupee",
+  "currency_symbol": "₨",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:46.633Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:46.633Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf426c0fb537510150fd"
+  },
+  "conid": "141",
+  "name": "Mayotte",
+  "dialcode": "175",
+  "iso3": "MYT",
+  "iso2": "YT",
+  "capital": "Mamoudzou",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:46.746Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:46.746Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf426c0fb537510150fe"
+  },
+  "conid": "142",
+  "name": "Mexico",
+  "dialcode": "484",
+  "iso3": "MEX",
+  "iso2": "MX",
+  "capital": "Ciudad de México",
+  "currency": "MXN",
+  "currency_name": "Mexican peso",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:46.876Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:46.876Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf426c0fb537510150ff"
+  },
+  "conid": "143",
+  "name": "Micronesia",
+  "dialcode": "583",
+  "iso3": "FSM",
+  "iso2": "FM",
+  "capital": "Palikir",
+  "currency": "USD",
+  "currency_name": "United States dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:46.996Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:46.996Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf436c0fb53751015100"
+  },
+  "conid": "144",
+  "name": "Moldova",
+  "dialcode": "498",
+  "iso3": "MDA",
+  "iso2": "MD",
+  "capital": "Chisinau",
+  "currency": "MDL",
+  "currency_name": "Moldovan leu",
+  "currency_symbol": "L",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:47.110Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:47.110Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf436c0fb53751015101"
+  },
+  "conid": "145",
+  "name": "Monaco",
+  "dialcode": "492",
+  "iso3": "MCO",
+  "iso2": "MC",
+  "capital": "Monaco",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:47.227Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:47.227Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf436c0fb53751015102"
+  },
+  "conid": "146",
+  "name": "Mongolia",
+  "dialcode": "496",
+  "iso3": "MNG",
+  "iso2": "MN",
+  "capital": "Ulan Bator",
+  "currency": "MNT",
+  "currency_name": "Mongolian tögrög",
+  "currency_symbol": "₮",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:47.350Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:47.350Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf436c0fb53751015103"
+  },
+  "conid": "147",
+  "name": "Montenegro",
+  "dialcode": "499",
+  "iso3": "MNE",
+  "iso2": "ME",
+  "capital": "Podgorica",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:47.454Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:47.454Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf436c0fb53751015104"
+  },
+  "conid": "148",
+  "name": "Montserrat",
+  "dialcode": "500",
+  "iso3": "MSR",
+  "iso2": "MS",
+  "capital": "Plymouth",
+  "currency": "XCD",
+  "currency_name": "Eastern Caribbean dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:47.562Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:47.562Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf436c0fb53751015105"
+  },
+  "conid": "149",
+  "name": "Morocco",
+  "dialcode": "504",
+  "iso3": "MAR",
+  "iso2": "MA",
+  "capital": "Rabat",
+  "currency": "MAD",
+  "currency_name": "Moroccan dirham",
+  "currency_symbol": "DH",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:47.669Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:47.669Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf436c0fb53751015106"
+  },
+  "conid": "150",
+  "name": "Mozambique",
+  "dialcode": "508",
+  "iso3": "MOZ",
+  "iso2": "MZ",
+  "capital": "Maputo",
+  "currency": "MZN",
+  "currency_name": "Mozambican metical",
+  "currency_symbol": "MT",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:47.787Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:47.787Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf436c0fb53751015107"
+  },
+  "conid": "151",
+  "name": "Myanmar",
+  "dialcode": "104",
+  "iso3": "MMR",
+  "iso2": "MM",
+  "capital": "Nay Pyi Taw",
+  "currency": "MMK",
+  "currency_name": "Burmese kyat",
+  "currency_symbol": "K",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:47.919Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:47.919Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf446c0fb53751015108"
+  },
+  "conid": "152",
+  "name": "Namibia",
+  "dialcode": "516",
+  "iso3": "NAM",
+  "iso2": "NA",
+  "capital": "Windhoek",
+  "currency": "NAD",
+  "currency_name": "Namibian dollar",
+  "currency_symbol": "$",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:48.062Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:48.062Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf446c0fb53751015109"
+  },
+  "conid": "153",
+  "name": "Nauru",
+  "dialcode": "520",
+  "iso3": "NRU",
+  "iso2": "NR",
+  "capital": "Yaren",
+  "currency": "AUD",
+  "currency_name": "Australian dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:48.172Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:48.172Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf446c0fb5375101510a"
+  },
+  "conid": "154",
+  "name": "Nepal",
+  "dialcode": "524",
+  "iso3": "NPL",
+  "iso2": "NP",
+  "capital": "Kathmandu",
+  "currency": "NPR",
+  "currency_name": "Nepalese rupee",
+  "currency_symbol": "₨",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:48.302Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:48.302Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf446c0fb5375101510b"
+  },
+  "conid": "155",
+  "name": "Bonaire, Sint Eustatius and Saba",
+  "dialcode": "535",
+  "iso3": "BES",
+  "iso2": "BQ",
+  "capital": "Kralendijk",
+  "currency": "USD",
+  "currency_name": "United States dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:48.431Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:48.431Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf446c0fb5375101510c"
+  },
+  "conid": "156",
+  "name": "Netherlands",
+  "dialcode": "528",
+  "iso3": "NLD",
+  "iso2": "NL",
+  "capital": "Amsterdam",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:48.547Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:48.547Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf446c0fb5375101510d"
+  },
+  "conid": "157",
+  "name": "New Caledonia",
+  "dialcode": "540",
+  "iso3": "NCL",
+  "iso2": "NC",
+  "capital": "Noumea",
+  "currency": "XPF",
+  "currency_name": "CFP franc",
+  "currency_symbol": "₣",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:48.652Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:48.652Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf446c0fb5375101510e"
+  },
+  "conid": "158",
+  "name": "New Zealand",
+  "dialcode": "554",
+  "iso3": "NZL",
+  "iso2": "NZ",
+  "capital": "Wellington",
+  "currency": "NZD",
+  "currency_name": "New Zealand dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:48.763Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:48.763Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf446c0fb5375101510f"
+  },
+  "conid": "159",
+  "name": "Nicaragua",
+  "dialcode": "558",
+  "iso3": "NIC",
+  "iso2": "NI",
+  "capital": "Managua",
+  "currency": "NIO",
+  "currency_name": "Nicaraguan córdoba",
+  "currency_symbol": "C$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:48.884Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:48.884Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf456c0fb53751015110"
+  },
+  "conid": "160",
+  "name": "Niger",
+  "dialcode": "562",
+  "iso3": "NER",
+  "iso2": "NE",
+  "capital": "Niamey",
+  "currency": "XOF",
+  "currency_name": "West African CFA franc",
+  "currency_symbol": "CFA",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:49.001Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:49.001Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf456c0fb53751015111"
+  },
+  "conid": "161",
+  "name": "Nigeria",
+  "dialcode": "566",
+  "iso3": "NGA",
+  "iso2": "NG",
+  "capital": "Abuja",
+  "currency": "NGN",
+  "currency_name": "Nigerian naira",
+  "currency_symbol": "₦",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:49.123Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:49.123Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf456c0fb53751015112"
+  },
+  "conid": "162",
+  "name": "Niue",
+  "dialcode": "570",
+  "iso3": "NIU",
+  "iso2": "NU",
+  "capital": "Alofi",
+  "currency": "NZD",
+  "currency_name": "New Zealand dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:49.239Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:49.239Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf456c0fb53751015113"
+  },
+  "conid": "163",
+  "name": "Norfolk Island",
+  "dialcode": "574",
+  "iso3": "NFK",
+  "iso2": "NF",
+  "capital": "Kingston",
+  "currency": "AUD",
+  "currency_name": "Australian dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:49.361Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:49.361Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf456c0fb53751015114"
+  },
+  "conid": "164",
+  "name": "Northern Mariana Islands",
+  "dialcode": "580",
+  "iso3": "MNP",
+  "iso2": "MP",
+  "capital": "Saipan",
+  "currency": "USD",
+  "currency_name": "United States dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:49.481Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:49.481Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf456c0fb53751015115"
+  },
+  "conid": "165",
+  "name": "Norway",
+  "dialcode": "578",
+  "iso3": "NOR",
+  "iso2": "NO",
+  "capital": "Oslo",
+  "currency": "NOK",
+  "currency_name": "Norwegian krone",
+  "currency_symbol": "kr",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:49.595Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:49.595Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf456c0fb53751015116"
+  },
+  "conid": "166",
+  "name": "Oman",
+  "dialcode": "512",
+  "iso3": "OMN",
+  "iso2": "OM",
+  "capital": "Muscat",
+  "currency": "OMR",
+  "currency_name": "Omani rial",
+  "currency_symbol": ".ع.ر",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:49.724Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:49.724Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf456c0fb53751015117"
+  },
+  "conid": "167",
+  "name": "Pakistan",
+  "dialcode": "586",
+  "iso3": "PAK",
+  "iso2": "PK",
+  "capital": "Islamabad",
+  "currency": "PKR",
+  "currency_name": "Pakistani rupee",
+  "currency_symbol": "₨",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:49.845Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:49.845Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf456c0fb53751015118"
+  },
+  "conid": "168",
+  "name": "Palau",
+  "dialcode": "585",
+  "iso3": "PLW",
+  "iso2": "PW",
+  "capital": "Melekeok",
+  "currency": "USD",
+  "currency_name": "United States dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:49.955Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:49.955Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf466c0fb53751015119"
+  },
+  "conid": "169",
+  "name": "Palestinian Territory Occupied",
+  "dialcode": "275",
+  "iso3": "PSE",
+  "iso2": "PS",
+  "capital": "East Jerusalem",
+  "currency": "ILS",
+  "currency_name": "Israeli new shekel",
+  "currency_symbol": "₪",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:50.091Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:50.091Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf466c0fb5375101511a"
+  },
+  "conid": "170",
+  "name": "Panama",
+  "dialcode": "591",
+  "iso3": "PAN",
+  "iso2": "PA",
+  "capital": "Panama City",
+  "currency": "PAB",
+  "currency_name": "Panamanian balboa",
+  "currency_symbol": "B/.",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:50.202Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:50.202Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf466c0fb5375101511b"
+  },
+  "conid": "171",
+  "name": "Papua New Guinea",
+  "dialcode": "598",
+  "iso3": "PNG",
+  "iso2": "PG",
+  "capital": "Port Moresby",
+  "currency": "PGK",
+  "currency_name": "Papua New Guinean kina",
+  "currency_symbol": "K",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:50.313Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:50.313Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf466c0fb5375101511c"
+  },
+  "conid": "172",
+  "name": "Paraguay",
+  "dialcode": "600",
+  "iso3": "PRY",
+  "iso2": "PY",
+  "capital": "Asuncion",
+  "currency": "PYG",
+  "currency_name": "Paraguayan guarani",
+  "currency_symbol": "₲",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:50.456Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:50.456Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf466c0fb5375101511d"
+  },
+  "conid": "173",
+  "name": "Peru",
+  "dialcode": "604",
+  "iso3": "PER",
+  "iso2": "PE",
+  "capital": "Lima",
+  "currency": "PEN",
+  "currency_name": "Peruvian sol",
+  "currency_symbol": "S/.",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:50.566Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:50.566Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf466c0fb5375101511e"
+  },
+  "conid": "174",
+  "name": "Philippines",
+  "dialcode": "608",
+  "iso3": "PHL",
+  "iso2": "PH",
+  "capital": "Manila",
+  "currency": "PHP",
+  "currency_name": "Philippine peso",
+  "currency_symbol": "₱",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:50.684Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:50.684Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf466c0fb5375101511f"
+  },
+  "conid": "175",
+  "name": "Pitcairn Island",
+  "dialcode": "612",
+  "iso3": "PCN",
+  "iso2": "PN",
+  "capital": "Adamstown",
+  "currency": "NZD",
+  "currency_name": "New Zealand dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:50.797Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:50.797Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf466c0fb53751015120"
+  },
+  "conid": "176",
+  "name": "Poland",
+  "dialcode": "616",
+  "iso3": "POL",
+  "iso2": "PL",
+  "capital": "Warsaw",
+  "currency": "PLN",
+  "currency_name": "Polish złoty",
+  "currency_symbol": "zł",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:50.918Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:50.918Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf476c0fb53751015121"
+  },
+  "conid": "177",
+  "name": "Portugal",
+  "dialcode": "620",
+  "iso3": "PRT",
+  "iso2": "PT",
+  "capital": "Lisbon",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:51.048Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:51.048Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf476c0fb53751015122"
+  },
+  "conid": "178",
+  "name": "Puerto Rico",
+  "dialcode": "630",
+  "iso3": "PRI",
+  "iso2": "PR",
+  "capital": "San Juan",
+  "currency": "USD",
+  "currency_name": "United States dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:51.175Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:51.175Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf476c0fb53751015123"
+  },
+  "conid": "179",
+  "name": "Qatar",
+  "dialcode": "634",
+  "iso3": "QAT",
+  "iso2": "QA",
+  "capital": "Doha",
+  "currency": "QAR",
+  "currency_name": "Qatari riyal",
+  "currency_symbol": "ق.ر",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:51.301Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:51.301Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf476c0fb53751015124"
+  },
+  "conid": "180",
+  "name": "Reunion",
+  "dialcode": "638",
+  "iso3": "REU",
+  "iso2": "RE",
+  "capital": "Saint-Denis",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:51.404Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:51.404Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf476c0fb53751015125"
+  },
+  "conid": "181",
+  "name": "Romania",
+  "dialcode": "642",
+  "iso3": "ROU",
+  "iso2": "RO",
+  "capital": "Bucharest",
+  "currency": "RON",
+  "currency_name": "Romanian leu",
+  "currency_symbol": "lei",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:51.683Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:51.683Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf476c0fb53751015126"
+  },
+  "conid": "182",
+  "name": "Russia",
+  "dialcode": "643",
+  "iso3": "RUS",
+  "iso2": "RU",
+  "capital": "Moscow",
+  "currency": "RUB",
+  "currency_name": "Russian ruble",
+  "currency_symbol": "₽",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:51.789Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:51.789Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf476c0fb53751015127"
+  },
+  "conid": "183",
+  "name": "Rwanda",
+  "dialcode": "646",
+  "iso3": "RWA",
+  "iso2": "RW",
+  "capital": "Kigali",
+  "currency": "RWF",
+  "currency_name": "Rwandan franc",
+  "currency_symbol": "FRw",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:51.919Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:51.919Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf486c0fb53751015128"
+  },
+  "conid": "184",
+  "name": "Saint Helena",
+  "dialcode": "654",
+  "iso3": "SHN",
+  "iso2": "SH",
+  "capital": "Jamestown",
+  "currency": "SHP",
+  "currency_name": "Saint Helena pound",
+  "currency_symbol": "£",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:52.025Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:52.025Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf486c0fb53751015129"
+  },
+  "conid": "185",
+  "name": "Saint Kitts and Nevis",
+  "dialcode": "659",
+  "iso3": "KNA",
+  "iso2": "KN",
+  "capital": "Basseterre",
+  "currency": "XCD",
+  "currency_name": "Eastern Caribbean dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:52.146Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:52.146Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf486c0fb5375101512a"
+  },
+  "conid": "186",
+  "name": "Saint Lucia",
+  "dialcode": "662",
+  "iso3": "LCA",
+  "iso2": "LC",
+  "capital": "Castries",
+  "currency": "XCD",
+  "currency_name": "Eastern Caribbean dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:52.255Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:52.255Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf486c0fb5375101512b"
+  },
+  "conid": "187",
+  "name": "Saint Pierre and Miquelon",
+  "dialcode": "666",
+  "iso3": "SPM",
+  "iso2": "PM",
+  "capital": "Saint-Pierre",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:52.384Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:52.384Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf486c0fb5375101512c"
+  },
+  "conid": "188",
+  "name": "Saint Vincent and the Grenadines",
+  "dialcode": "670",
+  "iso3": "VCT",
+  "iso2": "VC",
+  "capital": "Kingstown",
+  "currency": "XCD",
+  "currency_name": "Eastern Caribbean dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:52.496Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:52.496Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf486c0fb5375101512d"
+  },
+  "conid": "189",
+  "name": "Saint-Barthelemy",
+  "dialcode": "652",
+  "iso3": "BLM",
+  "iso2": "BL",
+  "capital": "Gustavia",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:52.631Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:52.631Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf486c0fb5375101512e"
+  },
+  "conid": "190",
+  "name": "Saint-Martin (French part)",
+  "dialcode": "663",
+  "iso3": "MAF",
+  "iso2": "MF",
+  "capital": "Marigot",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:52.810Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:52.810Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf486c0fb5375101512f"
+  },
+  "conid": "191",
+  "name": "Samoa",
+  "dialcode": "882",
+  "iso3": "WSM",
+  "iso2": "WS",
+  "capital": "Apia",
+  "currency": "WST",
+  "currency_name": "Samoan tālā",
+  "currency_symbol": "SAT",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:52.921Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:52.921Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf496c0fb53751015130"
+  },
+  "conid": "192",
+  "name": "San Marino",
+  "dialcode": "674",
+  "iso3": "SMR",
+  "iso2": "SM",
+  "capital": "San Marino",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:53.034Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:53.034Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf496c0fb53751015131"
+  },
+  "conid": "193",
+  "name": "Sao Tome and Principe",
+  "dialcode": "678",
+  "iso3": "STP",
+  "iso2": "ST",
+  "capital": "Sao Tome",
+  "currency": "STD",
+  "currency_name": "Dobra",
+  "currency_symbol": "Db",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:53.176Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:53.176Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf496c0fb53751015132"
+  },
+  "conid": "194",
+  "name": "Saudi Arabia",
+  "dialcode": "682",
+  "iso3": "SAU",
+  "iso2": "SA",
+  "capital": "Riyadh",
+  "currency": "SAR",
+  "currency_name": "Saudi riyal",
+  "currency_symbol": "﷼",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:53.302Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:53.302Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf496c0fb53751015133"
+  },
+  "conid": "195",
+  "name": "Senegal",
+  "dialcode": "686",
+  "iso3": "SEN",
+  "iso2": "SN",
+  "capital": "Dakar",
+  "currency": "XOF",
+  "currency_name": "West African CFA franc",
+  "currency_symbol": "CFA",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:53.425Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:53.425Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf496c0fb53751015134"
+  },
+  "conid": "196",
+  "name": "Serbia",
+  "dialcode": "688",
+  "iso3": "SRB",
+  "iso2": "RS",
+  "capital": "Belgrade",
+  "currency": "RSD",
+  "currency_name": "Serbian dinar",
+  "currency_symbol": "din",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:53.535Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:53.535Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf496c0fb53751015135"
+  },
+  "conid": "197",
+  "name": "Seychelles",
+  "dialcode": "690",
+  "iso3": "SYC",
+  "iso2": "SC",
+  "capital": "Victoria",
+  "currency": "SCR",
+  "currency_name": "Seychellois rupee",
+  "currency_symbol": "SRe",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:53.643Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:53.643Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf496c0fb53751015136"
+  },
+  "conid": "198",
+  "name": "Sierra Leone",
+  "dialcode": "694",
+  "iso3": "SLE",
+  "iso2": "SL",
+  "capital": "Freetown",
+  "currency": "SLL",
+  "currency_name": "Sierra Leonean leone",
+  "currency_symbol": "Le",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:53.764Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:53.764Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf496c0fb53751015137"
+  },
+  "conid": "199",
+  "name": "Singapore",
+  "dialcode": "702",
+  "iso3": "SGP",
+  "iso2": "SG",
+  "capital": "Singapur",
+  "currency": "SGD",
+  "currency_name": "Singapore dollar",
+  "currency_symbol": "$",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:53.887Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:53.887Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4a6c0fb53751015138"
+  },
+  "conid": "200",
+  "name": "Slovakia",
+  "dialcode": "703",
+  "iso3": "SVK",
+  "iso2": "SK",
+  "capital": "Bratislava",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:54.006Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:54.006Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4a6c0fb53751015139"
+  },
+  "conid": "201",
+  "name": "Slovenia",
+  "dialcode": "705",
+  "iso3": "SVN",
+  "iso2": "SI",
+  "capital": "Ljubljana",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:54.115Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:54.115Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4a6c0fb5375101513a"
+  },
+  "conid": "202",
+  "name": "Solomon Islands",
+  "dialcode": "090",
+  "iso3": "SLB",
+  "iso2": "SB",
+  "capital": "Honiara",
+  "currency": "SBD",
+  "currency_name": "Solomon Islands dollar",
+  "currency_symbol": "Si$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:54.224Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:54.224Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4a6c0fb5375101513b"
+  },
+  "conid": "203",
+  "name": "Somalia",
+  "dialcode": "706",
+  "iso3": "SOM",
+  "iso2": "SO",
+  "capital": "Mogadishu",
+  "currency": "SOS",
+  "currency_name": "Somali shilling",
+  "currency_symbol": "Sh.so.",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:54.350Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:54.350Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4a6c0fb5375101513c"
+  },
+  "conid": "204",
+  "name": "South Africa",
+  "dialcode": "710",
+  "iso3": "ZAF",
+  "iso2": "ZA",
+  "capital": "Pretoria",
+  "currency": "ZAR",
+  "currency_name": "South African rand",
+  "currency_symbol": "R",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:54.494Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:54.494Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4a6c0fb5375101513d"
+  },
+  "conid": "205",
+  "name": "South Georgia",
+  "dialcode": "239",
+  "iso3": "SGS",
+  "iso2": "GS",
+  "capital": "Grytviken",
+  "currency": "GBP",
+  "currency_name": "British pound",
+  "currency_symbol": "£",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:54.615Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:54.615Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4a6c0fb5375101513e"
+  },
+  "conid": "206",
+  "name": "South Sudan",
+  "dialcode": "728",
+  "iso3": "SSD",
+  "iso2": "SS",
+  "capital": "Juba",
+  "currency": "SSP",
+  "currency_name": "South Sudanese pound",
+  "currency_symbol": "£",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:54.739Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:54.739Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4a6c0fb5375101513f"
+  },
+  "conid": "207",
+  "name": "Spain",
+  "dialcode": "724",
+  "iso3": "ESP",
+  "iso2": "ES",
+  "capital": "Madrid",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:54.866Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:54.866Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4a6c0fb53751015140"
+  },
+  "conid": "208",
+  "name": "Sri Lanka",
+  "dialcode": "144",
+  "iso3": "LKA",
+  "iso2": "LK",
+  "capital": "Colombo",
+  "currency": "LKR",
+  "currency_name": "Sri Lankan rupee",
+  "currency_symbol": "Rs",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:54.975Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:54.975Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4b6c0fb53751015141"
+  },
+  "conid": "209",
+  "name": "Sudan",
+  "dialcode": "729",
+  "iso3": "SDN",
+  "iso2": "SD",
+  "capital": "Khartoum",
+  "currency": "SDG",
+  "currency_name": "Sudanese pound",
+  "currency_symbol": ".س.ج",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:55.085Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:55.085Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4b6c0fb53751015142"
+  },
+  "conid": "210",
+  "name": "Suriname",
+  "dialcode": "740",
+  "iso3": "SUR",
+  "iso2": "SR",
+  "capital": "Paramaribo",
+  "currency": "SRD",
+  "currency_name": "Surinamese dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:55.200Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:55.200Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4b6c0fb53751015143"
+  },
+  "conid": "211",
+  "name": "Svalbard and Jan Mayen Islands",
+  "dialcode": "744",
+  "iso3": "SJM",
+  "iso2": "SJ",
+  "capital": "Longyearbyen",
+  "currency": "NOK",
+  "currency_name": "Norwegian Krone",
+  "currency_symbol": "kr",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:55.313Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:55.313Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4b6c0fb53751015144"
+  },
+  "conid": "212",
+  "name": "Eswatini",
+  "dialcode": "748",
+  "iso3": "SWZ",
+  "iso2": "SZ",
+  "capital": "Mbabane",
+  "currency": "SZL",
+  "currency_name": "Lilangeni",
+  "currency_symbol": "E",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:55.434Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:55.434Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4b6c0fb53751015145"
+  },
+  "conid": "213",
+  "name": "Sweden",
+  "dialcode": "752",
+  "iso3": "SWE",
+  "iso2": "SE",
+  "capital": "Stockholm",
+  "currency": "SEK",
+  "currency_name": "Swedish krona",
+  "currency_symbol": "kr",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:55.556Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:55.556Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4b6c0fb53751015146"
+  },
+  "conid": "214",
+  "name": "Switzerland",
+  "dialcode": "756",
+  "iso3": "CHE",
+  "iso2": "CH",
+  "capital": "Bern",
+  "currency": "CHF",
+  "currency_name": "Swiss franc",
+  "currency_symbol": "CHf",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:55.684Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:55.684Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4b6c0fb53751015147"
+  },
+  "conid": "215",
+  "name": "Syria",
+  "dialcode": "760",
+  "iso3": "SYR",
+  "iso2": "SY",
+  "capital": "Damascus",
+  "currency": "SYP",
+  "currency_name": "Syrian pound",
+  "currency_symbol": "LS",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:55.805Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:55.805Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4b6c0fb53751015148"
+  },
+  "conid": "216",
+  "name": "Taiwan",
+  "dialcode": "158",
+  "iso3": "TWN",
+  "iso2": "TW",
+  "capital": "Taipei",
+  "currency": "TWD",
+  "currency_name": "New Taiwan dollar",
+  "currency_symbol": "$",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:55.926Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:55.926Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4c6c0fb53751015149"
+  },
+  "conid": "217",
+  "name": "Tajikistan",
+  "dialcode": "762",
+  "iso3": "TJK",
+  "iso2": "TJ",
+  "capital": "Dushanbe",
+  "currency": "TJS",
+  "currency_name": "Tajikistani somoni",
+  "currency_symbol": "SM",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:56.081Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:56.081Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4c6c0fb5375101514a"
+  },
+  "conid": "218",
+  "name": "Tanzania",
+  "dialcode": "834",
+  "iso3": "TZA",
+  "iso2": "TZ",
+  "capital": "Dodoma",
+  "currency": "TZS",
+  "currency_name": "Tanzanian shilling",
+  "currency_symbol": "TSh",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:56.196Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:56.196Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4c6c0fb5375101514b"
+  },
+  "conid": "219",
+  "name": "Thailand",
+  "dialcode": "764",
+  "iso3": "THA",
+  "iso2": "TH",
+  "capital": "Bangkok",
+  "currency": "THB",
+  "currency_name": "Thai baht",
+  "currency_symbol": "฿",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:56.333Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:56.333Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4c6c0fb5375101514c"
+  },
+  "conid": "220",
+  "name": "Togo",
+  "dialcode": "768",
+  "iso3": "TGO",
+  "iso2": "TG",
+  "capital": "Lome",
+  "currency": "XOF",
+  "currency_name": "West African CFA franc",
+  "currency_symbol": "CFA",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:56.475Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:56.475Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4c6c0fb5375101514d"
+  },
+  "conid": "221",
+  "name": "Tokelau",
+  "dialcode": "772",
+  "iso3": "TKL",
+  "iso2": "TK",
+  "capital": "",
+  "currency": "NZD",
+  "currency_name": "New Zealand dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:56.580Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:56.580Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4c6c0fb5375101514e"
+  },
+  "conid": "222",
+  "name": "Tonga",
+  "dialcode": "776",
+  "iso3": "TON",
+  "iso2": "TO",
+  "capital": "Nuku'alofa",
+  "currency": "TOP",
+  "currency_name": "Tongan paʻanga",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:56.727Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:56.727Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4c6c0fb5375101514f"
+  },
+  "conid": "223",
+  "name": "Trinidad and Tobago",
+  "dialcode": "780",
+  "iso3": "TTO",
+  "iso2": "TT",
+  "capital": "Port of Spain",
+  "currency": "TTD",
+  "currency_name": "Trinidad and Tobago dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:56.858Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:56.858Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4c6c0fb53751015150"
+  },
+  "conid": "224",
+  "name": "Tunisia",
+  "dialcode": "788",
+  "iso3": "TUN",
+  "iso2": "TN",
+  "capital": "Tunis",
+  "currency": "TND",
+  "currency_name": "Tunisian dinar",
+  "currency_symbol": "ت.د",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:56.975Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:56.975Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4d6c0fb53751015151"
+  },
+  "conid": "225",
+  "name": "Turkey",
+  "dialcode": "792",
+  "iso3": "TUR",
+  "iso2": "TR",
+  "capital": "Ankara",
+  "currency": "TRY",
+  "currency_name": "Turkish lira",
+  "currency_symbol": "₺",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:57.110Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:57.110Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4d6c0fb53751015152"
+  },
+  "conid": "226",
+  "name": "Turkmenistan",
+  "dialcode": "795",
+  "iso3": "TKM",
+  "iso2": "TM",
+  "capital": "Ashgabat",
+  "currency": "TMT",
+  "currency_name": "Turkmenistan manat",
+  "currency_symbol": "T",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:57.215Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:57.215Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4d6c0fb53751015153"
+  },
+  "conid": "227",
+  "name": "Turks and Caicos Islands",
+  "dialcode": "796",
+  "iso3": "TCA",
+  "iso2": "TC",
+  "capital": "Cockburn Town",
+  "currency": "USD",
+  "currency_name": "United States dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:57.366Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:57.366Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4d6c0fb53751015154"
+  },
+  "conid": "228",
+  "name": "Tuvalu",
+  "dialcode": "798",
+  "iso3": "TUV",
+  "iso2": "TV",
+  "capital": "Funafuti",
+  "currency": "AUD",
+  "currency_name": "Australian dollar",
+  "currency_symbol": "$",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:57.497Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:57.497Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4d6c0fb53751015155"
+  },
+  "conid": "229",
+  "name": "Uganda",
+  "dialcode": "800",
+  "iso3": "UGA",
+  "iso2": "UG",
+  "capital": "Kampala",
+  "currency": "UGX",
+  "currency_name": "Ugandan shilling",
+  "currency_symbol": "USh",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:57.616Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:57.616Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4d6c0fb53751015156"
+  },
+  "conid": "230",
+  "name": "Ukraine",
+  "dialcode": "804",
+  "iso3": "UKR",
+  "iso2": "UA",
+  "capital": "Kyiv",
+  "currency": "UAH",
+  "currency_name": "Ukrainian hryvnia",
+  "currency_symbol": "₴",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:57.748Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:57.748Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4d6c0fb53751015157"
+  },
+  "conid": "231",
+  "name": "United Arab Emirates",
+  "dialcode": "784",
+  "iso3": "ARE",
+  "iso2": "AE",
+  "capital": "Abu Dhabi",
+  "currency": "AED",
+  "currency_name": "United Arab Emirates dirham",
+  "currency_symbol": "إ.د",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:57.861Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:57.861Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4d6c0fb53751015158"
+  },
+  "conid": "232",
+  "name": "United Kingdom",
+  "dialcode": "826",
+  "iso3": "GBR",
+  "iso2": "GB",
+  "capital": "London",
+  "currency": "GBP",
+  "currency_name": "British pound",
+  "currency_symbol": "£",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:57.978Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:57.978Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4e6c0fb53751015159"
+  },
+  "conid": "233",
+  "name": "United States",
+  "dialcode": "840",
+  "iso3": "USA",
+  "iso2": "US",
+  "capital": "Washington",
+  "currency": "USD",
+  "currency_name": "United States dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:58.092Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:58.092Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4e6c0fb5375101515a"
+  },
+  "conid": "234",
+  "name": "United States Minor Outlying Islands",
+  "dialcode": "581",
+  "iso3": "UMI",
+  "iso2": "UM",
+  "capital": "",
+  "currency": "USD",
+  "currency_name": "United States dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:58.206Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:58.206Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4e6c0fb5375101515b"
+  },
+  "conid": "235",
+  "name": "Uruguay",
+  "dialcode": "858",
+  "iso3": "URY",
+  "iso2": "UY",
+  "capital": "Montevideo",
+  "currency": "UYU",
+  "currency_name": "Uruguayan peso",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:58.316Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:58.316Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4e6c0fb5375101515c"
+  },
+  "conid": "236",
+  "name": "Uzbekistan",
+  "dialcode": "860",
+  "iso3": "UZB",
+  "iso2": "UZ",
+  "capital": "Tashkent",
+  "currency": "UZS",
+  "currency_name": "Uzbekistani soʻm",
+  "currency_symbol": "лв",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:58.431Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:58.431Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4e6c0fb5375101515d"
+  },
+  "conid": "237",
+  "name": "Vanuatu",
+  "dialcode": "548",
+  "iso3": "VUT",
+  "iso2": "VU",
+  "capital": "Port Vila",
+  "currency": "VUV",
+  "currency_name": "Vanuatu vatu",
+  "currency_symbol": "VT",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:58.547Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:58.547Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4e6c0fb5375101515e"
+  },
+  "conid": "238",
+  "name": "Vatican City State (Holy See)",
+  "dialcode": "336",
+  "iso3": "VAT",
+  "iso2": "VA",
+  "capital": "Vatican City",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:58.658Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:58.658Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4e6c0fb5375101515f"
+  },
+  "conid": "239",
+  "name": "Venezuela",
+  "dialcode": "862",
+  "iso3": "VEN",
+  "iso2": "VE",
+  "capital": "Caracas",
+  "currency": "VES",
+  "currency_name": "Bolívar",
+  "currency_symbol": "Bs",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:58.787Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:58.787Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4e6c0fb53751015160"
+  },
+  "conid": "240",
+  "name": "Vietnam",
+  "dialcode": "704",
+  "iso3": "VNM",
+  "iso2": "VN",
+  "capital": "Hanoi",
+  "currency": "VND",
+  "currency_name": "Vietnamese đồng",
+  "currency_symbol": "₫",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:58.914Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:58.914Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4f6c0fb53751015161"
+  },
+  "conid": "241",
+  "name": "Virgin Islands (British)",
+  "dialcode": "092",
+  "iso3": "VGB",
+  "iso2": "VG",
+  "capital": "Road Town",
+  "currency": "USD",
+  "currency_name": "United States dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:59.039Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:59.039Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4f6c0fb53751015162"
+  },
+  "conid": "242",
+  "name": "Virgin Islands (US)",
+  "dialcode": "850",
+  "iso3": "VIR",
+  "iso2": "VI",
+  "capital": "Charlotte Amalie",
+  "currency": "USD",
+  "currency_name": "United States dollar",
+  "currency_symbol": "$",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:59.156Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:59.156Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4f6c0fb53751015163"
+  },
+  "conid": "243",
+  "name": "Wallis and Futuna Islands",
+  "dialcode": "876",
+  "iso3": "WLF",
+  "iso2": "WF",
+  "capital": "Mata Utu",
+  "currency": "XPF",
+  "currency_name": "CFP franc",
+  "currency_symbol": "₣",
+  "region": "Oceania",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:59.284Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:59.284Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4f6c0fb53751015164"
+  },
+  "conid": "244",
+  "name": "Western Sahara",
+  "dialcode": "732",
+  "iso3": "ESH",
+  "iso2": "EH",
+  "capital": "El-Aaiun",
+  "currency": "MAD",
+  "currency_name": "Moroccan Dirham",
+  "currency_symbol": "MAD",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:59.399Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:59.399Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4f6c0fb53751015165"
+  },
+  "conid": "245",
+  "name": "Yemen",
+  "dialcode": "887",
+  "iso3": "YEM",
+  "iso2": "YE",
+  "capital": "Sanaa",
+  "currency": "YER",
+  "currency_name": "Yemeni rial",
+  "currency_symbol": "﷼",
+  "region": "Asia",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:59.541Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:59.541Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4f6c0fb53751015166"
+  },
+  "conid": "246",
+  "name": "Zambia",
+  "dialcode": "894",
+  "iso3": "ZMB",
+  "iso2": "ZM",
+  "capital": "Lusaka",
+  "currency": "ZMW",
+  "currency_name": "Zambian kwacha",
+  "currency_symbol": "ZK",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:59.699Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:59.699Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4f6c0fb53751015167"
+  },
+  "conid": "247",
+  "name": "Zimbabwe",
+  "dialcode": "716",
+  "iso3": "ZWE",
+  "iso2": "ZW",
+  "capital": "Harare",
+  "currency": "ZWL",
+  "currency_name": "Zimbabwe Dollar",
+  "currency_symbol": "$",
+  "region": "Africa",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:59.825Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:59.825Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf4f6c0fb53751015168"
+  },
+  "conid": "248",
+  "name": "Kosovo",
+  "dialcode": "926",
+  "iso3": "XKX",
+  "iso2": "XK",
+  "capital": "Pristina",
+  "currency": "EUR",
+  "currency_name": "Euro",
+  "currency_symbol": "€",
+  "region": "Europe",
+  "updated_at": {
+    "$date": "2024-07-29T16:11:59.934Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:11:59.934Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf506c0fb53751015169"
+  },
+  "conid": "249",
+  "name": "Curaçao",
+  "dialcode": "531",
+  "iso3": "CUW",
+  "iso2": "CW",
+  "capital": "Willemstad",
+  "currency": "ANG",
+  "currency_name": "Netherlands Antillean guilder",
+  "currency_symbol": "ƒ",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:12:00.046Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:12:00.046Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66a7bf506c0fb5375101516a"
+  },
+  "conid": "250",
+  "name": "Sint Maarten (Dutch part)",
+  "dialcode": "534",
+  "iso3": "SXM",
+  "iso2": "SX",
+  "capital": "Philipsburg",
+  "currency": "ANG",
+  "currency_name": "Netherlands Antillean guilder",
+  "currency_symbol": "ƒ",
+  "region": "Americas",
+  "updated_at": {
+    "$date": "2024-07-29T16:12:00.155Z"
+  },
+  "created_at": {
+    "$date": "2024-07-29T16:12:00.155Z"
+  }
+}]

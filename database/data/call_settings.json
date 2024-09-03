@@ -1,0 +1,96 @@
+[{
+  "_id": "66728a0504ffd69e7a0fde2d",
+  "key": "call_educated_user",
+  "data": {
+    "call_duration": {
+      "value": 0,
+      "size": "30"
+    },
+    "audio_call": {
+      "value": 1,
+      "size": "NaN"
+    },
+    "video_call": {
+      "value": 0,
+      "size": "NaN"
+    },
+    "call_group": {
+      "value": 1,
+      "size": "NaN"
+    },
+    "allowed_caller": {
+      "value": 1,
+      "size": "20"
+    }
+  },
+  "updated_at": {
+    "$date": "2024-06-20T16:16:09.512Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  }
+},
+{
+  "_id": "66728a0504ffd69e7a0fde2e",
+  "key": "call_cultivated_user",
+  "data": {
+    "call_duration": {
+      "value": 0,
+      "size": "100"
+    },
+    "audio_call": {
+      "value": 0,
+      "size": "NaN"
+    },
+    "video_call": {
+      "value": 0,
+      "size": "NaN"
+    },
+    "call_group": {
+      "value": 1,
+      "size": "NaN"
+    },
+    "allowed_caller": {
+      "value": 1,
+      "size": "20"
+    }
+  },
+  "updated_at": {
+    "$date": "2024-06-20T16:19:49.260Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  }
+},
+{
+  "_id": "66728a0504ffd69e7a0fde2f",
+  "key": "call_acadmic_user",
+  "data": {
+    "call_duration": {
+      "value": 0,
+      "size": "80"
+    },
+    "audio_call": {
+      "value": 1,
+      "size": "NaN"
+    },
+    "video_call": {
+      "value": 0,
+      "size": "NaN"
+    },
+    "call_group": {
+      "value": 0,
+      "size": null
+    },
+    "allowed_caller": {
+      "value": 1,
+      "size": "20"
+    }
+  },
+  "updated_at": {
+    "$date": "2024-06-20T16:22:18.458Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  }
+}]

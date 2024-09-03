@@ -1,0 +1,48 @@
+[{
+  "_id": "66728a0504ffd69e7a0fde2d",
+  "key": "educated_user",
+  "value": 0,
+  "size": "10",
+  "updated_at": {
+    "$date": "2024-06-19T09:03:58.384Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  }
+},
+{
+  "_id": "66728a0504ffd69e7a0fde2e",
+  "key": "cultivated_user",
+  "value": 0,
+  "size": "10",
+  "updated_at": {
+    "$date": "2024-06-19T09:03:58.384Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  }
+},
+{
+  "_id": "66728a0504ffd69e7a0fde2f",
+  "key": "acadmic_user",
+  "value": 0,
+  "size": "10",
+  "updated_at": {
+    "$date": "2024-06-19T09:03:58.384Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  }
+},
+{
+  "_id": "66728a0504ffd69e7a0fde31",
+  "key": "storage_alert",
+  "value": 0,
+  "size": "10",
+  "updated_at": {
+    "$date": "2024-06-19T09:03:58.384Z"
+  },
+  "created_at": {
+    "$date": "2024-06-19T07:34:29.569Z"
+  }
+}]

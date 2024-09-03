@@ -1,0 +1,40 @@
+[{
+  "_id": "66680fe00f2c86be2f0f0a27",
+  "address": "Voluptatum id sit",
+  "updated_at": {
+    "$date": "2024-06-11T08:50:40.654Z"
+  },
+  "created_at": {
+    "$date": "2024-06-11T08:50:40.654Z"
+  }
+},
+{
+  "_id": "6669d389e6446c0d7a0c32a2",
+  "address": "qweqe",
+  "updated_at": {
+    "$date": "2024-06-12T16:57:45.076Z"
+  },
+  "created_at": {
+    "$date": "2024-06-12T16:57:45.076Z"
+  }
+},
+{
+  "_id": "6669d9dde6446c0d7a0c32a3",
+  "address": "123456",
+  "updated_at": {
+    "$date": "2024-06-12T17:24:45.594Z"
+  },
+  "created_at": {
+    "$date": "2024-06-12T17:24:45.594Z"
+  }
+},
+{
+  "_id": "6669d9e2e6446c0d7a0c32a4",
+  "address": "123456676jjjujju",
+  "updated_at": {
+    "$date": "2024-06-12T17:24:50.786Z"
+  },
+  "created_at": {
+    "$date": "2024-06-12T17:24:50.786Z"
+  }
+}]

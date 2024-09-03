@@ -1,0 +1,52 @@
+[{
+  "_id": "665965e1162c603504074072",
+  "title": "English",
+  "icon": "/img/flags/en.svg",
+  "language_id": "en",
+  "status": "1",
+  "updated_at": {
+    "$date": "2024-05-31T05:53:37.435Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:37.435Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074073",
+  "title": "Franch",
+  "icon": "/img/flags/fr.svg",
+  "language_id": "fr",
+  "status": "1",
+  "updated_at": {
+    "$date": "2024-05-31T05:53:38.245Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.245Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074074",
+  "title": "Chinese",
+  "icon": "/img/flags/cn.svg",
+  "language_id": "cn",
+  "status": "1",
+  "updated_at": {
+    "$date": "2024-05-31T05:53:38.245Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.245Z"
+  }
+},
+{
+  "_id": "665965e2162c603504074075",
+  "title": "Indonesian",
+  "icon": "/img/flags/id.svg",
+  "language_id": "id",
+  "status": "1",
+  "updated_at": {
+    "$date": "2024-05-31T05:53:38.245Z"
+  },
+  "created_at": {
+    "$date": "2024-05-31T05:53:38.245Z"
+  }
+}]
