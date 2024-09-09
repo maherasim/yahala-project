@@ -23,7 +23,18 @@ class PermissionsSeeder extends Seeder
     {
         $jsonFile = database_path('data/permissions.json');
         $jsonData = json_decode(file_get_contents($jsonFile), true);
-        DB::connection('mongodb')->collection('permissions')->truncate();
-        DB::connection('mongodb')->collection('permissions')->insert($jsonData);
+    
+        foreach ($jsonData as $permission) {
+            // Remove '_id' field if it exists to avoid modification of the immutable field
+            unset($permission['_id']);
+            
+            DB::connection('mongodb')->collection('permissions')->updateOrInsert(
+                ['name' => $permission['name'], 'guard_name' => $permission['guard_name']],
+                $permission
+            );
+        }
     }
+    
+    
+    
 }
