@@ -6,9 +6,9 @@
 
     <!-- ! Hide app brand if navbar-full -->
     <div class="app-brand demo ">
-        <a   class="app-brand-link">
+        <a href="{{ url('/') }}" class="app-brand-link">
             <span class="app-brand-logo demo">
-                <img src = "{{ asset('assets/svg/yahala-logo.jpg') }}" alt="Yahala" />
+                <img src = "{{ asset('assets/svg/mylogo.jpeg') }}" alt="Yahala" />
                 {{-- <svg width="220" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
