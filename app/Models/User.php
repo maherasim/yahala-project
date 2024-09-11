@@ -2,24 +2,34 @@
 
 namespace App\Models;
 
-use Auth;
+use Mail;
+use Exception;
+use App\Mail\SendCodeMail;
+use Laravel\Sanctum\HasApiTokens;
 use Spatie\Activitylog\LogOptions;
-use Jenssegers\Mongodb\Auth\User as Authenticatable; // Use this instead of Jenssegers\Mongodb\Eloquent\Model
-
-use Jenssegers\Mongodb\Eloquent\Model;
+// use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
 use Spatie\Activitylog\Traits\LogsActivity;
-
+use Spatie\Activitylog\Traits\CausesActivity;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Jenssegers\Mongodb\Auth\User as Authenticatable;
+use Maklad\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+
+class User extends Authenticatable  implements MustVerifyEmail
 {
-    use HasFactory , LogsActivity;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, CausesActivity, LogsActivity;
 
     protected $connection = 'mongodb';
-
     protected $collection = 'users';
 
-    protected $fillable = [ 'fileName',
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
         'name',
         'email',
         'password',
@@ -33,7 +43,6 @@ class User extends Authenticatable
         'origin',
         'dob',
         'address',
-        'token', 
         'province',
         'city',
         'province_city',
@@ -42,9 +51,26 @@ class User extends Authenticatable
         'roles',
         'is_admin_user',
         'is_superadmin'
+    ];
 
-];
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 
     public function getActivitylogOptions(): LogOptions
     {
@@ -99,20 +125,29 @@ class User extends Authenticatable
 
     public function permissions()
     {
+
         return $this->belongsToMany(Permission::class, null, 'user_ids', 'permission_ids');
     }
 
-    public function before(User $user, string $ability): bool|null
-    {
-        if ($user->hasRole('Super Admin')) {
-            return true;
-        }
+    //public function hasRole($role)
+//{
+ //   return $this->role === $role;
+//}
 
-        return null;
+    public function before(User $user, string $ability): bool|null
+{
+
+
+    if ($user->hasRole('Super Admin')) {
+        return true;
     }
+
+    return null; // see the note above in Gate::before about why null must be returned here.
+}
 
     public function hasPermission($permission)
     {
+
         return $this->permissions()->where('name', $permission)->exists() ||
                $this->roles()->whereHas('permissions', function ($query) use ($permission) {
                    $query->where('name', $permission);
@@ -124,5 +159,26 @@ class User extends Authenticatable
      *
      * @return response()
      */
-    
+    public  function generateCode()
+    {
+        $code = rand(100000, 999999);
+
+        UserCode::updateOrCreate(
+            ['user_id' => auth()->user()->id],
+            ['code' => $code]
+        );
+
+        try {
+
+            $details = [
+                'title' => 'Mail from Yekbun.com',
+                'code' => $code
+            ];
+
+            Mail::to(auth()->user()->email)->send(new SendCodeMail($details));
+        } catch (Exception $e) {
+            info("Error: " . $e->getMessage());
+        }
+    }
+
 }
