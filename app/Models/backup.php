@@ -2,24 +2,34 @@
 
 namespace App\Models;
 
-use Auth;
+use Mail;
+use Exception;
+use App\Mail\SendCodeMail;
+use Laravel\Sanctum\HasApiTokens;
 use Spatie\Activitylog\LogOptions;
-use Jenssegers\Mongodb\Auth\User as Authenticatable; // Use this instead of Jenssegers\Mongodb\Eloquent\Model
-
-use Jenssegers\Mongodb\Eloquent\Model;
+// use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
 use Spatie\Activitylog\Traits\LogsActivity;
-
+use Spatie\Activitylog\Traits\CausesActivity;
+// Removed MustVerifyEmail as it's no longer needed
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Jenssegers\Mongodb\Auth\User as Authenticatable;
+use Maklad\Permission\Traits\HasRoles;
+
 
 class User extends Authenticatable
 {
-    use HasFactory , LogsActivity;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, CausesActivity, LogsActivity;
 
     protected $connection = 'mongodb';
-
     protected $collection = 'users';
 
-    protected $fillable = [ 'fileName',
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
         'name',
         'email',
         'password',
@@ -33,7 +43,6 @@ class User extends Authenticatable
         'origin',
         'dob',
         'address',
-        'token', 
         'province',
         'city',
         'province_city',
@@ -42,9 +51,26 @@ class User extends Authenticatable
         'roles',
         'is_admin_user',
         'is_superadmin'
+    ];
 
-];
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        // Removed 'email_verified_at' => 'datetime' since we're not verifying email
+    ];
 
     public function getActivitylogOptions(): LogOptions
     {
@@ -124,5 +150,24 @@ class User extends Authenticatable
      *
      * @return response()
      */
-    
+    public  function generateCode()
+    {
+        $code = rand(100000, 999999);
+
+        UserCode::updateOrCreate(
+            ['user_id' => auth()->user()->id],
+            ['code' => $code]
+        );
+
+        try {
+            $details = [
+                'title' => 'Mail from Yekbun.com',
+                'code' => $code
+            ];
+
+            Mail::to(auth()->user()->email)->send(new SendCodeMail($details));
+        } catch (Exception $e) {
+            info("Error: " . $e->getMessage());
+        }
+    }
 }

@@ -26,117 +26,121 @@ class AuthController extends Controller
 
   public function login(Request $request)
   {
-    $credentials = $request->validate([
-        'email' => 'required',
-        'password' => 'required',
-    ]);
-    (int)$credentials['is_admin_user'] = 0;
-    (int)$credentials['is_superadmin'] = 0;
-    (int)$credentials['status'] = 1;
-
-    if (Auth::attempt($credentials, true)) {
-        $user = Auth::user();
-
-        if ($user->is_verfied == 0)
-        return response()->json(['success' => false, 'message' => 'Your email is not verified.']);
-        $user = $request->user();
-        $tokenResult = $user->createToken('Personal Access Token');
-        $token = $tokenResult->plainTextToken;
-
-      return response()->json(['success' => true, 'data' => ['user' => $user, 'token' => $token]], 200);
-    } else {
-      return response()->json(['success' => false, 'message' => 'Email or password is incorrect.']);
-    }
+      $credentials = $request->only('email', 'password');
+  
+      if (Auth::attempt($credentials)) {
+          $user = Auth::user();
+  
+          // Generate a random token
+          $token = bin2hex(random_bytes(40)); // 80 characters long token
+  
+          // Save the token in the user model
+          $user->token = $token;
+          $user->save();
+  
+          // Return the token
+          return response()->json([
+              'message' => 'Logged successfully',
+              'token' => $token,
+               
+          ]);
+      } else {
+          return response()->json(['error' => 'Unauthorized'], 401);
+      }
   }
+  
+  
 
   public function signup(Request $request)
   {
-
-    try {
-    $validatedData = $request->validate([
-      'fname' => 'required|max:100',
-      'lname' => 'required|max:100',
-      'email' => 'required',
-      'password' => 'required|min:6',
-      'phone' => 'required|min:11',
-    ]);
-
-    $emailTaken = User::where('email', $request->email)->first();
-
-    if ($emailTaken) {
-      return response()->json([
-        'success' => false,
-        'message' => 'Email is already taken.',
-      ]);
-    }
-
-    $usernameTaken = User::where('username', $request->username)->first();
-
-    if ($usernameTaken) {
-      return response()->json([
-        'success' => false,
-        'message' => 'Username is already taken.',
-      ]);
-    }
-
-    $user = User::create([
-        'name' => $request['fname'],
-        'username' => $request['username'],
-        'email' => $request['email'],
-        'password' => bcrypt($request['password']),
-        'status' => (int)'1',
-        'is_admin_user' => (int)'0',
-        'level' => (int)'0',
-        'is_verfied' => (int)'1',
-        'is_superadmin' => (int)'0',
-        'last_name' => $request['lname'],
-        'language' => $request['language'],
-        'gender' => $request['gender'],
-        'origin' => $request['origin'],
-        'location' => $request['location'],
-        'marital_status' => $request['marital_status'],
-        'dob' => $request['dob'],
-        'province' => $request['province'],
-        'city' => $request['city'],
-        'phone' => $request['phone'],
-        'user_type' => 'users'
-    ]);
-
-    if ($request->has('image')) {
-        $image_path = Helpers::fileUpload($request->image, 'images/user');
-        $user->image = $image_path;
-        $user->save();
-    }
-
-    if ($user->id) {
-      $code = rand(1000, 9999);
-      UserCode::updateOrCreate(
-        ['user_id' => $user->id],
-        ['code' => $code]
-      );
       try {
-        $details = [
-          'title' => 'Mail from Yekbun.org',
-          'code' => $code,
-          'username' => $request->username,
-        ];
-
-        Mail::to($request['email'])->send(new SendCodeMail($details));
-        return response()->json(['success' => true, "message" => "Verfication Code sent to your email", 'user' => $user->id], 201);
-        return response()->json(['success' => true, "message" => "User has been Successfully Created!", 'user' => $user->id], 201);
+          $validatedData = $request->validate([
+              'fname' => 'required|max:100',
+              'lname' => 'required|max:100',
+              'email' => 'required',
+              'password' => 'required|min:6',
+              'phone' => 'required|min:11',
+          ]);
+  
+          $emailTaken = User::where('email', $request->email)->first();
+          if ($emailTaken) {
+              return response()->json([
+                  'success' => false,
+                  'message' => 'Email is already taken.',
+              ]);
+          }
+  
+          $usernameTaken = User::where('username', $request->username)->first();
+          if ($usernameTaken) {
+              return response()->json([
+                  'success' => false,
+                  'message' => 'Username is already taken.',
+              ]);
+          }
+  
+          $user = User::create([
+              'name' => $request['fname'],
+              'username' => $request['username'],
+              'email' => $request['email'],
+              'password' => bcrypt($request['password']),
+              'status' => (int)'1',
+              'is_admin_user' => (int)'0',
+              'level' => (int)'0',
+              'is_verfied' => (int)'1',
+              'is_superadmin' => (int)'0',
+              'last_name' => $request['lname'],
+              'language' => $request['language'],
+              'gender' => $request['gender'],
+              'origin' => $request['origin'],
+              'location' => $request['location'],
+              'marital_status' => $request['marital_status'],
+              'dob' => $request['dob'],
+              'province' => $request['province'],
+              'city' => $request['city'],
+              'phone' => $request['phone'],
+              'user_type' => 'users'
+          ]);
+  
+          if ($request->has('image')) {
+              $image_path = Helpers::fileUpload($request->image, 'images/user');
+              $user->image = $image_path;
+              $user->save();
+          }
+  
+          if ($user->id) {
+              $code = rand(1000, 9999);
+              UserCode::updateOrCreate(
+                  ['user_id' => $user->id],
+                  ['code' => $code]
+              );
+              
+              // Commenting out the mail sending part
+              /*
+              try {
+                  $details = [
+                      'title' => 'Mail from Yekbun.org',
+                      'code' => $code,
+                      'username' => $request->username,
+                  ];
+  
+                  Mail::to($request['email'])->send(new SendCodeMail($details));
+                  return response()->json(['success' => true, "message" => "Verification Code sent to your email", 'user' => $user->id], 201);
+              } catch (\Exception $e) {
+                  info("Error: " . $e->getMessage());
+                  return response()->json(['success' => false, 'message' => $e->getMessage()], 505);
+              }
+              */
+  
+              return response()->json(['success' => true, "message" => "User has been successfully created!", 'user' => $user->id], 201);
+          }
       } catch (\Exception $e) {
-        info("Error: " . $e->getMessage());
-        return response()->json(['success' => false, 'message' => $e->getMessage()], 505);
+          return response()->json([
+              'success' => false,
+              'errors' => $e->getMessage(),
+          ], 422);
       }
-    }
-    } catch (\Exception $e) {
-        return response()->json([
-            'success' => false,
-            'errors' => $e->getMessage(),
-        ], 422);
-    }
   }
-
+  
 
     public function logout(Request $request)
     {
