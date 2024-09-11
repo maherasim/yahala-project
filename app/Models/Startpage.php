@@ -9,17 +9,18 @@ use Jenssegers\Mongodb\Eloquent\Model;
 class StartPage extends Model
 {
     protected $connection = 'mongodb';
-     
+    protected $collection = 'start_pages';
+
     use HasFactory;
 
     protected $fillable = [
-        // 'language_id',
+        'language_id',
         'language',
         'our_policy',
         'login',
         'sign_up',
-        'dear_guest ',
-        'create_account '
+        'dear_guest',
+        'create_account'
     ];
 
 

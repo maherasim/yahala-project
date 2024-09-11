@@ -328,50 +328,59 @@ class LanguageController extends Controller
   
   public function startpage(Request $request)
   {
-    $validator = Validator::make($request->all(), [
-      'language_id' => [
-        'required',
-        'string',
-        'size:24', // MongoDB ObjectId size
-        function ($attribute, $value, $fail) {
-          if (!preg_match('/^[a-f\d]{24}$/i', $value)) {
-            return $fail($attribute . ' is not a valid ObjectId.');
+   // dd($request->all());
+      $validator = Validator::make($request->all(), [
+          'language_id' => [
+              'required',
+              'string',
+              'size:24',
+              function ($attribute, $value, $fail) {
+                  if (!preg_match('/^[a-f\d]{24}$/i', $value)) {
+                      return $fail($attribute . ' is not a valid ObjectId.');
+                  }
+                  if (!Language::where('_id', $value)->exists()) {
+                      return $fail($attribute . ' does not exist.');
+                  }
+              },
+          ],
+          'language' => 'required|string|max:255',
+          'our_policy' => 'nullable|string',
+          'login' => 'nullable|string',
+          'sign_up' => 'nullable|string',
+          'dear_guest' => 'nullable|string',
+          'create_account' => 'nullable|string',
+          '_id' => 'nullable|string|size:24', // MongoDB ObjectId for updates
+      ]);
+ // dd( $validator);
+      if ($validator->fails()) {
+          return redirect()
+              ->back()
+              ->withErrors($validator)
+              ->withInput();
+      }
+  
+      $validatedData = $validator->validated();
+  
+      try {
+          if (isset($validatedData['_id'])) {
+              // Update existing record by `_id`
+              $startPage = StartPage::find($validatedData['_id']);
+              if ($startPage) {
+                  $startPage->update($validatedData);
+              } else {
+                  return redirect()->back()->with('error', 'Start page not found.');
+              }
+          } else {
+              // Create a new record
+              StartPage::create($validatedData);
           }
-          // Check if the ObjectId exists in the languages collection
-          if (!Language::where('_id', $value)->exists()) {
-            return $fail($attribute . ' does not exist.');
-          }
-        },
-      ],
-      'language' => 'required|string|max:255',
-      'our_policy' => 'nullable|string',
-      'login' => 'nullable|string',
-      'sign_up' => 'nullable|string',
-      'dear_guest' => 'nullable|string',
-      'create_account' => 'nullable|string',
-    ]);
-//dd($validator);
-    if ($validator->fails()) {
-      return redirect()
-        ->back()
-        ->withErrors($validator)
-        ->withInput();
-    }
-
-    $validatedData = $validator->validated();
-//dd(  $validatedData);
-    try {
-      StartPage::updateOrCreate(['language_id' => $validatedData['language_id']], $validatedData);
-
-      return redirect()
-        ->back()
-        ->with('success', 'Start page data saved successfully.');
-    } catch (\Exception $e) {
-      return redirect()
-        ->back()
-        ->with('error', 'Error saving start page data: ' . $e->getMessage());
-    }
+  
+          return redirect()->back()->with('success', 'Start page data saved successfully.');
+      } catch (\Exception $e) {
+          return redirect()->back()->with('error', 'Error saving start page data: ' . $e->getMessage());
+      }
   }
+  
   public function signupsection(Request $request)
   {
    //dd("helo");

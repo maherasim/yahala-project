@@ -1470,10 +1470,8 @@ foreach ($signupFields as $field) {
                                                 <div class="modal-body">
                                                     <form action="{{ route('languages.startpage') }}" method="POST">
                                                         @csrf
-                                                        @if($startpage)
-                                                            <input type="hidden" name="_id" value="{{ $startpage->_id }}">
-                                                        @endif
-                                                        <input type="hidden" name="language_id" value="{{ $language->id }}">
+                                                        
+                                                    <input type="hidden" name="language_id" value="{{ $language->id }}">
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="col-md-6">
