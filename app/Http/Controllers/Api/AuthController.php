@@ -126,7 +126,7 @@ public function login(Request $request)
 
         Mail::to($request['email'])->send(new SendCodeMail($details));
         return response()->json(['success' => true, "message" => "Verfication Code sent to your email", 'user' => $user->id], 201);
-        return response()->json(['success' => true, "message" => "User has been Successfully Created!", 'user' => $user->id], 201);
+       // return response()->json(['success' => true, "message" => "User has been Successfully Created!", 'user' => $user->id], 201);
       } catch (\Exception $e) {
         info("Error: " . $e->getMessage());
         return response()->json(['success' => false, 'message' => $e->getMessage()], 505);
