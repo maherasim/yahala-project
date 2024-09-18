@@ -159,7 +159,7 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
       Route::resource('diamond', DiamondUserController::class);
     });
 
-  // News
+  // News test
   Route::resource('news', NewsController::class)->only(['index', 'store', 'show', 'update', 'destroy']);
   Route::resource('news-category', NewsCategoryController::class)->only([
     'index',
