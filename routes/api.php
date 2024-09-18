@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\BazarController;
 use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\Api\ReasonController;
+use App\Http\Controllers\Api\AdminProfileController;
 use App\Http\Controllers\Api\MediaController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\Api\StoryController;
@@ -94,7 +95,16 @@ Route::post('/reset/resend', [AuthController::class, 'reset_resend'])->name('res
 Route::post('2fa', [TwoFactorController::class, 'store'])->name('2fa.post');
 Route::post('2fa/reset', [TwoFactorController::class, 'resend'])->name('2fa.resend');
 
-
+http://127.0.0.1:8000/admin/profile
+ 
+Route::post('/admin/profile/store', [AdminProfileController::class, 'store'])->name('admin_profile.store');
+Route::get('/admin/profile/security', [AdminProfileController::class, 'security'])->name('admin_profile.security');
+Route::get('/admin/profile/account', [AdminProfileController::class, 'account'])->name('admin_profile.account');
+Route::get('/admin/profile/billing', [AdminProfileController::class, 'billing'])->name('admin_profile.billing');
+Route::get('/admin/profile/notification', [AdminProfileController::class, 'notification'])->name('admin_profile.notification');
+Route::get('/admin/profile/connection', [AdminProfileController::class, 'connection'])->name('admin_profile.connection');
+Route::post('/admin/change-password', [AdminProfileController::class, 'change_password'])->name('admin_change_password');
+Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin.enable.2fa');
 
 // Route::middleware('auth:sanctum')->group(function () {
   Route::get('countries', [CountryController::class, 'index'])->name('countries.index');
