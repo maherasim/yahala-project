@@ -44,12 +44,12 @@ public function login(Request $request)
         return response()->json([
             'message' => 'Login successfully',
             'token' => $token,
-            
         ]);
     } else {
         return response()->json(['error' => 'Unauthorized'], 401);
     }
 }
+
 
 
   public function signup(Request $request)

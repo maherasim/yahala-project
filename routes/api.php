@@ -95,8 +95,11 @@ Route::post('/reset/resend', [AuthController::class, 'reset_resend'])->name('res
 Route::post('2fa', [TwoFactorController::class, 'store'])->name('2fa.post');
 Route::post('2fa/reset', [TwoFactorController::class, 'resend'])->name('2fa.resend');
 
-http://127.0.0.1:8000/admin/profile
  
+ Route::middleware('verify.token')->get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin_profile');
+
+
+
 Route::post('/admin/profile/store', [AdminProfileController::class, 'store'])->name('admin_profile.store');
 Route::get('/admin/profile/security', [AdminProfileController::class, 'security'])->name('admin_profile.security');
 Route::get('/admin/profile/account', [AdminProfileController::class, 'account'])->name('admin_profile.account');
