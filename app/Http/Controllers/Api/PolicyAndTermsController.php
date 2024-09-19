@@ -50,7 +50,7 @@ class PolicyAndTermsController extends Controller
             'name' => $request->name
         ]);
 
-        return response()->json(['message' => 'New privacy policy and terms section has been created.', 'policy' => $policy],201);
+        return response()->json(['message' => 'New privacy policy and terms section has been created.', 'policy' => $policy],200);
     }
 
     /**
@@ -97,7 +97,7 @@ class PolicyAndTermsController extends Controller
     {
          $policy = PolicyAndTerm::find($id);
          if($policy->delete($policy->id)){
-            return response()->json(['message' => 'New privacy policy and terms section has been deleted.', 'policy' => $policy],201);
+            return response()->json(['message' => 'New privacy policy and terms section has been deleted.', 'policy' => $policy],200);
          }
     }
 
@@ -109,7 +109,7 @@ class PolicyAndTermsController extends Controller
         $check = PolicyAndTerm::find($request->id);
         $check->privacy_policy = $request->privacy_policy;
         if($check->save()){
-            return response()->json(['message' => 'Privacy Policy and term updated successfully.', 'policy' => $check],201);
+            return response()->json(['message' => 'Privacy Policy and term updated successfully.', 'policy' => $check],200);
         }else{
             return response()->json(['message' => 'Failed to update Privacy Policy and term.', 'policy' => $check],403);
         }
