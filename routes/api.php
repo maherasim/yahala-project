@@ -121,7 +121,7 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
   Route::post('policy_and_terms', [PolicyAndTermsController::class, 'store'])->name('policy_and_terms.store');
   Route::post('policy/saveFileds', [PolicyAndTermsController::class, 'saveFileds'])->name('policy_and_terms.saveFileds'
   );
-  Route::delete('policy_and_termsyes/{id}', [PolicyAndTermsController::class, 'destroy'])->name(
+  Route::delete('policy_and_terms/{id}', [PolicyAndTermsController::class, 'destroy'])->name(
     'policy_and_terms.destroy'
   );
 
