@@ -118,7 +118,7 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
   
 
   Route::get('policy_and_terms', [PolicyAndTermsController::class, 'index'])->name('policy_and_terms.index');
-  Route::post('policy_and_terms', [PolicyAndTermsController::class, 'store'])->name('policy_and_terms.store');
+  Route::post('policy_and_terms/store', [PolicyAndTermsController::class, 'store'])->name('policy_and_terms.store');
   Route::post('policy_and_terms/saveFileds', [PolicyAndTermsController::class, 'saveFileds'])->name(
     'policy_and_terms.saveFileds'
   );
