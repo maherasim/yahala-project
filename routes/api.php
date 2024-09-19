@@ -125,7 +125,7 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
     'policy_and_terms.destroy'
   );
 
-  Route::get('languages', [LanguageController::class, 'indexlanguage'])->name('languages.index');
+  Route::get('languages', [LanguageController::class, 'index'])->name('languages.index');
   Route::post('languages', [LanguageController::class, 'store'])->name('languages.store');
   Route::post('languages/{id}', [LanguageController::class, 'update'])->name('languages.update');
   Route::delete('languages/{id}', [LanguageController::class, 'destroy'])->name('languages.destroy');
