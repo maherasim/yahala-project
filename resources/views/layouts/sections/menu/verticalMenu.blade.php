@@ -1367,7 +1367,7 @@
 
 
 
-    @can('voting.read')
+    {{-- @can('voting.read')
         <li
             class="menu-item {{ Request::is('vote-category') ? 'active open' : '' }} {{ Request::is('vote') ? 'active open' : '' }} {{ Request::is('settings/voting/*') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -1402,14 +1402,14 @@
 
             </ul>
         </li>
-    @endcan
+    @endcan --}}
 
 
 
 
 
 
-    @can('history.read')
+    {{-- @can('history.read')
         <li
             class="menu-item {{ Request::is('history-category') ? 'active open' : '' }} {{ Request::is('settings/history/*') ? 'active open' : '' }} {{ Request::is('history') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -1463,7 +1463,7 @@
         </li> --}}
             </ul>
         </li>
-    @endcan
+    @endcan --}}
 
 
 
@@ -1728,7 +1728,7 @@
 
 
 
-    @can('movies.read')
+    {{-- @can('movies.read')
 
         <li class="menu-item {{ Request::is('movie/*') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -1763,7 +1763,7 @@
                 </li>
             </ul>
         </li>
-    @endcan
+    @endcan --}}
     {{-- <li class="menu-item ">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-devices"></i>
@@ -2063,7 +2063,7 @@
             </a>
         </li>
     @endcan
-    @can('manageorigin.read')
+    {{-- @can('manageorigin.read')
         <li
             class="menu-item {{ Request::is('settings/countries') ? 'active open' : '' }}{{ Request::is('settings/provinces') ? 'active open' : '' }}{{ Request::is('settings/cities') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -2088,7 +2088,7 @@
                 </li>
             </ul>
         </li>
-    @endcan
+    @endcan --}}
 
     @can('admins.read')
         <li class="menu-item {{ Request::is('settings/countrieslist') ? 'active' : '' }}">
