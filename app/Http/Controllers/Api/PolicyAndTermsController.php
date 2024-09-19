@@ -40,7 +40,7 @@ class PolicyAndTermsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storekrdo(Request $request)
     {
         $request->validate([
             'name' => 'required',
