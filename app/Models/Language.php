@@ -19,11 +19,7 @@ class Language extends Model
     {
         return LogOptions::defaults();
     }
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
-    
+
     public function translations ()
     {
         return $this->hasMany(Translation::class, 'language_id');

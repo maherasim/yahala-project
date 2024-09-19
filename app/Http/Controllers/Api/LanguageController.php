@@ -47,20 +47,17 @@ class LanguageController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function indexlanguage()
+  public function index()
   {
-    $languages = Language::select('title', 'icon', 'status')->get(); 
-   // $languageData = LanguageData::all();
+    $languages = Language::all();
+    $languageData = LanguageData::all();
 
     $textCounts = Text::count();
-    
-    
+
     foreach ($languages as $language) {
-        $language->created_at = $language->created_at ?: null;
-        $language->texts_count = $textCounts;
+      $language->texts_count = $textCounts;
     }
-  
-    return response()->json(['languages' => $languages],200);
+    return response()->json(['languages' => $languages, 'languageData' => $languageData],200);
   }
 
   /**
