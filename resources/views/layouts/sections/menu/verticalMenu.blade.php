@@ -1367,103 +1367,7 @@
 
 
 
-    {{-- @can('voting.read')
-        <li
-            class="menu-item {{ Request::is('vote-category') ? 'active open' : '' }} {{ Request::is('vote') ? 'active open' : '' }} {{ Request::is('settings/voting/*') ? 'active open' : '' }}">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-sort"></i>
-                <div>Voting</div>
-            </a>
-
-
-            <ul class="menu-sub">
-
-
-
-                <li class="menu-item {{ Request::is('vote-category') ? 'active' : '' }}">
-                    <a href="{{ url('/vote-category') }}" class="menu-link">
-                        <div>Add Category</div>
-                    </a>
-
-
-                </li>
-
-
-
-                <li class="menu-item {{ Request::is('vote') ? 'active' : '' }} ">
-                    <a href="{{ url('/vote') }}" class="menu-link">
-                        <div>Manage Vote</div>
-                    </a>
-
-
-                </li>
-
-
-
-            </ul>
-        </li>
-    @endcan --}}
-
-
-
-
-
-
-    {{-- @can('history.read')
-        <li
-            class="menu-item {{ Request::is('history-category') ? 'active open' : '' }} {{ Request::is('settings/history/*') ? 'active open' : '' }} {{ Request::is('history') ? 'active open' : '' }}">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-history"></i>
-                <div>History</div>
-            </a>
-
-
-            <ul class="menu-sub">
-
-
-
-                <li class="menu-item {{ Request::is('history-category') ? 'active' : '' }} ">
-                    <a href="{{ url('/history-category') }}" class="menu-link">
-                        <div>Add Category</div>
-                    </a>
-
-
-                </li>
-
-
-
-                <li class="menu-item {{ Request::is('history') ? 'active' : '' }}  ">
-                    <a href="{{ url('/history') }}" class="menu-link">
-                        <div>Add Manage History</div>
-                    </a>
-
-
-                </li>
-
-
-
-                {{-- <li class="menu-item {{ Request::is('settings/history/*') ? 'active open' : '' }}">
-          <a href="javascript:void(0)" class="menu-link menu-toggle">
-            <div>Settings</div>
-          </a>
-
-
-          <ul class="menu-sub">
-
-
-
-            <li class="menu-item  {{ Request::is('settings/history/prefix') ? 'active' : '' }}">
-              <a href="{{url('/settings/history/prefix')}}" class="menu-link">
-                <div>Prefix</div>
-              </a>
-
-
-            </li>
-          </ul>
-        </li> --}}
-            </ul>
-        </li>
-    @endcan --}}
+    
 
 
 
@@ -1726,44 +1630,7 @@
 
 
 
-
-
-    {{-- @can('movies.read')
-
-        <li class="menu-item {{ Request::is('movie/*') ? 'active open' : '' }}">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-movie-play"></i>
-                <div>Movies</div>
-            </a>
-
-
-            <ul class="menu-sub">
-                @can('addmangemovies.read')
-                    <li class="menu-item {{ Request::is('movie/upload-movies') ? 'active' : '' }}">
-                        <a href="{{ url('/movie/upload-movies') }}" class="menu-link">
-                            <div>Add/Manage Movies</div>
-                        </a>
-                    </li>
-                @endcan
-
-            </ul>
-        </li>
-    @endcan
-    @can('series.read')
-        <li class="menu-item {{ Request::is('series/*') ? 'active open' : '' }}">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-movie-play"></i>
-                <div>Series</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item {{ Request::is('series/series') ? 'active' : '' }}">
-                    <a href="{{ url('/series/series') }}" class="menu-link">
-                        <div>Add/Manage Series</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-    @endcan --}}
+ 
     {{-- <li class="menu-item ">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-devices"></i>
@@ -2063,32 +1930,7 @@
             </a>
         </li>
     @endcan
-    {{-- @can('manageorigin.read')
-        <li
-            class="menu-item {{ Request::is('settings/countries') ? 'active open' : '' }}{{ Request::is('settings/provinces') ? 'active open' : '' }}{{ Request::is('settings/cities') ? 'active open' : '' }}">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-map"></i>
-                <div>Manage Origin</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item {{ Request::is('settings/countries') ? 'active' : '' }}">
-                    <a href="{{ url('/settings/countries') }}" class="menu-link">
-                        <div>Add Country</div>
-                    </a>
-                </li>
-                <li class="menu-item {{ Request::is('settings/provinces') ? 'active' : '' }}">
-                    <a href="{{ url('/settings/provinces') }}" class="menu-link">
-                        <div>Add Provinces</div>
-                    </a>
-                </li>
-                <li class="menu-item {{ Request::is('settings/cities') ? 'active' : '' }}">
-                    <a href="{{ url('/settings/cities') }}" class="menu-link">
-                        <div>Add City and Zipcode</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-    @endcan --}}
+  
 
     @can('admins.read')
         <li class="menu-item {{ Request::is('settings/countrieslist') ? 'active' : '' }}">
