@@ -50,7 +50,7 @@ class PolicyAndTermsController extends Controller
             'name' => $request->name
         ]);
 
-        return response()->json(['message' => 'New privacy policy and terms section has been created.', 'policy' => $policy],200);
+        return response()->json(['message' => 'New privacy policy and terms section has been created.'],200);
     }
 
     /**
