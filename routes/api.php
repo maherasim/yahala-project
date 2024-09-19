@@ -119,8 +119,7 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
 
   Route::get('policy_and_terms', [PolicyAndTermsController::class, 'index'])->name('policy_and_terms.index');
   Route::post('policy_and_terms', [PolicyAndTermsController::class, 'store'])->name('policy_and_terms.store');
-  Route::post('policy/saveFileds', [PolicyAndTermsController::class, 'saveFileds'])->name(
-    'policy_and_terms.saveFileds'
+  Route::post('policy/saveFileds', [PolicyAndTermsController::class, 'saveFileds'])->name('policy_and_terms.saveFileds'
   );
   Route::delete('policy_and_terms/{id}', [PolicyAndTermsController::class, 'destroy'])->name(
     'policy_and_terms.destroy'
@@ -276,8 +275,7 @@ Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list
   //policy_and_terms
 
   Route::apiResource('policy-and-terms', PolicyAndTermsController::class);
-  Route::post('saveFileds', [PolicyAndTermsController::class, 'saveFileds'])->name('policy_and_terms.saveFileds');
-  //Ringtone
+   //Ringtone
   Route::get('app-setting/message-ringtone', [RingtoneController::class, 'getMessage'])->name(
     'appsetting.message.ringtone'
   );
