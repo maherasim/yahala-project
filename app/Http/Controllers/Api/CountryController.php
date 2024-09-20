@@ -26,6 +26,18 @@ class CountryController extends Controller
         $countries = Country::orderBy("name", "ASC")->get();
         return response()->json(['countries' => $countries],200);
     }
+    
+    public function showcountries()
+    {
+        $country_list = Countrylocations::orderBy('name', 'asc')->paginate(20);
+  
+        return response()->json([
+            'country_list' => $country_list
+        ]);
+    }
+    
+    
+
 
     public function search_location(Request $request)
     {

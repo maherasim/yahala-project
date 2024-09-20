@@ -468,8 +468,11 @@ Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list
   Route::get('/get-favourite-album-id/{user_id}', [AlbumController::class, 'get_favourite_album_ids'])->name(
     'get-favourite-album-id'
   );
+ 
 
-  // Post gallery
+  Route::get('countrieslistshow', [CountryController::class, 'showcountries'])->name('countries.store');
+
+
   Route::post('/get-gallery', [PostGalleryController::class, 'get_gallery']);
 
   Route::get('/user', function (Request $request) {
