@@ -21,7 +21,7 @@ use Eloquent;
 class Country extends Model
 {
     protected $connection = 'mongodb';
-    protected $table = 'countries_orig';
+    protected $table = 'countries';
 
     use HasFactory;
 
