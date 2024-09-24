@@ -30,27 +30,31 @@ class User extends Authenticatable  implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'image',
-        'status',
-        'level',
-        'username',
-        'fname',
-        'lname',
-        'gender',
-        'origin',
-        'dob',
-        'address',
-        'province',
-        'city',
-        'province_city',
-        'country',
-        'role_id',
-        'roles',
-        'is_admin_user',
-        'is_superadmin'
+       'name',
+    'email',
+    'password',
+    'image',
+    'status',
+    'level',
+    'username',
+    'fname',
+    'lname',
+    'gender',
+    'dob',
+    'address',
+    'province',
+    'city',
+    'province_city',
+    'country',
+    'role_id',
+    'roles',
+    'is_admin_user',
+    'is_superadmin',
+    'productname',      // New field
+    'mobilename',       // New field
+    'serialnumber',     // New field
+    'IMEI1',            // New field
+    'IMEI2' 
     ];
 
     /**

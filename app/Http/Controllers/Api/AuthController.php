@@ -52,93 +52,106 @@ public function login(Request $request)
 
 
 
-  public function signup(Request $request)
-  {
-
+public function signup(Request $request)
+{
     try {
-    $validatedData = $request->validate([
-      'fname' => 'required|max:100',
-      'lname' => 'required|max:100',
-      'email' => 'required',
-      'password' => 'required|min:6',
-      'phone' => 'required|min:11',
-    ]);
+        $validatedData = $request->validate([
+            'fname' => 'required|max:100',
+            'lname' => 'required|max:100',
+            'email' => 'required',
+            'password' => 'required|min:6',
+            'phone' => 'required|min:11',
+            'productname' => 'required|max:255', // New field validation
+            'mobilename' => 'required|max:255',  // New field validation
+            'serialnumber' => 'required|max:255', // New field validation
+            'IMEI1' => 'required|digits:15',    // New field validation for 15-digit IMEI
+            'IMEI2' => 'nullable|digits:15',    // Optional second IMEI with 15 digits
+        ]);
 
-    $emailTaken = User::where('email', $request->email)->first();
+        // Check for duplicate email
+        $emailTaken = User::where('email', $request->email)->first();
+        if ($emailTaken) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Email is already taken.',
+            ]);
+        }
 
-    if ($emailTaken) {
-      return response()->json([
-        'success' => false,
-        'message' => 'Email is already taken.',
-      ]);
-    }
+        // Check for duplicate username
+        $usernameTaken = User::where('username', $request->username)->first();
+        if ($usernameTaken) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Username is already taken.',
+            ]);
+        }
 
-    $usernameTaken = User::where('username', $request->username)->first();
+        // Create new user
+        $user = User::create([
+            'name' => $request['fname'],
+            'username' => $request['username'],
+            'email' => $request['email'],
+            'password' => bcrypt($request['password']),
+            'status' => 1,
+            'is_admin_user' => 0,
+            'level' => 0,
+            'is_verfied' => 1,
+            'is_superadmin' => 0,
+            'last_name' => $request['lname'],
+            'language' => $request['language'],
+            'gender' => $request['gender'],
+            'origin' => $request['origin'],
+            'location' => $request['location'],
+            'marital_status' => $request['marital_status'],
+            'dob' => $request['dob'],
+            'province' => $request['province'],
+            'city' => $request['city'],
+            'phone' => $request['phone'],
+            'user_type' => 'users',
+            'productname' => $request['productname'],   // Saving new field
+            'mobilename' => $request['mobilename'],     // Saving new field
+            'serialnumber' => $request['serialnumber'], // Saving new field
+            'IMEI1' => $request['IMEI1'],               // Saving new field
+            'IMEI2' => $request['IMEI2'],               // Saving optional IMEI2
+        ]);
 
-    if ($usernameTaken) {
-      return response()->json([
-        'success' => false,
-        'message' => 'Username is already taken.',
-      ]);
-    }
+        // Save user image if provided
+        if ($request->has('image')) {
+            $image_path = Helpers::fileUpload($request->image, 'images/user');
+            $user->image = $image_path;
+            $user->save();
+        }
 
-    $user = User::create([
-        'name' => $request['fname'],
-        'username' => $request['username'],
-        'email' => $request['email'],
-        'password' => bcrypt($request['password']),
-        'status' => (int)'1',
-        'is_admin_user' => (int)'0',
-        'level' => (int)'0',
-        'is_verfied' => (int)'1',
-        'is_superadmin' => (int)'0',
-        'last_name' => $request['lname'],
-        'language' => $request['language'],
-        'gender' => $request['gender'],
-        'origin' => $request['origin'],
-        'location' => $request['location'],
-        'marital_status' => $request['marital_status'],
-        'dob' => $request['dob'],
-        'province' => $request['province'],
-        'city' => $request['city'],
-        'phone' => $request['phone'],
-        'user_type' => 'users'
-    ]);
+        // Send verification code if user is created
+        if ($user->id) {
+            $code = rand(1000, 9999);
+            UserCode::updateOrCreate(
+                ['user_id' => $user->id],
+                ['code' => $code]
+            );
 
-    if ($request->has('image')) {
-        $image_path = Helpers::fileUpload($request->image, 'images/user');
-        $user->image = $image_path;
-        $user->save();
-    }
+            try {
+                $details = [
+                    'title' => 'Mail from Yekbun.org',
+                    'code' => $code,
+                    'username' => $request->username,
+                ];
 
-    if ($user->id) {
-      $code = rand(1000, 9999);
-      UserCode::updateOrCreate(
-        ['user_id' => $user->id],
-        ['code' => $code]
-      );
-      try {
-        $details = [
-          'title' => 'Mail from Yekbun.org',
-          'code' => $code,
-          'username' => $request->username,
-        ];
-
-        Mail::to($request['email'])->send(new SendCodeMail($details));
-        return response()->json(['success' => true, "message" => "Verfication Code sent to your email", 'user' => $user->id], 200);
-       // return response()->json(['success' => true, "message" => "User has been Successfully Created!", 'user' => $user->id], 201);
-      } catch (\Exception $e) {
-        info("Error: " . $e->getMessage());
-        return response()->json(['success' => false, 'message' => $e->getMessage()], 505);
-      }
-    }
+                Mail::to($request['email'])->send(new SendCodeMail($details));
+                return response()->json(['success' => true, "message" => "Verification Code sent to your email", 'user' => $user->id], 200);
+            } catch (\Exception $e) {
+                info("Error: " . $e->getMessage());
+                return response()->json(['success' => false, 'message' => $e->getMessage()], 505);
+            }
+        }
     } catch (\Exception $e) {
         return response()->json([
             'success' => false,
             'errors' => $e->getMessage(),
         ], 422);
     }
-  }
+}
+
 
 
     public function logout(Request $request)
