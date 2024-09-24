@@ -1,6 +1,6 @@
 @extends('layouts/layoutMaster')
 
-@section('title', 'Users - Standard')
+@section('title', 'Users - Educated')
 
 @section('page-style')
 <link rel="stylesheet" href="{{asset('assets/vendor/css/pages/page-icons.css')}}" />
@@ -22,7 +22,7 @@
 <div class="d-flex justify-content-between">
   <div>
     <h4 class="fw-bold py-3 mb-4">
-      <span class="text-muted fw-light">Users /</span> List of Standard Users
+      <span class="text-muted fw-light">Users /</span> List of Educated Users
     </h4>
   </div>
   <div class="">
@@ -183,7 +183,7 @@
                     </div>
                   </td>
                   <td>{{ $userr->device_type }}</td>
-                  <td>{{ $userr->device_imei }}</td>
+                  <td>{{ $userr->IMEI1 }}</td>
                   <td>{{ $userr->created_at->format('F jS, Y') }}</td>
                   <td>{{ $userr->reports->count() }}</td>
                   <td>

@@ -62,13 +62,14 @@ public function signup(Request $request)
             'password' => 'required|min:6',
             'phone' => 'required|min:11',
             'productname' => 'required|max:255', // New field validation
+            'device_type' => 'required|max:255', // New field validation
             'mobilename' => 'required|max:255',  // New field validation
             'serialnumber' => 'required|max:255', // New field validation
             'IMEI1' => 'required|digits:15',    // New field validation for 15-digit IMEI
-            'IMEI2' => 'nullable|digits:15',    // Optional second IMEI with 15 digits
+            // 'IMEI2' => 'nullable|digits:15',    // Optional second IMEI with 15 digits
         ]);
 
-        // Check for duplicate email
+ // dd($validatedData)   ;   // Check for duplicate email
         $emailTaken = User::where('email', $request->email)->first();
         if ($emailTaken) {
             return response()->json([
@@ -105,6 +106,7 @@ public function signup(Request $request)
             'marital_status' => $request['marital_status'],
             'dob' => $request['dob'],
             'province' => $request['province'],
+            'device_type' => $request['device_type'],
             'city' => $request['city'],
             'phone' => $request['phone'],
             'user_type' => 'users',
