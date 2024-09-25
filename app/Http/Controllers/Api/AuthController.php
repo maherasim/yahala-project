@@ -189,7 +189,7 @@ public function signup(Request $request)
         'username' => $user->username
       ];
       Mail::to($user->email)->send(new SendCodeMail($details));
-      return response()->json(['success' => true, 'message' => 'A verification email has been sent to ' . $user->email . '!', 'data' => ['user_id' => $user->id, 'email' => $user->email, 'token' => $token]], 201);
+      return response()->json(['success' => true, 'message' => 'A verification email has been sent to ' . $user->email . '!', 'data' => ['user_id' => $user->id, 'email' => $user->email, 'token' => $token]], 200);
     } catch (\Exception $e) {
 
       return $e->getMessage();
