@@ -1,6 +1,6 @@
 @php
     // Retrieve the existing SigninSection data for the given language_id
-    $signinsection = App\Models\StartPage::where('language_id', $language->id)->first();
+    $startpage = App\Models\StartPage::where('language_id', $language->id)->first();
 @endphp
 
 
