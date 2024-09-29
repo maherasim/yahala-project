@@ -14,9 +14,7 @@
              </div>
              <div class="modal-body">
                  @if(isset($startpage))
-                    <pre>{{ print_r($startpage->toArray(), true) }}</pre>
-                @endif
-                 <form action="{{ route('languages.startpage') }}" method="POST">
+                      <form action="{{ route('languages.startpage') }}" method="POST">
                      @csrf
 
                      <input type="hidden" name="language_id" value="{{ $language->id }}">
@@ -95,6 +93,8 @@
                          <button type="submit" class="btn btn-label-secondary" data-bs-dismiss="modal">Save</button>
                      </div>
                  </form>
+                @endif
+               nothingf
              </div>
          </div>
      </div>
