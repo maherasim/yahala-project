@@ -812,7 +812,9 @@ foreach ($headerMusicFields as $field) {
                                                                             </td>
                                                                             <td>{{ $startpageDone }}</td>
                                                                             <td>{{ $startpageTotal - $startpageDone }}</td>
-                                                                            <td>
+                                                                            
+
+                                                                             <td>
                                                                                 <span data-bs-toggle="modal" data-bs-target="#startpage__1{{ $language->id }}" onclick="openSectionModal('alert')">
                                                                                     <button class="btn" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" data-bs-original-title="Edit">
                                                                                         <i class="bx bx-edit"></i>
