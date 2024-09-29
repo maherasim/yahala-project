@@ -30,7 +30,8 @@
                                 <h6>Enter E-mail</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" placeholder="Enter E-mail" value="{{ $signinsection->email ?? '' }}">
+                                <input type="email" class="form-control" name="email" placeholder="Enter E-mail"
+                                    value="{{ $signinsection->email ?? '' }}">
                             </div>
                         </div>
 
@@ -40,7 +41,8 @@
                                 <h6>Enter Password</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="password" placeholder="Enter Password" value="{{ $signinsection->password ?? '' }}">
+                                <input type="password" class="form-control" name="password" placeholder="Enter Password"
+                                    value="{{ $signinsection->password ?? '' }}">
                             </div>
                         </div>
 
@@ -50,8 +52,10 @@
                                 <h6>Remember me</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="checkbox" name="remember_me" {{ $signinsection && $signinsection->remember_me ? 'checked' : '' }}> Remember me
+                                <input type="checkbox" name="remember_me" value="1"
+                                    {{ $signinsection && $signinsection->remember_me ? 'checked' : '' }}> Remember me
                             </div>
+
                         </div>
 
                         <!-- Forget Password -->
@@ -60,7 +64,8 @@
                                 <h6>Forgot Password</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="forgot_password" placeholder="Forgot Password" value="{{ $signinsection->forgot_password ?? '' }}">
+                                <input type="text" class="form-control" name="forgot_password"
+                                    placeholder="Forgot Password" value="{{ $signinsection->forgot_password ?? '' }}">
                             </div>
                         </div>
 
@@ -70,7 +75,8 @@
                                 <h6>Sign In</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="signin" placeholder="Sign In" value="{{ $signinsection->signin ?? '' }}">
+                                <input type="text" class="form-control" name="signin" placeholder="Sign In"
+                                    value="{{ $signinsection->signin ?? '' }}">
                             </div>
                         </div>
 
@@ -80,7 +86,8 @@
                                 <h6>Login Error</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="login_error" placeholder="Login Error" value="{{ $signinsection->login_error ?? '' }}">
+                                <input type="text" class="form-control" name="login_error" placeholder="Login Error"
+                                    value="{{ $signinsection->login_error ?? '' }}">
                             </div>
                         </div>
 
@@ -90,7 +97,8 @@
                                 <h6>User Not Found</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="not_found" placeholder="User Not Found" value="{{ $signinsection->not_found ?? '' }}">
+                                <input type="text" class="form-control" name="not_found" placeholder="User Not Found"
+                                    value="{{ $signinsection->not_found ?? '' }}">
                             </div>
                         </div>
 
@@ -100,7 +108,8 @@
                                 <h6>Already have not an account? Sign Up</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="signup" placeholder="Sign Up" value="{{ $signinsection->signup ?? '' }}">
+                                <input type="text" class="form-control" name="signup" placeholder="Sign Up"
+                                    value="{{ $signinsection->signup ?? '' }}">
                             </div>
                         </div>
 
@@ -110,7 +119,9 @@
                                 <h6>We will send a mail to the email address you registered to regain your password</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="regain_password_mail" placeholder="Regain Password Mail" value="{{ $signinsection->regain_password_mail ?? '' }}">
+                                <input type="text" class="form-control" name="regain_password_mail"
+                                    placeholder="Regain Password Mail"
+                                    value="{{ $signinsection->regain_password_mail ?? '' }}">
                             </div>
                         </div>
 
@@ -120,7 +131,9 @@
                                 <h6>E-Mail Format Wrong</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="email_format_wrong" placeholder="E-Mail Format Wrong" value="{{ $signinsection->email_format_wrong ?? '' }}">
+                                <input type="text" class="form-control" name="email_format_wrong"
+                                    placeholder="E-Mail Format Wrong"
+                                    value="{{ $signinsection->email_format_wrong ?? '' }}">
                             </div>
                         </div>
 
@@ -130,7 +143,8 @@
                                 <h6>Please Enter your correct E-Mail</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="correct_email" placeholder="Correct E-Mail" value="{{ $signinsection->correct_email ?? '' }}">
+                                <input type="text" class="form-control" name="correct_email"
+                                    placeholder="Correct E-Mail" value="{{ $signinsection->correct_email ?? '' }}">
                             </div>
                         </div>
 
@@ -140,17 +154,22 @@
                                 <h6>Password Reset Email Sent</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="password_reset_sent" placeholder="Password Reset Email Sent" value="{{ $signinsection->password_reset_sent ?? '' }}">
+                                <input type="text" class="form-control" name="password_reset_sent"
+                                    placeholder="Password Reset Email Sent"
+                                    value="{{ $signinsection->password_reset_sent ?? '' }}">
                             </div>
                         </div>
 
                         <!-- Reset Password Email -->
                         <div class="row mt-2">
                             <div class="col-md-6">
-                                <h6>An email has been sent to you. Follow the directions in the email to reset your password</h6>
+                                <h6>An email has been sent to you. Follow the directions in the email to reset your
+                                    password</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="reset_password_email" placeholder="Reset Password Email" value="{{ $signinsection->reset_password_email ?? '' }}">
+                                <input type="text" class="form-control" name="reset_password_email"
+                                    placeholder="Reset Password Email"
+                                    value="{{ $signinsection->reset_password_email ?? '' }}">
                             </div>
                         </div>
 
@@ -160,7 +179,8 @@
                                 <h6>Verification</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="verification" placeholder="Verification" value="{{ $signinsection->verification ?? '' }}">
+                                <input type="text" class="form-control" name="verification"
+                                    placeholder="Verification" value="{{ $signinsection->verification ?? '' }}">
                             </div>
                         </div>
 
@@ -170,7 +190,9 @@
                                 <h6>An authentication code has been sent to your E-Mail</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="authentication_code_sent" placeholder="Authentication Code Sent" value="{{ $signinsection->authentication_code_sent ?? '' }}">
+                                <input type="text" class="form-control" name="authentication_code_sent"
+                                    placeholder="Authentication Code Sent"
+                                    value="{{ $signinsection->authentication_code_sent ?? '' }}">
                             </div>
                         </div>
 
@@ -180,7 +202,9 @@
                                 <h6>I didn't receive code</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="did_not_receive_code" placeholder="Did Not Receive Code" value="{{ $signinsection->did_not_receive_code ?? '' }}">
+                                <input type="text" class="form-control" name="did_not_receive_code"
+                                    placeholder="Did Not Receive Code"
+                                    value="{{ $signinsection->did_not_receive_code ?? '' }}">
                             </div>
                         </div>
 
@@ -190,7 +214,8 @@
                                 <h6>Resend it</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="resend_code" placeholder="Resend Code" value="{{ $signinsection->resend_code ?? '' }}">
+                                <input type="text" class="form-control" name="resend_code"
+                                    placeholder="Resend Code" value="{{ $signinsection->resend_code ?? '' }}">
                             </div>
                         </div>
 
@@ -200,7 +225,8 @@
                                 <h6>Time Left</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="time_left" placeholder="Time Left" value="{{ $signinsection->time_left ?? '' }}">
+                                <input type="text" class="form-control" name="time_left" placeholder="Time Left"
+                                    value="{{ $signinsection->time_left ?? '' }}">
                             </div>
                         </div>
 
@@ -210,7 +236,8 @@
                                 <h6>Verify Now</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="verify_now" placeholder="Verify Now" value="{{ $signinsection->verify_now ?? '' }}">
+                                <input type="text" class="form-control" name="verify_now"
+                                    placeholder="Verify Now" value="{{ $signinsection->verify_now ?? '' }}">
                             </div>
                         </div>
 
@@ -220,7 +247,8 @@
                                 <h6>Error Found</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="error_found" placeholder="Error Found" value="{{ $signinsection->error_found ?? '' }}">
+                                <input type="text" class="form-control" name="error_found"
+                                    placeholder="Error Found" value="{{ $signinsection->error_found ?? '' }}">
                             </div>
                         </div>
 
@@ -230,27 +258,40 @@
                                 <h6>Invalid OTP or Expired</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="invalid_otp" placeholder="Invalid OTP or Expired" value="{{ $signinsection->invalid_otp ?? '' }}">
+                                <input type="text" class="form-control" name="invalid_otp"
+                                    placeholder="Invalid OTP or Expired"
+                                    value="{{ $signinsection->invalid_otp ?? '' }}">
                             </div>
                         </div>
 
                         <!-- Create Password -->
                         <div class="row mt-2">
                             <div class="col-md-6">
+                                <h6>Wrong Password</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" name="wrong_password"   value="{{ $signinsection->wrong_password ?? '' }}"
+                                    placeholder="Wrong Password">
+                            </div>
+                        </div>
+ <div class="row mt-2">
+                            <div class="col-md-6">
                                 <h6>Create Password</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="create_password" placeholder="Create Password">
+                                <input type="password" class="form-control" name="create_password"   value="{{ $signinsection->create_password ?? '' }}"
+                                    placeholder="Create Password">
                             </div>
                         </div>
-
                         <!-- Secure Password -->
                         <div class="row mt-2">
                             <div class="col-md-6">
                                 <h6>Choose a secure password that will be easy for you to remember</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="secure_password" placeholder="Secure Password" value="{{ $signinsection->secure_password ?? '' }}">
+                                <input type="text" class="form-control" name="secure_password"
+                                    placeholder="Secure Password"
+                                    value="{{ $signinsection->secure_password ?? '' }}">
                             </div>
                         </div>
 
@@ -260,7 +301,9 @@
                                 <h6>Has at least 8 Characters</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="has_8_characters" placeholder="Has at least 8 Characters" value="{{ $signinsection->has_8_characters ?? '' }}">
+                                <input type="text" class="form-control" name="has_8_characters"
+                                    placeholder="Has at least 8 Characters"
+                                    value="{{ $signinsection->has_8_characters ?? '' }}">
                             </div>
                         </div>
 
@@ -270,7 +313,9 @@
                                 <h6>Has an uppercase letter or symbol</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="uppercase_or_symbol" placeholder="Uppercase Letter or Symbol" value="{{ $signinsection->uppercase_or_symbol ?? '' }}">
+                                <input type="text" class="form-control" name="uppercase_or_symbol"
+                                    placeholder="Uppercase Letter or Symbol"
+                                    value="{{ $signinsection->uppercase_or_symbol ?? '' }}">
                             </div>
                         </div>
 
@@ -280,7 +325,8 @@
                                 <h6>Has a Number</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="has_number" placeholder="Has a Number" value="{{ $signinsection->has_number ?? '' }}">
+                                <input type="text" class="form-control" name="has_number"
+                                    placeholder="Has a Number" value="{{ $signinsection->has_number ?? '' }}">
                             </div>
                         </div>
 
@@ -290,7 +336,8 @@
                                 <h6>Continue</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="continue" placeholder="Continue" value="{{ $signinsection->continue ?? '' }}">
+                                <input type="text" class="form-control" name="continue" placeholder="Continue"
+                                    value="{{ $signinsection->continue ?? '' }}">
                             </div>
                         </div>
 
@@ -300,7 +347,8 @@
                                 <h6>Successfully</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="successfully" placeholder="Successfully" value="{{ $signinsection->successfully ?? '' }}">
+                                <input type="text" class="form-control" name="successfully"
+                                    placeholder="Successfully" value="{{ $signinsection->successfully ?? '' }}">
                             </div>
                         </div>
 
@@ -310,7 +358,8 @@
                                 <h6>You are logged on yekbun now</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="logged_in" placeholder="Logged In" value="{{ $signinsection->logged_in ?? '' }}">
+                                <input type="text" class="form-control" name="logged_in" placeholder="Logged In"
+                                    value="{{ $signinsection->logged_in ?? '' }}">
                             </div>
                         </div>
 
@@ -319,12 +368,15 @@
                                 <h6>Repeat Password</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="repeat_password" placeholder="Repeat Password" value="{{ $signinsection->repeat_password ?? '' }}">
+                                <input type="password" class="form-control" name="repeat_password"
+                                    placeholder="Repeat Password"
+                                    value="{{ $signinsection->repeat_password ?? '' }}">
                             </div>
                         </div>
 
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-label-secondary" data-bs-dismiss="modal">Save</button>
+                            <button type="submit" class="btn btn-label-secondary"
+                                data-bs-dismiss="modal">Save</button>
                         </div>
                     </div>
                 </form>

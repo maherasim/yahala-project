@@ -18,6 +18,7 @@ class SignInSection extends Model
         'signin',
         'login_error',
         'not_found',
+        'forgot_password',
         'signup',
         'regain_password_mail',
         'email_format_wrong',

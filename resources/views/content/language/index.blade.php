@@ -707,69 +707,46 @@ foreach ($headerMusicFields as $field) {
 }
 @endphp
 
-    @php
-// Retrieve the existing SignupSection data for the given language_id
-$signinsection = App\Models\SignInSection::where('language_id', $language->id)->first();
-
-// Define the fields for the Sign up Section
-$signupFields = [
-     
-        'email',
-        'password',
-        'repeat_password',
-        'signin',
-        'login_error',
-        'not_found',
-        'signup',
-        'regain_password_mail',
-        'email_format_wrong',
-        'correct_email',
-        'password_reset_sent',
-        'reset_password_email',
-        'verification',
-        'authentication_code_sent',
-        'did_not_receive_code',
-        'resend_code',
-        'time_left',
-        'verify_now',
-        'error_found',
-        'invalid_otp',
-        'create_password',
-        'secure_password',
-        'has_8_characters',
-        'uppercase_or_symbol',
-        'has_number',
-        'continue',
-        'successfully',
-        'logged_in',
-        'remember_me',
-        'wrong_password',
-];
-
-// Calculate total and done values
-$signupTotal = count($signupFields);
-$signupDone = 0;
-
-foreach ($signupFields as $field) {
-    if (!empty($signupsection->$field)) {
-        $signupDone++;
-    }
-}
-@endphp      
+    
 
 @php
     // Retrieve the existing SignInSection data for the given language_id
     $signinsection = App\Models\SignInSection::where('language_id', $language->id)->first();
     
-    // Define the fields for the Sign in Section
     $signinFields = [
-        'email', 'password', 'remember_me', 'forgot_password', 'signin', 'login_error',
-        'not_found', 'signup', 'regain_password_mail', 'email_format_wrong', 'correct_email',
-        'password_reset_sent', 'reset_password_email', 'verification', 'authentication_code_sent',
-        'did_not_receive_code', 'resend_code', 'time_left', 'verify_now', 'error_found',
-        'invalid_otp', 'create_password', 'secure_password', 'has_8_characters', 'uppercase_or_symbol',
-        'has_number', 'continue', 'successfully', 'logged_in', 'wrong_password'
-    ];
+    'email',
+    'password',
+    'repeat_password',
+    'signin',
+    'login_error',
+    'not_found',
+    'forgot_password',
+    'signup',
+    'regain_password_mail',
+    'email_format_wrong',
+    'correct_email',
+    'password_reset_sent',
+    'reset_password_email',
+    'verification',
+    'authentication_code_sent',
+    'did_not_receive_code',
+    'resend_code',
+    'time_left',
+    'verify_now',
+    'error_found',
+    'invalid_otp',
+    'create_password',
+    'secure_password',
+    'has_8_characters',
+    'uppercase_or_symbol',
+    'has_number',
+    'continue',
+    'successfully',
+    'logged_in',
+    'remember_me',
+    'wrong_password'
+];
+
     
     // Calculate total and done values
     $signinTotal = count($signinFields);
@@ -1701,8 +1678,8 @@ foreach ($signupFields as $field) {
                                                                     <h6>Create Password</h6>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input type="password" class="form-control" name="password" placeholder="Enter a Password">
-                                                                    <input type="password" class="form-control mt-2" name="repeat_password" placeholder="Repeat a Password">
+                                                                    <input type="password" class="form-control" name="password"  value="{{ $signupsection->password ?? '' }}" placeholder="Enter a Password">
+                                                                    <input type="password" class="form-control mt-2" name="repeat_password"  value="{{ $signupsection->password ?? '' }}" placeholder="Repeat a Password">
                                                                 </div>
                                                             </div>
                                     
