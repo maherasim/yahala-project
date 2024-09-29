@@ -1434,10 +1434,7 @@ foreach ($headerMusicFields as $field) {
                                     
 
                                         
-                                    @php
-                                    $startpage = App\Models\StartPage::where('language_id', $language->id)->first();
-                                    dd( $startpage);
-                                    @endphp
+                                    
                                     <div class="modal fade" id="startpage__1{{ $language->id }}" tabindex="-1" aria-hidden="true">
                                         <div class="modal-dialog modal-md modal-dialog-centered" role="document">
                                             <div class="modal-content">
