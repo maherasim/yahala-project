@@ -1,4 +1,12 @@
-<div class="modal-body">
+@php
+    // Retrieve the existing SigninSection data for the given language_id
+    $signinsection = App\Models\StartPage::where('language_id', $language->id)->first();
+@endphp
+
+
+
+ <div class="modal fade" id="startpage__1{{ $language->id }}" tabindex="-1" aria-hidden="true">
+   <div class="modal-body">
     <form action="{{ route('languages.startpage') }}" method="POST">
         @csrf
         <input type="hidden" name="language_id" value="{{ $language->id }}">
@@ -20,3 +28,5 @@
         </div>
     </form>
 </div>
+
+ </div>
