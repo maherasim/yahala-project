@@ -54,6 +54,7 @@ class LanguageController extends Controller
   {
     $languages = Language::all();
     $languageData = LanguageData::all();
+    
 
     $textCounts = Text::count();
 
