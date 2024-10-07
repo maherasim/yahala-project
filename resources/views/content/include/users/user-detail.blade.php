@@ -42,12 +42,13 @@
                     <span>{{$user->email ?? ''}}</span>
                 </li>
                 <li class="mb-3">
-                    <span class="fw-bold me-2">Phone Number:</span>
+                    <span class="fw-bold me-2">User Id:</span>
                     <br>
-                    <span>{{$user->phone ?? ''}}</span>
+                    <span>{{$user->_id ?? ''}}</span>
                 </li>
+                
                 <li class="mb-3">
-                    <span class="fw-bold me-2">Member Since:</span>
+                    <span class="fw-bold me-2">Joining Date:</span>
                     <br>
                     <span>{{ $user->created_at ? \Carbon\Carbon::parse($user->created_at)->format('d/m/Y') : ''}}</span>
                 </li>
@@ -56,7 +57,11 @@
                     <br>
                     <span>Germany</span>
                 </li>
-
+                <li class="mb-3">
+                    <span class="fw-bold me-2">City:</span>
+                    <br>
+                    <span>Hamburg</span>
+                </li>
 
 
             </ul>
