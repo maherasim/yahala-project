@@ -1,6 +1,6 @@
 @extends('layouts/layoutMaster')
 
-@section('title', 'User View - Account')
+@section('title', 'User View - Videos')
 
 @section('vendor-style')
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}">
@@ -37,7 +37,7 @@
 
 @section('content')
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">User / View /</span> Account
+        <span class="text-muted fw-light">User / View /</span> Videos
     </h4>
     <div class="row">
         <!-- User Sidebar -->
@@ -50,9 +50,9 @@
         <div class="col-xl-8 col-lg-7 col-md-7 order-0 order-md-1">
             <!-- User Pills -->
             <ul class="nav nav-pills flex-column flex-md-row mb-3">
-                <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i
+                <li class="nav-item"><a class="nav-link" href="{{ url('app/user/'.$user->id.'/account') }}"><i
                             class="bx bx-user me-1"></i>Follower</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url('app/user/'.$user->id.'/videos') }}"><i
+                <li class="nav-item"><a class="nav-link active" href="javascript:void(0)"><i
                             class="bx bx-video me-1"></i>Videos</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('app/user/'.$user->id.'/activity') }}"><i
                             class="bx bx-bell me-1"></i>Activity</a></li>

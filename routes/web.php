@@ -257,6 +257,7 @@ Route::middleware(['admin.auth', '2fa'])->group(function () use ($controller_pat
             Route::post('{id}/block/', [StandardUserController::class, 'block'])->name('block');
             Route::post('{id}/warn/', [StandardUserController::class, 'warn'])->name('warn');
             Route::post('{id}/upgrade/', [StandardUserController::class, 'upgrade'])->name('upgrade');
+            Route::resource('educated', StandardUserController::class);
             Route::resource('standard', StandardUserController::class);
             Route::resource('premium', PremiumUserController::class);
             Route::resource('vip', DiamondUserController::class);
@@ -848,6 +849,15 @@ Route::delete('/list-reels-card/{card}', [ReelController::class, 'destroycard'])
     //        Route::resource('/flagged-users', FlaggedUserController::class);
 
     //    });
+
+    Route::get('musics/{music_id}', [MusicController::class, 'video']);
+    Route::resource('/reasons', ReasonController::class);
+    Route::get('/app/invoice/print', $controller_path . '\apps\InvoicePrint@index')->name('app-invoice-print');
+    Route::get('/app/user/{id}/account', $controller_path . '\apps\UserViewAccount@index')->name('app-user-view-account');
+    Route::get('/app/user/{id}/videos', $controller_path . '\apps\UserViewAccount@videos')->name('app-user-view-videos');
+    Route::get('/app/user/{id}/activity', $controller_path . '\apps\UserViewAccount@activity')->name('app-user-view-activity');
+    Route::get('/app/user/{id}/location', $controller_path . '\apps\UserViewAccount@location')->name('app-user-view-location');
+
 
     Route::resource('/reports', ReportController::class);
     Route::get('musics/policy_and_terms', [PolicyAndTermsController::class, 'index'])->name(

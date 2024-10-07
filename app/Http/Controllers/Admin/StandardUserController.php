@@ -18,20 +18,16 @@ class StandardUserController extends Controller
      */
     public function index()
     {
-        $view = 'male';
+        $view = 'Male';
         if (request()->view) {
             $view = request()->view;
         }
 
-        if (request()->limit) {
-            return User::where("level", 0)
-                        ->orderBy("updated_at", "DESC")
-                        ->paginate(request()->limit)
-                        ->appends(["limit" => request()->limit]);
-        }
+        if ($view === 'blocked')
 
-        $users = User::where("level", 0)->orderBy("updated_at", "DESC")->get();
-
+            $users = User::where("level", 0)->where('is_admin_user', 0)->where('status', 0)->orderBy("updated_at", "DESC")->get();
+        else
+            $users = User::where("level", 0)->where('is_admin_user', 0)->where('gender', $view)->orderBy("updated_at", "DESC")->get();
 
         return view("content.users.standard.index", compact("users", "view"));
     }
