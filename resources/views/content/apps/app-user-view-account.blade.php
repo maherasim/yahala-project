@@ -51,7 +51,9 @@
             <!-- User Pills -->
             <ul class="nav nav-pills flex-column flex-md-row mb-3">
                 <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i
-                            class="bx bx-user me-1"></i>Friends Family</a></li>
+                            class="bx bx-user me-1"></i>Friends </a></li>
+               <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i
+                              class="bx bx-user me-1"></i>Family</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('app/user/'.$user->id.'/videos') }}"><i
                             class="bx bx-video me-1"></i>Videos</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('app/user/'.$user->id.'/activity') }}"><i
