@@ -55,37 +55,21 @@ public function login(Request $request)
 public function signup(Request $request)
 {
     try {
+        // Validate the incoming request data
         $validatedData = $request->validate([
             'fname' => 'required|max:100',
             'lname' => 'required|max:100',
-            'email' => 'required',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
             'phone' => 'required|min:11',
+            'username' => 'required|unique:users,username|max:100',
             'productname' => 'required|max:255', // New field validation
             'device_type' => 'required|max:255', // New field validation
             'mobilename' => 'required|max:255',  // New field validation
             'serialnumber' => 'required|max:255', // New field validation
             'IMEI1' => 'required|digits:15',    // New field validation for 15-digit IMEI
-            // 'IMEI2' => 'nullable|digits:15',    // Optional second IMEI with 15 digits
+            'IMEI2' => 'nullable|digits:15',    // Optional second IMEI with 15 digits
         ]);
-
- // dd($validatedData)   ;   // Check for duplicate email
-        $emailTaken = User::where('email', $request->email)->first();
-        if ($emailTaken) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Email is already taken.',
-            ]);
-        }
-
-        // Check for duplicate username
-        $usernameTaken = User::where('username', $request->username)->first();
-        if ($usernameTaken) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Username is already taken.',
-            ]);
-        }
 
         // Create new user
         $user = User::create([
@@ -96,7 +80,7 @@ public function signup(Request $request)
             'status' => 1,
             'is_admin_user' => 0,
             'level' => 0,
-            'is_verfied' => 1,
+            'is_verified' => 0, // Not verified yet
             'is_superadmin' => 0,
             'last_name' => $request['lname'],
             'language' => $request['language'],
@@ -124,14 +108,17 @@ public function signup(Request $request)
             $user->save();
         }
 
-        // Send verification code if user is created
+        // Generate and store OTP if user is created
         if ($user->id) {
-            $code = rand(1000, 9999);
+            $code = rand(1000, 9999);  // Generate a 4-digit OTP
+
+            // Store the OTP in the database
             UserCode::updateOrCreate(
                 ['user_id' => $user->id],
                 ['code' => $code]
             );
 
+            // Send OTP via email
             try {
                 $details = [
                     'title' => 'Mail from Yekbun.org',
@@ -140,7 +127,12 @@ public function signup(Request $request)
                 ];
 
                 Mail::to($request['email'])->send(new SendCodeMail($details));
-                return response()->json(['success' => true, "message" => "Verification Code sent to your email", 'user' => $user->id], 200);
+
+                return response()->json([
+                    'success' => true, 
+                    "message" => "Verification Code sent to your email", 
+                    'user' => $user->id
+                ], 200);
             } catch (\Exception $e) {
                 info("Error: " . $e->getMessage());
                 return response()->json(['success' => false, 'message' => $e->getMessage()], 505);
@@ -153,6 +145,36 @@ public function signup(Request $request)
         ], 422);
     }
 }
+
+public function verifyOTP(Request $request)
+{
+    // Validate the incoming request
+    $validatedData = $request->validate([
+        'user_id' => 'required|string|exists:user_codes,user_id', // Check in user_codes table
+        'code' => 'required|digits:4', // Rename to 'code' as 'otp' in your previous request seems incorrect
+    ]);
+
+    // Retrieve the user's OTP from the UserCode table
+    $userCode = UserCode::where('user_id', $request->user_id)->first();
+
+    // Check if the OTP exists for the user
+    if (!$userCode) {
+        return response()->json(['success' => false, 'message' => 'No OTP found for this user.'], 404);
+    }
+
+    // Compare the stored OTP with the one provided
+    if ($userCode->code == $request->code) {
+        // OTP matched, mark the user as verified
+        $user = User::find($request->user_id);
+        $user->is_verified = 1; // Mark user as verified
+        $user->save();
+
+        return response()->json(['success' => true, 'message' => 'OTP verified successfully.'], 200);
+    } else {
+        return response()->json(['success' => false, 'message' => 'Invalid OTP.'], 400);
+    }
+}
+
 
 
 

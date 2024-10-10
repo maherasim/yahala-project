@@ -146,7 +146,7 @@
                     <a class="ava-link" href="{{url('/manage-avatars/' . $av->id)}}">
                     	<div class="w-px-40 text-rigth" >
                     	@if($av->image != "")
-                        	<img src="{{asset('/images/' . $av->image)}}" alt="" class="w-px-40 h-auto rounded-circle">
+                        	<img src="{{asset('/public/images/' . $av->image)}}" alt="" class="w-px-40 h-auto rounded-circle">
                         @else
                         	<img src="https://www.w3schools.com/howto/img_avatar.png" alt="" class="w-px-40 h-auto rounded-circle">
                         @endif

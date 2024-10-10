@@ -35,13 +35,13 @@ class AvatarsController extends Controller
 			
 			//$feed = Avatars_Feed::where('avatar_Id', $av->av_Id)->where('created_at', Carbon::today())->first();	
 			
-			$feed = Avatars_Feed::where('avatar_Id', $av->av_Id)->where('created_at', '>=', Carbon::today())->first();	
+			//$feed = Avatars_Feed::where('avatar_Id', $av->av_Id)->where('created_at', '>=', Carbon::today())->first();	
 			
 			
-			if($feed != null){
+			//if($feed != null){
 				
-				continue;
-			}
+			//	continue;
+			//}
 
 			
 
@@ -49,6 +49,7 @@ class AvatarsController extends Controller
 			$nary["id"] = $av->_id;
 			$nary["avatar"] = $av->av_Id;
 			$nary["task"] =  $av->task;
+			$nary["online"] = 0;
 
 			$sorucaray = array();
 
@@ -86,6 +87,7 @@ class AvatarsController extends Controller
 		$feed->image = $image;
 		$feed->content = $content;
 		$feed->forwards = 0;
+		$feed->online = 0;
 		
 		$feed->comments = 0;
 		$feed->likes = 0;
