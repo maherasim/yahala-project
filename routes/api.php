@@ -95,6 +95,8 @@ Route::post('/reset/resend', [AuthController::class, 'reset_resend'])->name('res
 Route::post('2fa', [TwoFactorController::class, 'store'])->name('2fa.post');
 Route::post('2fa/reset', [TwoFactorController::class, 'resend'])->name('2fa.resend');
 Route::post('/verify-otp', [AuthController::class, 'verifyOTP']);
+Route::delete('/user/delete', [AuthController::class, 'deleteUserByEmail']);
+
 
  
  Route::middleware('verify.token')->get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin_profile');

@@ -50,6 +50,25 @@ public function login(Request $request)
     }
 }
 
+public function deleteUserByEmail(Request $request)
+{
+    // Validate the incoming request
+    $validatedData = $request->validate([
+        'email' => 'required|email|exists:users,email',
+    ]);
+
+    // Find the user by email
+    $user = User::where('email', $validatedData['email'])->first();
+
+    if (!$user) {
+        return response()->json(['success' => false, 'message' => 'User not found.'], 404);
+    }
+
+    // Delete the user
+    $user->delete();
+
+    return response()->json(['success' => true, 'message' => 'User deleted successfully.'], 200);
+}
 
 
 public function signup(Request $request)
