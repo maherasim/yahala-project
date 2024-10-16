@@ -94,7 +94,7 @@ Route::post('/reset', [AuthController::class, 'resetpassword'])->name('reset.com
 Route::post('/reset/resend', [AuthController::class, 'reset_resend'])->name('reset.resend');
 Route::post('2fa', [TwoFactorController::class, 'store'])->name('2fa.post');
 Route::post('2fa/reset', [TwoFactorController::class, 'resend'])->name('2fa.resend');
-Route::post('/verify-otp', [AuthController::class, 'verifyDevice']);
+Route::post('/verify-otp', [AuthController::class, 'verifyOTP']);
 Route::delete('/user/delete', [AuthController::class, 'deleteUserByEmail']);
 Route::post('/register-device', [AuthController::class, 'registerDevice']);
  
