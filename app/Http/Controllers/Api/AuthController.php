@@ -50,6 +50,71 @@ public function login(Request $request)
     }
 }
 
+public function verifyDevice(Request $request)
+{
+    $request->validate([
+        'email' => 'required',
+    ]);
+    $user = User::where('email', $request->email)->first();
+    if (!$user) {
+        return response()->json(['message' => 'User not Found!'], 404);
+    }
+    if ($user->id) {
+        $code = rand(1000, 9999);
+        UserCode::updateOrCreate(
+            ['user_id' => $user->id],
+            ['code' => $code]
+        );
+
+        try {
+            $details = [
+                'title' => 'Mail from Yekbun.org',
+                'code' => $code,
+                'username' => $user->username ?? 'User',
+            ];
+            Mail::to($request['email'])->send(new SendCodeMail($details));
+            return response()->json(['success' => true, "message" => "Verfication Code sent to your email", 'user' => $user->id, 'code' => $code], 201);
+        } catch (\Exception $e) {
+            info("Error: " . $e->getMessage());
+            return response()->json(['success' => false, 'message' => $e->getMessage()], 505);
+        }
+    }
+}
+
+public function registerDevice(Request $request)
+{
+    $request->validate([
+        'email' => 'required',
+        'device_serial' => 'required',
+        'device_model' => 'required',
+        'device_type' => 'required',
+        'otp' => 'required',
+    ]);
+    $user = User::where('email', $request->email)->first();
+    if (!$user) {
+        return response()->json(['message' => 'User not Found!'], 404);
+    }
+
+    $code = UserCode::where('user_id', $user->id)->first();
+
+    if (!$code) {
+        return response()->json(['status' => false, 'message' => 'Code not found!'], 404);
+    }
+
+    if ((int)$code->code == (int)$request->otp) {
+        $user->device_serial = $request->device_serial;
+        $user->device_type = $request->device_type;
+        $user->device_model = $request->device_model;
+        if ($user->save) {
+            return response()->json(['message' => 'New device registered successfully.'], 201);
+        } else {
+            return response()->json(['message' => 'Failed to register device'], 403);
+        }
+    } else {
+        return response()->json(['status' => false, 'message' => 'Invalid Code!'], 403);
+    }
+}
+
 public function deleteUserByEmail(Request $request)
 {
     // Validate the incoming request
@@ -74,7 +139,7 @@ public function deleteUserByEmail(Request $request)
 public function signup(Request $request)
 {
     try {
-        // Validate the incoming request data
+        // Validate the incoming request data with custom messages
         $validatedData = $request->validate([
             'fname' => 'required|max:100',
             'lname' => 'required|max:100',
@@ -83,11 +148,30 @@ public function signup(Request $request)
             'phone' => 'required|min:11',
             'username' => 'required|unique:users,username|max:100',
             'productname' => 'required|max:255', // New field validation
-            'device_type' => 'required|max:255', // New field validation
-            'mobilename' => 'required|max:255',  // New field validation
-            'serialnumber' => 'required|max:255', // New field validation
+            'device_type' => 'nullable|max:255', // New field validation
+            'mobilename' => 'nullable|max:255',  // New field validation
+            'serialnumber' => 'nullable|max:255', // New field validation
             'IMEI1' => 'required|digits:15',    // New field validation for 15-digit IMEI
             'IMEI2' => 'nullable|digits:15',    // Optional second IMEI with 15 digits
+        ], [
+            'fname.required' => 'First name is required.',
+            'lname.required' => 'Last name is required.',
+            'email.required' => 'Email is required.',
+            'email.email' => 'Email must be a valid email address.',
+            'email.unique' => 'Email has already been taken.',
+            'password.required' => 'Password is required.',
+            'password.min' => 'Password must be at least 6 characters.',
+            'phone.required' => 'Phone number is required.',
+            'phone.min' => 'Phone number must be at least 11 digits.',
+            'username.required' => 'Username is required.',
+            'username.unique' => 'Username has already been taken.',
+            'productname.required' => 'Product name is required.',
+            'device_type.nullable' => 'Device type is nullable.',
+            'mobilename.nullable' => 'Mobile name is nullable.',
+            'serialnumber.nullable' => 'Serial number is nullable.',
+            'IMEI1.nullable' => 'IMEI1 is nullable.',
+            'IMEI1.digits' => 'IMEI1 must be exactly 15 digits.',
+            'IMEI2.digits' => 'IMEI2 must be exactly 15 digits if provided.',
         ]);
 
         // Create new user
@@ -164,6 +248,7 @@ public function signup(Request $request)
         ], 422);
     }
 }
+
 
 public function verifyOTP(Request $request)
 {
