@@ -97,6 +97,7 @@ Route::post('2fa/reset', [TwoFactorController::class, 'resend'])->name('2fa.rese
 Route::post('/verify-otp', [AuthController::class, 'verifyOTP']);
 Route::delete('/user/delete', [AuthController::class, 'deleteUserByEmail']);
 Route::post('/register-device', [AuthController::class, 'registerDevice']);
+Route::post('/check-user-exists', [AuthController::class, 'checkUserExists']);
  
 
  

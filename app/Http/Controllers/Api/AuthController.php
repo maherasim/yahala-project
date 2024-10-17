@@ -81,6 +81,34 @@ public function verifyDevice(Request $request)
     }
 }
 
+public function checkUserExists(Request $request)
+{
+    // Validate the incoming request
+    $validator = Validator::make($request->all(), [
+        'username' => 'required|string',
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json(['error' => $validator->errors()], 422);
+    }
+
+    // Check if user exists by username
+    $user = User::where('username', $request->username)->first();
+
+    if ($user) {
+        return response()->json([
+            'message' => 'User already exists',
+            'user_exists' => true,
+        ]);
+    } else {
+        return response()->json([
+            'message' => 'User does not exist',
+            'user_exists' => false,
+        ]);
+    }
+}
+
+
 public function registerDevice(Request $request)
 {
     $request->validate([
