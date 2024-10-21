@@ -16,10 +16,10 @@ return [
     */
 
     'paths' => ['api/*'], // Allow CORS for all API routes
-    'allowed_methods' => ['*'], // Allow all HTTP methods
-    'allowed_origins' => ['https://yahala.yekbun.org'], // Allow your specific domain
+    'allowed_methods' => ['*'],  
+    'allowed_origins' => ['https://yahala.yekbun.org'],  
     'allowed_origins_patterns' => [],
-    'allowed_headers' => ['*'], // Allow all headers
+    'allowed_headers' => ['*'], 
     'exposed_headers' => [],
     'max_age' => 0,
     'supports_credentials' => true,
