@@ -179,7 +179,7 @@ public function signup(Request $request)
             'device_type' => 'nullable|max:255', // New field validation
             'mobilename' => 'nullable|max:255',  // New field validation
             'serialnumber' => 'nullable|max:255', // New field validation
-            'IMEI1' => 'required|digits:15',    // New field validation for 15-digit IMEI
+            'IMEI1' => 'nullable|digits:15',    // New field validation for 15-digit IMEI
             'IMEI2' => 'nullable|digits:15',    // Optional second IMEI with 15 digits
         ], [
             'fname.required' => 'First name is required.',
