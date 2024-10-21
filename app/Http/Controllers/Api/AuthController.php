@@ -194,10 +194,6 @@ public function signup(Request $request)
             'username.required' => 'Username is required.',
             'username.unique' => 'Username has already been taken.',
             'productname.required' => 'Product name is required.',
-            'device_type.nullable' => 'Device type is nullable.',
-            'mobilename.nullable' => 'Mobile name is nullable.',
-            'serialnumber.nullable' => 'Serial number is nullable.',
-            'IMEI1.nullable' => 'IMEI1 is nullable.',
             'IMEI1.digits' => 'IMEI1 must be exactly 15 digits.',
             'IMEI2.digits' => 'IMEI2 must be exactly 15 digits if provided.',
         ]);
@@ -211,7 +207,7 @@ public function signup(Request $request)
             'status' => 1,
             'is_admin_user' => 0,
             'level' => 0,
-            'is_verified' => 0, // Not verified yet
+            'is_verified' => 0,
             'is_superadmin' => 0,
             'last_name' => $request['lname'],
             'language' => $request['language'],
@@ -225,11 +221,11 @@ public function signup(Request $request)
             'city' => $request['city'],
             'phone' => $request['phone'],
             'user_type' => 'users',
-            'productname' => $request['productname'],   // Saving new field
-            'mobilename' => $request['mobilename'],     // Saving new field
-            'serialnumber' => $request['serialnumber'], // Saving new field
-            'IMEI1' => $request['IMEI1'],               // Saving new field
-            'IMEI2' => $request['IMEI2'],               // Saving optional IMEI2
+            'productname' => $request['productname'],
+            'mobilename' => $request['mobilename'],
+            'serialnumber' => $request['serialnumber'],
+            'IMEI1' => $request['IMEI1'],
+            'IMEI2' => $request['IMEI2'],
         ]);
 
         // Save user image if provided
@@ -241,7 +237,7 @@ public function signup(Request $request)
 
         // Generate and store OTP if user is created
         if ($user->id) {
-            $code = rand(1000, 9999);  // Generate a 4-digit OTP
+            $code = rand(1000, 9999); // Generate a 4-digit OTP
 
             // Store the OTP in the database
             UserCode::updateOrCreate(
@@ -269,13 +265,21 @@ public function signup(Request $request)
                 return response()->json(['success' => false, 'message' => $e->getMessage()], 505);
             }
         }
-    } catch (\Exception $e) {
+    } catch (\Illuminate\Validation\ValidationException $e) {
+        // Catch validation errors and return detailed messages
         return response()->json([
             'success' => false,
-            'errors' => $e->getMessage(),
+            'errors' => $e->errors(), // Returns all validation error messages
         ], 422);
+    } catch (\Exception $e) {
+        // Catch any other exceptions and return a complete message
+        return response()->json([
+            'success' => false,
+            'message' => 'Something went wrong: ' . $e->getMessage(),
+        ], 500);
     }
 }
+
 
 
 public function verifyOTP(Request $request)
