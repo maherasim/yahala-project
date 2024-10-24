@@ -111,37 +111,55 @@ public function checkUserExists(Request $request)
 
 public function registerDevice(Request $request)
 {
-    $request->validate([
-        'email' => 'required',
+    // Validate request fields
+    $validator = Validator::make($request->all(), [
+        'email' => 'required|email',
         'device_serial' => 'required',
         'device_model' => 'required',
         'device_type' => 'required',
-        'otp' => 'required',
+        'otp' => 'required|integer',
     ]);
+
+    // If validation fails, return errors in JSON response
+    if ($validator->fails()) {
+        return response()->json([
+            'status' => false,
+            'errors' => $validator->errors(),
+        ], 422);
+    }
+
     $user = User::where('email', $request->email)->first();
+
+    // Check if user exists
     if (!$user) {
-        return response()->json(['message' => 'User not Found!'], 404);
+        return response()->json(['status' => false, 'message' => 'User not found!'], 404);
     }
 
     $code = UserCode::where('user_id', $user->id)->first();
 
+    // Check if code exists
     if (!$code) {
         return response()->json(['status' => false, 'message' => 'Code not found!'], 404);
     }
 
-    if ((int)$code->code == (int)$request->otp) {
-        $user->device_serial = $request->device_serial;
-        $user->device_type = $request->device_type;
-        $user->device_model = $request->device_model;
-        if ($user->save) {
-            return response()->json(['message' => 'New device registered successfully.'], 201);
-        } else {
-            return response()->json(['message' => 'Failed to register device'], 403);
-        }
+    // Validate OTP
+    if ((int)$code->code !== (int)$request->otp) {
+        return response()->json(['status' => false, 'message' => 'Invalid OTP!'], 403);
+    }
+
+    // Update user device details
+    $user->device_serial = $request->device_serial;
+    $user->device_type = $request->device_type;
+    $user->device_model = $request->device_model;
+
+    // Attempt to save the user
+    if ($user->save()) {
+        return response()->json(['status' => true, 'message' => 'New device registered successfully.'], 201);
     } else {
-        return response()->json(['status' => false, 'message' => 'Invalid Code!'], 403);
+        return response()->json(['status' => false, 'message' => 'Failed to register device.'], 500);
     }
 }
+
 
 public function deleteUserByEmail(Request $request)
 {
