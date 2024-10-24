@@ -45,11 +45,20 @@ use Jenssegers\Mongodb\Auth\User as Authenticatable;
         'city',
         'province_city',
         'country',
+        'device_model',
         'role_id',
         'roles',
+        'otp',
+        'device_type',
+        'device_serial',
         'is_admin_user',
         'is_superadmin'
     ];
+
+     
+     
+
+
 
     /**
      * The attributes that should be hidden for serialization.

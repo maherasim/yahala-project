@@ -96,9 +96,13 @@ Route::post('2fa', [TwoFactorController::class, 'store'])->name('2fa.post');
 Route::post('2fa/reset', [TwoFactorController::class, 'resend'])->name('2fa.resend');
 Route::post('/verify-otp', [AuthController::class, 'verifyOTP']);
 Route::delete('/user/delete', [AuthController::class, 'deleteUserByEmail']);
-Route::post('/register-device', [AuthController::class, 'registerDevice']);
-Route::post('/check-user-exists', [AuthController::class, 'checkUserExists']);
+ Route::post('/check-user-exists', [AuthController::class, 'checkUserExists']);
  
+
+//lost device
+Route::post('/register-device', [AuthController::class, 'registerDevice']);
+Route::post('/register-verify-device', [AuthController::class, 'verifyDevice']);
+
 
  
  Route::middleware('verify.token')->get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin_profile');
