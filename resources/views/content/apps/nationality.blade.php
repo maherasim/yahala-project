@@ -23,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($nationalities as $key => $nationality)
+                    @foreach ($nationality as $key => $nationality)
                         <tr>
                             <td>{{ ++$key }}</td>
                             <td>{{ $nationality->name }}</td>
