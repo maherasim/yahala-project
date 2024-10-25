@@ -1,4 +1,4 @@
-@extends('layouts/layoutMaster')
+@extends('layouts/layoutMaster') 
 
 @section('title', 'Nationality')
 
@@ -6,7 +6,6 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <div class="container-xxl flex-grow-1 container-p-y">
-
     <div class="card-header d-flex align-items-center px-2 justify-content-between">
         <h4 class="fw-bold py-3 mb-4">Nationality</h4>
         <a href="javascript:void(0)" class="btn btn-primary add-button" data-bs-toggle="modal" data-bs-target="#addCategory">Add Nationality</a>
@@ -24,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($nationality as $key => $nationality)
+                    @foreach ($nationalities as $key => $nationality)
                         <tr>
                             <td>{{ ++$key }}</td>
                             <td>{{ $nationality->name }}</td>
@@ -100,17 +99,17 @@
                 <h5 class="modal-title">Edit Nationality</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <form action="{{ route('nationality.update', $nationality->id) }}" method="POST" id="editNationalityForm" enctype="multipart/form-data">
+            <form action="" method="POST" id="editNationalityForm" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="edit_nationality_name" class="form-label">Nationality Name</label>
-                        <input type="text" id="edit_nationality_name" name="name" class="form-control" placeholder="Enter nationality name" value="{{ $nationality->name }}">
+                        <input type="text" id="edit_nationality_name" name="name" class="form-control" placeholder="Enter nationality name">
                     </div>
                     <div class="mb-0">
                         <label class="form-label">Thumbnail</label>
-                        <input type="file" name="thumbnail_path" class="form-control"  value="{{ $nationality->thumbnail_path }}">
+                        <input type="file" name="thumbnail_path" class="form-control">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -156,7 +155,7 @@
 
             // Update the form action with the current nationality ID
             const editForm = document.getElementById('editNationalityForm');
-            editForm.action = editForm.action.replace(':id', nationalityId);
+            editForm.action = `{{ url('nationality') }}/${nationalityId}`; // Construct the URL for the update
         });
     });
 </script>
