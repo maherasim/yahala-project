@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Countrylocations;
-use App\Models\Stateslocations;
+use App\Models\Stateslocations; 
 use App\Models\Citylocations;
+use App\Models\Nationality;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use DateTime;
@@ -67,7 +68,51 @@ class CountryLocationController extends Controller
 		return response()->json($aray, 200);
 		
     }
+	public function getnatioanlity(){
+
+		$nationality = Nationality::get();
+        return view('content.apps.nationality',compact('nationality'));
+	}
 	
+	public function nationalitystore(Request $request)
+	{
+		// 1. Validate the request inputs
+		$validatedData = $request->validate([
+			'name' => 'required|string|max:255',
+			'thumbnail_path' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validate image file
+		]);
+	
+	 
+		$thumbnailPath = null;
+		if ($request->hasFile('thumbnail_path')) {
+			$thumbnailPath = $request->file('thumbnail_path')->store('thumbnails', 'public');
+		}
+	
+	
+		$nationality = Nationality::create([
+			'name' => $validatedData['name'],
+			'thumbnail_path' => $thumbnailPath, // Store the path of the uploaded file
+		]);
+	
+		// 4. Return response
+		if ($nationality) {
+			return redirect()->back()
+				->with('success', 'Nationality created successfully!');
+		} else {
+			return back()->withInput()
+				->with('error', 'Failed to create nationality. Please try again.');
+		}
+	}
+
+	public function nationalitydestroy($id)
+	{
+		$nationality = Nationality::findOrFail($id);
+		$nationality->delete();
+	
+		return redirect()->back()->with('success', 'Nationality deleted successfully');
+	}
+	
+
 	public function get_pricing($id){
 		$avatar =  Pricings::where('_id', $id)->first();
 		

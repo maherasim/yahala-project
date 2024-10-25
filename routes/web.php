@@ -179,6 +179,13 @@ Route::group(['middleware' => 'permission:avatars.read'], function () {
 Route::resource('/settings/countrieslist', CountryLocationController::class);
 Route::post('/settings/countrieslist', [CountryLocationController::class, 'store']);
 
+
+Route::get('/nationality', [CountryLocationController::class, 'getnatioanlity'])->name('nationality');
+Route::post('/nationality/store', [CountryLocationController::class, 'nationalitystore'])->name('nationality.store');
+Route::delete('/nationality/destroy/{id}', [CountryLocationController::class, 'nationalitydestroy'])->name('nationality.destroy');
+
+
+
 //greetings
 Route::resource('/uploads_cards', GreetingsController::class);
 

@@ -73,7 +73,7 @@ public function verifyDevice(Request $request)
                 'username' => $user->username ?? 'User',
             ];
             Mail::to($request['email'])->send(new SendCodeMail($details));
-            return response()->json(['success' => true, "message" => "Verfication Code sent to your email", 'user' => $user->id, 'code' => $code], 201);
+            return response()->json(['success' => true, "message" => "Verfication Code sent to your email", 'user' => $user->id, 'code' => $code], 200);
         } catch (\Exception $e) {
             info("Error: " . $e->getMessage());
             return response()->json(['success' => false, 'message' => $e->getMessage()], 505);
@@ -154,7 +154,7 @@ public function registerDevice(Request $request)
 
     // Attempt to save the user
     if ($user->save()) {
-        return response()->json(['status' => true, 'message' => 'New device registered successfully.'], 201);
+        return response()->json(['status' => true, 'message' => 'New device registered successfully.'], 200);
     } else {
         return response()->json(['status' => false, 'message' => 'Failed to register device.'], 500);
     }
