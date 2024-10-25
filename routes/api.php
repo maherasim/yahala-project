@@ -109,6 +109,13 @@ Route::post('/register-verify-device', [AuthController::class, 'verifyDevice']);
 
 
 
+
+ Route::get('/nationality', [CountryLocationController::class, 'getnatioanlity'])->name('nationality');
+
+
+
+
+
 Route::post('/admin/profile/store', [AdminProfileController::class, 'store'])->name('admin_profile.store');
 Route::get('/admin/profile/security', [AdminProfileController::class, 'security'])->name('admin_profile.security');
 Route::get('/admin/profile/account', [AdminProfileController::class, 'account'])->name('admin_profile.account');

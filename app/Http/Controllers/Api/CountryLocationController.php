@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Countrylocations;
 use App\Models\Stateslocations;
 use App\Models\Citylocations;
+use App\Models\Nationality;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use DateTime;
@@ -27,7 +28,17 @@ class CountryLocationController extends Controller
     }
 
 	
-
+	public function getNationality()
+	{
+		$nationality = Nationality::all(); // Fetch all nationalities
+	
+		// Return JSON response
+		return response()->json([
+			'success' => true,
+			'message' => 'Nationalities retrieved successfully.',
+			'data' => $nationality,
+		]);
+	}
 
 	public function search_location(Request $request)
     {
