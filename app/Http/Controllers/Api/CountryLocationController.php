@@ -30,9 +30,9 @@ class CountryLocationController extends Controller
 	
 	public function getNationality()
 	{
-		$nationality = Nationality::all(); // Fetch all nationalities
+		$nationality = Nationality::all(); 
 	
-		// Return JSON response
+		 
 		return response()->json([
 			'success' => true,
 			'message' => 'Nationalities retrieved successfully.',
