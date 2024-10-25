@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\BazarController;
 use App\Http\Controllers\Api\EventController;
+use App\Http\Controllers\Api\CountryLocationController;
 use App\Http\Controllers\Api\ReasonController;
 use App\Http\Controllers\Api\AdminProfileController;
 use App\Http\Controllers\Api\MediaController;
