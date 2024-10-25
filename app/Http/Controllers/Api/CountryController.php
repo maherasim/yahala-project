@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\Countrylocations;
 use App\Models\Stateslocations;
 use App\Models\Citylocations;
+use App\Models\Nationality;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCountryRequest;
@@ -36,7 +37,17 @@ class CountryController extends Controller
         ]);
     }
     
-    
+	public function getNationality()
+	{
+		$nationality = Nationality::all(); 
+	
+		 
+		return response()->json([
+			'success' => true,
+			'message' => 'Nationalities retrieved successfully.',
+			'data' => $nationality,
+		]);
+	}
 
 
     public function search_location(Request $request)

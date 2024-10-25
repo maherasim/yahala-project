@@ -111,7 +111,6 @@ Route::post('/register-verify-device', [AuthController::class, 'verifyDevice']);
 
 
 
- Route::get('/nationality', [CountryLocationController::class, 'getnatioanlity'])->name('nationality');
 
 
 
@@ -128,6 +127,12 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
 
 // Route::middleware('auth:sanctum')->group(function () {
   Route::get('countries', [CountryController::class, 'index'])->name('countries.index');
+
+
+  Route::get('countries', [CountryController::class, 'index'])->name('countries.index');
+
+  Route::get('/nationality', [CountryController::class, 'getnatioanlity'])->name('nationality');
+
   Route::post('countries', [CountryController::class, 'store'])->name('countries.store');
   Route::put('countries/{id}', [CountryController::class, 'update'])->name('countries.update');
   Route::delete('countries/{id}', [CountryController::class, 'destroy'])->name('countries.destroy');
