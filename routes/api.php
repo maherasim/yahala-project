@@ -131,7 +131,7 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
 
   Route::get('countries', [CountryController::class, 'index'])->name('countries.index');
 
-  Route::get('/nationality', [CountryController::class, 'getnatioanlity'])->name('nationality');
+  Route::get('/nationality', [CountryController::class, 'getNationality'])->name('nationality');
 
   Route::post('countries', [CountryController::class, 'store'])->name('countries.store');
   Route::put('countries/{id}', [CountryController::class, 'update'])->name('countries.update');
