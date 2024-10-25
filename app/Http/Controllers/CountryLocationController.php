@@ -112,6 +112,39 @@ class CountryLocationController extends Controller
 		return redirect()->back()->with('success', 'Nationality deleted successfully');
 	}
 	
+	 
+
+	public function nationalityupdate(Request $request, $id)
+	{
+		 
+		$request->validate([
+			'name' => 'required|string|max:255',
+			'thumbnail_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust as needed
+		]);
+	
+		// Find the nationality by ID
+		$nationality = Nationality::findOrFail($id);
+	
+		// Update the nationality name
+		$nationality->name = $request->input('name');
+	
+		// Check if a new thumbnail is uploaded
+		if ($request->hasFile('thumbnail_path')) {
+			// You may want to delete the old thumbnail if necessary
+	
+			// Store the new thumbnail and update the path
+			$nationality->thumbnail_path = $request->file('thumbnail_path')->store('nationalities', 'public'); // Adjust storage path as needed
+		}
+	
+		// Save the changes to the database
+		$nationality->save();
+	
+		// Redirect back with a success message
+		return redirect()->back()->with('success', 'Nationality updated successfully');
+	}
+	
+
+
 
 	public function get_pricing($id){
 		$avatar =  Pricings::where('_id', $id)->first();
