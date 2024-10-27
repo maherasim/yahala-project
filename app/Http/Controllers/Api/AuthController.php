@@ -442,7 +442,7 @@ public function verifyOTP(Request $request)
   
    
           $user = ResetUserPassword::where('user_id', $request->user_id)->first();
- 
+ dd(  $user );
           // User not found
           if ($user === null) {
               return response()->json(['success' => false, 'message' => 'User not found.'], 404);
