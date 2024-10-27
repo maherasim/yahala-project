@@ -375,45 +375,115 @@ public function verifyOTP(Request $request)
 
   public function resetpassword(Request $request)
   {
-    $user  = ResetUserPassword::where('user_id', $request->user_id)->first();
-    if ($user->password_token != $request->token)
-      return response()->json(['success' => false, 'message' => 'Something went wrong']);
-
-    $user = User::find($request->user_id);
-    if ($user == '')
-      return response()->json(['success' => false, 'message' => 'User Not found.']);
-
-    $user->password = bcrypt($request->password);
-    $user->save();
-
-    ResetUserPassword::where('user_id', $request->user_id)->delete();
-
-    return response()->json(['success' => true, 'message' => 'Your password has been changed.']);
+      try {
+          // Validate request data
+          $request->validate([
+              'user_id' => 'required',
+              'token' => 'required',
+              'password' => 'required|min:8', // Ensure the password meets minimum length requirements
+          ]);
+  
+          // Find the reset user
+          $resetUser = ResetUserPassword::where('user_id', $request->user_id)->first();
+ // dd(  $resetUser);
+          // Check if the user exists in ResetUserPassword
+          if ($resetUser === null) {
+              return response()->json(['success' => false, 'message' => 'User not found in reset records.'], 404);
+          }
+  
+          // Check if the password token matches
+          if ($resetUser->password_token !== $request->token) {
+              return response()->json(['success' => false, 'message' => 'Invalid token.'], 403);
+          }
+  
+          // Find the actual user to update the password
+          $user = User::find($request->user_id);
+          if ($user === null) {
+              return response()->json(['success' => false, 'message' => 'User not found.'], 404);
+          }
+  
+          // Update the user's password
+          $user->password = bcrypt($request->password);
+          $user->save();
+  
+          // Delete the reset record
+          ResetUserPassword::where('user_id', $request->user_id)->delete();
+  
+          return response()->json(['success' => true, 'message' => 'Your password has been changed.']);
+  
+      } catch (\Illuminate\Validation\ValidationException $e) {
+          // Handle validation exceptions
+          return response()->json([
+              'success' => false,
+              'message' => 'Validation error.',
+              'errors' => $e->errors(), // Return validation errors
+          ], 422);
+  
+      } catch (\Exception $e) {
+          // Handle any other exceptions
+          return response()->json([
+              'success' => false,
+              'message' => 'An error occurred.',
+              'error' => $e->getMessage(), // Provide detailed error message
+          ], 500);
+      }
   }
+  
 
   public function reset(Request $request)
   {
-    $request->validate([
-      'code' => 'required',
-    ]);
-
-    $user = ResetUserPassword::where('user_id', $request->user_id)->first();
-    if ($user !== "") {
-      if ($request->token != $user->token)
-        return response()->json(['success' => false, 'message' => 'Something went wrong.']);
-
-      if ($user->code == $request->code) {
-        $password_token = Str::random(50);
-        $user->password_token = $password_token;
-        $user->save();
-        return response()->json(['success' => true, 'data' => ['token' => $password_token, 'user_id' => $user->user_id]]);
-      } else {
-        return response()->json(['success' => false, 'message' => 'OTP code is incorrect.']);
+      try {
+          // Validate request data
+        $data=  $request->validate([
+              'code' => 'required',
+              'user_id' => 'required',
+              'token' => 'required',
+          ]);
+  
+   
+          $user = ResetUserPassword::where('user_id', $request->user_id)->first();
+ 
+          // User not found
+          if ($user === null) {
+              return response()->json(['success' => false, 'message' => 'User not found.'], 404);
+          }
+  
+          // Check if the token matches
+          if ($request->token !== $user->token) {
+              return response()->json(['success' => false, 'message' => 'Invalid token.'], 403);
+          }
+  
+          // Check if the OTP code is correct
+          if ((int)$user->code !== (int)$request->code) {
+            return response()->json(['success' => false, 'message' => 'OTP code is incorrect.'], 422);
+        }
+  
+          // Generate a new password token and save it
+          $password_token = Str::random(50);
+          $user->password_token = $password_token;
+          $user->save();
+  
+          // Successful response
+          return response()->json(['success' => true, 'data' => ['token' => $password_token, 'user_id' => $user->user_id]]);
+          
+      } catch (\Illuminate\Validation\ValidationException $e) {
+          // Handle validation exceptions
+          return response()->json([
+              'success' => false,
+              'message' => 'Validation error.',
+              'errors' => $e->errors(), // Return the validation errors
+          ], 422);
+          
+      } catch (\Exception $e) {
+          // Handle any other exceptions
+          return response()->json([
+              'success' => false,
+              'message' => 'An error occurred.',
+              'error' => $e->getMessage(), // Provide detailed error message
+          ], 500);
       }
-    } else {
-      return response()->json(['success' => false, 'message' => 'User not found.']);
-    }
   }
+  
 
   public function reset_resend(Request $request)
   {
