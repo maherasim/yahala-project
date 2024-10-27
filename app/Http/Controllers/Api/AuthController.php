@@ -434,15 +434,18 @@ public function verifyOTP(Request $request)
   {
       try {
           // Validate request data
-        $data=  $request->validate([
-              'code' => 'required',
+          $data = $request->validate([
+              'code' => 'required|integer', // Ensure code is an integer
               'user_id' => 'required',
               'token' => 'required',
           ]);
   
-
+          // Find the user
           $user = ResetUserPassword::where('user_id', $request->user_id)->first();
-          dd( $data,$user);
+          
+          // Debugging output
+          dd($data, $user);
+  
           // User not found
           if ($user === null) {
               return response()->json(['success' => false, 'message' => 'User not found.'], 404);
@@ -455,8 +458,8 @@ public function verifyOTP(Request $request)
   
           // Check if the OTP code is correct
           if ((int)$user->code !== (int)$request->code) {
-            return response()->json(['success' => false, 'message' => 'OTP code is incorrect.'], 422);
-        }
+              return response()->json(['success' => false, 'message' => 'OTP code is incorrect.'], 422);
+          }
   
           // Generate a new password token and save it
           $password_token = Str::random(50);
@@ -471,7 +474,7 @@ public function verifyOTP(Request $request)
           return response()->json([
               'success' => false,
               'message' => 'Validation error.',
-              'errors' => $e->errors(), // Return the validation errors
+              'errors' => $e->errors(), // Return validation errors
           ], 422);
           
       } catch (\Exception $e) {
@@ -483,6 +486,7 @@ public function verifyOTP(Request $request)
           ], 500);
       }
   }
+  
   
 
   public function reset_resend(Request $request)
