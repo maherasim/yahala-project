@@ -202,6 +202,7 @@ public function signup(Request $request)
         ], [
             'fname.required' => 'First name is required.',
             'lname.required' => 'Last name is required.',
+            'nationality.required' => 'nationality is required.',
             'email.required' => 'Email is required.',
             'email.email' => 'Email must be a valid email address.',
             'email.unique' => 'Email has already been taken.',
@@ -219,6 +220,7 @@ public function signup(Request $request)
         // Create new user
         $user = User::create([
             'name' => $request['fname'],
+            'nationality' => $request['nationality'],
             'username' => $request['username'],
             'email' => $request['email'],
             'password' => bcrypt($request['password']),

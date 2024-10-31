@@ -33,6 +33,7 @@ use Jenssegers\Mongodb\Auth\User as Authenticatable;
         'email',
         'password',
         'image',
+        'nationality',
         'status',
         'level',
         'username',

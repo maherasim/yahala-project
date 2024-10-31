@@ -40,6 +40,7 @@ class User extends Authenticatable  implements MustVerifyEmail
     'fname',
     'lname',
     'gender',
+    'nationality',
     'dob',
     'device_type',
     'address',
