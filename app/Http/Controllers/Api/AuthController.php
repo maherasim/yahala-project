@@ -197,8 +197,8 @@ public function signup(Request $request)
             'device_type' => 'nullable|max:255', // New field validation
             'mobilename' => 'nullable|max:255',  // New field validation
             'serialnumber' => 'nullable|max:255', // New field validation
-            'IMEI1' => 'nullable|digits:15',    // New field validation for 15-digit IMEI
-            'IMEI2' => 'nullable|digits:15',    // Optional second IMEI with 15 digits
+            // 'IMEI1' => 'nullable|digits:15',    // New field validation for 15-digit IMEI
+            // 'IMEI2' => 'nullable|digits:15',    // Optional second IMEI with 15 digits
         ], [
             'fname.required' => 'First name is required.',
             'lname.required' => 'Last name is required.',
@@ -213,8 +213,8 @@ public function signup(Request $request)
             'username.required' => 'Username is required.',
             'username.unique' => 'Username has already been taken.',
             'productname.required' => 'Product name is required.',
-            'IMEI1.digits' => 'IMEI1 must be exactly 15 digits.',
-            'IMEI2.digits' => 'IMEI2 must be exactly 15 digits if provided.',
+            // 'IMEI1.digits' => 'IMEI1 must be exactly 15 digits.',
+            // 'IMEI2.digits' => 'IMEI2 must be exactly 15 digits if provided.',
         ]);
 
         // Create new user
