@@ -189,6 +189,7 @@ public function signup(Request $request)
         $validatedData = $request->validate([
             'fname' => 'required|max:100',
             'lname' => 'required|max:100',
+            'nationality' => 'integer|max:100',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
             'phone' => 'required|min:11',
