@@ -245,8 +245,8 @@ public function signup(Request $request)
             'productname' => $request['productname'],
             'mobilename' => $request['mobilename'],
             'serialnumber' => $request['serialnumber'],
-            'IMEI1' => $request['IMEI1'],
-            'IMEI2' => $request['IMEI2'],
+            // 'IMEI1' => $request['IMEI1'],
+            // 'IMEI2' => $request['IMEI2'],
         ]);
 
         // Save user image if provided
