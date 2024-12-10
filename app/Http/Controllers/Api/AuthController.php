@@ -242,8 +242,7 @@ public function signup(Request $request)
             'last_name' => $request['lname'],
             'language' => $request['language'],
             'gender' => $request['gender'],
-          //  'origin' => $request['origin'],
-            'location' => $location,
+            'location' => $location,  // Store the location with lat and long
             'marital_status' => $request['marital_status'],
             'dob' => $request['dob'],
             'province' => $request['province'],
