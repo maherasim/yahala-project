@@ -182,10 +182,10 @@ public function deleteUserByEmail(Request $request)
 }
 
 
-public function signup(Request $request)
+public function signup(Request $request) 
 {
     try {
-        // Validate the incoming request data with custom messages
+        // Validate the incoming request data
         $validatedData = $request->validate([
             'fname' => 'required|max:100',
             'lname' => 'required|max:100',
@@ -194,16 +194,15 @@ public function signup(Request $request)
             'password' => 'required|min:6',
             'phone' => 'required|min:11',
             'username' => 'required|unique:users,username|max:100',
-            'productname' => 'required|max:255', // New field validation
-            'device_type' => 'nullable|max:255', // New field validation
-            'mobilename' => 'nullable|max:255',  // New field validation
-            'serialnumber' => 'nullable|max:255', // New field validation
-            // 'IMEI1' => 'nullable|digits:15',    // New field validation for 15-digit IMEI
-            // 'IMEI2' => 'nullable|digits:15',    // Optional second IMEI with 15 digits
+            'productname' => 'required|max:255',
+            'device_type' => 'nullable|max:255',
+            'mobilename' => 'nullable|max:255',
+            'serialnumber' => 'nullable|max:255',
+            'location.lat' => 'required|numeric|between:-90,90', // Latitude validation
+            'location.long' => 'required|numeric|between:-180,180', // Longitude validation
         ], [
             'fname.required' => 'First name is required.',
             'lname.required' => 'Last name is required.',
-            'nationality.required' => 'nationality is required.',
             'email.required' => 'Email is required.',
             'email.email' => 'Email must be a valid email address.',
             'email.unique' => 'Email has already been taken.',
@@ -214,9 +213,19 @@ public function signup(Request $request)
             'username.required' => 'Username is required.',
             'username.unique' => 'Username has already been taken.',
             'productname.required' => 'Product name is required.',
-            // 'IMEI1.digits' => 'IMEI1 must be exactly 15 digits.',
-            // 'IMEI2.digits' => 'IMEI2 must be exactly 15 digits if provided.',
+            'location.lat.required' => 'Latitude is required.',
+            'location.lat.numeric' => 'Latitude must be a number.',
+            'location.lat.between' => 'Latitude must be between -90 and 90.',
+            'location.long.required' => 'Longitude is required.',
+            'location.long.numeric' => 'Longitude must be a number.',
+            'location.long.between' => 'Longitude must be between -180 and 180.',
         ]);
+
+        // Extract location data
+        $location = [
+            'lat' => $request->input('location.lat'),
+            'long' => $request->input('location.long'),
+        ];
 
         // Create new user
         $user = User::create([
@@ -234,7 +243,7 @@ public function signup(Request $request)
             'language' => $request['language'],
             'gender' => $request['gender'],
             'origin' => $request['origin'],
-            'location' => $request['location'],
+            'location' => $location,
             'marital_status' => $request['marital_status'],
             'dob' => $request['dob'],
             'province' => $request['province'],
@@ -245,8 +254,6 @@ public function signup(Request $request)
             'productname' => $request['productname'],
             'mobilename' => $request['mobilename'],
             'serialnumber' => $request['serialnumber'],
-            // 'IMEI1' => $request['IMEI1'],
-            // 'IMEI2' => $request['IMEI2'],
         ]);
 
         // Save user image if provided
@@ -300,6 +307,7 @@ public function signup(Request $request)
         ], 500);
     }
 }
+
 
 
 

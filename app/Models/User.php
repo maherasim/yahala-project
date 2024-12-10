@@ -7,7 +7,6 @@ use Exception;
 use App\Mail\SendCodeMail;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Activitylog\LogOptions;
-// use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\Traits\CausesActivity;
@@ -16,8 +15,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Jenssegers\Mongodb\Auth\User as Authenticatable;
 use Maklad\Permission\Traits\HasRoles;
 
-
-class User extends Authenticatable  implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles, CausesActivity, LogsActivity;
 
@@ -30,33 +28,34 @@ class User extends Authenticatable  implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
-    'name',
-    'email',
-    'password',
-    'image',
-    'status',
-    'level',
-    'username',
-    'fname',
-    'lname',
-    'gender',
-    'nationality',
-    'dob',
-    'device_type',
-    'address',
-    'province',
-    'city',
-    'province_city',
-    'country',
-    'role_id',
-    'roles',
-    'is_admin_user',
-    'is_superadmin',
-    'productname',      // New field
-    'mobilename',       // New field
-    'serialnumber',     // New field
-    'IMEI1',            // New field
-    'IMEI2' 
+        'name',
+        'email',
+        'password',
+        'image',
+        'status',
+        'level',
+        'username',
+        'fname',
+        'lname',
+        'gender',
+        'nationality',
+        'dob',
+        'device_type',
+        'address',
+        'province',
+        'city',
+        'province_city',
+        'country',
+        'role_id',
+        'roles',
+        'is_admin_user',
+        'is_superadmin',
+        'productname',
+        'mobilename',
+        'serialnumber',
+        'IMEI1',
+        'IMEI2',
+        'location' // Added field for JSON location data
     ];
 
     /**
@@ -76,6 +75,7 @@ class User extends Authenticatable  implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'location' => 'array', // Cast location field to array
     ];
 
     public function getActivitylogOptions(): LogOptions
@@ -123,7 +123,6 @@ class User extends Authenticatable  implements MustVerifyEmail
         return $this->hasMany(FanPage::class, 'user_id', 'id');
     }
 
-
     public function roles()
     {
         return $this->belongsToMany(Role::class, null, 'user_ids', 'role_ids');
@@ -131,41 +130,32 @@ class User extends Authenticatable  implements MustVerifyEmail
 
     public function permissions()
     {
-
         return $this->belongsToMany(Permission::class, null, 'user_ids', 'permission_ids');
     }
 
-    //public function hasRole($role)
-//{
- //   return $this->role === $role;
-//}
-
     public function before(User $user, string $ability): bool|null
-{
+    {
+        if ($user->hasRole('Super Admin')) {
+            return true;
+        }
 
-
-    if ($user->hasRole('Super Admin')) {
-        return true;
+        return null;
     }
-
-    return null; // see the note above in Gate::before about why null must be returned here.
-}
 
     public function hasPermission($permission)
     {
-
         return $this->permissions()->where('name', $permission)->exists() ||
-               $this->roles()->whereHas('permissions', function ($query) use ($permission) {
-                   $query->where('name', $permission);
-               })->exists();
+            $this->roles()->whereHas('permissions', function ($query) use ($permission) {
+                $query->where('name', $permission);
+            })->exists();
     }
 
     /**
-     * Write code on Method
+     * Generate a new verification code and send it via email.
      *
-     * @return response()
+     * @return void
      */
-    public  function generateCode()
+    public function generateCode()
     {
         $code = rand(100000, 999999);
 
@@ -175,10 +165,9 @@ class User extends Authenticatable  implements MustVerifyEmail
         );
 
         try {
-
             $details = [
                 'title' => 'Mail from Yekbun.com',
-                'code' => $code
+                'code' => $code,
             ];
 
             Mail::to(auth()->user()->email)->send(new SendCodeMail($details));
@@ -186,5 +175,4 @@ class User extends Authenticatable  implements MustVerifyEmail
             info("Error: " . $e->getMessage());
         }
     }
-
 }
