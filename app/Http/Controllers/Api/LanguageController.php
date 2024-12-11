@@ -47,38 +47,19 @@ class LanguageController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-//   public function index()
-//   {
-//     $languages = Language::select('title', 'icon', 'status')->get(); 
-
-//     $languageData = LanguageData::all();
-
-//     $textCounts = Text::count();
-
-//     foreach ($languages as $language) {
-//       $language->texts_count = $textCounts;
-//     }
-//     return response()->json(['languages' => $languages],200);
-//   }
-
   public function index()
   {
-      $languages = Language::all()->map(function($language) {
-          // Use the `storage_path` helper to create the correct URL
-          $language->icon = asset('storage/' . $language->icon); // Ensure correct path
-          return $language;
-      });
-  
-      return response()->json([
-          'success' => true,
-          'message' => 'Languages retrieved successfully.',
-          'data' => $languages,
-      ]);
+    $languages = Language::select('title', 'icon', 'status')->get(); 
+
+    $languageData = LanguageData::all();
+
+    $textCounts = Text::count();
+
+    foreach ($languages as $language) {
+      $language->texts_count = $textCounts;
+    }
+    return response()->json(['languages' => $languages],200);
   }
-
-
-
-
 
   /**
    * Show the form for creating a new resource.
