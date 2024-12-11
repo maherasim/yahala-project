@@ -51,11 +51,11 @@ class LanguageController extends Controller
   {
       $languages = Language::select('title', 'icon', 'status')->get();
   
-      $baseUrl = url('/'); // Base URL of your Laravel application
+      $baseUrl = url('storage'); // This points to the public storage directory
   
       foreach ($languages as $language) {
-          // Append base URL to the icon path
-          $language->icon = $baseUrl . '/' . ltrim($language->icon, '/');
+          // Append the storage path (e.g., storage/thumbnails/filename)
+          $language->icon = $baseUrl . '/thumbnails/' . basename($language->icon);
       }
   
       $languageData = LanguageData::all();
@@ -68,6 +68,7 @@ class LanguageController extends Controller
   
       return response()->json(['languages' => $languages], 200);
   }
+  
   
 
   /**
