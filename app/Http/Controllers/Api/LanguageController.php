@@ -51,11 +51,13 @@ class LanguageController extends Controller
   {
       $languages = Language::select('title', 'icon', 'status')->get();
   
-      $baseUrl = url('storage'); // This points to the public storage directory
+      $baseUrl = url('storage'); // This points to the base URL for public storage
   
       foreach ($languages as $language) {
-          // Append the storage path (e.g., storage/thumbnails/filename)
-          $language->icon = $baseUrl . '/thumbnails/' . basename($language->icon);
+          // If there's an icon, prepend the base URL to the icon path
+          if ($language->icon) {
+              $language->icon = $baseUrl . '/' . ltrim($language->icon, '/');
+          }
       }
   
       $languageData = LanguageData::all();
