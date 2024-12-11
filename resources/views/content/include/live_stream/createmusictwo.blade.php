@@ -358,7 +358,7 @@
     <!--share image-->
     <div id="shahreimage" class="share-content">
         <div class="shareimage">
-            <!--codee-->
+            
             <div id="" class="">
                 <div style="" id="feeds-image" class="">
                     <div class="dropzone needsclick" action="/" id="feeds-dropzone-img">
@@ -369,7 +369,7 @@
                             <input type="file" name="image" multiple />
                         </div>
                     </div>
-                    <!--code-->
+            
                 </div>
                 <div class="shareimage">
                     <div style="width:105%;display:contents;" id="feedimage22"

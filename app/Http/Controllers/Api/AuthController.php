@@ -439,7 +439,6 @@ public function verifyOTP(Request $request)
       }
   }
   
-
   public function reset(Request $request)
   {
       try {
@@ -450,20 +449,17 @@ public function verifyOTP(Request $request)
               'token' => 'required',
           ]);
   
-          // Find the user
-          $user = ResetUserPassword::where('user_id', $request->user_id)->first();
-          
+          // Find the user entry with both user_id and token
+          $user = ResetUserPassword::where('user_id', $request->user_id)
+              ->where('token', $request->token)
+              ->first();
+  
           // Debugging output
-      //    dd($data, $user);
+          // dd($data, $user);
   
-          // User not found
+          // User not found or token mismatch
           if ($user === null) {
-              return response()->json(['success' => false, 'message' => 'User not found.'], 404);
-          }
-  
-          // Check if the token matches
-          if ($request->token !== $user->token) {
-              return response()->json(['success' => false, 'message' => 'Invalid token.'], 403);
+              return response()->json(['success' => false, 'message' => 'Invalid token or user not found.'], 403);
           }
   
           // Check if the OTP code is correct
@@ -496,6 +492,7 @@ public function verifyOTP(Request $request)
           ], 500);
       }
   }
+  
   
   
 
