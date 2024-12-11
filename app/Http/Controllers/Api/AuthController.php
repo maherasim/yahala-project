@@ -190,6 +190,7 @@ public function signup(Request $request)
             'fname' => 'required|max:100',
             'lname' => 'required|max:100',
             'nationality' => 'integer|max:100',
+            'language' => 'integer|max:100',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
             'phone' => 'required|min:11',
@@ -384,61 +385,65 @@ public function verifyOTP(Request $request)
   }
 
   public function resetpassword(Request $request)
-  {
-      try {
-          // Validate request data
-          $request->validate([
-              'user_id' => 'required',
-              'token' => 'required',
-              'password' => 'required|min:8', // Ensure the password meets minimum length requirements
-          ]);
-  
-          // Find the reset user
-          $resetUser = ResetUserPassword::where('user_id', $request->user_id)->first();
- // dd(  $resetUser);
-          // Check if the user exists in ResetUserPassword
-          if ($resetUser === null) {
-              return response()->json(['success' => false, 'message' => 'User not found in reset records.'], 404);
-          }
-  
-          // Check if the password token matches
-          if ($resetUser->password_token !== $request->token) {
-              return response()->json(['success' => false, 'message' => 'Invalid token.'], 403);
-          }
-  
-          // Find the actual user to update the password
-          $user = User::find($request->user_id);
-          if ($user === null) {
-              return response()->json(['success' => false, 'message' => 'User not found.'], 404);
-          }
-  
-          // Update the user's password
-          $user->password = bcrypt($request->password);
-          $user->save();
-  
-          // Delete the reset record
-          ResetUserPassword::where('user_id', $request->user_id)->delete();
-  
-          return response()->json(['success' => true, 'message' => 'Your password has been changed.']);
-  
-      } catch (\Illuminate\Validation\ValidationException $e) {
-          // Handle validation exceptions
-          return response()->json([
-              'success' => false,
-              'message' => 'Validation error.',
-              'errors' => $e->errors(), // Return validation errors
-          ], 422);
-  
-      } catch (\Exception $e) {
-          // Handle any other exceptions
-          return response()->json([
-              'success' => false,
-              'message' => 'An error occurred.',
-              'error' => $e->getMessage(), // Provide detailed error message
-          ], 500);
-      }
-  }
-  
+{
+    try {
+        // Validate request data
+        $request->validate([
+            'user_id' => 'required',
+            'token' => 'required',
+            'password' => 'required|min:8', // Ensure the password meets minimum length requirements
+        ]);
+
+        // Find reset records for the user
+        $resetUsers = ResetUserPassword::where('user_id', $request->user_id)
+            ->orderBy('created_at', 'desc') // Get the most recent record
+            ->get();
+
+        // No reset records found
+        if ($resetUsers->isEmpty()) {
+            return response()->json(['success' => false, 'message' => 'User not found in reset records.'], 404);
+        }
+
+        // Find the matching record with the provided token
+        $resetUser = $resetUsers->firstWhere('password_token', $request->token);
+
+        if ($resetUser === null) {
+            return response()->json(['success' => false, 'message' => 'Invalid token.'], 403);
+        }
+
+        // Find the actual user to update the password
+        $user = User::find($request->user_id);
+        if ($user === null) {
+            return response()->json(['success' => false, 'message' => 'User not found.'], 404);
+        }
+
+        // Update the user's password
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        // Delete all reset records for the user to avoid duplicates
+        ResetUserPassword::where('user_id', $request->user_id)->delete();
+
+        return response()->json(['success' => true, 'message' => 'Your password has been changed.']);
+
+    } catch (\Illuminate\Validation\ValidationException $e) {
+        // Handle validation exceptions
+        return response()->json([
+            'success' => false,
+            'message' => 'Validation error.',
+            'errors' => $e->errors(),
+        ], 422);
+
+    } catch (\Exception $e) {
+        // Handle any other exceptions
+        return response()->json([
+            'success' => false,
+            'message' => 'An error occurred.',
+            'error' => $e->getMessage(),
+        ], 500);
+    }
+}
+
   public function reset(Request $request)
   {
       try {
