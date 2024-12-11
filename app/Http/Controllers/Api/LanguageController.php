@@ -65,7 +65,7 @@ class LanguageController extends Controller
   {
       $languages = Language::all()->map(function($language) {
           // Use the `storage_path` helper to create the correct URL
-          $language->thumbnail_path = asset('storage/' . $language->thumbnail_path); // Ensure correct path
+          $language->icon = asset('storage/' . $language->icon); // Ensure correct path
           return $language;
       });
   
