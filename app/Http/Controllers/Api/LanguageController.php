@@ -49,17 +49,31 @@ class LanguageController extends Controller
    */
   public function index()
   {
-    $languages = Language::select('title', 'icon', 'status')->get(); 
-
-    $languageData = LanguageData::all();
-
-    $textCounts = Text::count();
-
-    foreach ($languages as $language) {
-      $language->texts_count = $textCounts;
-    }
-    return response()->json(['languages' => $languages],200);
+      $languages = Language::select('title', 'icon', 'status')->get();
+  
+      // Base URL for storage
+      $baseUrl = url('storage'); // This will give the URL like https://your-domain/storage
+  
+      // Iterate through each language and prepend the base URL to the icon field
+      foreach ($languages as $language) {
+          // Prepend the base URL to the icon path
+          if ($language->icon) {
+              // Make sure the icon path is properly formatted
+              $language->icon = $baseUrl . '/' . ltrim($language->icon, '/');
+          }
+      }
+  
+      $languageData = LanguageData::all();
+  
+      $textCounts = Text::count();
+  
+      foreach ($languages as $language) {
+          $language->texts_count = $textCounts;
+      }
+  
+      return response()->json(['languages' => $languages], 200);
   }
+  
 
   /**
    * Show the form for creating a new resource.
