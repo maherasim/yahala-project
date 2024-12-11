@@ -49,17 +49,26 @@ class LanguageController extends Controller
    */
   public function index()
   {
-    $languages = Language::select('title', 'icon', 'status')->get(); 
-
-    $languageData = LanguageData::all();
-
-    $textCounts = Text::count();
-
-    foreach ($languages as $language) {
-      $language->texts_count = $textCounts;
-    }
-    return response()->json(['languages' => $languages],200);
+      $languages = Language::select('title', 'icon', 'status')->get();
+  
+      $baseUrl = url('/'); // Base URL of your Laravel application
+  
+      foreach ($languages as $language) {
+          // Append base URL to the icon path
+          $language->icon = $baseUrl . '/' . ltrim($language->icon, '/');
+      }
+  
+      $languageData = LanguageData::all();
+  
+      $textCounts = Text::count();
+  
+      foreach ($languages as $language) {
+          $language->texts_count = $textCounts;
+      }
+  
+      return response()->json(['languages' => $languages], 200);
   }
+  
 
   /**
    * Show the form for creating a new resource.
