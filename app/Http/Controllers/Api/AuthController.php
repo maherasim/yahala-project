@@ -138,7 +138,7 @@ public function checkPhoneExists(Request $request)
 {
     // Validate the incoming request
     $validator = Validator::make($request->all(), [
-        'phone' => 'required|string',
+        'phone' => 'required|integer',
     ]);
 
     if ($validator->fails()) {
