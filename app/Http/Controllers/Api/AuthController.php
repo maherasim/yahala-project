@@ -108,6 +108,63 @@ public function checkUserExists(Request $request)
     }
 }
 
+public function checkEmailExists(Request $request)
+{
+    // Validate the incoming request
+    $validator = Validator::make($request->all(), [
+        'email' => 'required|string',
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json(['error' => $validator->errors()], 422);
+    }
+
+    // Check if user exists by email
+    $email = User::where('email', $request->email)->first();
+
+    if ($email) {
+        return response()->json([
+            'message' => 'email already exists',
+            'email_exists' => true,
+        ]);
+    } else {
+        return response()->json([
+            'message' => 'email does not exist',
+            'email_exists' => false,
+        ]);
+    }
+}
+public function checkPhoneExists(Request $request)
+{
+    // Validate the incoming request
+    $validator = Validator::make($request->all(), [
+        'phone' => 'required|string',
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json(['error' => $validator->errors()], 422);
+    }
+
+    // Check if phone exists by phone
+    $phone = User::where('phone', $request->phone)->first();
+
+    if ($phone) {
+        return response()->json([
+            'message' => 'phone already exists',
+            'phone_exists' => true,
+        ]);
+    } else {
+        return response()->json([
+            'message' => 'phone does not exist',
+            'phone_exists' => false,
+        ]);
+    }
+}
+
+
+
+
+
 
 public function registerDevice(Request $request)
 {

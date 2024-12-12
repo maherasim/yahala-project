@@ -97,7 +97,9 @@ Route::post('2fa', [TwoFactorController::class, 'store'])->name('2fa.post');
 Route::post('2fa/reset', [TwoFactorController::class, 'resend'])->name('2fa.resend');
 Route::post('/verify-otp', [AuthController::class, 'verifyOTP']);
 Route::delete('/user/delete', [AuthController::class, 'deleteUserByEmail']);
- Route::post('/check-user-exists', [AuthController::class, 'checkUserExists']);
+Route::post('/check-user-exists', [AuthController::class, 'checkUserExists']);
+Route::post('/check-email-exists', [AuthController::class, 'checkEmailExists']);
+Route::post('/check-phone-exists', [AuthController::class, 'checkEmailExists']);
  
 
 //lost device
