@@ -453,8 +453,7 @@ public function verifyOtpdevice(Request $request)
             $user->is_verified = 1;
             $user->save();
 
-            // Optionally, delete the OTP after verification
-            $userCode->delete();
+            
 
             // Fetch all the user data from the User table
             return response()->json([
