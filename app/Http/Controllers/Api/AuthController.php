@@ -428,7 +428,7 @@ public function verifyOtpdevice(Request $request)
         ]);
 
         // Find the user by email
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->seelct('device_model','productname','mobilename','device_serial','serialnumber','IMEI1','IMEI2')->first();
 
         if (!$user) {
             return response()->json([
