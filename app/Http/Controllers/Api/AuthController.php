@@ -196,7 +196,7 @@ public function registerDevice(Request $request)
         return response()->json(['status' => false, 'message' => 'User not found!'], 404);
     }
 
-    $code = UserCode::where('user_id', $user->id)->first();
+    $code = UserCode::where('email', $user->email)->first();
 
     // Check if code exists
     if (!$code) {
