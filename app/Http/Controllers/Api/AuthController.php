@@ -456,9 +456,11 @@ public function verifyOtpdevice(Request $request)
             // Optionally, delete the OTP after verification
             $userCode->delete();
 
+            // Fetch all the user data from the User table
             return response()->json([
                 'success' => true,
-                'message' => 'Email verified successfully.',
+                'message' => 'OTP verified successfully.',
+                'user_data' => $user // Return the user data
             ], 200);
         } else {
             return response()->json([
@@ -474,8 +476,6 @@ public function verifyOtpdevice(Request $request)
         ], 500);
     }
 }
-
-
 
 
 
