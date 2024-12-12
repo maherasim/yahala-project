@@ -99,7 +99,7 @@ Route::post('/verify-otp', [AuthController::class, 'verifyOTP']);
 Route::delete('/user/delete', [AuthController::class, 'deleteUserByEmail']);
 Route::post('/check-user-exists', [AuthController::class, 'checkUserExists']);
 Route::post('/check-email-exists', [AuthController::class, 'checkEmailExists']);
-Route::post('/check-phone-exists', [AuthController::class, 'checkEmailExists']);
+Route::post('/check-phone-exists', [AuthController::class, 'checkPhoneExists']);
  
 
 //lost device
