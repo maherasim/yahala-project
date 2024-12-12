@@ -418,6 +418,7 @@ public function lostdevicecheckEmail(Request $request)
         ], 500);
     }
 }
+ 
 public function verifyOtpdevice(Request $request)
 {
     try {
@@ -428,7 +429,9 @@ public function verifyOtpdevice(Request $request)
         ]);
 
         // Find the user by email
-        $user = User::where('email', $request->email)->select('device_model','productname','mobilename','device_serial','serialnumber','IMEI1','IMEI2')->first();
+        $user = User::where('email', $request->email)
+                    ->select('device_model', 'productname', 'mobilename', 'device_serial', 'serialnumber', 'IMEI1', 'IMEI2')
+                    ->first();
 
         if (!$user) {
             return response()->json([
@@ -453,9 +456,10 @@ public function verifyOtpdevice(Request $request)
             $user->is_verified = 1;
             $user->save();
 
-            
+            // Optionally, you can update OTP status instead of deleting it
+            // $userCode->status = 'verified'; // Example of keeping OTP record
+            // $userCode->save();
 
-            // Fetch all the user data from the User table
             return response()->json([
                 'success' => true,
                 'message' => 'OTP verified successfully.',
@@ -475,8 +479,6 @@ public function verifyOtpdevice(Request $request)
         ], 500);
     }
 }
-
-
 
 
 
