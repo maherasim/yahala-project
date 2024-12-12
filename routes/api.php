@@ -106,6 +106,17 @@ Route::post('/check-phone-exists', [AuthController::class, 'checkPhoneExists']);
 Route::post('/register-device', [AuthController::class, 'registerDevice']);
 Route::post('/register-verify-device', [AuthController::class, 'verifyDevice']);
 
+Route::post('/check-email-lost', [AuthController::class, 'lostdevicecheckEmail']);
+
+Route::post('/verify-otp-lostdevice', [AuthController::class, 'verifyOtpdevice']);
+
+
+
+
+
+
+
+
 
  
  Route::middleware('verify.token')->get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin_profile');

@@ -166,6 +166,10 @@ public function checkPhoneExists(Request $request)
 
 
 
+
+
+
+
 public function registerDevice(Request $request)
 {
     // Validate request fields
@@ -364,6 +368,121 @@ public function signup(Request $request)
         ], 500);
     }
 }
+
+public function lostdevicecheckEmail(Request $request)
+{
+    try {
+        // Validate email format
+        $request->validate([
+            'email' => 'required|email'
+        ]);
+
+        // Check if the email exists in the database
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Email does not exist.'
+            ], 404);
+        }
+
+        // Generate OTP
+        $otp = rand(1000, 9999);
+
+        // Store OTP in UserCode model, or create a new one if it doesn't exist
+        UserCode::updateOrCreate(
+            ['user_id' => $user->id],
+            ['code' => $otp]
+        );
+
+        // Send OTP via email
+        $details = [
+            'title' => 'Verification Code from  Yahala Yekbun.org',
+            'code' => $otp,
+            'username' => $user->username,
+        ];
+
+        // Send email
+        Mail::to($user->email)->send(new SendCodeMail($details));
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Verification code sent to your email.'
+        ], 200);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Something went wrong: ' . $e->getMessage(),
+        ], 500);
+    }
+}
+public function verifyOtpdevice(Request $request)
+{
+    try {
+        // Validate request fields
+        $request->validate([
+            'email' => 'required|email',
+            'otp' => 'required|integer|digits:4',  // Ensure the OTP is a 4-digit integer
+        ]);
+
+        // Find the user by email
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Email does not exist.',
+            ], 404);
+        }
+
+        // Find the OTP stored for the user
+        $userCode = UserCode::where('user_id', $user->id)->first();
+
+        if (!$userCode) {
+            return response()->json([
+                'success' => false,
+                'message' => 'OTP not found.',
+            ], 404);
+        }
+
+        // Check if the OTP matches
+        if ($userCode->code == $request->otp) {
+            // Mark the user as verified
+            $user->is_verified = 1;
+            $user->save();
+
+            // Optionally, delete the OTP after verification
+            $userCode->delete();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Email verified successfully.',
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid OTP.',
+            ], 400);
+        }
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Something went wrong: ' . $e->getMessage(),
+        ], 500);
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
 
