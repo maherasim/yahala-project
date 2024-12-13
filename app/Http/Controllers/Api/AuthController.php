@@ -249,15 +249,15 @@ public function signup(Request $request)
     try {
         // Validate the incoming request data
         $validatedData = $request->validate([
-            'fname' => 'required|max:100',
-            'lname' => 'required|max:100',
+             
             'nationality' => 'integer|max:100',
             'language' => 'integer|max:100',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
+            'IMEI1' => 'required|min:6',
             'phone' => 'required|min:11',
             'username' => 'required|unique:users,username|max:100',
-            'productname' => 'required|max:255',
+             
             'device_type' => 'nullable|max:255',
             'mobilename' => 'nullable|max:255',
             'serialnumber' => 'nullable|max:255',
@@ -265,8 +265,7 @@ public function signup(Request $request)
             'location.long' => 'required|numeric|between:-180,180', // Longitude validation
             'image' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
         ], [
-            'fname.required' => 'First name is required.',
-            'lname.required' => 'Last name is required.',
+             
             'email.required' => 'Email is required.',
             'email.email' => 'Email must be a valid email address.',
             'email.unique' => 'Email has already been taken.',
@@ -275,8 +274,7 @@ public function signup(Request $request)
             'phone.required' => 'Phone number is required.',
             'phone.min' => 'Phone number must be at least 11 digits.',
             'username.required' => 'Username is required.',
-            'username.unique' => 'Username has already been taken.',
-            'productname.required' => 'Product name is required.',
+            'username.unique' => 'Username has already been taken.',            
             'location.lat.required' => 'Latitude is required.',
             'location.lat.numeric' => 'Latitude must be a number.',
             'location.lat.between' => 'Latitude must be between -90 and 90.',
@@ -293,16 +291,12 @@ public function signup(Request $request)
 
         // Create new user
         $user = User::create([
-            'name' => $request['fname'],
+            
             'nationality' => $request['nationality'],
             'username' => $request['username'],
             'email' => $request['email'],
-            'password' => bcrypt($request['password']),
-            'status' => 1,
-            'is_admin_user' => 0,
-            'level' => 0,
-            'is_verified' => 0,
-            'is_superadmin' => 0,
+            'password' => bcrypt($request['password']),           
+            'IMEI1' => bcrypt($request['IMEI1']),           
             'last_name' => $request['lname'],
             'language' => $request['language'],
             'gender' => $request['gender'],
@@ -313,8 +307,7 @@ public function signup(Request $request)
             'device_type' => $request['device_type'],
             'city' => $request['city'],
             'phone' => $request['phone'],
-            'user_type' => 'users',
-            'productname' => $request['productname'],
+            'user_type' => 'users',           
             'mobilename' => $request['mobilename'],
             'serialnumber' => $request['serialnumber'],
         ]);
