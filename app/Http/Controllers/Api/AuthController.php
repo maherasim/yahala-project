@@ -244,7 +244,7 @@ public function deleteUserByEmail(Request $request)
 }
 
 
-public function signup(Request $request) 
+public function signup(Request $request)
 {
     try {
         // Validate the incoming request data
@@ -263,6 +263,7 @@ public function signup(Request $request)
             'serialnumber' => 'nullable|max:255',
             'location.lat' => 'required|numeric|between:-90,90', // Latitude validation
             'location.long' => 'required|numeric|between:-180,180', // Longitude validation
+            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
         ], [
             'fname.required' => 'First name is required.',
             'lname.required' => 'Last name is required.',
@@ -319,11 +320,22 @@ public function signup(Request $request)
         ]);
 
         // Save user image if provided
-        if ($request->has('image')) {
-            $image_path = Helpers::fileUpload($request->image, 'images/user');
+        if ($request->hasFile('image')) {
+            // If image is uploaded as a file
+            $image_path = Helpers::fileUpload($request->file('image'), 'images/user');
             $user->image = $image_path;
-            $user->save();
+        } elseif ($request->has('image') && filter_var($request->image, FILTER_VALIDATE_URL)) {
+            // If image is provided as a URL
+            $user->image = $request->image;
+        } elseif ($request->has('image')) {
+            // If image is provided as a base64 string
+            $imageName = 'user_' . time() . '.png';
+            $path = public_path('images/user/' . $imageName);
+            file_put_contents($path, base64_decode($request->image));
+            $user->image = 'images/user/' . $imageName;
         }
+
+        $user->save();
 
         // Generate and store OTP if user is created
         if ($user->id) {
@@ -359,7 +371,7 @@ public function signup(Request $request)
         // Catch validation errors and return detailed messages
         return response()->json([
             'success' => false,
-            'errors' => $e->errors(), // Returns all validation error messages
+            'errors' => $e->errors(),
         ], 422);
     } catch (\Exception $e) {
         // Catch any other exceptions and return a complete message
@@ -369,6 +381,18 @@ public function signup(Request $request)
         ], 500);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 public function lostdevicecheckEmail(Request $request)
 {
