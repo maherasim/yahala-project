@@ -43,6 +43,7 @@ use Jenssegers\Mongodb\Auth\User as Authenticatable;
         'dob',
         'address',
         'province',
+        'deviceid',    
         'city',
         'province_city',
         'country',

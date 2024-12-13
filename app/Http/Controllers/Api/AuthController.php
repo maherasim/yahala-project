@@ -309,7 +309,7 @@ public function signup(Request $request)
             'phone' => $request['phone'],
             'user_type' => 'users',           
             'mobilename' => $request['mobilename'],
-            'serialnumber' => $request['serialnumber'],
+            'deviceid' => $request['deviceid'],
         ]);
 
         // Save user image if provided

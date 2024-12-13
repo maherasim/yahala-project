@@ -28,15 +28,13 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        
         'email',
         'password',
         'image',
         'status',
         'level',
-        'username',
-        'fname',
-        'lname',
+        'username',        
         'gender',
         'nationality',
         'dob',
@@ -45,16 +43,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'province',
         'city',
         'province_city',
-        'country',
-        'role_id',
-        'roles',
-        'is_admin_user',
-        'is_superadmin',
+        'country',        
         'productname',
         'mobilename',
-        'serialnumber',
+        'deviceid',
         'IMEI1',
-        'IMEI2',
+        
         'location' // Added field for JSON location data
     ];
 
