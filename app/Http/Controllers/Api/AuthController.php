@@ -252,17 +252,17 @@ public function signup(Request $request)
              
             'nationality' => 'integer|max:100',
             'language' => 'integer|max:100',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
-            'IMEI1' => 'required|min:6',
-            'phone' => 'required|min:11',
-            'username' => 'required|unique:users,username|max:100',
+            'email' => 'nullable|email|unique:users,email',
+            'password' => 'nullable|min:6',
+            'IMEI1' => 'nullable|min:6',
+            'phone' => 'nullable|min:11',
+            'username' => 'nullable|unique:users,username|max:100',
              
             'device_type' => 'nullable|max:255',
             'mobilename' => 'nullable|max:255',
             'serialnumber' => 'nullable|max:255',
-            'location.lat' => 'required|numeric|between:-90,90', // Latitude validation
-            'location.long' => 'required|numeric|between:-180,180', // Longitude validation
+            'location.lat' => 'nullable|numeric|between:-90,90', // Latitude validation
+            'location.long' => 'nullable|numeric|between:-180,180', // Longitude validation
             'image' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
         ], [
              

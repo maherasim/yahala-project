@@ -47,8 +47,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'productname',
         'mobilename',
         'deviceid',
-        'IMEI1',
-        
+        'IMEI1',        
         'location' // Added field for JSON location data
     ];
 
