@@ -213,8 +213,8 @@
                                         </td>
                                         <td>{{ $userr->username }}</td>
                                         <td>{{ $userr->device_type }}</td>
-                                        <td>{{ $userr->device_imei }}</td>
-                                        <td>{{ $userr->device_name }}</td>
+                                        <td>{{ $userr->IMEI1 }}</td>
+                                        <td>{{ $userr->mobilename }}</td>
                                         <td>{{ $userr->device_model }}</td>
                                         <td>{{ $userr->device_serial }}</td>
                                         <td>{{ $userr->created_at->format('d/m/Y') }}</td>
