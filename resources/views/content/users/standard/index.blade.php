@@ -220,11 +220,9 @@
                                         <td>{{ $userr->created_at->format('d/m/Y') }}</td>
                                         <td>{{ $userr->reports->count() }}</td>
                                         <td>
-                                            @if ((int) $userr->status)
+                                            
                                                 <span class="badge bg-label-success me-1">Active</span>
-                                            @else
-                                                <span class="badge bg-label-secondary me-1">Disabled</span>
-                                            @endif
+                                            
                                         </td>
                                         <td>
                                             <div class="dropdown">
