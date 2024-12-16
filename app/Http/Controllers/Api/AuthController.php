@@ -249,15 +249,13 @@ public function signup(Request $request)
     try {
         // Validate the incoming request data
         $validatedData = $request->validate([
-             
-            'nationality' => 'integer|max:100',
-            'language' => 'integer|max:100',
+            'nationality' => 'required|string|max:1000',           
+            'language' => 'required|string|max:1000',
             'email' => 'nullable|email|unique:users,email',
             'password' => 'nullable|min:6',
             'IMEI1' => 'nullable|min:6',
             'phone' => 'nullable|min:11',
-            'username' => 'nullable|unique:users,username|max:100',
-             
+            'username' => 'nullable|unique:users,username|max:100',             
             'device_type' => 'nullable|max:255',
             'mobilename' => 'nullable|max:255',
             'serialnumber' => 'nullable|max:255',
