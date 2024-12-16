@@ -254,7 +254,7 @@ public function signup(Request $request)
             'email' => 'nullable|email|unique:users,email',
             'password' => 'nullable|min:6',
             'IMEI1' => 'nullable|min:6',
-            'phone' => 'nullable|min:11',
+            'phone' => 'required',
             'username' => 'nullable|unique:users,username|max:100',             
             'device_type' => 'nullable|max:255',
             'mobilename' => 'nullable|max:255',
