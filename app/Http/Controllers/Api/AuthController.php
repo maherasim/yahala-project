@@ -255,11 +255,10 @@ public function signup(Request $request)
             'password' => 'nullable|min:6',
             'IMEI1' => 'nullable|min:6',
             'phone' => 'required',
-            'device_serial' => 'required',
-            'device_model' => 'required',
+            'device_serial' => 'nullable',
+            'device_model' => 'nullable',
             'device_type' => 'required',
-            'username' => 'nullable|unique:users,username|max:100',             
-             
+            'username' => 'nullable|unique:users,username|max:100',          
             'mobilename' => 'nullable|max:255',
             'serialnumber' => 'nullable|max:255',
            'location.lat' => 'nullable|numeric|between:-90,90', // Latitude validation
