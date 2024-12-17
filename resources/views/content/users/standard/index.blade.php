@@ -216,7 +216,7 @@
                                         <td>{{ $userr->IMEI1 }}</td>
                                         <td>{{ $userr->mobilename }}</td>
                                         <td>{{ $userr->device_model }}</td>
-                                        <td>{{ $userr->device_serial }}</td>
+                                        <td>{{ $userr->serialnumber: }}</td>
                                         <td>{{ $userr->created_at->format('d/m/Y') }}</td>
                                         <td>{{ $userr->reports->count() }}</td>
                                         <td>
