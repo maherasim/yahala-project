@@ -211,7 +211,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>{{ $user->_id }}</td>
+                                        <td>{{ $user->_id->__toString() }}</td> <!-- Convert ObjectId to string -->
                                         <td>{{ $userr->username }}</td>
                                         <td>{{ $userr->device_type }}</td>
                                         <td>{{ $userr->IMEI1 }}</td>
