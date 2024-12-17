@@ -255,11 +255,14 @@ public function signup(Request $request)
             'password' => 'nullable|min:6',
             'IMEI1' => 'nullable|min:6',
             'phone' => 'required',
+            'device_serial' => 'required',
+            'device_model' => 'required',
+            'device_type' => 'required',
             'username' => 'nullable|unique:users,username|max:100',             
-            'device_type' => 'nullable|max:255',
+             
             'mobilename' => 'nullable|max:255',
             'serialnumber' => 'nullable|max:255',
-            'location.lat' => 'nullable|numeric|between:-90,90', // Latitude validation
+           'location.lat' => 'nullable|numeric|between:-90,90', // Latitude validation
             'location.long' => 'nullable|numeric|between:-180,180', // Longitude validation
             'image' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
         ], [
@@ -301,13 +304,16 @@ public function signup(Request $request)
             'location' => $location,  // Store the location with lat and long
             'marital_status' => $request['marital_status'],
             'dob' => $request['dob'],
+            'device_serial' => $request['device_serial'],
+            'device_model' => $request['device_model'],
+            
             'province' => $request['province'],
             'device_type' => $request['device_type'],
             'city' => $request['city'],
             'phone' => $request['phone'],
             'user_type' => 'users',           
             'mobilename' => $request['mobilename'],
-            'deviceid' => $request['deviceid'],
+            'serialnumber' => $request['serialnumber'],
         ]);
 
         // Save user image if provided
