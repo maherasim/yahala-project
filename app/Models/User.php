@@ -40,6 +40,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'dob',
         'device_type',
         'address',
+        'serialnumber',
         'province',
         'city',
         'province_city',

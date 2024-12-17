@@ -305,8 +305,7 @@ public function signup(Request $request)
             'marital_status' => $request['marital_status'],
             'dob' => $request['dob'],
             'device_serial' => $request['device_serial'],
-            'device_model' => $request['device_model'],
-            
+            'device_model' => $request['device_model'],            
             'province' => $request['province'],
             'device_type' => $request['device_type'],
             'city' => $request['city'],
