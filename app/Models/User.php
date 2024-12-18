@@ -28,31 +28,42 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
-        
+        'name',
         'email',
         'password',
         'image',
         'status',
         'level',
-        'username',        
+        'username',
+        'fname',
+        'lname',
         'gender',
-        'nationality',
-        'device_model',
         'dob',
-        'device_type',
         'address',
-        'serialnumber',
         'province',
         'city',
         'province_city',
-        'country',        
-        'productname',
-        'mobilename',
-        'deviceid',
-        'IMEI1',        
-        'location' // Added field for JSON location data
+        'country',
+        'role_id',
+        'roles',
+        'is_admin_user',
+        'is_superadmin',
+        'is_verfied',
+        'last_name',
+        'language',
+        'origin',
+        'location',
+        'marital_status',
+        'phone',
+        'device_type',
+        'device_imei',
+        'device_name',
+        'device_model',
+        'device_serial',
+        'user_id',
+        'user_type'
     ];
-
+    
     /**
      * The attributes that should be hidden for serialization.
      *

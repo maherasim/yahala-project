@@ -7,6 +7,7 @@ use session;
 use App\Models\User;
 use App\Models\UserCode;
 use App\Mail\SendCodeMail;
+use App\Models\UserImei;
 use App\Mail\YekhbunMail;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -247,137 +248,121 @@ public function deleteUserByEmail(Request $request)
 public function signup(Request $request)
 {
     try {
-        // Validate the incoming request data
+        // Validate incoming request
         $validatedData = $request->validate([
-            'nationality' => 'required|string|max:1000',           
-            'language' => 'required|string|max:1000',
-            'email' => 'nullable|email|unique:users,email',
-            'password' => 'nullable|min:6',
-            'IMEI1' => 'nullable|min:6',
-            'phone' => 'required',
-            'device_serial' => 'nullable',
-            'device_model' => 'nullable',
-            'device_type' => 'required',
-            'username' => 'nullable|unique:users,username|max:100',          
-            'mobilename' => 'nullable|max:255',
-            'serialnumber' => 'nullable|max:255',
-           'location.lat' => 'nullable|numeric|between:-90,90', // Latitude validation
-            'location.long' => 'nullable|numeric|between:-180,180', // Longitude validation
-            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
-        ], [
-             
-            'email.required' => 'Email is required.',
-            'email.email' => 'Email must be a valid email address.',
-            'email.unique' => 'Email has already been taken.',
-            'password.required' => 'Password is required.',
-            'password.min' => 'Password must be at least 6 characters.',
-            'phone.required' => 'Phone number is required.',
-            'phone.min' => 'Phone number must be at least 11 digits.',
-            'username.required' => 'Username is required.',
-            'username.unique' => 'Username has already been taken.',            
-            'location.lat.required' => 'Latitude is required.',
-            'location.lat.numeric' => 'Latitude must be a number.',
-            'location.lat.between' => 'Latitude must be between -90 and 90.',
-            'location.long.required' => 'Longitude is required.',
-            'location.long.numeric' => 'Longitude must be a number.',
-            'location.long.between' => 'Longitude must be between -180 and 180.',
+            'fname' => 'required|max:100',
+            'lname' => 'required|max:100',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+            'phone' => 'required|min:2',
         ]);
 
-        // Extract location data
-        $location = [
-            'lat' => $request->input('location.lat'),
-            'long' => $request->input('location.long'),
-        ];
+        // Check if email is already taken
+        $emailTaken = User::where('email', $request->email)->first();
+        if ($emailTaken) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Email is already taken.',
+            ], 400);
+        }
+
+        // Check if username is already taken
+        $usernameTaken = User::where('username', $request->username)->first();
+        if ($usernameTaken) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Username is already taken.',
+            ], 400);
+        }
 
         // Create new user
         $user = User::create([
-            
-            'nationality' => $request['nationality'],
+            'name' => $request['fname'],
             'username' => $request['username'],
             'email' => $request['email'],
-            'password' => bcrypt($request['password']),           
-            'IMEI1' => bcrypt($request['IMEI1']),           
+            'password' => bcrypt($request['password']),
+            'status' => 1,
+            'is_admin_user' => 0,
+            'level' => 0,
+            'is_verfied' => 0,
+            'is_superadmin' => 0,
             'last_name' => $request['lname'],
             'language' => $request['language'],
             'gender' => $request['gender'],
-            'location' => $location,  // Store the location with lat and long
+            'origin' => $request['origin'],
+            'location' => $request['location'],
             'marital_status' => $request['marital_status'],
             'dob' => $request['dob'],
-            'device_serial' => $request['device_serial'],
-            'device_model' => $request['device_model'],            
             'province' => $request['province'],
-            'device_type' => $request['device_type'],
             'city' => $request['city'],
             'phone' => $request['phone'],
-            'user_type' => 'users',           
-            'mobilename' => $request['mobilename'],
-            'serialnumber' => $request['serialnumber'],
+            'device_type' => $request['device_type'],
+            'device_imei' => (int)$request['device_imei'],
+            'device_name' => $request['device_name'],
+            'device_model' => $request['device_model'],
+            'device_serial' => $request['device_serial'],
+            'user_id' => 'YH-UN' . (User::count() + 1),
+            'user_type' => 'users'
         ]);
 
         // Save user image if provided
-        if ($request->hasFile('image')) {
-            // If image is uploaded as a file
-            $image_path = Helpers::fileUpload($request->file('image'), 'images/user');
+        if ($request->has('image')) {
+            $image_path = Helpers::fileUpload($request->image, 'images/user');
             $user->image = $image_path;
-        } elseif ($request->has('image') && filter_var($request->image, FILTER_VALIDATE_URL)) {
-            // If image is provided as a URL
-            $user->image = $request->image;
-        } elseif ($request->has('image')) {
-            // If image is provided as a base64 string
-            $imageName = 'user_' . time() . '.png';
-            $path = public_path('images/user/' . $imageName);
-            file_put_contents($path, base64_decode($request->image));
-            $user->image = 'images/user/' . $imageName;
+            $user->save();
         }
 
-        $user->save();
-
-        // Generate and store OTP if user is created
+        // Handle additional user-related logic
         if ($user->id) {
-            $code = rand(1000, 9999); // Generate a 4-digit OTP
+            $code = rand(1000, 9999);
 
-            // Store the OTP in the database
             UserCode::updateOrCreate(
                 ['user_id' => $user->id],
                 ['code' => $code]
             );
 
-            // Send OTP via email
+            UserImei::create([
+                'user_id' => $user->id,
+                'device_imei' => (int)$request['device_imei'],
+            ]);
+
             try {
+                // Send verification email
                 $details = [
-                    'title' => 'Mail from Yekbun.org',
+                    'title' => 'Mail from Yahala.org',
                     'code' => $code,
                     'username' => $request->username,
                 ];
-
                 Mail::to($request['email'])->send(new SendCodeMail($details));
 
                 return response()->json([
-                    'success' => true, 
-                    "message" => "Verification Code sent to your email", 
+                    'success' => true,
+                    'message' => 'Verification code sent to your email',
                     'user' => $user->id
                 ], 200);
             } catch (\Exception $e) {
-                info("Error: " . $e->getMessage());
-                return response()->json(['success' => false, 'message' => $e->getMessage()], 505);
+                // Log and return email error
+                info("Error while sending email: " . $e->getMessage());
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Error while sending email: ' . $e->getMessage()
+                ], 500);
             }
         }
     } catch (\Illuminate\Validation\ValidationException $e) {
-        // Catch validation errors and return detailed messages
+        // Handle validation errors
         return response()->json([
             'success' => false,
             'errors' => $e->errors(),
         ], 422);
     } catch (\Exception $e) {
-        // Catch any other exceptions and return a complete message
+        // Catch all other errors
         return response()->json([
             'success' => false,
-            'message' => 'Something went wrong: ' . $e->getMessage(),
+            'message' => 'An unexpected error occurred: ' . $e->getMessage(),
         ], 500);
     }
 }
-
-
 
 
 

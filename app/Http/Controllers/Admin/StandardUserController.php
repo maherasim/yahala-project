@@ -16,21 +16,20 @@ class StandardUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() 
-{
-    $view = 'Male';
-    if (request()->view) {
-        $view = request()->view;
+    public function index()
+    {
+        $view = 'male';
+        if (request()->view) {
+            $view = request()->view;
+        }
+
+        if ($view === 'blocked')
+            $users = User::where("level", 0)->where('is_admin_user', 0)->where('status', 0)->orderBy("updated_at", "DESC")->get();
+        else
+            $users = User::where("level", 0)->where('is_admin_user', 0)->where('gender', $view)->orderBy("updated_at", "DESC")->get();
+
+        return view("content.users.standard.index", compact("users", "view"));
     }
-
-    if ($view === 'blocked')
-        $users = User::orderBy("updated_at", "DESC")->get();
-    else
-        $users = User::where('gender', $view)->orderBy("updated_at", "DESC")->get();
-
-    return view("content.users.standard.index", compact("users", "view"));
-}
-
 
     /**
      * Show the form for creating a new resource.

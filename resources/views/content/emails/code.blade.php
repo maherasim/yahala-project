@@ -18,7 +18,7 @@
             </div>
             <div style="margin-top:20px; margin-bottom:10px;">
               <p>Copyright &copy; 2022-2023</p>
-              <strong style="font-weight:800">YekBûn</strong>
+              <strong style="font-weight:800">Yahala</strong>
             </div>
         </div>
       </div>
