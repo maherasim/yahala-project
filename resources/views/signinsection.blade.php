@@ -271,7 +271,7 @@
                                 <h6>Wrong Password</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="wrong_password"   value="{{ $signinsection->wrong_password ?? '' }}"
+                                <input type="text" class="form-control" name="wrong_password"   value="{{ $signinsection->wrong_password ?? '' }}"
                                     placeholder="Wrong Password">
                             </div>
                         </div>
@@ -280,7 +280,7 @@
                                 <h6>Create Password</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="create_password"   value="{{ $signinsection->create_password ?? '' }}"
+                                <input type="text" class="form-control" name="create_password"   value="{{ $signinsection->create_password ?? '' }}"
                                     placeholder="Create Password">
                             </div>
                         </div>
