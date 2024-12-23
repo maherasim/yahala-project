@@ -491,7 +491,7 @@ class LanguageController extends Controller
       'password' => 'nullable|string|min:4',
       'password' => 'nullable|string|min:4',
       'forgot_password' => 'nullable|string|min:4',
-       'remember_me' => 'nullable|boolean', // Checkbox validation
+      'remember_me' => 'nullable|string', // Checkbox validation
       'signin' => 'nullable|string|max:255',
       'login_error' => 'nullable|string|max:255',
       'not_found' => 'nullable|string|max:255',
