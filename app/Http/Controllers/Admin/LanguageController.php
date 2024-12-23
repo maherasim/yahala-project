@@ -517,7 +517,7 @@ class LanguageController extends Controller
       'continue' => 'nullable|string|max:255',
       'successfully' => 'nullable|string|max:255',
       'logged_in' => 'nullable|string|max:255',
-      'remember_me' => 'nullable|boolean',
+      'remember_me' => 'nullable|string',
       'wrong_password' => 'nullable|string|max:255', // Added missing field
     ]);
 
