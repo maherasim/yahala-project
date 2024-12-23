@@ -30,7 +30,7 @@ use App\Models\HeaderOnlineShopSection;
 use App\Models\SignupSection;
 use App\Models\HeaderMusicSection;
 use App\Models\HeaderServicePortalSection;
-use App\Models\SigninSection;
+use App\Models\SignInSection;
 use App\Models\FooterQuickLauncher;
 use App\Models\FooterChatSection;
 use App\Models\HeaderFeedSection;
@@ -74,7 +74,24 @@ class LanguageController extends Controller
       return response()->json(['languages' => $languages], 200);
   }
   
-  
+  public function getSignInSectionByLanguageId($languageId)
+  {
+      // Validate if the language_id is a valid ObjectId (MongoDB)
+      if (!preg_match('/^[a-f\d]{24}$/i', $languageId)) {
+          return response()->json(['error' => 'Invalid language_id format'], Response::HTTP_BAD_REQUEST);
+      }
+
+      // Fetch the data based on language_id
+      $signInSection = SignInSection::where('language_id', $languageId)->first();
+
+      // Check if the data exists
+      if (!$signInSection) {
+          return response()->json(['error' => 'SignInSection not found for this language_id'], Response::HTTP_NOT_FOUND);
+      }
+
+      // Return the data as JSON
+      return response()->json($signInSection, Response::HTTP_OK);
+  }
 
   /**
    * Show the form for creating a new resource.

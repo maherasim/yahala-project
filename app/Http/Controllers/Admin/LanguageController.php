@@ -1937,7 +1937,7 @@ class LanguageController extends Controller
             'details' => 'nullable|string',
             'status' => 'nullable|string|max:255',
             'notificationType' => 'nullable|string|max:255',
-            'musicVolume' => 'nullable|integer|min:0|max:100',
+            'musicVolume' => 'nullable|string|min:0|max:100',
             'messagesRingtone' => 'nullable|string|max:255',
             'callRingtone' => 'nullable|string|max:255',
             'notificationsRingtone' => 'nullable|string|max:255',

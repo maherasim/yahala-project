@@ -167,6 +167,19 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
 
   Route::post('/logout', [AuthController::class, 'logout']);
 
+
+  Route::get('/signin-section/{languageId}', [LanguageController::class, 'getSignInSectionByLanguageId']);
+
+
+
+
+
+
+
+
+
+
+
   // Posts
   Route::resource('posts', PostController::class)->except(['create', 'edit']);
 
