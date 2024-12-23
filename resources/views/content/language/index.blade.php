@@ -1208,7 +1208,37 @@
                                                                                 </span>
                                                                             </td>
                                                                         </tr>
-                                                                        
+                                                                        <tr>
+                                                                            <td>Home page Language </td>
+                                                                            <td>
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar bg-success"
+                                                                                        role="progressbar"
+                                                                                        style="width: {{ $homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0 }}%;"
+                                                                                        aria-valuenow="{{ $homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0 }}"
+                                                                                        aria-valuemin="0"
+                                                                                        aria-valuemax="100"></div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>{{ $homepagelanguageDone }}</td>
+                                                                            <td>{{ $homepagelanguageTotal - $startpageDone }}</td>
+
+
+                                                                            <td>
+                                                                                <span data-bs-toggle="modal"
+                                                                                    data-bs-target="#homepagelanguage{{ $language->id }}"
+                                                                                    onclick="openSectionModal('alert')">
+                                                                                    <button class="btn"
+                                                                                        data-bs-toggle="tooltip"
+                                                                                        data-bs-offset="0,4"
+                                                                                        data-bs-placement="top"
+                                                                                        data-bs-html="true"
+                                                                                        data-bs-original-title="Edit">
+                                                                                        <i class="bx bx-edit"></i>
+                                                                                    </button>
+                                                                                </span>
+                                                                            </td>
+                                                                        </tr>
                                                                         <tr>
                                                                             <td>Home page App Policy</td>
                                                                             <td>
@@ -1267,37 +1297,7 @@
                                                                                 </span>
                                                                             </td>
                                                                         </tr>
-                                                                        <tr>
-                                                                            <td>Home page Language </td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $homepagelanguageDone }}</td>
-                                                                            <td>{{ $homepagelanguageTotal - $startpageDone }}</td>
-
-
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#homepagelanguage{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
+                                                                     
                                                                         <tr>
                                                                             <td> Home page Sign up Section</td>
                                                                             <td>
