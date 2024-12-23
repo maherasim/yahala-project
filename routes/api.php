@@ -169,6 +169,7 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
 
 
   Route::get('/signin-section/{languageId}', [LanguageController::class, 'getSignInSectionByLanguageId']);
+  Route::get('/signup-section/{languageId}', [LanguageController::class, 'getSignUPSectionByLanguageId']);
 
 
 
