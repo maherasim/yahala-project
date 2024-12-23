@@ -1574,8 +1574,9 @@ foreach ($headerMusicFields as $field) {
                                                                     <h6>Your E-Mail Address</h6>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <h6>Type your E-Mail</h6>
+                                                                  
                                                                     <input type="text" class="form-control" name="email" value="{{ $signupsection->email ?? '' }}" placeholder="Type your E-Mail">
+                                                                    <h6>Type your E-Mail</h6>
                                                                     <input type="text" class="form-control mt-2" name="repeat_email" value="{{ $signupsection->repeat_email ?? '' }}" placeholder="Repeat your E-Mail">
                                                                     <input type="text" class="form-control mt-2" name="email_issue_message" value="{{ $signupsection->email_issue_message ?? '' }}" placeholder="E-Mail issue Message">
                                                                     <input type="text" class="form-control mt-2" name="error_found" value="{{ $signupsection->error_found ?? '' }}" placeholder="Error found">
