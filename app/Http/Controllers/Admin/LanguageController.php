@@ -471,7 +471,7 @@ class LanguageController extends Controller
 
   public function signinsection(Request $request)
   {
-    dd($request->all());
+   // dd($request->all());
   
     $validator = Validator::make($request->all(), [
       'language_id' => [
@@ -495,6 +495,8 @@ class LanguageController extends Controller
       'remember_me' => 'nullable|string', // Checkbox validation
       'signin' => 'nullable|string|max:255',
       'login_error' => 'nullable|string|max:255',
+      'repeat_password' => 'required|string|min:4',
+
       'not_found' => 'nullable|string|max:255',
       'signup' => 'nullable|string|max:255',
       'regain_password_mail' => 'nullable|string|max:255',
