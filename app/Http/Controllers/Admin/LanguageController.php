@@ -2094,4 +2094,48 @@ class LanguageController extends Controller
             ->with( 'error', 'Error saving Section Settings: ' . $e->getMessage() );
         }
     }
+    public function savehompagelanguage(Request $request)
+    {
+        // Validate the request data
+        $validator = Validator::make($request->all(), [
+            'language_id' => [
+                'required',
+                'string',
+                'size:24', // MongoDB ObjectId size
+                function ($attribute, $value, $fail) {
+                    if (!preg_match('/^[a-f\d]{24}$/i', $value)) {
+                        return $fail($attribute.' is not a valid ObjectId.');
+                    }
+                    // Check if the ObjectId exists in the languages collection
+                    if (!Language::where('_id', $value)->exists()) {
+                        return $fail($attribute.' does not exist.');
+                    }
+                },
+            ],
+            'language' => 'required|string|max:255',
+            'search_language' => 'required|string|max:255',
+            
+        ]);
+
+        // Check for validation errors
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $validatedData = $validator->validated();
+
+        try {
+            // Update or create the headervoter entry
+            HomePageLanguage::updateOrCreate(
+                ['language_id' => $validatedData['language_id']],
+                $validatedData
+            );
+
+            // Redirect back with success message
+            return redirect()->back()->with('success', 'Home page Language saved successfully.');
+        } catch (\Exception $e) {
+            // Redirect back with error message
+            return redirect()->back()->with('error', 'Error saving Home page Language: ' . $e->getMessage());
+        }
+    }
 }
