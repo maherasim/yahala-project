@@ -1198,7 +1198,7 @@
                                                                             <td>{{ $total - $done }}</td>
                                                                             <td>
                                                                                 <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#languageModal__1{{ $language->id }}"
+                                                                                    data-bs-target="#homepagelanguage{{ $language->id }}"
                                                                                     onclick="openSectionModal('alert')">
                                                                                     <button class="btn"
                                                                                         data-bs-toggle="tooltip"
@@ -2549,6 +2549,7 @@
                                     {{-- Signin Section --}}
                                     @include('footercartsection', ['language' => $language])
                                     @include('footerchatsection', ['language' => $language])
+                                    @include('homepagelanguage', ['language' => $language])
                                     @include('visiterprofile', ['language' => $language])
                                     @include('headerstories', ['language' => $language])
                                     @include('headergreating', ['language' => $language])
