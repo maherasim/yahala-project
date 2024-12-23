@@ -397,6 +397,30 @@
  }
 @endphp
 
+@php
+$app_policy = App\Models\App_Policy::where(
+    'language_id',
+    $language->id,
+)->first();
+
+$app_policyFields = [
+    'policy_terms',
+    
+     
+];
+
+$app_policyTotal = count($app_policyFields);
+$app_policyDone = 0;
+
+foreach ($app_policyFields as $field3) {
+    if (!empty($app_policy->$field3)) {
+        $app_policyDone++;
+    }
+}
+@endphp
+
+
+
 
 
 
@@ -1241,19 +1265,19 @@
                                                                         </tr>
                                                                        
                                                                         <tr>
-                                                                            <td>Home page App Policy 2  </td>
+                                                                            <td>Home page App Policy   </td>
                                                                             <td>
                                                                                 <div class="progress">
                                                                                     <div class="progress-bar bg-success"
                                                                                         role="progressbar"
-                                                                                        style="width: {{ $homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0 }}"
+                                                                                        style="width: {{ $app_policyTotal > 0 ? ($app_policyDone / $app_policyTotal) * 100 : 0 }}%;"
+                                                                                        aria-valuenow="{{ $app_policyTotal > 0 ? ($app_policyDone / $app_policyTotal) * 100 : 0 }}"
                                                                                         aria-valuemin="0"
                                                                                         aria-valuemax="100"></div>
                                                                                 </div>
                                                                             </td>
-                                                                            <td>{{ $homepagelanguageDone }}</td>
-                                                                            <td>{{ $homepagelanguageTotal - $startpageDone }}</td>
+                                                                            <td>{{ $app_policyDone }}</td>
+                                                                            <td>{{ $app_policyTotal - $app_policyDone }}</td>
 
 
                                                                             <td>
@@ -2553,6 +2577,7 @@
                                     @include('footercartsection', ['language' => $language])
                                     @include('footerchatsection', ['language' => $language])
                                     @include('homepagelanguage', ['language' => $language])
+                                    @include('app_policy', ['language' => $language])
                                     @include('visiterprofile', ['language' => $language])
                                     @include('headerstories', ['language' => $language])
                                     @include('headergreating', ['language' => $language])
