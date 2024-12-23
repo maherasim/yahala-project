@@ -1282,7 +1282,7 @@ foreach ($app_policyFields as $field3) {
 
                                                                             <td>
                                                                                 <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#homepagelanguage{{ $language->id }}"
+                                                                                    data-bs-target="#app_policy{{ $language->id }}"
                                                                                     onclick="openSectionModal('alert')">
                                                                                     <button class="btn"
                                                                                         data-bs-toggle="tooltip"
