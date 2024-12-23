@@ -416,8 +416,8 @@ class LanguageController extends Controller
                 ,
             ],
             'language_search' => 'nullable|string|max:255',
-            'language_save_change' => 'nullable|string|max:255',
-            'gender' => 'nullable|string|in:male,female,missing',
+            
+            'gender' => 'nullable|string',
             'select_gender_prompt' => 'nullable|string|max:255',
             'gender_ok' => 'nullable|string|max:255',
             'gender_start' => 'nullable|string|max:255',

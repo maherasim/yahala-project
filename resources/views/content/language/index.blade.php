@@ -405,7 +405,7 @@
    
        // Define the fields for the Sign up Section
        $signupFields = [
-           'language_search', 'language_save_change', 'gender', 'location', 'select_gender_prompt', 'gender_ok',
+           'language_search',  'gender', 'location', 'select_gender_prompt', 'gender_ok',
            'gender_start', 'firstname', 'lastname', 'username', 'birthday', 'your_status', 'status_next', 'status_back',
            'origin', 'select_province', 'email', 'repeat_email', 'email_issue_message', 'error_found',
            'user_already_exist', 'email_ok', 'phone_number', 'password', 'repeat_password',
@@ -1481,7 +1481,7 @@ foreach ($headerMusicFields as $field) {
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <input type="text" class="form-control" name="language_search" value="{{ $signupsection->language_search ?? '' }}" placeholder="Search">
-                                                                    <input type="text" class="form-control mt-2" name="language_save_change" value="{{ $signupsection->language_save_change ?? '' }}" placeholder="Save Change">
+                                                                    
                                                                 </div>
                                                             </div>
                                     
@@ -1491,19 +1491,12 @@ foreach ($headerMusicFields as $field) {
                                                                     <h6>Select Gender</h6>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <select class="form-control" name="gender">
-                                                                        <option value="male" {{ $signupsection && $signupsection->gender == 'male' ? 'selected' : '' }}>Male</option>
-                                                                        <option value="female" {{ $signupsection && $signupsection->gender == 'female' ? 'selected' : '' }}>Female</option>
-                                                                        <option value="missing" {{ $signupsection && $signupsection->gender == 'missing' ? 'selected' : '' }}>Gender is Missing</option>
-                                                                    </select> <br>
+                                                                    <div class="col-md-6">
+                                                                        <input type="text" class="form-control" name="gender" value="{{ $signupsection->gender ?? '' }}" placeholder="Search">
+                                                                        
+                                                                    </div> <br>
                                                                     <h6>Select Location</h6>
-                                                                    <select class="form-control" name="location">
-                                                                        <option value="address" {{ $signupsection && $signupsection->location == 'address' ? 'selected' : '' }}>Address</option>
-                                                                        <option value="current_location" {{ $signupsection && $signupsection->location == 'current_location' ? 'selected' : '' }}>Current Location</option>
-                                                                    </select>
-                                                                    <input type="text" class="form-control mt-2" name="select_gender_prompt" value="{{ $signupsection->select_gender_prompt ?? '' }}" placeholder="Please select your gender">
-                                                                    <input type="text" class="form-control mt-2" name="gender_ok" value="{{ $signupsection->gender_ok ?? '' }}" placeholder="Ok">
-                                                                    <input type="text" class="form-control mt-2" name="gender_start" value="{{ $signupsection->gender_start ?? '' }}" placeholder="Start">
+                                                                    <input type="text" class="form-control" name="location" value="{{ $signupsection->location ?? '' }}" placeholder="Search">
                                                                 </div>
                                                             </div>
                                     
@@ -1541,17 +1534,11 @@ foreach ($headerMusicFields as $field) {
                                                             <div class="row mt-2">
                                                                 <div class="col-md-6">
                                                                     <h6>Your Birthday</h6>
-                                                                    <input type="date" class="form-control" name="birthday" value="{{ $signupsection->birthday ?? '' }}" placeholder="Your Birthday">
+                                                                    <input type="text" class="form-control" name="birthday" value="{{ $signupsection->birthday ?? '' }}" placeholder="Your Birthday">
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <h6>Your Status</h6>
-                                                                    <select class="form-control" name="your_status">
-                                                                        <option value="single" {{ $signupsection && $signupsection->your_status == 'single' ? 'selected' : '' }}>Single</option>
-                                                                        <option value="engaged" {{ $signupsection && $signupsection->your_status == 'engaged' ? 'selected' : '' }}>Engaged</option>
-                                                                        <option value="married" {{ $signupsection && $signupsection->your_status == 'married' ? 'selected' : '' }}>Married</option>
-                                                                    </select>
-                                                                    <input type="text" class="form-control mt-2" name="status_next" value="{{ $signupsection->status_next ?? '' }}" placeholder="Next">
-                                                                    <input type="text" class="form-control mt-2" name="status_back" value="{{ $signupsection->status_back ?? '' }}" placeholder="Back">
+                                                                    <input type="text" class="form-control" name="your_status" value="{{ $signupsection->your_status ?? '' }}" placeholder="Your Birthday">
                                                                 </div>
                                                             </div>
                                     
@@ -1561,11 +1548,9 @@ foreach ($headerMusicFields as $field) {
                                                                     <h6>Select Origin</h6>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <select class="form-control" name="origin">
-                                                                        <option value="kurdish" {{ $signupsection && $signupsection->origin == 'kurdish' ? 'selected' : '' }}>I´m Kurdish</option>
-                                                                        <option value="provinces" {{ $signupsection && $signupsection->origin == 'provinces' ? 'selected' : '' }}>Your Province</option>
-                                                                        <option value="not_kurdish" {{ $signupsection && $signupsection->origin == 'not_kurdish' ? 'selected' : '' }}>I´m not Kurdish</option>
-                                                                    </select>
+                                                                    <input type="text" class="form-control" name="origin" value="{{ $signupsection->origin ?? '' }}" placeholder="Your origin">
+
+                                                                    
                                                                     <input type="text" class="form-control mt-2" name="select_province" value="{{ $signupsection->select_province ?? '' }}" placeholder="Select your Province">
                                                                 </div>
                                                             </div>
@@ -1576,8 +1561,8 @@ foreach ($headerMusicFields as $field) {
                                                                     <h6>Your E-Mail Address</h6>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input type="email" class="form-control" name="email" value="{{ $signupsection->email ?? '' }}" placeholder="Type your E-Mail">
-                                                                    <input type="email" class="form-control mt-2" name="repeat_email" value="{{ $signupsection->repeat_email ?? '' }}" placeholder="Repeat your E-Mail">
+                                                                    <input type="text" class="form-control" name="email" value="{{ $signupsection->email ?? '' }}" placeholder="Type your E-Mail">
+                                                                    <input type="text" class="form-control mt-2" name="repeat_email" value="{{ $signupsection->repeat_email ?? '' }}" placeholder="Repeat your E-Mail">
                                                                     <input type="text" class="form-control mt-2" name="email_issue_message" value="{{ $signupsection->email_issue_message ?? '' }}" placeholder="E-Mail issue Message">
                                                                     <input type="text" class="form-control mt-2" name="error_found" value="{{ $signupsection->error_found ?? '' }}" placeholder="Error found">
                                                                     <input type="text" class="form-control mt-2" name="user_already_exist" value="{{ $signupsection->user_already_exist ?? '' }}" placeholder="User already exist">
@@ -1601,8 +1586,8 @@ foreach ($headerMusicFields as $field) {
                                                                     <h6>Create Password</h6>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input type="password" class="form-control" name="password"  value="{{ $signupsection->password ?? '' }}" placeholder="Enter a Password">
-                                                                    <input type="password" class="form-control mt-2" name="repeat_password"  value="{{ $signupsection->password ?? '' }}" placeholder="Repeat a Password">
+                                                                    <input type="text" class="form-control" name="password"  value="{{ $signupsection->password ?? '' }}" placeholder="Enter a Password">
+                                                                    <input type="text" class="form-control mt-2" name="repeat_password"  value="{{ $signupsection->password ?? '' }}" placeholder="Repeat a Password">
                                                                 </div>
                                                             </div>
                                     
