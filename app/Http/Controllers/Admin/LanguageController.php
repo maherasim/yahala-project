@@ -435,7 +435,7 @@ class LanguageController extends Controller
             'origin' => 'nullable|string|max:255',
             'select_province' => 'nullable|string|max:255',
             'not_kurdish' => 'nullable|string|max:255',
-            'email' => 'nullable|email|max:255 ',
+            'email' => 'nullable|string',
             'repeat_email' => 'nullable|string',
             'email_issue_message' => 'nullable|string|max:255',
             'error_found' => 'nullable|string|max:255',
