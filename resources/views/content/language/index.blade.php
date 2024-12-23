@@ -375,6 +375,32 @@
                                                 }
                                             }
                                         @endphp
+ @php
+ $homepagelanguage = App\Models\HomePageLanguage::where(
+     'language_id',
+     $language->id,
+ )->first();
+
+ $homepagelanguageFields = [
+     'language',
+     'search_language',
+      
+ ];
+
+ $homepagelanguageTotal = count($homepagelanguageFields);
+ $homepagelanguageDone = 0;
+
+ foreach ($homepagelanguageFields as $field2) {
+     if (!empty($homepagelanguage->$field2)) {
+         $homepagelanguageDone++;
+     }
+ }
+@endphp
+
+
+
+
+
                                         @php
                                             $headerfeed = App\Models\HeaderFeedSection::where(
                                                 'language_id',
@@ -1275,14 +1301,14 @@
                                                                                 <div class="progress">
                                                                                     <div class="progress-bar bg-success"
                                                                                         role="progressbar"
-                                                                                        style="width: {{ $startpageTotal > 0 ? ($startpageDone / $startpageTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $startpageTotal > 0 ? ($startpageDone / $startpageTotal) * 100 : 0 }}"
+                                                                                        style="width: {{ $homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0 }}%;"
+                                                                                        aria-valuenow="{{ $homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0 }}"
                                                                                         aria-valuemin="0"
                                                                                         aria-valuemax="100"></div>
                                                                                 </div>
                                                                             </td>
-                                                                            <td>{{ $startpageDone }}</td>
-                                                                            <td>{{ $startpageTotal - $startpageDone }}</td>
+                                                                            <td>{{ $homepagelanguageDone }}</td>
+                                                                            <td>{{ $homepagelanguageTotal - $homepagelanguageDone }}</td>
 
 
                                                                             <td>
