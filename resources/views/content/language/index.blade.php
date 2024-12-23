@@ -1553,13 +1553,14 @@ foreach ($headerMusicFields as $field) {
                                                             <div class="row mt-2">
                                                                 <div class="col-md-6">
                                                                     <h6>Select Origin</h6>
+                                                              
+                                                                
+                                                                    <input type="text" class="form-control" name="origin" value="{{ $signupsection->origin ?? '' }}" placeholder="Select origin">
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input type="text" class="form-control" name="origin" value="{{ $signupsection->origin ?? '' }}" placeholder="Your origin">
-
-                                                                    
+                                                                    <h6>Select Province</h6>    
                                                                     <input type="text" class="form-control mt-2" name="select_province" value="{{ $signupsection->select_province ?? '' }}" placeholder="Select your Province">
-                                                                </div>
+                                                                </div></div>
                                                             </div>
                                     
                                                             <!-- E-Mail Address -->
