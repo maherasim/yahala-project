@@ -30,7 +30,7 @@
                                 <h6>Enter E-mail</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" placeholder="Enter E-mail"
+                                <input type="text" class="form-control" name="email" placeholder="Enter E-mail"
                                     value="{{ $signinsection->email ?? '' }}">
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                                 <h6>Enter Password</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="password" placeholder="Enter Password"
+                                <input type="text" class="form-control" name="password" placeholder="Enter Password"
                                     value="{{ $signinsection->password ?? '' }}">
                             </div>
                         </div>
@@ -51,9 +51,10 @@
                             <div class="col-md-6">
                                 <h6>Remember me</h6>
                             </div>
+                            
                             <div class="col-md-6">
-                                <input type="checkbox" name="remember_me" value="1"
-                                    {{ $signinsection && $signinsection->remember_me ? 'checked' : '' }}> Remember me
+                                <input type="text" class="form-control" name="remember_me" placeholder="Enter remember_me"
+                                    value="{{ $signinsection->remember_me ?? '' }}">
                             </div>
 
                         </div>
@@ -274,7 +275,7 @@
                                     placeholder="Wrong Password">
                             </div>
                         </div>
- <div class="row mt-2">
+                      <div class="row mt-2">
                             <div class="col-md-6">
                                 <h6>Create Password</h6>
                             </div>
@@ -355,7 +356,7 @@
                         <!-- Logged In -->
                         <div class="row mt-2">
                             <div class="col-md-6">
-                                <h6>You are logged on yekbun now</h6>
+                                <h6>You are logged on Yahala now</h6>
                             </div>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="logged_in" placeholder="Logged In"
@@ -368,7 +369,7 @@
                                 <h6>Repeat Password</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="repeat_password"
+                                <input type="text" class="form-control" name="repeat_password"
                                     placeholder="Repeat Password"
                                     value="{{ $signinsection->repeat_password ?? '' }}">
                             </div>
