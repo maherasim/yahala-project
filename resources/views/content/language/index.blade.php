@@ -405,11 +405,26 @@
    
        // Define the fields for the Sign up Section
        $signupFields = [
-           'language_search',  'gender', 'location', 'select_gender_prompt', 'gender_ok',
-           'gender_start', 'firstname', 'lastname', 'username', 'birthday', 'your_status', 'status_next', 'status_back',
-           'origin', 'select_province', 'email', 'repeat_email', 'email_issue_message', 'error_found',
-           'user_already_exist', 'email_ok', 'phone_number', 'password', 'repeat_password',
-           'account_created_success_message', 'sign_in_redirect'
+        'language_search',
+        'gender',
+        'firstname',
+        'lastname',
+        'user_already_exist',
+        'username',
+        'birthday',
+        'your_status',
+        'location',
+        'origin',
+        'select_province',
+        'email',
+        'repeat_email',
+        'email_issue_message',
+        'error_found',
+        'phone_number',
+        'password',
+        'repeat_password',
+        'account_created_success_message',
+        'sign_in_redirect'
        ];
    
        // Calculate total and done values
