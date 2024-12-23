@@ -1545,7 +1545,7 @@ foreach ($headerMusicFields as $field) {
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <h6>Your Status</h6>
-                                                                    <input type="text" class="form-control" name="your_status" value="{{ $signupsection->your_status ?? '' }}" placeholder="Your Birthday">
+                                                                    <input type="text" class="form-control" name="your_status" value="{{ $signupsection->your_status ?? '' }}" placeholder="Your Status">
                                                                 </div>
                                                             </div>
                                     
