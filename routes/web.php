@@ -570,6 +570,7 @@ Route::post('/languages/keyword/Channels/setting/section', [LanguageController::
 Route::post('/languages/keyword/section/setting', [LanguageController::class, 'saveSectionSettings'])->name('languages.saveSectionSettings');
 Route::post('/languages/keyword/section/history', [LanguageController::class, 'saveSectionhistory'])->name('languages.saveSectionhistory');
 Route::post('/languages/keyword/section/voting', [LanguageController::class, 'saveSectionvoter'])->name('languages.saveSectionvoter');
+Route::post('/languages/keyword/homepage/language', [LanguageController::class, 'savehompagelanguage'])->name('languages.savehompagelanguage');
 Route::post('/languages/keyword/section/donation', [LanguageController::class, 'headerdoantion'])->name('languages.headerdoantion');
 
 

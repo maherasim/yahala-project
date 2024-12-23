@@ -1,5 +1,5 @@
 @php
-$headervoter = App\Models\headervoter::where('language_id', $language->id)->first();
+$homepage = App\Models\HomePageLanguage::where('language_id', $language->id)->first();
 @endphp
 
 <div class="modal fade" id="homepagelanguage{{ $language->id }}" tabindex="-1" aria-hidden="true">
@@ -10,7 +10,7 @@ $headervoter = App\Models\headervoter::where('language_id', $language->id)->firs
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('languages.saveSectionvoter') }}" method="POST">
+                <form action="{{ route('languages.savehompagelanguage') }}" method="POST">
                     @csrf
                     <input type="hidden" name="language_id" value="{{ $language->id }}">
 
@@ -27,13 +27,20 @@ $headervoter = App\Models\headervoter::where('language_id', $language->id)->firs
                         <!-- Categories -->
                         <div class="row mt-2">
                             <div class="col-md-6">
-                                <h6>Categories</h6>
+                                <h6>Language</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="categories" placeholder="Categories" value="{{ $headervoter->categories ?? '' }}">
+                                <input type="text" class="form-control" name="language" placeholder="language" value="{{ $homepage->language ?? '' }}">
                             </div>
                         </div>
-
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <h6>Search Language</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="search_language" placeholder="Categories" value="{{ $homepage->search_language ?? '' }}">
+                            </div>
+                        </div>
                         
                         
 
