@@ -471,6 +471,7 @@ class LanguageController extends Controller
 
   public function signinsection(Request $request)
   {
+    dd($request->all());
   
     $validator = Validator::make($request->all(), [
       'language_id' => [
