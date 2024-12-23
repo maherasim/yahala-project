@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\LanguageData;
 use App\Models\HomePageLanguage;
+use App\Models\App_Policy;
 use App\Models\StartPage;
 use Illuminate\Http\Response;
  
@@ -132,7 +133,24 @@ class LanguageController extends Controller
       // Return the data as JSON
       return response()->json($homepage, Response::HTTP_OK);
   }
+  public function getShomeApp_PolicyByLanguageId($languageId)
+  {
+      // Validate if the language_id is a valid ObjectId (MongoDB)
+      if (!preg_match('/^[a-f\d]{24}$/i', $languageId)) {
+          return response()->json(['error' => 'Invalid language_id format'], Response::HTTP_BAD_REQUEST);
+      }
 
+      // Fetch the data based on language_id
+      $homepage = App_Policy::where('language_id', $languageId)->first();
+
+      // Check if the data exists
+      if (!$homepage) {
+          return response()->json(['error' => 'App Policy not found for this language_id'], Response::HTTP_NOT_FOUND);
+      }
+
+      // Return the data as JSON
+      return response()->json($homepage, Response::HTTP_OK);
+  }
 
 
   /**
