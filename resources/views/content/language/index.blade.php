@@ -1552,7 +1552,7 @@ foreach ($headerMusicFields as $field) {
                                                                 <div class="col-md-6">
                                                                     <input type="text" class="form-control" name="your_status" value="{{ $signupsection->your_status ?? '' }}" placeholder="Your Status">
                                                                 </div></div>
-                                                            </div>
+                                                          
                                     
                                                             <!-- Select Origin -->
                                                             <div class="row mt-2">
