@@ -1208,35 +1208,7 @@
                                                                                 </span>
                                                                             </td>
                                                                         </tr>
-                                                                        <tr>
-                                                                            <td>Home page Language</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $total > 0 ? ($done / $total) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $total > 0 ? ($done / $total) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $done }}</td>
-                                                                            <td>{{ $total - $done }}</td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#homepagelanguage{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
+                                                                        
                                                                         <tr>
                                                                             <td>Home page App Policy</td>
                                                                             <td>
@@ -1296,7 +1268,7 @@
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td> Home page Start Page</td>
+                                                                            <td>Home page Language </td>
                                                                             <td>
                                                                                 <div class="progress">
                                                                                     <div class="progress-bar bg-success"
@@ -1308,7 +1280,7 @@
                                                                                 </div>
                                                                             </td>
                                                                             <td>{{ $homepagelanguageDone }}</td>
-                                                                            <td>{{ $homepagelanguageTotal - $homepagelanguageDone }}</td>
+                                                                            <td>{{ $homepagelanguageTotal - $startpageDone }}</td>
 
 
                                                                             <td>
