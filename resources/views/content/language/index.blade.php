@@ -1285,7 +1285,7 @@
 
                                                                             <td>
                                                                                 <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#startpage__1{{ $language->id }}"
+                                                                                    data-bs-target="#homepagelanguage{{ $language->id }}"
                                                                                     onclick="openSectionModal('alert')">
                                                                                     <button class="btn"
                                                                                         data-bs-toggle="tooltip"
