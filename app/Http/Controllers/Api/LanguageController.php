@@ -104,16 +104,37 @@ class LanguageController extends Controller
       }
 
       // Fetch the data based on language_id
-      $signInSection = SignupSection::where('language_id', $languageId)->first();
+      $signupSection = SignupSection::where('language_id', $languageId)->first();
 
       // Check if the data exists
-      if (!$signInSection) {
+      if (!$signupSection) {
           return response()->json(['error' => 'SignUpSection not found for this language_id'], Response::HTTP_NOT_FOUND);
       }
 
       // Return the data as JSON
-      return response()->json($signInSection, Response::HTTP_OK);
+      return response()->json($signupSection, Response::HTTP_OK);
   }
+  public function getShomepagelanguageByLanguageId($languageId)
+  {
+      // Validate if the language_id is a valid ObjectId (MongoDB)
+      if (!preg_match('/^[a-f\d]{24}$/i', $languageId)) {
+          return response()->json(['error' => 'Invalid language_id format'], Response::HTTP_BAD_REQUEST);
+      }
+
+      // Fetch the data based on language_id
+      $homepage = HomePageLanguage::where('language_id', $languageId)->first();
+
+      // Check if the data exists
+      if (!$homepage) {
+          return response()->json(['error' => 'SignUpSection not found for this language_id'], Response::HTTP_NOT_FOUND);
+      }
+
+      // Return the data as JSON
+      return response()->json($homepage, Response::HTTP_OK);
+  }
+
+
+
   /**
    * Show the form for creating a new resource.
    *
