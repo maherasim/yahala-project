@@ -1541,12 +1541,17 @@ foreach ($headerMusicFields as $field) {
                                                             <div class="row mt-2">
                                                                 <div class="col-md-6">
                                                                     <h6>Your Birthday</h6>
-                                                                    <input type="text" class="form-control" name="birthday" value="{{ $signupsection->birthday ?? '' }}" placeholder="Your Birthday">
                                                                 </div>
                                                                 <div class="col-md-6">
+                                                                    <input type="text" class="form-control" name="birthday" value="{{ $signupsection->birthday ?? '' }}" placeholder="Your Birthday">
+                                                                </div></div>
+                                                                <div class="row mt-2">
+                                                                <div class="col-md-6">
                                                                     <h6>Your Status</h6>
+                                                                </div> 
+                                                                <div class="col-md-6">
                                                                     <input type="text" class="form-control" name="your_status" value="{{ $signupsection->your_status ?? '' }}" placeholder="Your Status">
-                                                                </div>
+                                                                </div></div>
                                                             </div>
                                     
                                                             <!-- Select Origin -->
