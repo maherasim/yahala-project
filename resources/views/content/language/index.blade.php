@@ -1490,9 +1490,18 @@ foreach ($headerMusicFields as $field) {
                                                                 <div class="col-md-6">
                                                                     <h6>Select Gender</h6>
                                                                 </div>
-                                                                <div class="col-md-6">
-                                                                    
+                                                                <div class="col-md-6">                                                                    
                                                                         <input type="text" class="form-control" name="gender" value="{{ $signupsection->gender ?? '' }}" placeholder="Search">
+                                                                        
+                                                                    </div> 
+                                                                    
+                                                            </div>
+                                                            <div class="row mt-2">
+                                                                <div class="col-md-6">
+                                                                    <h6>Select Location</h6>
+                                                                </div>
+                                                                <div class="col-md-6">                                                                    
+                                                                        <input type="text" class="form-control" name="location" value="{{ $signupsection->location ?? '' }}" placeholder="Search">
                                                                         
                                                                     </div> 
                                                                     
