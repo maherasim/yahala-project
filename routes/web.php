@@ -573,6 +573,8 @@ Route::post('/languages/keyword/section/voting', [LanguageController::class, 'sa
 Route::post('/languages/keyword/homepage/language', [LanguageController::class, 'savehompagelanguage'])->name('languages.savehompagelanguage');
 Route::post('/languages/app_policy', [LanguageController::class, 'saveappp_policy'])->name('languages.saveappp_policy');
 
+Route::post('/languages/keyword/section/donation', [LanguageController::class, 'headerdoantion'])->name('languages.headerdoantion');
+
 
 
 
