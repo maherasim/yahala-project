@@ -1578,14 +1578,13 @@ foreach ($headerMusicFields as $field) {
                                                                     <input type="text" class="form-control" name="email" value="{{ $signupsection->email ?? '' }}" placeholder="Type your E-Mail">
                                                                     <h6>Repeat your E-Mail</h6>
                                                                     <input type="text" class="form-control mt-2" name="repeat_email" value="{{ $signupsection->repeat_email ?? '' }}" placeholder="Repeat your E-Mail">
-                                                                    <h6>"E-Mail issue Message</h6>
+                                                                    <h6>E-Mail issue Message</h6>
                                                                     <input type="text" class="form-control mt-2" name="email_issue_message" value="{{ $signupsection->email_issue_message ?? '' }}" placeholder="E-Mail issue Message">
                                                                     <h6>Error found</h6>
                                                                     <input type="text" class="form-control mt-2" name="error_found" value="{{ $signupsection->error_found ?? '' }}" placeholder="Error found">
                                                                     <h6>User already exist</h6>
                                                                     <input type="text" class="form-control mt-2" name="user_already_exist" value="{{ $signupsection->user_already_exist ?? '' }}" placeholder="User already exist">
-                                                                    <h6>email_ok</h6>
-                                                                    <input type="text" class="form-control mt-2" name="email_ok" value="{{ $signupsection->email_ok ?? '' }}" placeholder="Ok">
+                                                                    
                                                                 </div>
                                                             </div>
                                     
