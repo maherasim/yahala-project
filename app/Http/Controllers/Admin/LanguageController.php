@@ -2114,7 +2114,7 @@ class LanguageController extends Controller
                     }
                 },
             ],
-            'language' => 'required|string|max:255',
+            'language_main' => 'required|string|max:255',
             'search_language' => 'required|string|max:255',
             
         ]);
