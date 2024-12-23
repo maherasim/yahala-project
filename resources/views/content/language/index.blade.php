@@ -1239,23 +1239,26 @@
                                                                                 </span>
                                                                             </td>
                                                                         </tr>
+                                                                       
                                                                         <tr>
-                                                                            <td>Home page App Policy</td>
+                                                                            <td>Home page App Policy 2  </td>
                                                                             <td>
                                                                                 <div class="progress">
                                                                                     <div class="progress-bar bg-success"
                                                                                         role="progressbar"
-                                                                                        style="width: {{ $total > 0 ? ($done / $total) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $total > 0 ? ($done / $total) * 100 : 0 }}"
+                                                                                        style="width: {{ $homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0 }}%;"
+                                                                                        aria-valuenow="{{ $homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0 }}"
                                                                                         aria-valuemin="0"
                                                                                         aria-valuemax="100"></div>
                                                                                 </div>
                                                                             </td>
-                                                                            <td>{{ $done }}</td>
-                                                                            <td>{{ $total - $done }}</td>
+                                                                            <td>{{ $homepagelanguageDone }}</td>
+                                                                            <td>{{ $homepagelanguageTotal - $startpageDone }}</td>
+
+
                                                                             <td>
                                                                                 <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#languageModal__1{{ $language->id }}"
+                                                                                    data-bs-target="#homepagelanguage{{ $language->id }}"
                                                                                     onclick="openSectionModal('alert')">
                                                                                     <button class="btn"
                                                                                         data-bs-toggle="tooltip"
@@ -1268,6 +1271,8 @@
                                                                                 </span>
                                                                             </td>
                                                                         </tr>
+
+
                                                                         <tr>
                                                                             <td>Home page Landing Page</td>
                                                                             <td>
