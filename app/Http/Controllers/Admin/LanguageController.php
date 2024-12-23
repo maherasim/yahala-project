@@ -505,7 +505,7 @@ class LanguageController extends Controller
                 }
                 ,
             ],
-            'email' => 'nullable|email|max:255',
+            'email' => 'nullable|string|max:255',
             'password' => 'nullable|string|min:4',
             'password' => 'nullable|string|min:4',
             'forgot_password' => 'nullable|string|min:4',
