@@ -33,7 +33,7 @@ use App\Models\HeaderOnlineShopSection;
 use App\Models\SignupSection;
 use App\Models\HeaderMusicSection;
 use App\Models\HeaderServicePortalSection;
-use App\Models\SigninSection;
+use App\Models\SignInSection;
 use App\Models\FooterQuickLauncher;
 use App\Models\FooterChatSection;
 use App\Models\HeaderFeedSection;
