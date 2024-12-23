@@ -30,7 +30,7 @@ $homepage = App\Models\HomePageLanguage::where('language_id', $language->id)->fi
                                 <h6>Language</h6>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="language" placeholder="language" value="{{ $homepage->language ?? '' }}">
+                                <input type="text" class="form-control" name="language_main" placeholder="language" value="{{ $homepage->language ?? '' }}">
                             </div>
                         </div>
                         <div class="row mt-2">

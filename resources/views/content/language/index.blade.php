@@ -382,7 +382,7 @@
  )->first();
 
  $homepagelanguageFields = [
-     'language',
+     'language_main',
      'search_language',
       
  ];

@@ -12,7 +12,7 @@ class HomePageLanguage extends Model
 
     protected $fillable = [
         'language_id',
-        'language',
+        'language_main',
         'search_language'
         
     ];
