@@ -1182,9 +1182,95 @@
                                                                                 </span>
                                                                             </td>
                                                                         </tr>
-
                                                                         <tr>
-                                                                            <td>Start Page</td>
+                                                                            <td>Home page Language</td>
+                                                                            <td>
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar bg-success"
+                                                                                        role="progressbar"
+                                                                                        style="width: {{ $total > 0 ? ($done / $total) * 100 : 0 }}%;"
+                                                                                        aria-valuenow="{{ $total > 0 ? ($done / $total) * 100 : 0 }}"
+                                                                                        aria-valuemin="0"
+                                                                                        aria-valuemax="100"></div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>{{ $done }}</td>
+                                                                            <td>{{ $total - $done }}</td>
+                                                                            <td>
+                                                                                <span data-bs-toggle="modal"
+                                                                                    data-bs-target="#languageModal__1{{ $language->id }}"
+                                                                                    onclick="openSectionModal('alert')">
+                                                                                    <button class="btn"
+                                                                                        data-bs-toggle="tooltip"
+                                                                                        data-bs-offset="0,4"
+                                                                                        data-bs-placement="top"
+                                                                                        data-bs-html="true"
+                                                                                        data-bs-original-title="Edit">
+                                                                                        <i class="bx bx-edit"></i>
+                                                                                    </button>
+                                                                                </span>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Home page App Policy</td>
+                                                                            <td>
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar bg-success"
+                                                                                        role="progressbar"
+                                                                                        style="width: {{ $total > 0 ? ($done / $total) * 100 : 0 }}%;"
+                                                                                        aria-valuenow="{{ $total > 0 ? ($done / $total) * 100 : 0 }}"
+                                                                                        aria-valuemin="0"
+                                                                                        aria-valuemax="100"></div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>{{ $done }}</td>
+                                                                            <td>{{ $total - $done }}</td>
+                                                                            <td>
+                                                                                <span data-bs-toggle="modal"
+                                                                                    data-bs-target="#languageModal__1{{ $language->id }}"
+                                                                                    onclick="openSectionModal('alert')">
+                                                                                    <button class="btn"
+                                                                                        data-bs-toggle="tooltip"
+                                                                                        data-bs-offset="0,4"
+                                                                                        data-bs-placement="top"
+                                                                                        data-bs-html="true"
+                                                                                        data-bs-original-title="Edit">
+                                                                                        <i class="bx bx-edit"></i>
+                                                                                    </button>
+                                                                                </span>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Home page Landing Page</td>
+                                                                            <td>
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar bg-success"
+                                                                                        role="progressbar"
+                                                                                        style="width: {{ $total > 0 ? ($done / $total) * 100 : 0 }}%;"
+                                                                                        aria-valuenow="{{ $total > 0 ? ($done / $total) * 100 : 0 }}"
+                                                                                        aria-valuemin="0"
+                                                                                        aria-valuemax="100"></div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>{{ $done }}</td>
+                                                                            <td>{{ $total - $done }}</td>
+                                                                            <td>
+                                                                                <span data-bs-toggle="modal"
+                                                                                    data-bs-target="#languageModal__1{{ $language->id }}"
+                                                                                    onclick="openSectionModal('alert')">
+                                                                                    <button class="btn"
+                                                                                        data-bs-toggle="tooltip"
+                                                                                        data-bs-offset="0,4"
+                                                                                        data-bs-placement="top"
+                                                                                        data-bs-html="true"
+                                                                                        data-bs-original-title="Edit">
+                                                                                        <i class="bx bx-edit"></i>
+                                                                                    </button>
+                                                                                </span>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td> Home page Start Page</td>
                                                                             <td>
                                                                                 <div class="progress">
                                                                                     <div class="progress-bar bg-success"
@@ -1215,7 +1301,7 @@
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>Sign up Section</td>
+                                                                            <td> Home page Sign up Section</td>
                                                                             <td>
                                                                                 <div class="progress">
                                                                                     <div class="progress-bar bg-success"
@@ -1245,7 +1331,7 @@
                                                                         </tr>
 
                                                                         <tr>
-                                                                            <td>Sign in Section</td>
+                                                                            <td> Home page Sign in Section</td>
                                                                             <td>
                                                                                 <div class="progress">
                                                                                     <div class="progress-bar bg-success"
