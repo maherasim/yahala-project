@@ -36,8 +36,15 @@
                 Language</button>
         </div>
     </div>
+    
     <!-- Basic Bootstrap Table -->
     <div class="card">
+        @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
         <h5 class="card-header">List of Language</h5>
         <div class="card-datatable table-responsive">
             <table class="datatables-basic table border-top">
