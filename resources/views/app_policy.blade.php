@@ -10,7 +10,7 @@ $homepage = App\Models\App_Policy::where('language_id', $language->id)->first();
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('languages.savehompagelanguage') }}" method="POST">
+                <form action="{{ route('languages.saveappp_policy') }}" method="POST">
                     @csrf
                     <input type="hidden" name="language_id" value="{{ $language->id }}">
 

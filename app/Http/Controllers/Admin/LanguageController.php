@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\LanguageData;
 use App\Models\StartPage;
+use App\Models\App_Policy;
 use App\Models\HomePageLanguage;
 
 use App\Models\LanguageKeyword;
@@ -2140,4 +2141,51 @@ class LanguageController extends Controller
             return redirect()->back()->with('error', 'Error saving Home page Language: ' . $e->getMessage());
         }
     }
+
+    public function saveappp_policy(Request $request)
+    {
+        // Validate the request data
+        $validator = Validator::make($request->all(), [
+            'language_id' => [
+                'required',
+                'string',
+                'size:24', // MongoDB ObjectId size
+                function ($attribute, $value, $fail) {
+                    if (!preg_match('/^[a-f\d]{24}$/i', $value)) {
+                        return $fail($attribute.' is not a valid ObjectId.');
+                    }
+                    // Check if the ObjectId exists in the languages collection
+                    if (!Language::where('_id', $value)->exists()) {
+                        return $fail($attribute.' does not exist.');
+                    }
+                },
+            ],
+            'policy_terms' => 'required|string|max:255',
+         
+            
+        ]);
+
+        // Check for validation errors
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $validatedData = $validator->validated();
+
+        try {
+            // Update or create the headervoter entry
+            App_Policy::updateOrCreate(
+                ['language_id' => $validatedData['language_id']],
+                $validatedData
+            );
+
+            // Redirect back with success message
+            return redirect()->back()->with('success', 'App Policy  saved successfully.');
+        } catch (\Exception $e) {
+            // Redirect back with error message
+            return redirect()->back()->with('error', 'Error saving Home page Language: ' . $e->getMessage());
+        }
+    }
+
+
 }

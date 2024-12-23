@@ -571,7 +571,7 @@ Route::post('/languages/keyword/section/setting', [LanguageController::class, 's
 Route::post('/languages/keyword/section/history', [LanguageController::class, 'saveSectionhistory'])->name('languages.saveSectionhistory');
 Route::post('/languages/keyword/section/voting', [LanguageController::class, 'saveSectionvoter'])->name('languages.saveSectionvoter');
 Route::post('/languages/keyword/homepage/language', [LanguageController::class, 'savehompagelanguage'])->name('languages.savehompagelanguage');
-Route::post('/languages/keyword/section/donation', [LanguageController::class, 'headerdoantion'])->name('languages.headerdoantion');
+Route::post('/languages/app_policy', [LanguageController::class, 'saveappp_policy'])->name('languages.saveappp_policy');
 
 
 
