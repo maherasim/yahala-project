@@ -2174,11 +2174,11 @@ class LanguageController extends Controller
 
         try {
             // Update or create the headervoter entry
-            App_Policy::updateOrCreate(
+        $data=    App_Policy::updateOrCreate(
                 ['language_id' => $validatedData['language_id']],
                 $validatedData
             );
-
+dd(  $data);
             // Redirect back with success message
             return redirect()->back()->with('success', 'App Policy  saved successfully.');
         } catch (\Exception $e) {
