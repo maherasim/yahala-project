@@ -405,6 +405,8 @@ $app_policy = App\Models\App_Policy::where(
 
 $app_policyFields = [
     'policy_terms',
+    'description',
+    'heading_title'
     
      
 ];

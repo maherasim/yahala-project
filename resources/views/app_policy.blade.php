@@ -33,6 +33,23 @@ $homepage = App\Models\App_Policy::where('language_id', $language->id)->first();
                                 <input type="text" class="form-control" name="policy_terms" placeholder="policy_terms" value="{{ $homepage->policy_terms ?? '' }}">
                             </div>
                         </div>
+
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <h6>Description</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="description" placeholder="description" value="{{ $homepage->description ?? '' }}">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <h6>Heading Title</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="heading_title" placeholder="heading_title" value="{{ $homepage->heading_title ?? '' }}">
+                            </div>
+                        </div>
                     
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-label-secondary" data-bs-dismiss="modal">Save</button>

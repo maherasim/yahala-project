@@ -13,6 +13,8 @@ class App_Policy extends Model
     protected $fillable = [
         'language_id',
         'policy_terms',
+        'description',
+        'heading_title'
        
         
     ];
