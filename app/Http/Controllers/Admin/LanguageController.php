@@ -2180,7 +2180,7 @@ class LanguageController extends Controller
                 ['language_id' => $validatedData['language_id']],
                 $validatedData
             );
-dd(  $data);
+//dd(  $data);
             // Redirect back with success message
             return redirect()->back()->with('success', 'App Policy  saved successfully.');
         } catch (\Exception $e) {
