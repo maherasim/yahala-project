@@ -2161,6 +2161,8 @@ class LanguageController extends Controller
                 },
             ],
             'policy_terms' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'heading_title' => 'required|string|max:255',
          
             
         ]);
