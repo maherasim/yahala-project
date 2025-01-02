@@ -163,7 +163,7 @@ class LanguageController extends Controller
       $signInSection = SignInSection::where('language_id', $languageId)->first();
       $signupSection = SignupSection::where('language_id', $languageId)->first();
       $homepage = HomePageLanguage::where('language_id', $languageId)->first();
-      $appPolicy = App_Policy::where('language_id', $languageId)->first();
+      $appPolicy = App_Policy::where('language_id', $languageId)->get();
   
       // Prepare the response data
       $data = [
