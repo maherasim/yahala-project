@@ -173,6 +173,7 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
   Route::get('/homepagelanguage-section/{languageId}', [LanguageController::class, 'getShomepagelanguageByLanguageId']);
   Route::get('/app_policy-section/{languageId}', [LanguageController::class, 'getShomeApp_PolicyByLanguageId']);
 
+  Route::get('/all-language-sections/{languageId}', [LanguageController::class, 'getAllSectionsByLanguageId']);
 
 
 

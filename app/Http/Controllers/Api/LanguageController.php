@@ -152,6 +152,37 @@ class LanguageController extends Controller
       return response()->json($homepage, Response::HTTP_OK);
   }
 
+  public function getAllSectionsByLanguageId($languageId)
+  {
+      // Validate if the language_id is a valid ObjectId (MongoDB)
+      if (!preg_match('/^[a-f\d]{24}$/i', $languageId)) {
+          return response()->json(['error' => 'Invalid language_id format'], Response::HTTP_BAD_REQUEST);
+      }
+  
+      // Fetch all the required data
+      $signInSection = SignInSection::where('language_id', $languageId)->first();
+      $signupSection = SignupSection::where('language_id', $languageId)->first();
+      $homepage = HomePageLanguage::where('language_id', $languageId)->first();
+      $appPolicy = App_Policy::where('language_id', $languageId)->first();
+  
+      // Prepare the response data
+      $data = [
+          'sign_in_section' => $signInSection,
+          'sign_up_section' => $signupSection,
+          'homepage_language_section' => $homepage,
+          'app_policy_section' => $appPolicy,
+      ];
+  
+      // Check if all data is null
+      if (empty(array_filter($data))) {
+          return response()->json(['error' => 'No data found for this language_id'], Response::HTTP_NOT_FOUND);
+      }
+  
+      // Return the combined data as JSON
+      return response()->json($data, Response::HTTP_OK);
+  }
+  
+
 
   /**
    * Show the form for creating a new resource.
