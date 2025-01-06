@@ -511,17 +511,23 @@ class LanguageController extends Controller
             'email' => 'nullable|string|max:255',
             'password' => 'nullable|string|min:4',
             'password' => 'nullable|string|min:4',
-
             'title_email' => 'nullable|string',
             'title_password' => 'nullable|string',
             'lost_device_title' => 'nullable|string',
             'lost_device_subtitle' => 'nullable|string',
-
             'forgot_password' => 'nullable|string|min:4',
             'remember_me' => 'nullable|string', // Checkbox validation
             'signin' => 'nullable|string|max:255',
             'login_error' => 'nullable|string|max:255',
+
+
             'repeat_password' => 'required|string|min:4',
+
+
+           'forgot_password' => 'required|string',
+           'reset_password' => 'required|string',
+           'send_buttton' => 'required|string',
+
 
             'not_found' => 'nullable|string|max:255',
             'signup' => 'nullable|string|max:255',

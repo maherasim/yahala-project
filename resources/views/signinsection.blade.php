@@ -372,6 +372,33 @@
                                     placeholder="lost_device_subtitle" value="{{ $signinsection->lost_device_subtitle ?? '' }}">
                             </div>
                         </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <h6>Forgot password</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="forgot_password"
+                                    placeholder="forgot_password" value="{{ $signinsection->forgot_password ?? '' }}">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <h6>Reset passord</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="reset_password"
+                                    placeholder="reset_password" value="{{ $signinsection->reset_password ?? '' }}">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <h6>Send Button</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="send_buttton"
+                                    placeholder="send_buttton" value="{{ $signinsection->send_buttton ?? '' }}">
+                            </div>
+                        </div>
 
 
 
