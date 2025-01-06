@@ -429,6 +429,8 @@ class LanguageController extends Controller
             'user_already_exist' => 'nullable|string|max:255',
             'username' => 'nullable|string|max:255',
             'birthday' => 'nullable|string',
+            'male' => 'nullable|string',
+            'female' => 'nullable|string',
             'your_status' => 'nullable|string',
             'status_next' => 'nullable|string|max:255',
             'status_back' => 'nullable|string|max:255',

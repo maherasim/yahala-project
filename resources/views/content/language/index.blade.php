@@ -610,6 +610,8 @@ foreach ($app_policyFields as $field3) {
                                                 'lastname',
                                                 'user_already_exist',
                                                 'username',
+                                                'male',
+                                                'female',
                                                 'birthday',
                                                 'your_status',
                                                 'location',
@@ -2375,7 +2377,23 @@ foreach ($app_policyFields as $field3) {
                                                                     <h6>Select Gender</h6>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input type="text" class="form-control" name="gender" value="{{ $signupsection->gender ?? '' }}" placeholder="Search">
+                                                                    <input type="text" class="form-control" name="gender" value="{{ $signupsection->gender ?? '' }}" placeholder="select gender">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mt-2">
+                                                                <div class="col-md-6">
+                                                                    <h6>Male</h6>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <input type="text" class="form-control" name="male" value="{{ $signupsection->male ?? '' }}" placeholder="male">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mt-2">
+                                                                <div class="col-md-6">
+                                                                    <h6>FeMale</h6>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <input type="text" class="form-control" name="female" value="{{ $signupsection->female ?? '' }}" placeholder="female">
                                                                 </div>
                                                             </div>
                                     

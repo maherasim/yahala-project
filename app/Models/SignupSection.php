@@ -19,6 +19,8 @@ class SignupSection extends Model
         'gender_ok',
         'gender_start',
         'firstname',
+        'male',
+        'female',
         'lastname',
         'username',
         'birthday',
