@@ -528,6 +528,9 @@ class LanguageController extends Controller
            'reset_password' => 'required|string',
            'send_buttton' => 'required|string',
 
+           'enter_otp' => 'required|string',
+           'verification_code' => 'required|string',
+
 
             'not_found' => 'nullable|string|max:255',
             'signup' => 'nullable|string|max:255',
