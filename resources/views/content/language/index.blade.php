@@ -2442,7 +2442,7 @@ foreach ($app_policyFields as $field3) {
                                                                     <h6>Your Last Name</h6>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input type="text" class="form-control" name="your_last_name" value="{{ $signupsection->your_last_name ?? '' }}" placeholder="Your your_last_name">
+                                                                    <input type="text" class="form-control" name="your_last_name" value="{{ $signupsection->your_last_name ?? '' }}" placeholder=" your_last_name">
                                                                 </div>
                                                             </div>
                                                             <div class="row mt-2">
