@@ -21,6 +21,8 @@ class SignupSection extends Model
         'firstname',
         'male',
         'female',
+        'your_first_name',
+        'your_last_name',
         'lastname',
         'username',
         'birthday',
