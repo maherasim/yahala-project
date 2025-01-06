@@ -1153,6 +1153,8 @@ foreach ($app_policyFields as $field3) {
                                                 'did_not_receive_code',
                                                 'resend_code',
                                                 'time_left',
+                                                'login_error',
+                                                'login_error_message',
                                                 'verification_code',
                                                 'enter_otp',
                                                 'title_email',

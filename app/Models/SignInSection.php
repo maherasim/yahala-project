@@ -31,6 +31,8 @@ class SignInSection extends Model
         'resend_code',
         'title_email',
         'title_password',
+        'login_error',
+        'login_error_message',
         'send_buttton',
         'forgot_password',
         'reset_password',

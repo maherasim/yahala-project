@@ -530,9 +530,13 @@ class LanguageController extends Controller
 
            'enter_otp' => 'required|string',
            'verification_code' => 'required|string',
-
-
             'not_found' => 'nullable|string|max:255',
+
+            'login_error' => 'nullable|string|max:255',
+            'login_error_message' => 'nullable|string|max:255',
+
+
+
             'signup' => 'nullable|string|max:255',
             'regain_password_mail' => 'nullable|string|max:255',
             'email_format_wrong' => 'nullable|string|max:255',

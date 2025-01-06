@@ -419,6 +419,24 @@
                                     placeholder="verification_code" value="{{ $signinsection->verification_code ?? '' }}">
                             </div>
                         </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <h6>Login Error</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="login_error"
+                                    placeholder="login_error" value="{{ $signinsection->login_error ?? '' }}">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <h6>Login Error Message</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="login_error_message"
+                                    placeholder="login_error_message" value="{{ $signinsection->login_error_message ?? '' }}">
+                            </div>
+                        </div>
 
 
 
