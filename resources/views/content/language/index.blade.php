@@ -610,7 +610,7 @@ foreach ($app_policyFields as $field3) {
                                                 'lastname',
                                                 'user_already_exist',
                                                 'username',
-                                                'your_first_name'
+                                                'your_first_name',
                                                 'your_last_name',
 
 
@@ -2434,10 +2434,29 @@ foreach ($app_policyFields as $field3) {
                                                             <!-- Username -->
                                                             <div class="row mt-2">
                                                                 <div class="col-md-6">
-                                                                    <h6>Username</h6>
+                                                                    <h6>Your Username</h6>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <input type="text" class="form-control" name="username" value="{{ $signupsection->username ?? '' }}" placeholder="Your Username">
+                                                                </div>
+                                                            </div>
+
+                                                            
+
+                                                            <div class="row mt-2">
+                                                                <div class="col-md-6">
+                                                                    <h6>Your First name</h6>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <input type="text" class="form-control" name="your_first_name" value="{{ $signupsection->your_first_name ?? '' }}" placeholder="your_first_name">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mt-2">
+                                                                <div class="col-md-6">
+                                                                    <h6>Your Last  name</h6>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <input type="text" class="form-control" name="your_last_name" value="{{ $signupsection->your_last_name ?? '' }}" placeholder="your_last_name">
                                                                 </div>
                                                             </div>
                                     
