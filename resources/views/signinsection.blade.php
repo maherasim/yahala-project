@@ -331,6 +331,66 @@
                             </div>
                         </div>
 
+
+
+
+
+
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <h6>Title Email</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="title_email"
+                                    placeholder="title_email" value="{{ $signinsection->title_email ?? '' }}">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <h6>Title Password</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="title_password"
+                                    placeholder="title_password" value="{{ $signinsection->title_password ?? '' }}">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <h6>lost device title</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="lost_device_title"
+                                    placeholder="lost_device_title" value="{{ $signinsection->lost_device_title ?? '' }}">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <h6>lost device Sub title</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="lost_device_subtitle"
+                                    placeholder="lost_device_subtitle" value="{{ $signinsection->lost_device_subtitle ?? '' }}">
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <!-- Continue -->
                         <div class="row mt-2">
                             <div class="col-md-6">
