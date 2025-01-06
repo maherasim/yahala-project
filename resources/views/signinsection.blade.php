@@ -400,9 +400,25 @@
                             </div>
                         </div>
 
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <h6>Enter OTP</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="enter_otp"
+                                    placeholder="enter_otp" value="{{ $signinsection->enter_otp ?? '' }}">
+                            </div>
+                        </div>
 
-
-
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <h6>Verfication code with text</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="verification_code"
+                                    placeholder="verification_code" value="{{ $signinsection->verification_code ?? '' }}">
+                            </div>
+                        </div>
 
 
 

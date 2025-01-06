@@ -35,6 +35,8 @@ class SignInSection extends Model
         'forgot_password',
         'reset_password',
         'lost_device_title',
+        'verification_code',
+        'enter_otp',
         'lost_device_subtitle',
         'time_left',
         'verify_now',
