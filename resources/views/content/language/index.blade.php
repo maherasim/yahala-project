@@ -612,8 +612,10 @@ foreach ($app_policyFields as $field3) {
                                                 'username',
                                                 'your_first_name',
                                                 'your_last_name',
-
-
+                                                'nationality',
+                                                'select_nationality',
+                                                'information',
+                                                'information_description',
                                                 'male',
                                                 'female',
                                                 'birthday',
@@ -2593,6 +2595,48 @@ foreach ($app_policyFields as $field3) {
                                                                     <input type="text" class="form-control" name="sign_in_redirect" value="{{ $signupsection->sign_in_redirect ?? '' }}" placeholder="Take me to sign in">
                                                                 </div>
                                                             </div>
+
+
+
+                                                {{-- Nationality --}}
+
+                                                <div class="row mt-2">
+                                                    <div class="col-md-6">
+                                                        <h6>Nationality</h6>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="nationality"
+                                                            placeholder="nationality" value="{{ $signinsection->nationality ?? '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-2">
+                                                    <div class="col-md-6">
+                                                        <h6> Select Your Nationality</h6>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="select_nationality"
+                                                            placeholder="select_nationality" value="{{ $signinsection->select_nationality ?? '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-2">
+                                                    <div class="col-md-6">
+                                                        <h6> Information</h6>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="information"
+                                                            placeholder="information" value="{{ $signinsection->information ?? '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-2">
+                                                    <div class="col-md-6">
+                                                        <h6> Information Description</h6>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="information_description"
+                                                            placeholder="information_description" value="{{ $signinsection->information_description ?? '' }}">
+                                                    </div>
+                                                </div>
+
                                     
                                                         </div> <!-- End of container -->
                                     
