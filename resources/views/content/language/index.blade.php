@@ -618,6 +618,8 @@ foreach ($app_policyFields as $field3) {
                                                 'information_description',
                                                 'male',
                                                 'female',
+                                                'next_button',
+                                                'back_button',
                                                 'birthday',
                                                 'your_status',
                                                 'location',
@@ -2636,6 +2638,28 @@ foreach ($app_policyFields as $field3) {
                                                             placeholder="information_description" value="{{ $signupsection->information_description ?? '' }}">
                                                     </div>
                                                 </div>
+
+
+                                                {{-- //Button --}}
+                                                <div class="row mt-2">
+                                                    <div class="col-md-6">
+                                                        <h6> Next Button</h6>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="next_button"
+                                                            placeholder="next_button" value="{{ $signupsection->next_button ?? '' }}">
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-2">
+                                                    <div class="col-md-6">
+                                                        <h6> Back Button</h6>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="back_button"
+                                                            placeholder="back_button" value="{{ $signupsection->back_button ?? '' }}">
+                                                    </div>
+                                                </div>
+
 
                                     
                                                         </div> <!-- End of container -->

@@ -55,6 +55,8 @@ class SignupSection extends Model
         'password_criteria_number',
         'activation_mail',
         'not_yet_code',
+        'next_button',
+        'back_button',
         'resend_now',
         'sent',
         'something_wrong',

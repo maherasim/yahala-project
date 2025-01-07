@@ -438,6 +438,9 @@ class LanguageController extends Controller
             'information' => 'nullable|string|max:255',
             'information_description' => 'nullable|string|max:255',
 
+            'next_button' => 'nullable|string|max:255',
+            'back_button' => 'nullable|string|max:255',
+
 
 
             'birthday' => 'nullable|string',
