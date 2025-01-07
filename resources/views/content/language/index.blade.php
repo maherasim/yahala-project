@@ -2606,7 +2606,7 @@ foreach ($app_policyFields as $field3) {
                                                     </div>
                                                     <div class="col-md-6">
                                                         <input type="text" class="form-control" name="nationality"
-                                                            placeholder="nationality" value="{{ $signinsection->nationality ?? '' }}">
+                                                            placeholder="nationality" value="{{ $signupsection->nationality ?? '' }}">
                                                     </div>
                                                 </div>
                                                 <div class="row mt-2">
@@ -2615,7 +2615,7 @@ foreach ($app_policyFields as $field3) {
                                                     </div>
                                                     <div class="col-md-6">
                                                         <input type="text" class="form-control" name="select_nationality"
-                                                            placeholder="select_nationality" value="{{ $signinsection->select_nationality ?? '' }}">
+                                                            placeholder="select_nationality" value="{{ $signupsection->select_nationality ?? '' }}">
                                                     </div>
                                                 </div>
                                                 <div class="row mt-2">
@@ -2624,7 +2624,7 @@ foreach ($app_policyFields as $field3) {
                                                     </div>
                                                     <div class="col-md-6">
                                                         <input type="text" class="form-control" name="information"
-                                                            placeholder="information" value="{{ $signinsection->information ?? '' }}">
+                                                            placeholder="information" value="{{ $signupsection->information ?? '' }}">
                                                     </div>
                                                 </div>
                                                 <div class="row mt-2">
@@ -2633,7 +2633,7 @@ foreach ($app_policyFields as $field3) {
                                                     </div>
                                                     <div class="col-md-6">
                                                         <input type="text" class="form-control" name="information_description"
-                                                            placeholder="information_description" value="{{ $signinsection->information_description ?? '' }}">
+                                                            placeholder="information_description" value="{{ $signupsection->information_description ?? '' }}">
                                                     </div>
                                                 </div>
 
