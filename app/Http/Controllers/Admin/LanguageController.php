@@ -428,21 +428,14 @@ class LanguageController extends Controller
             'lastname' => 'nullable|string|max:255',
             'user_already_exist' => 'nullable|string|max:255',
             'username' => 'nullable|string|max:255',
-
             'your_first_name' => 'nullable|string|max:255',
             'your_last_name' => 'nullable|string|max:255',
-
-
             'nationality' => 'nullable|string|max:255',
             'select_nationality' => 'nullable|string|max:255',
             'information' => 'nullable|string|max:255',
             'information_description' => 'nullable|string|max:255',
-
             'next_button' => 'nullable|string|max:255',
             'back_button' => 'nullable|string|max:255',
-
-
-
             'birthday' => 'nullable|string',
             'male' => 'nullable|string',
             'female' => 'nullable|string',
