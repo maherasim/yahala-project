@@ -65,6 +65,11 @@ class SignupSection extends Model
         'account_created_success_message',
         'account_created_ok',
         'sign_in_redirect',
+        'setup_new_device',
+        'start_now',
+        'your_new_devices',
+        'old_devices',
+        'verify_now',
     ];
 
     public function language()

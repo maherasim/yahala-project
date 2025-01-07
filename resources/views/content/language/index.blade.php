@@ -634,6 +634,11 @@ foreach ($app_policyFields as $field3) {
                                                 'repeat_password',
                                                 'account_created_success_message',
                                                 'sign_in_redirect',
+                                                'setup_new_device',
+                                                'start_now',
+                                                'your_new_devices',
+                                                'old_devices',
+                                                'verify_now',
                                             ];
 
                                             // Calculate total and done values
@@ -2638,6 +2643,55 @@ foreach ($app_policyFields as $field3) {
                                                             placeholder="information_description" value="{{ $signupsection->information_description ?? '' }}">
                                                     </div>
                                                 </div>
+
+{{-- Verifiy device --}}
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <h6> Setup New device</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="setup_new_device"
+                                placeholder="setup_new_device" value="{{ $signupsection->setup_new_device ?? '' }}">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <h6> Start Now</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="start_now"
+                                placeholder="start_now" value="{{ $signupsection->start_now ?? '' }}">
+                        </div>
+                    </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <h6> Your New Devices</h6>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="your_new_devices"
+                            placeholder="start_now" value="{{ $signupsection->start_now ?? '' }}">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <h6> Old Device</h6>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="old_devices"
+                            placeholder="old_devices" value="{{ $signupsection->old_devices ?? '' }}">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <h6> Verify now</h6>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="verify_now"
+                            placeholder="verify_now" value="{{ $signupsection->verify_now ?? '' }}">
+                    </div>
+                </div>
+
 
 
                                                 {{-- //Button --}}

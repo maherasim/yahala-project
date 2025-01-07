@@ -471,6 +471,12 @@ class LanguageController extends Controller
             'account_created_success_message' => 'nullable|string|max:255',
             'account_created_ok' => 'nullable|string|max:255',
             'sign_in_redirect' => 'nullable|string|max:255',
+            
+            'setup_new_device' => 'nullable|string|max:255',
+            'start_now' => 'nullable|string|max:255',
+            'your_new_devices' => 'nullable|string|max:255',
+            'old_devices' => 'nullable|string|max:255',
+            'verify_now' => 'nullable|string|max:255',
         ] );
         //dd( $validator );
         if ( $validator->fails() ) {
