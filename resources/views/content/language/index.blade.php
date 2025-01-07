@@ -621,12 +621,12 @@ foreach ($app_policyFields as $field3) {
                                                 'location',
                                                 'origin',
                                                 'select_province',
-                                                'email',
+                                                'your_email',
                                                 'repeat_email',
                                                 'email_issue_message',
                                                 'error_found',
-                                                'phone_number',
-                                                'password',
+                                                'your_phone_number',
+                                                'create_password',
                                                 'repeat_password',
                                                 'account_created_success_message',
                                                 'sign_in_redirect',
@@ -2453,7 +2453,7 @@ foreach ($app_policyFields as $field3) {
                                                             </div>
                                                             <div class="row mt-2">
                                                                 <div class="col-md-6">
-                                                                    <h6>Your Last  name</h6>
+                                                                    <h6>Your Last name</h6>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <input type="text" class="form-control" name="your_last_name" value="{{ $signupsection->your_last_name ?? '' }}" placeholder="your_last_name">
@@ -2504,7 +2504,7 @@ foreach ($app_policyFields as $field3) {
                                                                     <h6>Your E-Mail Address</h6>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input type="text" class="form-control" name="email" value="{{ $signupsection->email ?? '' }}" placeholder="Type your E-Mail">
+                                                                    <input type="text" class="form-control" name="your_email" value="{{ $signupsection->your_email ?? '' }}" placeholder="Type your your_email">
                                                                 </div>
                                                             </div>
                                     
@@ -2554,7 +2554,7 @@ foreach ($app_policyFields as $field3) {
                                                                     <h6>Your Phone Number</h6>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input type="text" class="form-control" name="phone_number" value="{{ $signupsection->phone_number ?? '' }}" placeholder="Your Phone Number">
+                                                                    <input type="text" class="form-control" name="your_phone_number" value="{{ $signupsection->your_phone_number ?? '' }}" placeholder="Your Phone Number">
                                                                 </div>
                                                             </div>
                                     
@@ -2564,7 +2564,7 @@ foreach ($app_policyFields as $field3) {
                                                                     <h6>Create Password</h6>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input type="text" class="form-control" name="password" value="{{ $signupsection->password ?? '' }}" placeholder="Enter a Password">
+                                                                    <input type="text" class="form-control" name="create_password" value="{{ $signupsection->create_password ?? '' }}" placeholder="create_password">
                                                                 </div>
                                                             </div>
                                                             <div class="row mt-2">
