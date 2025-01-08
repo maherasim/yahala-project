@@ -18,7 +18,9 @@ class LanguageKeyword extends Model
         'show_me_the_gift', 'congratulations_educated', 'congratulations_academic',
         'premium_description', 'go_back_home', 'your_activation_code_mail',
         'your_password_code_mail', 'your_fanpage_activation_code', 'one_time_code',
-        'follow_steps_on_your_device', 'welcome',
+        'follow_steps_on_your_device', 'welcome','Advertisement','Latest_feeds',
+        'Latest_artist','See_All','New_albums','New_albums','Wishes_thanks','e_commerce',
+        'Service','Food_delivery','Restaurant',
         // Add more fields if necessary
     ];
 

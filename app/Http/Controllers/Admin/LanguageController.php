@@ -314,6 +314,17 @@ class LanguageController extends Controller
             'one_time_code' => 'nullable|string',
             'follow_steps_on_your_device' => 'nullable|string',
             'welcome' => 'nullable|string',
+            'Advertisement'=> 'nullable|string',
+            'Latest_feeds'=> 'nullable|string',
+            'Latest_artist'=> 'nullable|string',
+            'See_All'=> 'nullable|string',
+            'New_albums'=> 'nullable|string',
+            'Latest_stories'=> 'nullable|string',
+            'Wishes_thanks'=> 'nullable|string',
+            'e_commerce'=> 'nullable|string',
+            'Service'=> 'nullable|string',
+            'Food_delivery'=> 'nullable|string',
+            'Restaurant'=> 'nullable|string',
         ] );
 
         if ( $validator->fails() ) {

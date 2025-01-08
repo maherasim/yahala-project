@@ -165,7 +165,7 @@
                                         {{-- <x-modal id="editlanguageModal{{$language->id}}" title="Update Language" saveBtnText="Update" saveBtnType="submit" saveBtnForm="editForm{{$language->id}}" size="md">
                             @include('content.include.movies.editForm')
                             </x-modal> --}}
-                                        @php
+                            @php
                                             $keywords = App\Models\LanguageKeyword::where(
                                                 'language_id',
                                                 $language->id,
@@ -197,7 +197,9 @@
                                                 'your_fanpage_activation_code',
                                                 'one_time_code',
                                                 'follow_steps_on_your_device',
-                                                'welcome',
+                                                'welcome','Advertisement','Latest_feeds',
+        'Latest_artist','See_All','New_albums','New_albums','Wishes_thanks','e_commerce',
+        'Service','Food_delivery','Restaurant',
                                             ];
 
                                             $total = count($fields);
@@ -1231,35 +1233,7 @@ foreach ($app_policyFields as $field3) {
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody class="table-border-bottom-0">
-                                                                        <tr>
-                                                                            <td>Alert,Upgrade,Mail</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $total > 0 ? ($done / $total) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $total > 0 ? ($done / $total) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $done }}</td>
-                                                                            <td>{{ $total - $done }}</td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#languageModal__1{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
+                                                                        
                                                                         <tr>
                                                                             <td>Home page Language </td>
                                                                             <td>
@@ -2212,58 +2186,15 @@ foreach ($app_policyFields as $field3) {
 
 
                                         {{-- Edit language model __1 --}}
-                                        @php
-                                            $keywords = App\Models\LanguageKeyword::where(
-                                                'language_id',
-                                                $language->id,
-                                            )->first();
-
-                                            $fields = [
-                                                'alert',
-                                                'upgrade',
-                                                'premium',
-                                                'vip',
-                                                'monthly',
-                                                'feeds',
-                                                'text_comments',
-                                                'music_player',
-                                                'video_playlist',
-                                                'discount',
-                                                'stories',
-                                                'voice_comments',
-                                                'live_stream',
-                                                'fanpage',
-                                                'gift_free',
-                                                'show_me_the_gift',
-                                                'congratulations_educated',
-                                                'congratulations_academic',
-                                                'premium_description',
-                                                'go_back_home',
-                                                'your_activation_code_mail',
-                                                'your_password_code_mail',
-                                                'your_fanpage_activation_code',
-                                                'one_time_code',
-                                                'follow_steps_on_your_device',
-                                                'welcome',
-                                            ];
-
-                                            $total = count($fields);
-                                            $done = 0;
-
-                                            foreach ($fields as $field) {
-                                                if (!empty($keywords->$field)) {
-                                                    $done++;
-                                                }
-                                            }
-                                        @endphp
+                                     
 
                                         <div class="modal fade" id="languageModal__1{{ $language->id }}" tabindex="-1"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-md modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="modalCenterTitle">Alert, Upgrade, Mail
-                                                            Section</h5>
+                                                        <h5 class="modal-title" id="modalCenterTitle">Home page Landing Page	
+                                                        </h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                     </div>
@@ -2310,6 +2241,17 @@ foreach ($app_policyFields as $field3) {
             'one_time_code' => 'Code can be used one Time only',
             'follow_steps_on_your_device' => 'Follow Steps on your Device',
             'welcome' => 'Welcome',
+            'Advertisement'=>'Advertisement',
+            'Latest_feeds'=>'Latest feeds',
+            'Latest_artist'=>'Latest artist',
+            'See_All'=>'See All',
+            'New_albums'=>'New albums',
+            'New_albums'=>'Latest stories',
+            'Wishes_thanks'=>'Wishes & thanks',
+            'e_commerce'=>'E-commerce',
+            'Service'=>'Service',
+            'Food_delivery'=>'Food delivery',
+            'Restaurant'=>'Restaurant',
         ] as $field => $placeholder)
                                                                     <div class="row mt-2">
                                                                         <div class="col-md-6">
