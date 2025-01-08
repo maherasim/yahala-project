@@ -162,6 +162,7 @@ class LanguageController extends Controller
       // Fetch all the required data
       $signInSection = SignInSection::where('language_id', $languageId)->first();
       $signupSection = SignupSection::where('language_id', $languageId)->first();
+      $landingpage = LanguageKeyword::where('language_id', $languageId)->first();
       $homepage = HomePageLanguage::where('language_id', $languageId)->first();
       $appPolicy = App_Policy::where('language_id', $languageId)->select('id', 'language_id', 'app_policy','heading_title','description')->first();
   
@@ -169,6 +170,7 @@ class LanguageController extends Controller
       $data = [
           'sign_in_section' => $signInSection,
           'sign_up_section' => $signupSection,
+          'landing_page' => $landingpage,
           'homepage_language_section' => $homepage,
           'app_policy_section' => $appPolicy,
       ];
