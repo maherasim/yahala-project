@@ -1,3 +1,8 @@
+@php
+    $musicCategory= \App\Models\MusicCategory::all();
+@endphp
+
+
 <form id="{{ isset($form) ? $form : 'createForm'}}" method="POST" action="{{ route('artist.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="hidden-inputs"></div>
@@ -21,20 +26,20 @@
                     <input type="text" id="fullname" class="form-control" placeholder="lorem" name="last_name">
                 </div>
                 <div class="col-md-4">
-                    <label class="form-label" for="fullname">Province</label>
-                    <select name="province" class="form-control province_id" id="province_id" data-url={{ url('get/city') }} value="{{ old('province_id') }}">
-                        <option value="">Select province</option>
-                        @foreach($provinces as $province)
-                        <option value="{{ $province->id }}">{{ $province->name ?? '' }}</option>
+                    <label class="form-label" for="fullname"> Music Category</label>
+                    <select name="music_category" class="form-control province_id" id="province_id" data-url={{ url('get/city') }} value="{{ old('province_id') }}">
+                        <option value="">Select Category</option>
+                        @foreach($musicCategory as $item)
+                        <option value="{{ $item->id }}">{{ $item->name ?? '' }}</option>
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-8">
+                {{-- <div class="col-md-8">
                     <label class="form-label" for="fullname">City</label>
                     <select name="city" class="form-control city_id" id="city_id">
                         <option value="">Select City</option>
                     </select>
-                </div>
+                </div> --}}
 
                 {{-- <div class="col-md-12">
                     <label class="form-label" for="fullname">Image</label>

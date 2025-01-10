@@ -46,10 +46,11 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
+      //  dd($request->all());
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'city' => 'required',
+            //'city' => 'required',
             'gender' => 'required',
             'image' => 'required'
         ]);
@@ -60,7 +61,7 @@ class ArtistController extends Controller
         $artist->gender = $request->gender;
         $artist->status = $request->status;
         $artist->city_id = $request->city;
-        $artist->province_id = $request->province;
+        $artist->music_category = $request->music_category;
         $artist->image = $request->image ?? '';
         if ($artist->save()) {
             // return redirect()->route('artist.index')->with('success', 'Artist Has been inserted');
