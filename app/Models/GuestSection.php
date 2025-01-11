@@ -10,7 +10,7 @@ class GuestSection extends Model
     use HasFactory;
 
     protected $fillable = [
-        'language_id',
+       
         'dear_guest',
         'guest_message',
         'create_account',
