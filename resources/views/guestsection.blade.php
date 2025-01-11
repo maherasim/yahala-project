@@ -1,6 +1,7 @@
 @php
 $homepage = App\Models\GuestSection::where('language_id', $language->id)->first();
-$fillableFields = App\Models\GuestSection::getFillable();
+$guestSectionInstance = new App\Models\GuestSection(); // Create an instance
+$fillableFields = $guestSectionInstance->getFillable(); // Get fillable fields
 @endphp
 
 <div class="modal fade" id="signinsection__234{{ $language->id }}" tabindex="-1" aria-hidden="true">
