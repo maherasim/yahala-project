@@ -2191,7 +2191,7 @@ class LanguageController extends Controller
 
     public function storeguest(Request $request)
     {
-        dd($request->all());
+       
         $validator = Validator::make($request->all(), [
             'language_id' => [
                 'required',
@@ -2217,7 +2217,7 @@ class LanguageController extends Controller
 
             
         ]);
-
+dd($validator);
         // Check for validation errors
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
@@ -2235,7 +2235,7 @@ class LanguageController extends Controller
             // Redirect back with success message
             return redirect()->back()->with('success', 'Guest section Language saved successfully.');
         } catch (\Exception $e) {
-            // Redirect back with error message
+   dd('hello');          
             return redirect()->back()->with('error', 'Error saving Guest section Language: ' . $e->getMessage());
         }
     }
