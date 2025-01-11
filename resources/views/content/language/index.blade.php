@@ -354,8 +354,8 @@
                                             }
                                         @endphp
    @php
-   // Retrieve the existing FooterCart data for the given language_id
-   $guestsection = App\Models\FooterCart::where(
+   // Retrieve the existing GuestSection data for the given language_id
+   $guestsection = App\Models\GuestSection::where(
        'language_id',
        $language->id,
    )->first();
@@ -375,7 +375,7 @@
    $guestFieldsTotal = count($guestFields);
    $guestDone = 0;
 
-   foreach ($guestFields as $field) {
+   foreach ($guestFields as $field2) {
        if (!empty($guestFields->$field)) {
            $guestDone++;
        }
