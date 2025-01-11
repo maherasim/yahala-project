@@ -242,11 +242,12 @@ class MusicController extends Controller
 
     public function store_song(Request $request)
     {
+        dd('added');
         try {
             foreach ($request->songs as $key => $audioPath) {
                 $song = new Song();
                 $song->name = $request->songs_file_name[$key] ?? '';
-                $song->music_id = $request->music_id;
+                //$song->music_id = $request->music_id;
                 $song->album_id = $request->album_id;
                 $song->artist_id = $request->artist_id;
                 $song->audio = $audioPath;

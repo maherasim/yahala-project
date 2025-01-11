@@ -19,7 +19,7 @@
                     @php
                         $musics = \App\Models\Music::all();
                     @endphp
-                    <div class="col-md-12">
+                    {{-- <div class="col-md-12">
                         <label class="form-label" for="music_id">Choose Music</label>
                         <select class="form-select" aria-label="Select Music" name="music_id">
                             <option selected>Select</option>
@@ -30,7 +30,7 @@
                         @error('music_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                    </div>
+                    </div> --}}
                 @endif
 
                 @isset($artists)
