@@ -353,6 +353,42 @@
                                                 }
                                             }
                                         @endphp
+   @php
+   // Retrieve the existing FooterCart data for the given language_id
+   $guestsection = App\Models\FooterCart::where(
+       'language_id',
+       $language->id,
+   )->first();
+
+   // Define the fields for the Footer Cart Section
+   $guestFields = [
+       'dear_guest',
+        'guest_message',
+        'create_account',
+        'account_message',
+        'sign_in',
+        'sign_in_message',
+        'close'
+   ];
+
+   // Calculate total and done values
+   $guestFieldsTotal = count($guestFields);
+   $guestDone = 0;
+
+   foreach ($guestFields as $field) {
+       if (!empty($guestFields->$field)) {
+           $guestDone++;
+       }
+   }
+@endphp
+
+
+
+
+
+
+
+
                                         @php
                                             $startpage = App\Models\StartPage::where(
                                                 'language_id',
@@ -1417,7 +1453,36 @@ foreach ($app_policyFields as $field3) {
                                                                                 </span>
                                                                             </td>
                                                                         </tr>
-
+                                                                        <tr>
+                                                                            <td>Home Page Guest section</td>
+                                                                            <td>
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar bg-success"
+                                                                                        role="progressbar"
+                                                                                        style="width: {{ $guestFieldsTotal > 0 ? ($guestDone / $guestFieldsTotal) * 100 : 0 }}%;"
+                                                                                        aria-valuenow="{{ $guestFieldsTotal > 0 ? ($guestDone / $guestFieldsTotal) * 100 : 0 }}"
+                                                                                        aria-valuemin="0"
+                                                                                        aria-valuemax="100"></div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>{{ $guestDone }}</td>
+                                                                            <td>{{ $guestFieldsTotal - $guestDone }}
+                                                                            </td>
+                                                                            <td>
+                                                                                <span data-bs-toggle="modal"
+                                                                                    data-bs-target="#guestsection{{ $language->id }}"
+                                                                                    onclick="openSectionModal('alert')">
+                                                                                    <button class="btn"
+                                                                                        data-bs-toggle="tooltip"
+                                                                                        data-bs-offset="0,4"
+                                                                                        data-bs-placement="top"
+                                                                                        data-bs-html="true"
+                                                                                        data-bs-original-title="Edit">
+                                                                                        <i class="bx bx-edit"></i>
+                                                                                    </button>
+                                                                                </span>
+                                                                            </td>
+                                                                        </tr>
                                                                         <tr>
                                                                             <td>Footer Cart Sections</td>
                                                                             <td>
@@ -2677,6 +2742,7 @@ foreach ($app_policyFields as $field3) {
                                     ])
                                     {{-- Signin Section --}}
                                     @include('footercartsection', ['language' => $language])
+                                    @include('guestsection', ['language' => $language])
                                     @include('footerchatsection', ['language' => $language])
                                     @include('homepagelanguage', ['language' => $language])
                                     @include('app_policy', ['language' => $language])
