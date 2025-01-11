@@ -2,7 +2,7 @@
 $homepage = App\Models\GuestSection::where('language_id', $language->id)->first();
 @endphp
 
-<div class="modal fade" id="guestsection{{ $language->id }}" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="signinsection__234{{ $language->id }}" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
