@@ -1330,13 +1330,13 @@
                     </a>
                 </li>
 
-                <li class="menu-item {{ Request::is('music') ? 'active' : '' }}">
+                {{-- <li class="menu-item {{ Request::is('music') ? 'active' : '' }}">
                     <a href="{{ url('/music') }}" class="menu-link">
                         <div>Add Music</div>
                     </a>
 
 
-                </li>
+                </li> --}}
 
 
 
