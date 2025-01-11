@@ -2231,11 +2231,11 @@ class LanguageController extends Controller
                 ['language_id' => $validatedData['language_id']],
                 $validatedData
             );
-            dd('saved');
+          //  dd('saved');
             // Redirect back with success message
             return redirect()->back()->with('success', 'Guest section Language saved successfully.');
         } catch (\Exception $e) {
- dd('hello');          
+// dd('hello');          
             return redirect()->back()->with('error', 'Error saving Guest section Language: ' . $e->getMessage());
         }
     }
