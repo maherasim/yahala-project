@@ -61,9 +61,9 @@ class SongController extends Controller
                     return back()->with('success', $response_msg.'  has been created');
                 }
             }
-            return back()->with('success', $response_msg.'  has been updated');
+            return redirect()->route('artists-all')->with('success', 'song Has been inserted');
         } else {
-            return redirect()->back();
+            return redirect()->route('artists-all')->with('success', 'song Has been Not inserted');
         }
 
     }

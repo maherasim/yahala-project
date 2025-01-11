@@ -417,6 +417,9 @@ Route::middleware(['admin.auth', '2fa'])->group(function () use ($controller_pat
     );
 
     Route::resource('/artist', ArtistController::class);
+
+    Route::get('/artistall', [ArtistController::class, 'index2'])->name('artists-all');
+
     Route::get('/artists/{id}/{status}', [ArtistController::class, 'status'])->name('artists-status');
     Route::get('/get-artist-detail', [ArtistController::class, 'getArtistDetail'])->name('get.artist.detail');
 

@@ -27,7 +27,14 @@ class ArtistController extends Controller
         $categories = MusicCategory::doesntHave('musics')->get();
         return view('content.artist.index', compact('artists', 'provinces','categories'));
     }
+    public function index2()
+    {
 
+        $artists  = Artist::with('musics')->get();
+        $provinces = Region::get();
+        $categories = MusicCategory::doesntHave('musics')->get();
+        return view('content.artist.index', compact('artists', 'provinces','categories'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -65,10 +72,10 @@ class ArtistController extends Controller
         $artist->image = $request->image ?? '';
         if ($artist->save()) {
             // return redirect()->route('artist.index')->with('success', 'Artist Has been inserted');
-            return back()->with("success", "Artist has been added successfully.");
+           return redirect()->route('artists-all')->with('success', 'Artist Has been inserted');
         } else {
-            // return redirect()->route('artist.index')->with('error', 'Failed to add artist');
-            return back()->with('error', 'Failed to add artist');
+             
+            return redirect()->route('artists-all')->with('success', 'Artist Has been inserted');
         }
     }
 
