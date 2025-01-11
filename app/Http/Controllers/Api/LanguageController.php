@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\LanguageData;
 use App\Models\LanguageKeyword;
+use App\Models\GuestSection;
 use App\Models\HomePageLanguage;
 use App\Models\App_Policy;
 use App\Models\StartPage;
@@ -164,6 +165,7 @@ class LanguageController extends Controller
       $signInSection = SignInSection::where('language_id', $languageId)->first();
       $signupSection = SignupSection::where('language_id', $languageId)->first();
       $landingpage = LanguageKeyword::where('language_id', $languageId)->first();
+      $GuestSection = GuestSection::where('language_id', $languageId)->first();
       $homepage = HomePageLanguage::where('language_id', $languageId)->first();
       $appPolicy = App_Policy::where('language_id', $languageId)->select('id', 'language_id', 'app_policy','heading_title','description')->first();
   
@@ -173,6 +175,7 @@ class LanguageController extends Controller
           'sign_up_section' => $signupSection,
           'landing_page' => $landingpage,
           'homepage_language_section' => $homepage,
+          'guestsection' => $GuestSection,
           'app_policy_section' => $appPolicy,
       ];
   
