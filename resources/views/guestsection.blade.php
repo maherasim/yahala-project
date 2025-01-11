@@ -1,7 +1,12 @@
 @php
 $homepage = App\Models\GuestSection::where('language_id', $language->id)->first();
-$guestSectionInstance = new App\Models\GuestSection(); // Create an instance
-$fillableFields = $guestSectionInstance->getFillable(); // Get fillable fields
+$guestSectionInstance = new App\Models\GuestSection();
+$fillableFields = $guestSectionInstance->getFillable();
+
+// Remove 'language_id' from the array of fields to generate inputs for
+$fillableFields = array_filter($fillableFields, function($field) {
+    return $field !== 'language_id';
+});
 @endphp
 
 <div class="modal fade" id="signinsection__234{{ $language->id }}" tabindex="-1" aria-hidden="true">
@@ -28,20 +33,18 @@ $fillableFields = $guestSectionInstance->getFillable(); // Get fillable fields
 
                         <!-- Dynamic Form Fields -->
                         @foreach ($fillableFields as $field)
-                            @if (empty($homepage->$field))
-                                <div class="row mt-2">
-                                    <div class="col-md-6">
-                                        <h6>{{ ucwords(str_replace('_', ' ', $field)) }}</h6>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" name="{{ $field }}" placeholder="{{ $field }}" value="">
-                                    </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <h6>{{ ucwords(str_replace('_', ' ', $field)) }}</h6>
                                 </div>
-                            @endif
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="{{ $field }}" placeholder="{{ $field }}" value="{{ $homepage->$field ?? '' }}">
+                                </div>
+                            </div>
                         @endforeach
                         
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-label-secondary" data-bs-dismiss="modal">Save</button>
+                            <button type="submit" class="btn btn-label-secondary">Save</button>
                         </div>
                     </div>
                 </form>
