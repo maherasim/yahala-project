@@ -1,5 +1,6 @@
 @php
 $homepage = App\Models\GuestSection::where('language_id', $language->id)->first();
+$fillableFields = App\Models\GuestSection::getFillable();
 @endphp
 
 <div class="modal fade" id="signinsection__234{{ $language->id }}" tabindex="-1" aria-hidden="true">
@@ -24,33 +25,20 @@ $homepage = App\Models\GuestSection::where('language_id', $language->id)->first(
                             </div>
                         </div>
 
-                        <!-- Categories -->
-                        <div class="row mt-2">
-                            <div class="col-md-6">
-                                <h6>Policy Terms</h6>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="policy_terms" placeholder="policy_terms" value="{{ $homepage->policy_terms ?? '' }}">
-                            </div>
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-md-6">
-                                <h6>Description</h6>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="description" placeholder="description" value="{{ $homepage->description ?? '' }}">
-                            </div>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-md-6">
-                                <h6>Heading Title</h6>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="heading_title" placeholder="heading_title" value="{{ $homepage->heading_title ?? '' }}">
-                            </div>
-                        </div>
-                    
+                        <!-- Dynamic Form Fields -->
+                        @foreach ($fillableFields as $field)
+                            @if (empty($homepage->$field))
+                                <div class="row mt-2">
+                                    <div class="col-md-6">
+                                        <h6>{{ ucwords(str_replace('_', ' ', $field)) }}</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="{{ $field }}" placeholder="{{ $field }}" value="">
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                        
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-label-secondary" data-bs-dismiss="modal">Save</button>
                         </div>
