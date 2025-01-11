@@ -2217,7 +2217,7 @@ class LanguageController extends Controller
 
             
         ]);
-dd($validator);
+//dd($validator);
         // Check for validation errors
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
