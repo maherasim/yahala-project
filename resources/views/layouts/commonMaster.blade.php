@@ -54,91 +54,91 @@
     @include('layouts/sections/scripts')
 
     @if (env('LOGIN_TIMEOUT') == true)
-        <script>
-            // Inactivity Timer Script
-            let inactivityTime = function() {
-                let time;
-                let maxInactivity = 60 * 1000; // 30 seconds for initial inactivity
+    <script>
+        // Inactivity Timer Script
+        let inactivityTime = function() {
+            let time;
+            let maxInactivity = 60 * 1000; // 30 seconds for initial inactivity
 
-                window.onload = resetTimer;
-                document.onmousemove = resetTimer;
-                document.onkeypress = resetTimer;
+            window.onload = resetTimer;
+            document.onmousemove = resetTimer;
+            document.onkeypress = resetTimer;
 
-                function showLogoutModal() {
-                    console.log("Inactivity detected. Showing modal.");
-                    // Display the modal
-                    $('#inactivityModal').modal('show');
+            function showLogoutModal() {
+                console.log("Inactivity detected. Showing modal.");
+                // Display the modal
+                $('#inactivityModal').modal('show');
 
-                    // Start a secondary timer for 30 seconds until auto-logout
-                    startAutoLogoutTimer();
-                }
-
-                function resetTimer() {
-                    console.log("Activity detected. Resetting timer.");
-                    clearTimeout(time);
-                    time = setTimeout(showLogoutModal, maxInactivity);
-                }
-            };
-
-            // Start the initial inactivity timer
-            window.onload = function() {
-                inactivityTime();
-            };
-
-            function stayLoggedIn() {
-                console.log("Stay logged in clicked.");
-                $('#inactivityModal').modal('hide');
-                clearTimeout(autoLogoutTime); // Clear the secondary timer
-                inactivityTime(); // Restart the main inactivity timer
-                location.reload();
+                // Start a secondary timer for 30 seconds until auto-logout
+                startAutoLogoutTimer();
             }
 
-            function submitLogoutForm() {
-                console.log("Logout clicked.");
-                document.getElementById('logout-form').submit();
+            function resetTimer() {
+                console.log("Activity detected. Resetting timer.");
+                clearTimeout(time);
+                time = setTimeout(showLogoutModal, maxInactivity);
             }
+        };
 
-            // Secondary auto-logout timer function (30 seconds after modal shows)
-            let autoLogoutTime;
+        // Start the initial inactivity timer
+        window.onload = function() {
+            inactivityTime();
+        };
 
-            function startAutoLogoutTimer() {
-                // Clear any existing secondary timer to avoid multiple timers
-                clearTimeout(autoLogoutTime);
+        function stayLoggedIn() {
+            console.log("Stay logged in clicked.");
+            $('#inactivityModal').modal('hide');
+            clearTimeout(autoLogoutTime); // Clear the secondary timer
+            inactivityTime(); // Restart the main inactivity timer
+            location.reload();
+        }
 
-                // Set a new 30-second timer to auto-logout
-                autoLogoutTime = setTimeout(() => {
-                    console.log("Auto-logout due to no response on modal.");
-                    submitLogoutForm();
-                }, 30 * 1000); // 30 seconds
-            }
-        </script>
+        function submitLogoutForm() {
+            console.log("Logout clicked.");
+            document.getElementById('logout-form').submit();
+        }
 
-        <!-- Inactivity Modal -->
-        <div class="modal fade" id="inactivityModal" tabindex="-1" role="dialog"
-            aria-labelledby="inactivityModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-center" id="inactivityModalLabel">Your Session is Expired</h5>
-                    </div>
-                    <div class="modal-body text-center">
-                        <p>Do you need more time?</p>
-                        <p>You will be logged out soon due to inactivity.</p>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-primary" onclick="stayLoggedIn()">Stay Online</button>
-                        <a class="btn btn-secondary" href="{{ route('admin.logout') }}"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            Logout
-                        </a>
-                        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
+        // Secondary auto-logout timer function (30 seconds after modal shows)
+        let autoLogoutTime;
+
+        function startAutoLogoutTimer() {
+            // Clear any existing secondary timer to avoid multiple timers
+            clearTimeout(autoLogoutTime);
+
+            // Set a new 30-second timer to auto-logout
+            autoLogoutTime = setTimeout(() => {
+                console.log("Auto-logout due to no response on modal.");
+                submitLogoutForm();
+            }, 30 * 1000); // 30 seconds
+        }
+    </script>
+
+    <!-- Inactivity Modal -->
+    <div class="modal fade" id="inactivityModal" tabindex="-1" role="dialog"
+        aria-labelledby="inactivityModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="inactivityModalLabel">Your Session is Expired</h5>
+                </div>
+                <div class="modal-body text-center">
+                    <p>Do you need more time?</p>
+                    <p>You will be logged out soon due to inactivity.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary" onclick="stayLoggedIn()">Stay Online</button>
+                    <a class="btn btn-secondary" href="{{ route('admin.logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </div>
             </div>
         </div>
-    @endif
+    </div>
+@endif
 
     {{--
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
