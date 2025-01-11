@@ -353,34 +353,31 @@
                                                 }
                                             }
                                         @endphp
-   @php
-   // Retrieve the existing GuestSection data for the given language_id
-   $guestsection = App\Models\GuestSection::where(
-       'language_id',
-       $language->id,
-   )->first();
-
-   // Define the fields for the Footer Cart Section
-   $guestFields = [
-       'dear_guest',
-        'guest_message',
-        'create_account',
-        'account_message',
-        'sign_in',
-        'sign_in_message',
-        'close'
-   ];
-
-   // Calculate total and done values
-   $guestFieldsTotal = count($guestFields);
-   $guestDone = 0;
-
-   foreach ($guestFields as $field2) {
-       if (!empty($guestFields->$field)) {
-           $guestDone++;
-       }
-   }
-@endphp
+ @php 
+ // Retrieve the existing GuestSection data for the given language_id
+ $guestsection = App\Models\GuestSection::where('language_id', $language->id)->first();
+ 
+ // Define the fields for the Footer Cart Section
+ $guestFields = [
+     'dear_guest',
+     'guest_message',
+     'create_account',
+     'account_message',
+     'sign_in',
+     'sign_in_message',
+     'close'
+ ];
+ 
+ // Calculate total and done values
+ $guestFieldsTotal = count($guestFields);
+ $guestDone = 0;
+ 
+ foreach ($guestFields as $field) {
+     if (!empty($guestsection->$field)) {
+         $guestDone++;
+     }
+ }
+ @endphp
 
 
 
