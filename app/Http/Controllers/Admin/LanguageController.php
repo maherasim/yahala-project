@@ -2191,7 +2191,7 @@ class LanguageController extends Controller
 
     public function storeguest(Request $request)
     {
-        // Validate the request data
+        dd($request->all());
         $validator = Validator::make($request->all(), [
             'language_id' => [
                 'required',
@@ -2207,13 +2207,13 @@ class LanguageController extends Controller
                     }
                 },
             ],
-            'dear_guest' => 'required|string|max:255',
-            'guest_message' => 'required|string|max:255',
-            'create_account' => 'required|string|max:255',
-            'account_message' => 'required|string|max:255',
-            'sign_in' => 'required|string|max:255',
-            'sign_in_message' => 'required|string|max:255',
-            'close' => 'required|string|max:255',
+            'dear_guest' => 'nullable|string|max:255',
+            'guest_message' => 'nullable|string|max:255',
+            'create_account' => 'nullable|string|max:255',
+            'account_message' => 'nullable|string|max:255',
+            'sign_in' => 'nullable|string|max:255',
+            'sign_in_message' => 'nullable|string|max:255',
+            'close' => 'nullable|string|max:255',
 
             
         ]);
