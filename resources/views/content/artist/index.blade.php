@@ -111,9 +111,7 @@
                                                 </svg>
                                             </button>
                                         </span>
-                                    {{-- @endcan --}}
-                                    {{-- @can('location.delete') --}}
-                                        <!-- Delete -->
+                                    
                                         <form action="{{ route('artist.destroy', $artist->id) }}"
                                             onsubmit="confirmAction(event, () => event.target.submit())" method="post"
                                             class="d-inline">
@@ -318,51 +316,7 @@
             }
         </script>
 
-        <script>
-            $('.province_id').change(function() {
-                let url = $(this).data('url');
-                let id = $(this).val();
-                const self = this;
-
-                $.ajax({
-                    type: 'get',
-                    url: url + '/' + id,
-                    success: function(response) {
-                        const cityIdEl = $(self).closest('form').find('.city_id');
-                        cityIdEl.html('');
-                        $.each(response, function(index, value) {
-                            console.log(index, value);
-                            cityIdEl.append('<option value="' + value.id + '">' + value.name +
-                                '</option>')
-                        })
-                    }
-                })
-
-            });
-
-            $(document).ready(function() {
-                $('.edit-form .province_id').each(function(index, provinceEl) {
-                    let url = $(provinceEl).data('url');
-                    let id = $(provinceEl).val();
-                    let selected = $(provinceEl).data('selected');
-
-                    $.ajax({
-                        type: 'get',
-                        url: url + '/' + id,
-                        success: function(response) {
-                            const cityIdEl = $(provinceEl).closest('form').find('.city_id');
-                            cityIdEl.html('');
-                            $.each(response, function(index, value) {
-                                cityIdEl.append('<option value="' + value.id + '" ' + (value
-                                        .id == selected ? 'selected' : '') + '>' + value
-                                    .name + '</option>')
-                            })
-                        }
-                    })
-
-                });
-            });
-        </script>
+     
 
         <script>
             'use strict';

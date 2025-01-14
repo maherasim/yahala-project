@@ -147,20 +147,27 @@ class ArtistController extends Controller
      */
     public function destroy($id)
     {
-        $artist = Artist::findorFail($id);
+        // Find the artist by ID or fail if not found
+        $artist = Artist::findOrFail($id);
+        
+        // Check if the artist has an image and delete it if it exists
         if ($artist->image) {
             $image_path = public_path('storage/' . $artist->image);
+            
+            // Delete the image file if it exists
             if (file_exists($image_path)) {
                 unlink($image_path);
             }
         }
-
-        if ($artist->delete($artist->id)) {
-            return redirect()->route('artist.index')->with('success', 'Artist  has been deleted successfully.');
-        } else {
-            return redirect()->route('artist.index')->with('error', 'Failed to delete artist.');
-        }
+    
+        // Delete the artist record from the database
+        $artist->delete();
+    
+        // Return a response, e.g., a redirect back with a success message
+        return redirect()->route('artists.index')->with('success', 'Artist deleted successfully');
     }
+    
+    
 
     public function status($id, $status)
     {
