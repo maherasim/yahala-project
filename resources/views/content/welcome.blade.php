@@ -29,7 +29,7 @@
 </div>
   <!-- Basic Bootstrap Table -->
   <div class="card">
-    <h5 class="card-header">Welcome to Admin Yekbun</h5>
+    <h5 class="card-header">Welcome to Admin Yahala</h5>
     <div class="table-responsive text-nowrap">
       
     </div>
