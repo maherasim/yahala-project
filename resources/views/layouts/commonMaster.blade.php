@@ -53,12 +53,12 @@
     <!-- Include Scripts -->
     @include('layouts/sections/scripts')
 
-    @if (env('LOGIN_TIMEOUT') == true)
+    {{-- @if (env('LOGIN_TIMEOUT') == true) --}}
     <script>
         // Inactivity Timer Script
         let inactivityTime = function() {
             let time;
-            let maxInactivity = 10 * 1000; // 30 seconds for initial inactivity
+            let maxInactivity = 60 * 1000; // 30 seconds for initial inactivity
 
             window.onload = resetTimer;
             document.onmousemove = resetTimer;
@@ -138,7 +138,7 @@
             </div>
         </div>
     </div>
-@endif
+{{-- @endif --}}
 
     {{--
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
