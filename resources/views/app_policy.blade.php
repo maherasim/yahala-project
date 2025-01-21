@@ -6,7 +6,7 @@ $homepage = App\Models\App_Policy::where('language_id', $language->id)->first();
     <div class="modal-dialog modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalCenterTitle">Home Page Language Section</h5>
+                <h5 class="modal-title" id="modalCenterTitle">Home Page App Policy</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
