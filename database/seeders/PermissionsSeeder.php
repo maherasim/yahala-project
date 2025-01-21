@@ -14,7 +14,7 @@ class PermissionsSeeder extends Seeder
     public function run()
     {
         // Path to the JSON file
-        $jsonFile = database_path('data/permissions.json');
+        $jsonFile = database_path('data/admin_yekbun.permissions.json');
 
         // Read the JSON file
         if (!file_exists($jsonFile)) {
