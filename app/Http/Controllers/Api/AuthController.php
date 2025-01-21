@@ -31,9 +31,16 @@ public function login(Request $request)
 {
     $credentials = $request->only('email', 'password');
 
-    if (Auth::attempt($credentials)) {
-        $user = Auth::user();
+    // Check if the user exists with the provided email
+    $user = \App\Models\User::where('email', $credentials['email'])->first();
 
+    if (!$user) {
+        // If the user doesn't exist, return an email error
+        return response()->json(['error' => 'Email is wrong'], 401);
+    }
+
+    // Attempt login using the provided credentials (email and password)
+    if (Auth::attempt($credentials)) {
         // Generate a random token
         $token = bin2hex(random_bytes(40)); // 80 characters long token
 
@@ -47,9 +54,11 @@ public function login(Request $request)
             'token' => $token,
         ]);
     } else {
-        return response()->json(['error' => 'Unauthorized'], 401);
+        // If login attempt fails (wrong password), return password error
+        return response()->json(['error' => 'Password is wrong'], 401);
     }
 }
+
 
 public function verifyDevice(Request $request)
 {
