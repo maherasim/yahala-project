@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CountrySeeder::class);
         $this->call(EnglishDefault::class);
         $this->call(UserRolePermissionSeeder::class);
-        $this->call(PermissionsSeeder::class);
+        $this->call(UserRoleSettingSeeder::class);
+        //$this->call(PermissionsSeeder::class);
     }
 }
