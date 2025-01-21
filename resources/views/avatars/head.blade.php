@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
   <title>Avatars  |
-    Bootstrap 5 HTML Admin Template - Pro</title>
+   </title>
   <meta name="description" content="Most Powerful &amp; Comprehensive Bootstrap 5 HTML Admin Dashboard Template built for developers!" />
   <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
   <!-- laravel CRUD token -->
   <meta name="csrf-token" content="TmAAPHZcaiHEHuE0K34WbF61iRaF1DbGH80mZ4i0">
   <!-- Canonical SEO -->
   <link rel="canonical" href="https://themeselection.com/item/sneat-bootstrap-html-laravel-admin-template/">
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="{{asset('/public/assets/img/favicon/favicon.ico')}}" />
-  
+  <!-- Favicon --> 
+  <link rel="icon" type="image/x-icon" href="{{ asset('assets/svg/yahala-logo.jpg') }}" />
+
 
   
   <!-- Include Styles -->

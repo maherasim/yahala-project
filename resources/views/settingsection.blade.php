@@ -144,7 +144,7 @@ $settingsection = App\Models\SectionSetting::where('language_id', $language->id)
                             <div class="col-md-6">
                                 <!-- Logout -->
                                 <h6>Logout</h6>
-                                <label>Are you sure to logout from YekBun?</label><br>
+                                <label>Are you sure to logout from Yahala?</label><br>
                                 <button type="submit" class="btn btn-secondary">Save</button>
                             </div>
                         </div>

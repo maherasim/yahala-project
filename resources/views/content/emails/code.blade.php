@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>YekBûn</title>
+    <title>Yahala</title>
 </head>
 <body>
       <div style="width:100%; height:auto; box-sizing:border-box;text-align: center; background:#EAF0F3;" >
