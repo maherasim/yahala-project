@@ -102,7 +102,7 @@
             </li>
         @endcan
 
-        <li class="menu-item">
+        {{-- <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-group"></i>
                 <div>Agents </div>
@@ -114,7 +114,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
 
         @can('users.read')
             <li class="menu-header small text-uppercase">
