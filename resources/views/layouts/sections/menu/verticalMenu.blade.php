@@ -1933,12 +1933,12 @@
   
 
     @can('admins.read')
-        <li class="menu-item {{ Request::is('settings/countrieslist') ? 'active' : '' }}">
+        {{-- <li class="menu-item {{ Request::is('settings/countrieslist') ? 'active' : '' }}">
             <a href="{{ url('/settings/countrieslist') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-flag"></i>
                 <div>Select Country</div>
             </a>
-        </li>
+        </li> --}}
         <li class="menu-item {{ Request::is('nationality') ? 'active' : '' }}">
             <a href="{{ url('/nationality') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-flag"></i>
