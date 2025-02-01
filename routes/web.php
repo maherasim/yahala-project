@@ -631,7 +631,9 @@ Route::post('/add_channel_reason',[ChannelReasonController::class, 'add_reason']
 Route::put('/edit_channel_reason/{id}',[ChannelReasonController::class, 'edit_reason'])->name('edit.reason');
 Route::delete('/destory_reason/{id}',[ChannelReasonController::class, 'destroy_reason'])->name('destroy.reason');
 Route::get('/destroy_policy_desc/{id}',  [ChannelPolicyController::class, 'destroy_desc'])->name('destroy.desc');
-
+Route::get("/admin_activity", [AdminProfileController::class, 'admin_activity'])->name('admin_activity');
+Route::post("/admin_activity/postpops", [AdminProfileController::class, 'store_pops'])->name('postpops');
+Route::post("/delete_popfeed", [AdminProfileController::class, 'delete_pops']);
 //Channels
 Route::get('managecategories', [FlaggedUserController::class, 'managecategories'])->name('channels');
 

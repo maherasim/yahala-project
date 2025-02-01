@@ -1,8 +1,10 @@
 @extends('layouts/layoutMaster')
 
-@section('title', 'Notes')
+@section('title', 'Admin Activity')
 
 @section('page-style')
+
+
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/page-icons.css') }}" />
     <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
     <style>
@@ -27,6 +29,9 @@
             right: auto;
             padding: 0;
             top: -22px;
+        }
+        .modal{
+            z-index:99999;
         }
 
         .modal-title {
@@ -55,7 +60,7 @@
         .shop-wrapper .cart-container .cart-content .cart-summary .is-post.summary-card .user-block img {
             width: 42px;
             height: 42px;
-            border-radius: 0% !important;
+            border-radius: 30px !important;
         }
 
         .card.is-post .content-wrap .post-image img,
@@ -91,6 +96,12 @@
             font-size: 18px !important;
             color: #888da8;
             margin: 0 5px;
+        }
+
+        .social-count {
+            margin-left: auto;
+            display: flex;
+            align-items: stretch;
         }
 
         #tab2,
@@ -182,6 +193,497 @@
         .custom-options.checked {
             border: 1px solid #696cff;
         }
+        .modal8-right{
+            position: absolute;
+              top: 0%;
+              width: 50px;
+              height: 168;
+              right: -17%;
+              border-radius: 5px;
+              z-index: 1000;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              gap: 24px;
+              pointer-events: auto;
+        }
+        .modal8-right{
+            cursor:pointer;
+        }
+        .modal8-right button{
+            border: none;
+            background: none;
+            padding: 0;
+        }
+        .time_div_img{
+            width: 20px; 
+            height: 20px; 
+            display: flex;
+        }
+        .time_input{
+            width: 150px; 
+            height: 35px; 
+            background-color: #e0e0e0; 
+            border-radius: 5px;
+        }
+        .time_input_field{
+            width: 90px; 
+            height: 35px; 
+            background-color: #e0e0e0
+        }
+        .time_label{
+            font-weight: bold;
+            width: Hug (93px)px;
+            height: Hug (19px)px;
+            gap: 10px;
+            opacity: 0px;
+        }
+        .time_div{
+            width: 360px;
+            height: 81px;
+            background-color: #fff;
+            padding: 5px;
+            border-radius: 10px;
+            margin-bottom: 0;
+        }
+        .sharing_options{
+            border: none !important;
+            background: #F2F2F2 !important;
+            padding: 0 !important;
+            cursor: pointer !important;
+            width: 80px !important;
+            height: 80px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            border-radius: 7px !important;
+            transition: transform 0.2s ease !important;
+        }
+        .options_btns{
+            display:none;
+        }
+        .toggle-buttonModal8{
+            border: none !important;
+            padding: 0 !important;
+            border-radius: 7px !important;
+            cursor: pointer !important;
+            width: 80px !important;
+            height: 80px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            transition: transform 0.2s ease !important;
+        }
+        
+    </style>
+
+    <style>
+        .avatar_details {
+            background: #f3f3f3;
+            padding: 10px;
+            border-radius: 10px;
+            padding-bottom: 10px;
+            margin-top: 5px;
+        }
+
+        .avatar_details .w-px-40 {
+            height: 40px !important;
+        }
+
+        .avatar_details .upper {
+            text-transform: uppercase;
+        }
+
+        .avatar_details .text-rigth {
+            float: right;
+        }
+
+        .avatar_details .av_image {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .avatar_details .card {
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
+
+        .avatar_details .heading {
+            font-weight: bold;
+            font-size: 18px;
+            color: #1c274c;
+        }
+
+        .avatar_details .details {
+            margin-bottom: 10px;
+        }
+
+        .avatar_details .dashhr {
+            width: 60%;
+            text-align: center;
+            margin: auto;
+            color: #fff !important;
+            border-top: 4px solid;
+        }
+
+        .avatar_details .postshr {
+            margin-bottom: 20px !important;
+            text-align: center;
+            margin: auto;
+            color: #fff !important;
+            border-top: 4px solid;
+        }
+
+        .avatar_details .feeds_div {
+            margin: auto;
+
+        }
+
+        .avatar_details .feeds_container {
+            padding: 10px;
+        }
+
+        .avatar_details .w-px-30 {
+            height: 30px;
+            width: 30px;
+            float: left;
+            margin-right: 5px;
+        }
+
+        .avatar_details .post_avatar {
+            width: 100px;
+            float: left;
+            font-size: 13px;
+            line-height: 1.2;
+        }
+
+        .post_time {
+            float: right;
+            color: #44Af74;
+            font-weight: bold;
+        }
+
+        .avatar_details .heading_post {
+            font-weight: bold;
+        }
+
+        .avatar_details .post_img img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .avatar_details .feeds {
+            background: #fff;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .avatar_details .folors {
+            margin-top: 10px;
+        }
+
+        .avatar_details .fol_img {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            position: relative;
+            margin-left: -15px;
+        }
+
+        .avatar_details .z-100 {
+            z-index: 100;
+        }
+
+        .avatar_details .z-90 {
+            z-index: 90;
+        }
+
+        .avatar_details .z-80 {
+            z-index: 80;
+        }
+
+        .avatar_details .z-70 {
+            z-index: 70;
+        }
+
+        .avatar_details .z-60 {
+            z-index: 60;
+        }
+
+        .avatar_details .z-50 {
+            z-index: 50;
+        }
+
+        .avatar_details .z-40 {
+            z-index: 40;
+        }
+
+        .avatar_details .z-30 {
+            z-index: 30;
+        }
+
+        .avatar_details .postbox {
+            background: #fff;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .avatar_details .article_txt {
+            width: 100%;
+        }
+
+        .artilce_title {
+            float: left;
+            width: 50%;
+            font-size: 13px;
+        }
+
+        .article_time {
+            width: 50%;
+            float: left;
+            text-align: right;
+        }
+
+        .article_details {
+            background: #f3f3f3;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .avatar_details .btn-share {
+            font-size: 11px;
+            padding: 1px 8px;
+        }
+
+        .avatar_details .btn-share-like {
+            background: #44Af74;
+
+        }
+
+        .avatar_details .btn-share-denied {
+
+            background: #F2555B;
+        }
+
+        .avatar_details .btn-share-like span {
+            font-size: 18px;
+            margin-right: 5px;
+            margin-top: -2px;
+        }
+
+        .avatar_details .btn-share-denied span {
+            font-size: 18px;
+            margin-left: 5px;
+            margin-top: -2px;
+        }
+
+        .avatar_details .articles_btns {
+            text-align: center;
+        }
+
+        .avatar_details .emojies {
+            background: #f3f3f3;
+            width: 70px;
+            border-radius: 5px;
+            float: left;
+            text-align: center;
+        }
+
+        .avatar_details .shares_options {
+            background: #f3f3f3;
+            border-radius: 5px;
+            width: calc(100% - 90px);
+            margin-left: auto;
+            float: right;
+            text-align: center;
+        }
+
+        .avatar_details .shareimg {
+            width: 100%;
+        }
+
+        .avatar_details .show_details {
+            cursor: pointer;
+        }
+
+        .feeds-type{
+            background-color:white;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 0px 0px 10px 10px;
+        }
+
+        .feeds-type button{
+            width: 60px;
+            height: 64px;
+            border-radius: 15px;
+            display: inline-block;
+            margin: 12px 18px 12px 18px;
+            border: none;
+            padding: 8px;
+        }
+        .feeds-type button.active{
+            border: 1px solid #1BC469;
+            background-color: #fff;
+        }
+        .feeds-type button.active svg *{
+            fill: #1BC469;
+        }
+        .feeds-type p{
+            font-size: 14px;
+            /* line-height: 16.8px; */
+            margin: 4px 0 -4px 0;
+            font-weight: 500;
+            text-align: center;
+            color: #1C274C;
+        }
+        .modal{
+            font-family: "Genos", serif !important;
+            font-optical-sizing: auto !important;
+            font-style: normal !important;
+        }
+        .modal *{
+            font-family: "Genos", serif !important;
+            font-optical-sizing: auto !important;
+            font-style: normal !important;
+        }
+        img.ellipse{
+            width: 2px !important;
+            height: 2px !important;
+            margin-top: 13px !important;
+        }
+        .section-head span {
+            font-weight: 500;
+        }
+
+        .section-head img {
+            height: 20px;
+            width: 20px;
+            margin: 4px 4px 0 0;
+        }
+        .visibilitypicker{
+            width: 96px;
+            height: auto;
+            border-radius: 14px;
+            background-color: #F2F2F2;
+            color: black;
+            border: none;
+            margin: 7px;
+        }
+
+        .visibilitypicker svg *{
+            fill: black;
+        }
+
+        .visibilitypicker.active{
+            background-color: #1BC469;
+            color: #fff;
+        }
+
+        .visibilitypicker.active svg *{
+            fill: #fff;
+            stroke: #fff;
+        }
+        .custom-option-icon .custom-option-content{
+            padding:0.3em;
+        }
+        .form-check{
+            padding-left:0.1em;
+        }
+        .pop-img{
+            width: 100%;
+        }
+        .pop-heading{
+            font-weight:bold;
+            color:#000;
+        }
+        .pop-txt{
+            color:#000;
+            font-size:14px;
+        }
+        .pop_action_div{
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+        .pop_action{
+            background: #F2F2F2; 
+            border-radius: 7px; 
+            width: 30px; height: 
+            30px; margin:5px;
+            cursor:pointer;
+            border:0px;
+        }
+        .pop_action_image{
+            width: 30px; 
+            padding:5px; 
+            height: 30px; 
+            object-fit: cover
+        }
+        .image-preview-containerModal2 img{
+            height:100% !important;
+        }
+
+        .modal-dialog-centered {
+            display: flex;
+            align-items: center;
+            width:370px;
+        }
+        #mainImage{
+            width:100% !important;
+        }
+        .modal-content{
+            overflow2:visible !important;
+        }
+
+
+        .form-switch .form-check-input {
+            width: 40px !important;
+            height: 20px !important;
+            background-color: #b4b4b4 !important;
+            border-radius: 1.25rem !important;
+        }
+        .form-switch .form-check-input {
+            width: 2em;
+            margin-left: -2.5em;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e") !important;
+            background-position: left center;
+            border-radius: 2em;
+            transition: background-position .15s ease-in-out;
+            }
+
+        .form-switch .form-check-input {
+        width: 40px !important;
+        height: 20px !important;
+        background-color: #b4b4b4;
+        border-radius: 1.25rem;
+        }
+        .form-switch .form-check-input:checked {
+            background-color: #0d6efd !important;
+        }
+        .form-switch .form-check-input:checked {
+            background-position: right center;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e") !important;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: 500px;
+                margin: 1.75rem auto;
+            }
+            .modal-dialog-centered {
+                min-height: calc(100% - 3.5rem);
+            }
+        }
+        
+
+ 
     </style>
 @endsection
 
@@ -195,6 +697,7 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/dropzone/dropzone.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/friendkit/css/app.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/friendkit/css/core.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/friendkit/css/style.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--hero-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
@@ -209,6 +712,14 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
 
 @section('vendor-script')
 
+        <script>
+            const DEFAULT_IMAGE = "{{ asset('assets/svg/svg-dialog/second-svg-dialog/image%201425.svg')}}"; 
+            const pausebtn = "{{ asset('assets/svg/svg-dialog/Group%201000002312.svg')}}";
+            const playbtn = "{{ asset('assets/svg/svg-dialog/Player%20Play.svg')}}";
+            const playpusecgrnbtn = "{{ asset('assets/svg/svg-dialog/Eo_circle_green_pause.svg')}}";
+            //const DEFAULT_IMAGE = "{{ asset('assets/svg/svg-dialog/second-svg-dialog/image%201425.svg')}}";
+        </script>
+
     <script src="{{ asset('assets/vendor/libs/bs-stepper/bs-stepper.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/flatpickr/flatpickr.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
@@ -218,8 +729,8 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
     <!-- Concatenated js plugins and jQuery -->
     <script src="{{ asset('assets/friendkit/js/app.js') }}"></script>
     <script src="
-                            https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js
-                            "></script>
+                                        https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js
+                                        "></script>
     <!-- Core js -->
     <script src="{{ asset('assets/friendkit/js/global.js') }}"></script>
 
@@ -242,6 +753,9 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
     <script src="{{ asset('assets/friendkit/js/modal-uploader.js') }}"></script>
     {{-- <script src="{{ asset('assets/friendkit/js/popovers-users.js') }}"></script> --}}
     <script src="{{ asset('assets/friendkit/js/popovers-pages.js') }}"></script>
+
+    <script src="{{ asset('assets/friendkit/js/script.js') }}?v={{time()}}"></script>
+
     <!--<script src="{{ asset('assets/friendkit/js/lightbox.js') }}"></script>-->
 
     <!-- Landing page js -->
@@ -263,6 +777,14 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
         const dropZoneInitFunctions = [];
     </script>
     <!--top bar-->
+
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+
     <div id="wizard-create-deal" class="bs-stepper vertical mt-2 linear"
         style="box-shadow:none;background-color:transparent">
         <div class="bs-stepper-content">
@@ -272,7 +794,8 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                     <div class="row g-3">
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-md mb-md-0 mb-2">
+                                
+                                <div class="col-md mb-md-0 mb-2" style="display:none;" >
                                     <div class="form-check card custom-option-icon hki custom-options" id="hki">
                                         <a href="javascript:void(0)"
                                             class="form-check-label custom-option-content news-modal-btn"
@@ -289,7 +812,7 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col-md mb-md-0 mb-2">
+                                <div class="col-md mb-md-0 mb-2" style="display:none;" >
                                     <div class="form-check  card custom-option-icon hki custom-options">
                                         <a href="javascript:void(0)" class="form-check-label custom-option-content "
                                             data-bs-toggle="modal" data-bs-target="#requestpopuptwo" for="customRadioFlat">
@@ -301,6 +824,104 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                                             </span>
                                             <input name="customRadioIcon" class="form-check-input" type="radio"
                                                 value="" id="customRadioFlat">
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-md mb-md-0 mb-2">
+                                    <div class="form-check  card custom-option-icon hki custom-options">
+                                        <a href="javascript:void(0)" class="form-check-label custom-option-content popcall1"
+                                            data-bs-toggle="modal" data-bs-target="#modal1" for="customRadioPrime">
+                                        
+                                            <span class="custom-option-body">
+                                                <img src="{{ asset('assets/svg/svg-dialog/Group 1000008347.svg') }}" class="my-2 pop-img"
+                                                    width="40" alt="">
+                                                <span class="custom-option-title pop-heading"> System </span>
+                                                <small class="pop-txt">Share System info</small>
+                                            </span>
+                                            <input name="customRadioIcon" class="form-check-input" type="radio"
+                                                value="" id="customRadioPrime">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md mb-md-0 mb-2">
+                                    <div class="form-check  card custom-option-icon hki custom-options">
+
+                                        <a href="javascript:void(0)" class="form-check-label custom-option-content "
+                                            data-bs-toggle="modal" data-bs-target="#modal10" for="customRadioPrime">
+                                            <span class="custom-option-body">
+                                                <img src="{{ asset('assets/svg/svg-dialog/Group 1000008357.svg') }}" class="my-2 pop-img"
+                                                    width="40" alt="">
+                                                <span class="custom-option-title pop-heading"> Donation </span>
+                                                <small class="pop-txt">Create Donation</small>
+                                            </span>
+                                            <input name="customRadioIcon" class="form-check-input" type="radio"
+                                                value="" id="customRadioPrime">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md mb-md-0 mb-2">
+                                    <div class="form-check  card custom-option-icon hki custom-options">
+
+                                        <a href="javascript:void(0)" class="form-check-label custom-option-content popcall1"
+                                            data-bs-toggle="modal" data-bs-target="#modal3" for="customRadioPrime">
+                                            <span class="custom-option-body">
+                                                <img src="{{ asset('assets/svg/svg-dialog/Group.svg') }}" class="my-2 pop-img"
+                                                    width="40" alt="">
+                                                <span class="custom-option-title pop-heading"> Surveys </span>
+                                                <small class="pop-txt">Create Surveys</small>
+                                            </span>
+                                            <input name="customRadioIcon" class="form-check-input" type="radio"
+                                                value="" id="customRadioPrime">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md mb-md-0 mb-2">
+                                    <div class="form-check  card custom-option-icon hki custom-options">
+
+                                        <a href="javascript:void(0)" class="form-check-label custom-option-content popcall1"
+                                            data-bs-toggle="modal" data-bs-target="#modal4" for="customRadioPrime">
+                                            <span class="custom-option-body">
+                                                <img src="{{ asset('assets/svg/svg-dialog/Group 1000008455.svg') }}" class="my-2 pop-img"
+                                                    width="40" alt="">
+                                                <span class="custom-option-title pop-heading"> Greetings </span>
+                                                <small class="pop-txt">Share Greetings</small>
+                                            </span>
+                                            <input name="customRadioIcon" class="form-check-input" type="radio"
+                                                value="" id="customRadioPrime">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md mb-md-0 mb-2">
+                                    <div class="form-check  card custom-option-icon hki custom-options">
+
+                                        <a href="javascript:void(0)" class="form-check-label custom-option-content "
+                                            data-bs-toggle="modal" data-bs-target="#system_popup" for="customRadioPrime">
+                                            <span class="custom-option-body">
+                                                <img src="{{ asset('assets/svg/svg-dialog/Ñëîé_1.svg') }}" class="my-2 pop-img"
+                                                    width="40" alt="">
+                                                <span class="custom-option-title pop-heading"> Events </span>
+                                                <small class="pop-txt">Share Events</small>
+                                            </span>
+                                            <input name="customRadioIcon" class="form-check-input" type="radio"
+                                                value="" id="customRadioPrime">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md mb-md-0 mb-4">
+                                    <div class="form-check  card custom-option-icon hki custom-options">
+
+                                        <a href="javascript:void(0)" class="form-check-label custom-option-content "
+                                            data-bs-toggle="modal" data-bs-target="#system_popup" for="customRadioPrime">
+                                            <span class="custom-option-body">
+                                                <img src="{{ asset('assets/svg/svg-dialog/Group 1000008478.svg') }}" class="my-2 pop-img"
+                                                    width="40" alt="">
+                                                <span class="custom-option-title pop-heading"> User </span>
+                                                <small class="pop-txt">Warn SOS</small>
+                                            </span>
+                                            <input name="customRadioIcon" class="form-check-input" type="radio"
+                                                value="" id="customRadioPrime">
                                         </a>
                                     </div>
                                 </div>
@@ -320,6 +941,10 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                                         </a>
                                     </div>
                                 </div>
+
+
+
+
                             </div>
                         </div>
                     </div>
@@ -579,6 +1204,89 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
 
     <!--top bar-->
 
+    <style>
+        .pop_div{
+            
+            background-color: white;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        .pop_sub{
+            height: 30;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            top: 10px;
+        }
+        .pop_head{
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+                  
+        }
+        .pop_tit{
+            display: flex;
+            align-items: start;
+            align-items: center;
+        }
+        .pop_heading{
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: flex-start;
+            margin-left: 5px;
+            gap: 8px;
+        }
+        .pop_head_line{
+            font-family: Genos;
+            font-size: 20px;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .pop_title{
+            border-radius: 45%;
+            background: #00000066;
+                            
+        }
+        .pop_description{
+            font-size: 14px;
+            font-weight: 400;
+            color: gray;      
+            text-align: left;
+            background: #F7F7F7;
+            padding: 7px;
+            font-family: Genos;
+            margin-top: 7px;
+            margin-bottom: 7px;
+            border-radius: 5px;
+            display: flex; 
+            align-items: center; 
+            justify-content: left;
+        }
+        .pop_main_image{
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .pop_overlay{
+            position: absolute;
+                bottom: 10px;
+                left: 10px;
+                display: flex;
+                align-items: center;
+                border-radius: 5px;
+                background: #1C274C99;
+            gap: 5px;
+        }
+    </style>
 
     <div class="content-wrapper">
 
@@ -594,11 +1302,17 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                                 <div class="card">
                                     <div class="card-body p-0 border-none">
                                         <div class="list-group nav nav-tab" role="tablist">
+                                            
+                                            <a class="list-group-item list-group-item-action {{ request('type') == 'all-news' ? 'active' : '' }}"
+                                                href="#tab5">
+                                                Popup Feeds<br>
+                                                <small class="text-muted">Admin has Popup</small>
                                             <a class="list-group-item list-group-item-action {{ request('type') == 'admin-feeds' ? 'active' : '' }}"
                                                 href="#tab1">
                                                 Admin Feeds<br>
                                                 <small class="text-muted">Admin has Post</small>
                                             </a>
+
                                             <a class="list-group-item list-group-item-action {{ request('type') == 'all-news' ? 'active' : '' }}"
                                                 href="#tab2">
                                                 All News<br>
@@ -614,10 +1328,283 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                                                 Admin Live Stream<br>
                                                 <small class="text-muted">Live Stream by Admin</small>
                                             </a>
+
+                                           
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- tab post feeds -->
+
+                            <div style="padding-top:0px;" class="column column is-6 tab-content" id="tab5">
+
+                                @foreach ($popfeeds as $key => $feed)
+                                    <div id="feed-post-{{ $key }}" class="card is-post">
+                                        <!-- pop started -->
+                                        
+                                        <div class="pop_div">
+            <div class="pop_sub">
+
+              <div class="pop_head">
+                <div class="pop_tit">
+                  <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000003833.svg')}}" style="width: 28px; height: 28px; object-fit: cover">
+                  <div class="pop_heading" style="
+                  
+                      ">
+                    <div class="pop_head_line" style="
+                    
+                        ">
+                      <div class="pop_title" style="
+                            "></div>
+
+                      YekBun Team
+
+                      <div style="
+                      width: 2px;
+                      height: 2px;
+                      border-radius: 45%;
+                      background: #00000066;
+                      "></div>
+                    </div>
+
+                    <div style="
+                    width: 150px;
+                    height: 6px;
+                    font-family: Genos;
+font-size: 14px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+                          color: #7e7e7e;
+                          display: flex;
+                          align-items: center;
+                          gap: 5px;
+                        ">
+                      
+                      {{ \Carbon\Carbon::parse($feed->date_start)->format('d M y') }}
+                     
+                    </div>
+                  </div>
+                </div>
+
+                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000008317.svg')}}" style="width: 25px; height: 27px; object-fit: cover; border: none;" class="img-thumbnail">
+              </div>
+
+              <!-- delete -->
+              <form action="delete_popfeed" onsubmit="confirmAction(event, () => event.target.submit())" method="post" class="d-inline">
+                    @csrf               
+                    <input type="hidden" name="delid" value="{{$feed->id}}" />
+                <div class="pop_action_div">
+                  <button class="pop_action">
+                    <img type="submit" src="{{ asset('assets/svg/delete.svg')}}" class="pop_action_image" >
+                </button>
+            </form>
+
+            @php
+                $modalnumber = 1;
+                if($feed->type == "System"){
+                    $modalnumber = 1;
+                }else if($feed->type == "Surveys"){
+                    $modalnumber = 3;
+                }else if($feed->type == "Greetings"){
+                    $modalnumber = 4;
+                }
+            
+            @endphp
+
+
+               
+                <a href="javascript:void(0)" class="pop_action edit_popup1" data-bs-toggle="modal" data-bs-target="#modal{{$modalnumber}}" for="customRadioPrime" 
+                    data-id="{{$feed->_id}}" data-name="{{$feed->title}}" data-image="{{$feed->image}}" 
+                    data-start="{{$feed->date_start}}" data-end="{{$feed->date_ends}}" data-type="{{$feed->type}}" 
+                    data-option="{{$feed->share_option}}" data-isshare="{{$feed->is_share}}" data-iscomment="{{$feed->is_comments}}" data-isemoji="{{$feed->is_emoji}}">
+                    <img src="{{ asset('assets/svg/edit.svg')}}" class="pop_action_image">
+                </a>
+            </div>
+
+            </div>
+
+            <div class="pop_description">
+              {{$feed->title}}
+            </div>
+
+            <div class="pop_main_image pop_main_image_{{$feed->_id}}">
+              <img src="{{ asset('/public/images/'.$feed->image) }}" style="width: 100%; object-fit: cover; border-radius: 7px; padding: 0; display: block;">
+
+              
+              <div class="audio-icon" style="position: absolute;
+                bottom: 10px;
+                right: 10px;
+                background: rgba(0, 0, 0, 0.6);
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                cursor: pointer;">
+                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group 1000008129.svg')}}" style="width: 20px; height: 20px; margin: 5px; border-radius: 5px; object-fit: cover; color:#FFFFFF;">
+              </div>
+            </div>
+
+
+            <div style="
+            height: 29px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 5px;
+            gap: 10px;
+            margin-top: 7px;
+          ">
+              <div style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              width: 200px;
+              height: 100%;
+            ">
+                <div style="
+                display: flex;
+                align-items: center;
+                gap: 3px;
+                height: 100%;
+              ">
+                  <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Eye%20Scan.svg')}}" style="width: 100%; height: 100%; object-fit: cover">
+                  <span style="font-weight: 400; font-family: Genos;
+">123</span>
+                </div>
+
+                <div style="
+                display: flex;
+                align-items: center;
+                gap: 3px;
+                height: 100%;
+              ">
+                  <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/share.svg')}}" style="width: 100%; height: 100%; object-fit: cover">
+                  <span style="font-weight: 400; font-family: Genos;
+">123</span>
+                </div>
+
+                <div style="
+                display: flex;
+                align-items: center;
+                gap: 3px;
+                height: 100%;
+              ">
+                  <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Pen%202.svg')}}" style="width: 100%; height: 100%; object-fit: cover">
+                  <span style="font-weight: 400; font-family: Genos;
+">123</span>
+                </div>
+
+                <div style="
+                display: flex;
+                align-items: center;
+                gap: 3px;
+                height: 100%;
+              ">
+                  <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/microphone-2.svg')}}" style="width: 100%; height: 100%; object-fit: cover">
+                  <span style="font-weight: 400; font-family: Genos;
+">123</span>
+                </div>
+              </div>
+
+              <div style="
+              display: flex;
+              align-items: center;
+              gap: 2px;
+              height: 100%;
+            ">
+                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000002356.svg')}}" style="width: 100%; height: 100%; object-fit: cover;
+">
+                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000002630.svg')}}" style="width: 100%; height: 100%; object-fit: cover;;
+">
+                <span style="font-weight: 400; font-family: Genos;
+">123</span>
+              </div>
+            </div>
+
+
+            <div style="
+            
+            height: 30px;
+            display: flex;
+            background-color: white;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+          ">
+              <div style="
+              width: 120px;
+              height: 30px;
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              height: 100%;
+            ">
+                <div style="padding: 3px; 
+                border-radius: 4px;
+                width: 30px; 
+                height: 30px; 
+                background: #F2F2F2;
+                display: flex;
+                align-items: center;
+                justify-content: center;">
+                  <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/share.svg')}}" style="width: 24px; height: 24px; object-fit: cover">
+                </div>
+
+                <div style="padding: 3px; 
+                border-radius: 4px;
+                width: 30px; 
+                height: 30px; 
+                background: #F2F2F2;
+                display: flex;
+                align-items: center;
+                justify-content: center;">
+                  <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000002356.svg')}}" style="width: 24px; height: 24px; object-fit: cover">
+                </div>
+                <div style="padding: 3px; 
+                border-radius: 4px;
+                width: 30px; 
+                height: 30px; 
+                background: #F2F2F2;
+                display: flex;
+                align-items: center;
+                justify-content: center;">
+                  <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/microphone-2.svg')}}" style="width: 24px; height: 24px; object-fit: cover">
+                </div>
+              </div>
+
+              <div style="
+              background-color: #f8f9fa;
+              border-radius: 7px;
+              height: 30px;
+              width: auto;
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              font-size: 10px;
+              font-family: Genos;
+              padding: 5px;
+            ">
+                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Pen%202.svg')}}" style="width: 24px; height: 24px">
+
+                <span>add a comment here</span>
+              </div>
+            </div>
+          </div>
+
+
+                                        <!-- pop ended -->
+                                    </div>
+                                @endforeach
+                            </div>
+
+                            <!-- tab post feeds -->
 
                             <div style="padding-top:0px;" class="column column is-6 tab-content" id="tab1">
                                 @foreach ($feeds as $key => $feed)
@@ -629,113 +1616,443 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                                                 <!-- User meta -->
                                                 <div class="user-block">
                                                     <div class="image">
-                                                        <img src="{{ asset('assets/img/logo.png') }}"
-                                                            data-demo-src="{{ asset('assets/img/logo.png') }}"
+                                                        <img src="https://www.w3schools.com/howto/img_avatar.png"
+                                                            data-demo-src="https://www.w3schools.com/howto/img_avatar.png"
                                                             data-user-popover="1" alt="">
                                                     </div>
                                                     <div class="user-info">
-                                                        <span class="d-flex"><a href="#">Yekbun</a><i
-                                                                class="bx bx-world ml-2"></i></span>
+                                                        <span class="d-flex"><a href="#">Yekbun</a>
+                                                            {{-- <i class="bx bx-world ml-2"></i> --}}
+                                                        </span>
                                                         <span class="time">. CEO .</span>
                                                     </div>
                                                 </div>
                                                 <!-- Right side dropdown -->
                                                 <!-- /partials/pages/feed/dropdowns/feed-post-dropdown.html -->
-                                                <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
-                                                    <div>
-                                                        <div class="button">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                height="24" viewBox="0 0 24 24" fill="none"
-                                                                stroke="currentColor" stroke-width="2"
-                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                class="feather feather-more-vertical">
-                                                                <circle cx="12" cy="12" r="1"></circle>
-                                                                <circle cx="12" cy="5" r="1"></circle>
-                                                                <circle cx="12" cy="19" r="1"></circle>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="dropdown-menu" role="menu">
-                                                        <div class="dropdown-content">
-                                                            <a href="javascript:void(0)" class="dropdown-item">
-                                                                <div class="media">
-                                                                    <div class="media-content">
-                                                                        <h3>Remove Feed</h3>
-                                                                        <small>Feed Removed Only</small>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a href="javascript:void(0)" class="dropdown-item">
-                                                                <div class="media">
-                                                                    <div class="media-content">
-                                                                        <h3>Repost the Feed</h3>
-                                                                        <small>Post it again</small>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
+                                                <div
+                                                    class="dropdown is-spaced post_time is-right is-neutral dropdown-trigger">
+                                                    <i class="bx bx-trash me-1"></i>
                                                 </div>
                                             </div>
                                             <!-- /Post header -->
 
                                             <!-- Post body -->
-                                            <div class="card-body">
+                                            <div class="card-body pt-0">
                                                 <!-- Post body text -->
                                                 @if ($feed->feed_type == 'share_text')
-                                                    <div class="post-text">
-                                                        <p
-                                                            style="background-size:cover;background-image:url({{ $feed->feed_background_image }});color:{{ $feed->feed_text_color }}">
-                                                            {{ $feed->description }}
-                                                        </p>
+                                                    <div class="post-text mt-1">
+                                                        <div
+                                                            style="background-size:cover;background-image:url({{ $feed->feed_background_image }});display: flex;justify-content: center;align-items: center;height: 50vh;text-align: center;">
+                                                            <p style="color:{{ $feed->feed_text_color }};font-weight:bold;font-size:24px"
+                                                                class="p-1">
+                                                                {{ $feed->description }}
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 @else
-                                                    <div class="post-text">
-                                                        <p>
-                                                            {{ $feed->description }}
-                                                        </p>
-                                                    </div>
-                                                    @php
-                                                        $imgUrl = $feed->image
-                                                            ? asset('storage/' . $feed->image[0])
-                                                            : asset('assets/img/feed-image.jpeg');
-                                                    @endphp
-                                                    <!-- Featured image -->
                                                     @if ($feed->feed_type == 'share_video')
                                                         @php
-                                                            $videoUrl = $feed->video
+                                                            $imgUrl = $feed->video
                                                                 ? asset('storage/' . $feed->video[0])
                                                                 : asset('assets/img/feed-image.jpeg');
                                                         @endphp
-                                                        <div class="post-image">
-                                                            <a data-fancybox="post1" data-lightbox-type="comments"
-                                                                data-thumb="{{ $videoUrl }}"
-                                                                href="{{ $videoUrl }}"
-                                                                data-demo-href="{{ $videoUrl }}">
-                                                                {{-- <img src="{{$videoUrl}}"
-                                                                    data-demo-src="{{$videoUrl}}"
-                                                                    alt=""> --}}
-                                                                <video src="{{ $videoUrl }}" controls
-                                                                    style="width: 100%"></video>
-                                                            </a>
-                                                        </div>
                                                     @else
-                                                        <div class="post-image">
-                                                            <a data-fancybox="post1" data-lightbox-type="comments"
-                                                                data-thumb="{{ $imgUrl }}"
-                                                                href="{{ $imgUrl }}"
-                                                                data-demo-href="{{ $imgUrl }}">
-                                                                <img src="{{ $imgUrl }}"
-                                                                    data-demo-src="{{ $imgUrl }}" alt="">
-                                                            </a>
-                                                        </div>
+                                                        @php
+                                                            $imgUrl = $feed->image
+                                                                ? asset('storage/' . $feed->image[0])
+                                                                : asset('assets/img/feed-image.jpeg');
+                                                        @endphp
                                                     @endif
+
+                                                    <div class="row">
+                                                        @if ($feed->image_type == 2)
+                                                            @if ($feed->grid_style == 'modern')
+                                                                <div class="col-md-6">
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            @else
+                                                                <div class="col-md-12">
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            @endif
+                                                        @elseif($feed->image_type == 3)
+                                                            @if ($feed->grid_style == 'modern')
+                                                                <div class="col-md-12">
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            @else
+                                                                <div class="col-md-8">
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            @endif
+                                                        @elseif($feed->image_type == 4)
+                                                            @if ($feed->grid_style == 'modern')
+                                                                <div class="col-md-6">
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            @else
+                                                                <div class="col-md-8">
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="post-image">
+                                                                        <a data-fancybox="post1"
+                                                                            data-lightbox-type="comments"
+                                                                            data-thumb="{{ $imgUrl }}"
+                                                                            href="{{ $imgUrl }}"
+                                                                            data-demo-href="{{ $imgUrl }}">
+
+                                                                            @if ($feed->feed_type == 'share_video')
+                                                                                <video src="{{ $imgUrl }}" controls
+                                                                                    style="width: 100%"></video>
+                                                                            @else
+                                                                                <img src="{{ $imgUrl }}"
+                                                                                    data-demo-src="{{ $imgUrl }}"
+                                                                                    alt="">
+                                                                            @endif
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            @endif
+                                                        @else
+                                                            <div class="col-md-12">
+                                                                <div class="post-image">
+                                                                    <a data-fancybox="post1" data-lightbox-type="comments"
+                                                                        data-thumb="{{ $imgUrl }}"
+                                                                        href="{{ $imgUrl }}"
+                                                                        data-demo-href="{{ $imgUrl }}">
+
+                                                                        @if ($feed->feed_type == 'share_video')
+                                                                            <video src="{{ $imgUrl }}" controls
+                                                                                style="width: 100%"></video>
+                                                                        @else
+                                                                            <img src="{{ $imgUrl }}"
+                                                                                data-demo-src="{{ $imgUrl }}"
+                                                                                alt="">
+                                                                        @endif
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                        <div class="col-md-12">
+                                                            <div class="article_details">
+
+                                                                <div class="artilce_title">
+                                                                    {{ $feed->title ?? 'Title' }}
+                                                                </div>
+                                                                <div class="article_time">
+                                                                    {{ \Carbon\Carbon::parse($feed->created_at)->format('d.m.Y - H:m') ?? '0.0.0' }}
+                                                                </div>
+
+                                                                <div class="article_txt">
+                                                                    {{ $feed->description ?? 'Description' }}
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
                                                 @endif
                                             </div>
                                             <!-- /Post body -->
 
                                             <!-- Post footer -->
-                                            <div class="card-footer">
+                                            <div class="card-footer pt-2">
                                                 <!-- Followers avatars -->
                                                 <div class="likers-group">
                                                     <img src="{{ asset('assets/svg/icons/haha-emoji.svg') }}"
@@ -810,19 +2127,22 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                                                             : asset('assets/img/feed-image.jpeg');
                                                     @endphp
                                                     <div class="image">
-                                                        <img src="{{ asset('assets/img/logo.png') }}"
-                                                            data-demo-src="{{ asset('assets/img/logo.png') }}"
+                                                        <img src="https://www.w3schools.com/howto/img_avatar.png"
+                                                            data-demo-src="https://www.w3schools.com/howto/img_avatar.png"
                                                             data-user-popover="1" alt="">
                                                     </div>
                                                     <div class="user-info">
-                                                        <span class="d-flex"><a href="#">Yekbun</a><i
-                                                                class="bx bx-world ml-2"></i></span>
+                                                        <span class="d-flex"><a href="#">Yekbun</a>
+                                                            {{-- <i class="bx bx-world ml-2"></i> --}}
+                                                        </span>
                                                         <span class="time">. CEO .</span>
                                                     </div>
                                                 </div>
                                                 <!-- Right side dropdown -->
-                                                <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
-                                                    <div>
+                                                <div
+                                                    class="dropdown is-spaced post_time is-right is-neutral dropdown-trigger">
+                                                    <i class="bx bx-trash me-1"></i>
+                                                    {{-- <div>
                                                         <div class="button">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                                 height="24" viewBox="0 0 24 24" fill="none"
@@ -834,8 +2154,8 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                                                                 <circle cx="12" cy="19" r="1"></circle>
                                                             </svg>
                                                         </div>
-                                                    </div>
-                                                    <div class="dropdown-menu" role="menu">
+                                                    </div> --}}
+                                                    {{-- <div class="dropdown-menu" role="menu">
                                                         <div class="dropdown-content">
                                                             <a href="javascript:void(0)" class="dropdown-item">
                                                                 <div class="media">
@@ -854,19 +2174,14 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                                                                 </div>
                                                             </a>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                             <!-- /Post header -->
 
                                             <!-- Post body -->
-                                            <div class="card-body">
+                                            <div class="card-body pt-0">
                                                 <!-- Post body text -->
-                                                <div class="post-text">
-                                                    <p>
-                                                        {{ $newz->description }}
-                                                    </p>
-                                                </div>
                                                 <div class="row">
                                                     @if ($newz->image_type == 2)
                                                         @if ($newz->grid_style == 'modern')
@@ -1119,12 +2434,29 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                                                             </div>
                                                         </div>
                                                     @endif
+                                                    <div class="col-md-12">
+                                                        <div class="article_details">
+
+                                                            <div class="artilce_title">
+                                                                {{ $newz->title ?? 'Title' }}
+                                                            </div>
+                                                            <div class="article_time">
+                                                                {{ \Carbon\Carbon::parse($newz->created_at)->format('d.m.Y - H:m') ?? '0.0.0' }}
+                                                            </div>
+
+                                                            <div class="article_txt">
+                                                                {{ $newz->description ?? 'Description' }}
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                             <!-- /Post body -->
 
                                             <!-- Post footer -->
-                                            <div class="card-footer">
+                                            <div class="card-footer pt-2">
                                                 <!-- Followers avatars -->
                                                 <div class="likers-group">
                                                     <img src="{{ asset('assets/svg/icons/haha-emoji.svg') }}"
@@ -1183,6 +2515,9 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                                     </div>
                                 @endforeach
                             </div>
+
+
+
                             <div style="margin-top: -35px;" class="column column is-6 tab-content" id="tab3">
                                 <div class="column column is-12">
                                     @foreach ($events as $key => $event)
@@ -1403,6 +2738,155 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
             @include('content.include.live_stream.golive')
         </x-modal>
 
+        <!-- system modal 
+
+        <x-modal
+    id="modal1"
+    title="Add Member"
+    saveBtnText="Create"
+    saveBtnType="submit"
+    saveBtnForm="createForm"
+    size="md"
+    :show="old('showCreateFormModal')? true: false"
+  >
+    @include('content.pages.includes.system_form')
+  </x-modal>-->
+  @include('content.pages.includes.fullpopup')
+        <div class="modal fade popmodal" id="modal1__old" tabindex="-1" aria-labelledby="Modlal1">
+    <div id="moo" class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="Width:375px; Height:812px; background-color: #f8f9fa; 
+        padding: 5px;
+        border-radius: 10px;">
+        <div class="modal-body" style="
+              position: relative;
+              border-radius: 10px;
+              border: 2px dashed #356899
+            ">
+          <div style="
+                width: Fixed (333px)px;
+                height: Hug (761.24px)px;
+                display: flex;
+                border-radius: 10px;
+                flex-direction: column;
+                align-items: center;
+                gap: 110px;
+                
+              ">
+
+            <img src="{{ asset('assets/svg/svg-dialog/first-svg-dialog/Group%201000008335.svg') }}"  alt="Illustration" data-target="#modal6"
+              data-bs-dismiss="modal" style="height: 250px; width: 100%" />
+
+            <div id="previewContainerWrapper" style="width: 100%; display: flex; gap: 10px; flex-wrap: wrap">
+              <div class="previewContainer" style="
+                    width: 100%;
+                    height: 81px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-size: contain;
+                    cursor: pointer;
+                    border-radius: 10px;
+                  ">
+                <img  src="{{ asset('assets/svg/svg-dialog/first-svg-dialog/Object.svg') }}" alt="Illustration" data-target="#modal6"
+                  data-bs-dismiss="modal" style="height: 96px; width: 69%" id="addImageButton" />
+
+                <input type="file" class="fileInput" multiple accept="image/*" style="
+                      opacity: 0;
+                      width: 100%;
+                      height: 100%;
+                      position: absolute;
+                      cursor: pointer;
+                    " />
+              </div>
+            </div>
+          </div>
+
+          <div style="
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centrage horizontal */
+            gap: 50px; /* Réduit l'écart entre l'image et le texte */
+            background-color: #fff;
+            margin-top: 230px;
+            border-radius: 10px;
+            margin-left:3%;
+            margin-right:3%;
+            padding: 5px; /* Ajoute un peu de padding pour un espacement interne */
+          ">
+            <!-- Image à gauche -->
+            <div style="display: flex; align-items: center; justify-content: center;">
+              <img id="displayImage2" src="{{ asset('assets/svg/svg-dialog/first-svg-dialog/Group%201000008026.svg')}}" alt="Illustration"
+                class="img-fluid" style="height: 40px; width: 41px; cursor: pointer;margin-left: 2px;" />
+              <input type="file" id="imageUploader2" accept="image/*" style="display: none;" />
+            </div>
+
+            <!-- Texte à droite -->
+            <div style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center; /* Centrage vertical */
+              gap: 2px;
+              font-family: Genos;
+            ">
+              <h4 style="margin: 0; text-align: center;">Another Selection</h4>
+              <h6 style="margin: 0; text-align: center;">File Size H 812 - W 350</h6>
+              <p style="margin: 0; text-align: center;">MP4-JPG Or PNG - <span style="color: red;">Max 5 Image</span></p>
+            </div>
+          </div>
+
+
+
+          <div style="
+                position: absolute;
+                bottom: -10%;
+                left: 100px;
+                width: 202px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+              ">
+            <div id="backButton" data-target="#popupModal" style="
+                  outline: none;
+                  width: 50px;
+                  height: 40px;
+                  background-color: #fff;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border-radius: 10px;
+                ">
+              <img src="{{ asset('assets/svg/svg-dialog/first-svg-dialog/Group%201000008245.svg')}}" />
+            </div>
+
+            <div id="createButton" data-target="#modal7" style="
+                  outline: none;
+                  width: 100px;
+                  height: 40px;
+                  background-color: #fff;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border-radius: 10px;
+                  gap: 5px;
+                  font-family: Genos;
+                ">
+              Create
+              <img src="{{ asset('assets/svg/svg-dialog/first-svg-dialog/Path_2-2.svg')}}" />
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+                            
+
+        <!-- sytem modal -->
+
+
         <script>
             function delete_service(el) {
                 let link = $(el).data('id');
@@ -1414,7 +2898,192 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
     @section('page-script')
         <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
+      
         <script>
+
+            $( document ).ready(function() {
+            
+                $('#classone').click(function() {
+                    alert('loin');
+                })
+                setTimeout(function() {
+                    
+                    $(".alert").hide();
+                }, 5000);
+            });
+
+            $(document).on("click", ".popcall1", function(){
+                $(".upid").val("0");
+                $(".title_field").val("");
+                $(".datepicker1").val("");
+                $(".datepicker2").val("");
+                $(".share").prop("checked", false);
+                $(".emoji").prop("checked", false);
+                $(".comments").prop("checked", true);
+
+                $("#button2Modal8").prop("checked", false);
+                $("#button3Modal8").prop("checked", false);
+                $("#button4Modal8").prop("checked", false);
+                $("#button2Modal8_3").prop("checked", false);
+                $("#button3Modal8_3").prop("checked", false);
+                $("#button4Modal8_3").prop("checked", false);
+                $("#button2Modal8_4").prop("checked", false);
+                $("#button3Modal8_4").prop("checked", false);
+                $("#button4Modal8_4").prop("checked", false);
+
+                $("#button1Modal8").attr('checked', 'checked');
+                $("#button1Modal8").click();
+                $("#button1Modal8_3").attr('checked', 'checked');
+                $("#button1Modal8_3").click();
+                $("#button1Modal8_4").attr('checked', 'checked');
+                $("#button1Modal8_4").click();
+
+                
+                $("#button1Modal8").css("background-color", "rgb(28, 162, 237)");
+                $("#button1Modal8_3").css("background-color", "rgb(28, 162, 237)");
+                $("#button1Modal8_4").css("background-color", "rgb(28, 162, 237)");
+
+                $("#button1Modal8 span").css("color", "#fff");
+                $("#button1Modal8_3 span").css("color", "#fff");
+                $("#button1Modal8_4 span").css("color", "#fff");
+               
+                $(".addImageButtonModel2").show();
+                $(".descriptionTextContainerModal2").show();
+                $(".image-preview-containerModal2").html("");
+                $(".fileInput18").attr("required", true);
+                
+            })
+
+            
+
+            
+            $(document).on("click", ".edit_popup1", function(){
+                var cid = $(this).attr("data-id");
+                var p_title = $(this).attr("data-name");
+                var p_image = $(this).attr("data-image");
+                var p_start = $(this).attr("data-start");
+                var p_end = $(this).attr("data-end");
+                var p_option = $(this).attr("data-option");
+                var p_isshare = $(this).attr("data-isshare");
+                var p_iscomment = $(this).attr("data-iscomment");
+                var p_emoji = $(this).attr("data-isemoji");
+                var typ = $(this).attr("data-type");
+
+                $(".upid").val(cid);
+                $(".title_field").val(p_title);
+                $(".datepicker1").val(p_start);
+                $(".datepicker2").val(p_end);
+
+                $(".fileInput18").attr("required", false);
+                $(".fileInput18_3").attr("required", false);
+                $(".fileInput18_4").attr("required", false);
+
+                if(p_isshare == "1"){
+                    $(".share").prop("checked", true);
+                }else{
+                    $(".share").prop("checked", false);
+                }
+                if(p_iscomment == "1"){
+                    $(".comments").prop("checked", true);
+                }else{
+                    $(".comments").prop("checked", false);
+                }
+                if(p_emoji == "1"){
+                    $(".emoji").prop("checked", true);
+                }else{
+                    $(".emoji").prop("checked", false);
+                }
+
+                if(typ == "System"){
+
+                    if(p_option == "Educated"){
+                        $("#button2Modal8").attr('checked', 'checked');
+                        $("#button2Modal8").click();
+                    }else if(p_option == "Cultivated"){
+                        $("#button3Modal8").attr('checked', 'checked');
+                        $("#button3Modal8").click();
+                    }else if(p_option == "Academic"){
+                        $("#button4Modal8").attr('checked', 'checked');
+                        $("#button4Modal8").click();
+                    }else{
+                        $("#button1Modal8").attr('checked', 'checked');
+                        $("#button1Modal8").click();
+                    }
+
+                }else if(typ == "Surveys"){
+
+                    if(p_option == "Educated"){
+                        $("#button2Modal8_3").attr('checked', 'checked');
+                        $("#button2Modal8_3").click();
+                    }else if(p_option == "Cultivated"){
+                        $("#button3Modal8_3").attr('checked', 'checked');
+                        $("#button3Modal8_3").click();
+                        
+                    }else if(p_option == "Academic"){
+                        $("#button4Modal8_3").attr('checked', 'checked');
+                        $("#button4Modal8_3").click();
+                    }else{
+                        $("#button1Modal8_3").attr('checked', 'checked');
+                        $("#button1Modal8_3").click();
+                    }
+
+                }else if(typ == "Greetings"){
+                    if(p_option == "Educated"){
+                        $("#button2Modal8_4").attr('checked', 'checked');
+                        $("#button2Modal8_4").click();
+                    }else if(p_option == "Cultivated"){
+                        $("#button3Modal8_4").attr('checked', 'checked');
+                        $("#button3Modal8_4").click();
+                        
+                    }else if(p_option == "Academic"){
+                        $("#button4Modal8_4").attr('checked', 'checked');
+                        $("#button4Modal8_4").click();
+                    }else{
+                        $("#button1Modal8_4").attr('checked', 'checked');
+                        $("#button1Modal8_4").click();
+                    }
+
+                }
+                
+                
+                var imgid = ".pop_main_image_" + cid;
+                var imghtml = $(imgid).html();
+                //pop_main_image
+                $(".addImageButtonModel2").hide();
+                $(".descriptionTextContainerModal2").hide();
+                $(".image-preview-containerModal2").html(imghtml);
+            })
+
+        function confirmAction(event, callback) {
+            event.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Are you sure you want to delete this?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                customClass: {
+                    confirmButton: 'btn btn-danger me-3',
+                    cancelButton: 'btn btn-label-secondary'
+                },
+                buttonsStyling: false
+            }).then(function(result) {
+                if (result.value) {
+                    callback();
+                }
+            });
+        }
+    </script>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <script>
             $('.nav-tab a:first-child').addClass('active');
             $('.tab-content').hide();
             let ii = $('.tab-content');
@@ -1662,39 +3331,40 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                 console.log('test');
             });
             $('.news-btn').click(function() {
-                let selectedImages = parseInt($('#createForm .hidden-inputs [name="image[]"]').length);
-                let imageLength = parseInt($('#createForm input[name="image_type"]:checked').val());
+                // let selectedImages = parseInt($('#createForm .hidden-inputs [name="image[]"]').length);
+                // let imageLength = parseInt($('#createForm input[name="image_type"]:checked').val());
 
-                if (isNaN(imageLength)) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Image type is not selected or invalid!',
-                    });
-                    return;
-                }
+                // if (isNaN(imageLength)) {
+                //     Swal.fire({
+                //         icon: 'error',
+                //         title: 'Oops...',
+                //         text: 'Image type is not selected or invalid!',
+                //     });
+                //     return;
+                // }
 
-                if (imageLength === 4) {
-                    if (selectedImages < imageLength) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Selection Error',
-                            text: 'Please select at least 4 images!',
-                        });
-                    } else {
-                        $('#createForm')[0].submit()
-                    }
-                } else {
-                    if (selectedImages !== imageLength) {
-                        Swal.fire({
-                            icon: 'warning',
-                            title: 'Selection Warning',
-                            text: `Please select exactly ${imageLength} images!`,
-                        });
-                    } else {
-                        $('#createForm')[0].submit()
-                    }
-                }
+                // if (imageLength === 4) {
+                //     if (selectedImages < imageLength) {
+                //         Swal.fire({
+                //             icon: 'error',
+                //             title: 'Selection Error',
+                //             text: 'Please select at least 4 images!',
+                //         });
+                //     } else {
+                //         $('#createForm')[0].submit()
+                //     }
+                // } else {
+                //     if (selectedImages !== imageLength) {
+                //         Swal.fire({
+                //             icon: 'warning',
+                //             title: 'Selection Warning',
+                //             text: `Please select exactly ${imageLength} images!`,
+                //         });
+                //     } else {
+                //         $('#createForm')[0].submit()
+                //     }
+                // }
+                $('#createForm')[0].submit()
             });
 
             $('.news-modal-btn').click(function() {
@@ -1708,77 +3378,81 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
         {{-- Feeds Section Image Validation --}}
         <script>
             $('.feed-btn').click(function() {
-                let selectedImages = parseInt($('#feedsForm .hidden-inputs [name="image[]"]').length);
-                let selectedVideos = parseInt($('#feedsForm .hidden-inputs [name="video[]"]').length);
-                let imageLength = parseInt($('#feedsForm input[name="image_type"]:checked').val());
-                let feed_type = $('#feedsForm input[name="feed_type"]:checked').val();
+                // let selectedImages = parseInt($('#feedsForm .hidden-inputs [name="image[]"]').length);
+                // let selectedVideos = parseInt($('#feedsForm .hidden-inputs [name="video[]"]').length);
+                // let imageLength = parseInt($('#feedsForm input[name="image_type"]:checked').val());
+                // let feed_type = $('#feedsForm input[name="feed_type"]:checked').val();
 
-                if (feed_type == 'share_image') {
-                    if (isNaN(imageLength)) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Image type is not selected or invalid!',
-                        });
-                        return;
-                    }
+                // if (feed_type == 'share_image') {
+                //     if (isNaN(imageLength)) {
+                //         Swal.fire({
+                //             icon: 'error',
+                //             title: 'Oops...',
+                //             text: 'Image type is not selected or invalid!',
+                //         });
+                //         return;
+                //     }
 
-                    if (imageLength === 4) {
-                        if (selectedImages < imageLength) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Selection Error',
-                                text: 'Please select at least 4 images!',
-                            });
-                        } else {
-                            $('#feedsForm')[0].submit()
-                        }
-                    } else {
-                        if (selectedImages !== imageLength) {
-                            Swal.fire({
-                                icon: 'warning',
-                                title: 'Selection Warning',
-                                text: `Please select exactly ${imageLength} images!`,
-                            });
-                        } else {
-                            $('#feedsForm')[0].submit()
-                        }
-                    }
-                }
+                //     if (imageLength === 4) {
+                //         if (selectedImages < imageLength) {
+                //             Swal.fire({
+                //                 icon: 'error',
+                //                 title: 'Selection Error',
+                //                 text: 'Please select at least 4 images!',
+                //             });
+                //         } else {
+                //             $('#feedsForm')[0].submit()
+                //         }
+                //     } else {
+                //         if (selectedImages !== imageLength) {
+                //             Swal.fire({
+                //                 icon: 'warning',
+                //                 title: 'Selection Warning',
+                //                 text: `Please select exactly ${imageLength} images!`,
+                //             });
+                //         } else {
+                //             $('#feedsForm')[0].submit()
+                //         }
+                //     }
+                // }
 
 
-                if (feed_type == 'share_video') {
-                    if (isNaN(imageLength)) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Video is not selected or invalid!',
-                        });
-                        return;
-                    }
+                // if (feed_type == 'share_video') {
+                //     if (isNaN(imageLength)) {
+                //         Swal.fire({
+                //             icon: 'error',
+                //             title: 'Oops...',
+                //             text: 'Video is not selected or invalid!',
+                //         });
+                //         return;
+                //     }
 
-                    if (imageLength === 4) {
-                        if (selectedVideos < imageLength) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Selection Error',
-                                text: 'Please select at least 4 Videos!',
-                            });
-                        } else {
-                            $('#feedsForm')[0].submit()
-                        }
-                    } else {
-                        if (selectedVideos !== imageLength) {
-                            Swal.fire({
-                                icon: 'warning',
-                                title: 'Selection Warning',
-                                text: `Please select exactly ${imageLength} Videos!`,
-                            });
-                        } else {
-                            $('#feedsForm')[0].submit()
-                        }
-                    }
-                }
+                //     if (imageLength === 4) {
+                //         if (selectedVideos < imageLength) {
+                //             Swal.fire({
+                //                 icon: 'error',
+                //                 title: 'Selection Error',
+                //                 text: 'Please select at least 4 Videos!',
+                //             });
+                //         } else {
+                //             $('#feedsForm')[0].submit()
+                //         }
+                //     } else {
+                //         if (selectedVideos !== imageLength) {
+                //             Swal.fire({
+                //                 icon: 'warning',
+                //                 title: 'Selection Warning',
+                //                 text: `Please select exactly ${imageLength} Videos!`,
+                //             });
+                //         } else {
+                //             $('#feedsForm')[0].submit()
+                //         }
+                //     }
+                // }
+                // if (feed_type == 'share_text') {
+                //     $('#feedsForm')[0].submit()
+                // }
+                $('#feedsForm')[0].submit();
             });
         </script>
 
@@ -5643,6 +7317,21 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                 return false;
             });
 
+            $('.visibilitypicker').click(function() {
+                // Remove 'active' class from all elements
+                $('.visibilitypicker').removeClass('active');
+
+                // Add 'active' class to the clicked element
+                $(this).addClass('active');
+
+                // Check the radio button or checkbox with the ID from 'data-val' attribute
+                var idToCheck = $(this).attr('data-val'); // Using .data() is cleaner
+                $('[name="visibility"]').val(idToCheck);
+
+                // Prevent default action (if needed)
+                return false;
+            });
+
 
             $('.imgqtypicker:first-child').addClass('active');
             $('.image-contentnew').hide();
@@ -5684,7 +7373,7 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
             });
 
             // remove modal center clas
-            $('.modal-dialog').removeClass('modal-dialog-centered');
+           // $('.modal-dialog').removeClass('modal-dialog-centered');
             $(document).ready(function() {
                 let previousImage = null;
 
@@ -6133,27 +7822,12 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
     @endsection
 @endsection
 
-<!--// $('.tab-content').hide();-->
-<!--// $('.tab-content:first').hide();-->
-<!--// // $(document).find('.classone').hide();-->
-<!--// // Click function-->
-<!--// $(document).on('click','.classone',function(){-->
-
-<!--//     alert('sad');-->
-<!--//   $('.classone').removeClass('checked');-->
-<!--//   $(this).addClass('checked');-->
-<!--//   $('.tab-content').hide();-->
-
-<!--//   var activeTab = $(this).attr('data-king');-->
-<!--//   $(activeTab).fadeIn();-->
-<!--//   return false;-->
-<!--// });-->
+ 
 
 @section('page-script')
-    <script></script>
+    
     <script>
-        $('#classone').click(function() {
-            alert('loin');
-        })
+        
+        
     </script>
 @endsection

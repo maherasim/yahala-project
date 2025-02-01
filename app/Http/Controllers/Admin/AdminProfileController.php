@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Models\Feed;
 use App\Models\News;
+use App\Models\PopFeeds;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Activitylog\Models\Activity;
@@ -28,10 +29,11 @@ class AdminProfileController extends Controller
 
     public function admin_activity()
     {
-        $events = Event::all();
-        $news = News::all();
-        $feeds = Feed::all();
-        return view('content.pages.admin_activity',compact('events','news','feeds'));
+        $events = Event::orderBy('created_at','desc')->get();
+        $news = News::orderBy('created_at','desc')->get();
+        $feeds = Feed::orderBy('created_at','desc')->get();
+        $popfeeds = PopFeeds::orderBy('created_at','desc')->get();
+        return view('content.pages.admin_activity',compact('events','news','feeds', 'popfeeds'));
     }
 
     public function store(Request $request)
@@ -103,6 +105,8 @@ class AdminProfileController extends Controller
         return view('content.pages.pages-account-settings-connections');
     }
 
+    
+
     public function change_password(Request $request)
     {
         $request->validate([
@@ -123,6 +127,102 @@ class AdminProfileController extends Controller
                 return back()->with('error', 'Your New Password  and Confirm Password  is not matched');
             }
         }
+    }
+
+
+    public function store_pops(Request $request){
+
+        $request->validate([
+            'title' => 'required',
+           // 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $poptyp = $request->type;
+        $optons = "";
+
+        if($poptyp == "System"){
+            $optons = $request->option;
+        }
+        if($poptyp == "Surveys"){
+            $optons = $request->option_3;
+        }
+        if($poptyp == "Greetings"){
+            $optons = $request->option_4;
+        }
+        
+        
+
+
+
+        if($request->upid > 0){
+
+            $postpop = PopFeeds::where('_id', $request->upid)->first();
+
+            if($postpop != null){
+
+               
+                $postpop->title = $request->title;
+                $postpop->date_start = $request->start_date;
+                $postpop->date_ends = $request->end_date;
+                $postpop->share_option = $optons;
+                $postpop->is_comments = $request->comments ?? 0;
+                $postpop->is_share = $request->share ?? 0;
+                $postpop->is_emoji = $request->emoji ?? 0;
+
+                if ($request->hasFile('image')) {
+            
+                    $image = $request->file('image');
+                    $imageName = time() . '-post.' . $image->getClientOriginalExtension();
+                    $image->move('public/images/', $imageName);
+                    $postpop->image = $imageName;
+                }
+
+                $postpop->update();
+                return back()->with('success', 'Popup Feed updated successfully.');
+            }
+
+
+        }else{
+
+            $imageName = "";
+
+        if ($request->hasFile('image')) {
+            
+            $image = $request->file('image');
+            $imageName = time() . '-post.' . $image->getClientOriginalExtension();
+           // $image->move(public_path('images'), $imageName);
+            $image->move('public/images/', $imageName);
+            //$image = $request->file('dp')->move('public/images/', $filename);
+        }
+ 
+       
+        $postpop = PopFeeds::create([
+            'user_id' => 0,
+            'title' => $request->title,
+            'date_start' => $request->start_date,
+            'date_ends' => $request->end_date,
+            'image' => $imageName,
+            'share_option' => $optons,
+            'status' => 1,
+            'is_comments' => $request->comments ?? 0,
+            'is_share' => $request->share ?? 0,
+            'is_emoji' => "1",
+            'type' => $request->type,
+        ]);
+
+        return back()->with('success', 'Popup Feed added successfully.');
+
+        }
+
+        
+       
+    }
+
+    public function delete_pops(Request $request){
+        $delid = $request->delid;
+        $popfeed = PopFeeds::where('_id', $delid)->first();
+        $popfeed->delete();
+        return back()->with('success', 'Popup Feed deleted successfully.');
     }
 
     public function store_news(Request $request)
