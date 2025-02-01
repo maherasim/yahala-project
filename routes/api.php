@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\BazarController;
+use App\Http\Controllers\Api\AdminActivityController;
 use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\Api\CountryLocationController;
 use App\Http\Controllers\Api\ReasonController;
@@ -173,6 +174,20 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
   Route::get('/homepagelanguage-section/{languageId}', [LanguageController::class, 'getShomepagelanguageByLanguageId']);
   Route::get('/app_policy-section/{languageId}', [LanguageController::class, 'getShomeApp_PolicyByLanguageId']);
   Route::get('/all-language-sections/{languageId}', [LanguageController::class, 'getAllSectionsByLanguageId']);
+
+
+  // Admin Activity
+
+  Route::get("/admin-activity/system-info", [AdminActivityController::class, 'getSystemInfo']);
+  Route::get("/admin-activity/donation", [AdminActivityController::class, 'getDonations']);
+  Route::get("/admin-activity/surveys", [AdminActivityController::class, 'getSurveys']);
+  Route::get("/admin-activity/greetings", [AdminActivityController::class, 'getGreetings']);
+  Route::post("/admin-activity/system-info", [AdminActivityController::class, 'store_systemInfo']);
+  Route::post("/admin-activity/donation", [AdminActivityController::class, 'store_donation']);
+  Route::post("/admin-activity/surveys", [AdminActivityController::class, 'store_surveys']);
+  Route::post("/admin-activity/greetings", [AdminActivityController::class, 'store_greetings']);
+  Route::post("/admin-activity/delete-feeds", [AdminActivityController::class, 'delete_pops']);
+  
 
 
 
