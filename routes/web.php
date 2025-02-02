@@ -418,7 +418,7 @@ Route::middleware(['admin.auth', '2fa'])->group(function () use ($controller_pat
 
     Route::resource('/artist', ArtistController::class);
 
-    Route::get('/artistall', [ArtistController::class, 'index2'])->name('artists-all');
+    // Route::get('/artistall', [ArtistController::class, 'index2'])->name('artists-all');
 
     Route::get('/artists/{id}/{status}', [ArtistController::class, 'status'])->name('artists-status');
     Route::get('/get-artist-detail', [ArtistController::class, 'getArtistDetail'])->name('get.artist.detail');
@@ -439,8 +439,7 @@ Route::middleware(['admin.auth', '2fa'])->group(function () use ($controller_pat
     Route::get('get-video-clips',[VideoClipController::class,'getVideoClips'])->name('get.video-clips');
     Route::get('/video-clips/{id}/clips', $controller_path . '\VideoClipController@detail')->name('video-clips.clips');
     Route::get('/video-clips/{id}/{status}', [VideoClipController::class, 'status'])->name('video-clips-status');
-    Route::delete('/video-clips/{id}/clip', [VideoClipController::class, 'deleteVideo'])->name(
-        'video-clips.delete-audio'
+    Route::delete('/video-clips/{id}/clip', [VideoClipController::class, 'deleteVideo'])->name( 'video-clips.delete-audio'
     );
 
    // Channel Policy

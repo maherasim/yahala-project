@@ -71,12 +71,11 @@ class ArtistController extends Controller
         $artist->music_category = $request->music_category;
         $artist->image = $request->image ?? '';
         if ($artist->save()) {
-            // return redirect()->route('artist.index')->with('success', 'Artist Has been inserted');
-           return redirect()->route('artists-all')->with('success', 'Artist Has been inserted');
+            return back()->with('success', 'Artist has been inserted.');
         } else {
-             
-            return redirect()->route('artists-all')->with('success', 'Artist Has been inserted');
+            return back()->with('error', 'Failed to insert artist.');
         }
+        
     }
 
     /**

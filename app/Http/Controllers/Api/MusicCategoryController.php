@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\MusicCategory;
 
@@ -13,11 +14,16 @@ class MusicCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return response()->json(['Music Category' =>MusicCategory::get()] , 200);
-    }
 
+    public function index() {
+        $categories = MusicCategory::all();      
+        foreach ($categories as $category) {
+            $category->icon = url('storage/' . $category->icon);
+        }
+    
+        return response()->json(['Music Category' => $categories], 200);
+    }
+    
     /**
      * Show the form for creating a new resource.
      *

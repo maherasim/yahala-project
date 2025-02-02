@@ -498,6 +498,13 @@ Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list
   );
   Route::get('/get-latest-artist', [ArtistController::class, 'get_two_latest_artist'])->name('get-latest-artist');
 
+  Route::resource('/artist', ArtistController::class);
+
+  Route::get('/get-music-artist/{artist_id}', [ArtistController::class, 'get_music_by_artist'])->name('get-music-by-artist');
+  Route::get('/get-video-artist/{artist_id}', [ArtistController::class, 'get_video_by_artist'])->name('get-video-by-artist');
+
+
+
   // Album
   Route::get('/albums', [AlbumController::class, 'albums']);
   Route::get('/albums/new', [AlbumController::class, 'new_albums']);
