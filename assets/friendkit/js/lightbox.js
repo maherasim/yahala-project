@@ -2,14 +2,13 @@
     if ($("[data-fancybox]").length) {
         var
             n = feather.icons["more-vertical"].toSvg(), s = feather.icons["thumbs-up"].toSvg(), a = feather.icons.lock.toSvg(), i = feather.icons.user.toSvg(), e = feather.icons.users.toSvg(), d = feather.icons.globe.toSvg(), t = feather.icons.heart.toSvg(), c = feather.icons.smile.toSvg(), o = feather.icons["message-circle"].toSvg(), l = `
-<div class="header d-flex justify-content-between">
-<div class="d-flex">
+<div class="header">
      <img src="https://via.placeholder.com/300x300" data-demo-src="assets/img/avatars/dan.jpg" alt="" />
     <div class="user-meta">
          <span>Dan Walker</span> <span><small>2 hours ago</small></span>
     </div>
-     </div>
-    <div class="dropdown is-spaced is-right dropdown-trigger toggle">
+     
+    <div class="dropdown is-spaced is-right dropdown-trigger">
         
         <div>
             
@@ -17,7 +16,7 @@
             
         </div>
         
-        <div class="dropdown-menu" role="menu" style="left:-268px;">
+        <div class="dropdown-menu" role="menu">
             
             <div class="dropdown-content">
                 
@@ -89,20 +88,29 @@
     
 </div>
 
-
+<div class="inner-content">
     
-   
+    <div class="live-stats">
         
-      
+        <div class="social-count">
+            
+            <div class="likes-count"> `+ t + ` <span>12</span></div>
+            
+            <div class="comments-count"> `+ o + ` <span>8</span></div>
+            
+        </div>
+        
         <div class="social-count ml-auto">
             
-           
+            <div class="views-count">
+                 <span>8</span> <span class="views"><small>comments</small></span>
+            </div>
             
         </div>
         
     </div>
     
-    <div style="padding:10px;" class="actions">
+    <div class="actions">
         
         <div class="action"> `+ s + ` <span>Like</span></div>
         
@@ -362,7 +370,7 @@
     </div>
     
 </div>
-
+ ",v='
 <div class="header">
      <img src="https://via.placeholder.com/300x300" data-demo-src="assets/img/avatars/elise.jpg" alt="" />
     <div class="user-meta">
@@ -2099,8 +2107,3 @@
             }))
     }
 }));
-
-
-$(document).on('click','.toggle',function(){
-    $(this).addClass('is-active');    
-})

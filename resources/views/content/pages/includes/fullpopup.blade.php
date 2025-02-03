@@ -15,7 +15,7 @@
           <!-- Text aligned to the left -->
           <div style="text-align: left;">
             <h5 class="modal-title" id="popupModalLabel">Welcome to:</h5>
-            <h6>YekBun Sharing section</h6>
+            <h6>Yahala Sharing section</h6>
           </div>
 
           <!-- Image remains centered -->
