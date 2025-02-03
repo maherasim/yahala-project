@@ -43,9 +43,9 @@
         }
 
         #deal-type .hki {
-            min-height: 250px;
-            height: 250px;
-            max-height: 250px;
+            min-height: 224px;
+            height: 224px;
+            max-height: 224px;
         }
 
         /*
@@ -1513,7 +1513,7 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                                                                     style="
                             "></div>
 
-                                                                Yahala Team
+                                                                YekBun Team
 
                                                                 <div
                                                                     style="
@@ -1669,7 +1669,8 @@ text-decoration-skip-ink: none;
             margin-top: 7px;
           ">
                                             <div
-                                                style=" display: flex;
+                                                style="
+              display: flex;
               align-items: center;
               justify-content: space-between;
               width: 200px;
@@ -2186,7 +2187,7 @@ text-decoration-skip-ink: none;
     <script>
         $(document).ready(function() {
 
-            $('#datepicker1_donation').datepicker({
+            $('.time_input_field').datepicker({
                 onSelect: function(dateText) {
 
                     $('#span_output').text(dateText);
