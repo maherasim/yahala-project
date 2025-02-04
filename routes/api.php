@@ -105,9 +105,11 @@ Route::post('/check-phone-exists', [AuthController::class, 'checkPhoneExists']);
 
 //lost device
 Route::post('/register-device', [AuthController::class, 'registerDevice']);
-Route::post('/register-verify-device', [AuthController::class, 'verifyDevice']);
 
-Route::post('/check-email-lost', [AuthController::class, 'lostdevicecheckEmail']);
+Route::post('/register-verify-device', [AuthController::class, 'verifyDevice']);
+Route::post('/check-existing-device', [AuthController::class, 'verifyDevice']);
+
+Route::post('/check-email-lost', [AuthController::class, 'lostdevicecheck']);
 
 Route::post('/verify-otp-lostdevice', [AuthController::class, 'verifyOtpdevice']);
 

@@ -172,7 +172,22 @@ public function checkPhoneExists(Request $request)
 }
 
 
+public function lostdevicecheck(Request $request)
+{
+    $device=User::where('device_serial',$request->device_serial)->first();
+    if($device){
+        return response()->json([
+            'status' => true,
+            'message' => 'Device is already registered',
+        ], 200);
+    }else{  
+        return response()->json([
+            'status' => false,
+            'message' => 'Device is not registered',
+        ], 404);
+    }
 
+}
 
 
 
