@@ -21,9 +21,13 @@ class MusicCategoryController extends Controller
             $category->icon = url('storage/' . $category->icon);
         }
     
-        return response()->json(['Music Category' => $categories], 200);
+        return response()->json(['MusicCategory' => $categories], 200);
     }
     
+
+ 
+
+
     /**
      * Show the form for creating a new resource.
      *
