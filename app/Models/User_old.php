@@ -39,6 +39,7 @@ use Jenssegers\Mongodb\Auth\User as Authenticatable;
         'username',
         'fname',
         'lname',
+        'device_id',
         'gender',
         'dob',
         'address',

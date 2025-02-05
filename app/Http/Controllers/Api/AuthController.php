@@ -197,6 +197,7 @@ public function registerDevice(Request $request)
     $validator = Validator::make($request->all(), [
         'email' => 'required|email',
         'device_serial' => 'required',
+        'device_id' => 'nullable',
         'device_model' => 'required',
         'device_type' => 'required',
         'otp' => 'required|integer',
@@ -308,6 +309,7 @@ public function signup(Request $request)
             'is_superadmin' => 0,
             'last_name' => $request['lname'],
             'language' => $request['language'],
+            'device_id' => $request['device_id'],
             'gender' => $request['gender'],
             'origin' => $request['origin'],
             'location' => $request['location'],
