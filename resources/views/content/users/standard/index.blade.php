@@ -180,6 +180,7 @@
                                     <th>User</th>
                                     <th>Username</th>
                                     <th>Device Type</th>
+                                    <th>Device ID</th>
                                     <th>Device IMEI</th>
                                     <th>Device Name</th>
                                     <th>Device Model</th>
@@ -213,6 +214,7 @@
                                         </td>
                                         <td>{{ $userr->username }}</td>
                                         <td>{{ $userr->device_type }}</td>
+                                        <td>{{ $userr->device_id }}</td>
                                         <td>{{ $userr->device_imei }}</td>
                                         <td>{{ $userr->device_name }}</td>
                                         <td>{{ $userr->device_model }}</td>
