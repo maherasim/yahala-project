@@ -174,7 +174,7 @@ public function checkPhoneExists(Request $request)
 
 public function lostDeviceCheck(Request $request)
 {
-    $device = User::where('device_serial', $request->device_serial)->first();
+    $device = User::where('device_id', $request->device_id)->first();
 
     $isRegistered = $device ? true : false; // Boolean value
 
