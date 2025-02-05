@@ -107,7 +107,7 @@ Route::post('/check-phone-exists', [AuthController::class, 'checkPhoneExists']);
 Route::post('/register-device', [AuthController::class, 'registerDevice']);
 
 Route::post('/register-verify-device', [AuthController::class, 'verifyDevice']);
-Route::post('/check-existing-device', [AuthController::class, 'verifyDevice']);
+Route::post('/check-existing-device', [AuthController::class, 'lostDeviceCheck']);
 
 Route::post('/check-email-lost', [AuthController::class, 'lostdevicecheck']);
 
