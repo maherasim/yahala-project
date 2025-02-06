@@ -234,6 +234,7 @@ public function registerDevice(Request $request)
     // Update user device details
     $user->device_serial = $request->device_serial;
     $user->device_type = $request->device_type;
+    $user->device_id = $request->device_id;
     $user->device_model = $request->device_model;
 
     // Attempt to save the user
