@@ -174,14 +174,18 @@ public function checkPhoneExists(Request $request)
 
 public function lostDeviceCheck(Request $request)
 {
+    $request->validate([
+        'device_id' => 'required|string', // Ensure device_id is required and a string
+    ]);
+
     $device = User::where('device_id', $request->device_id)->first();
 
-    $isRegistered = $device ? true : false; // Boolean value
+    $isRegistered = (bool) $device; // Convert to boolean
 
     return response()->json([
         'status' => $isRegistered,
         'message' => $isRegistered ? 'Device is already registered' : 'Device is not registered',
-        'is_registered' => $isRegistered // Explicitly return the boolean value
+        'is_registered' => $isRegistered
     ], $isRegistered ? 200 : 404);
 }
 
