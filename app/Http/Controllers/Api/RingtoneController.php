@@ -62,10 +62,22 @@ class RingtoneController extends Controller
             'data' => $ringtones
         ], 200);
     }
-    
+
     public function getCallRingtones()
     {
-        $ringtones = Ringtone::where('ringType', 2)->get();
+        $ringtones = Ringtone::where('ringType', 2)->get()->map(function ($ringtone) {
+            return [
+                '_id' => $ringtone->_id,
+                'fileName' => $ringtone->fileName,
+                // Generates full URL using 'storage/' base path
+                'filePath' => url('public/storage/' . $ringtone->filePath), // Ensure full URL for ringtone
+                'ringType' => $ringtone->ringType,
+                'fileSize' => $ringtone->fileSize,
+                'updated_at' => $ringtone->updated_at,
+                'created_at' => $ringtone->created_at,
+            ];
+        });
+    
         return response()->json([
             'status' => true,
             'message' => 'Call ringtones retrieved successfully',
@@ -73,6 +85,11 @@ class RingtoneController extends Controller
         ], 200);
     }
 
+
+
+
+
+ 
 
 
 
