@@ -43,13 +43,11 @@ class RingtoneController extends Controller
 
     public function getMessageRingtones()
     {
-        $baseUrl = url('/'); // Get base URL dynamically
-    
-        $ringtones = Ringtone::where('ringType', 1)->get()->map(function ($ringtone) use ($baseUrl) {
+        $ringtones = Ringtone::where('ringType', 1)->get()->map(function ($ringtone) {
             return [
                 '_id' => $ringtone->_id,
                 'fileName' => $ringtone->fileName,
-                'filePath' => $baseUrl . '/storage/' . $ringtone->filePath, // Full clickable URL
+                'filePath' => asset('storage/' . $ringtone->filePath), // Generates full URL
                 'ringType' => $ringtone->ringType,
                 'fileSize' => $ringtone->fileSize,
                 'updated_at' => $ringtone->updated_at,
@@ -60,11 +58,9 @@ class RingtoneController extends Controller
         return response()->json([
             'status' => true,
             'message' => 'Message ringtones retrieved successfully',
-            'base_url' => $baseUrl, // Include base URL in response
             'data' => $ringtones
         ], 200);
     }
-    
     
     public function getCallRingtones()
     {
