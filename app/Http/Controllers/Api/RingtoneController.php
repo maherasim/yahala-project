@@ -47,7 +47,8 @@ class RingtoneController extends Controller
             return [
                 '_id' => $ringtone->_id,
                 'fileName' => $ringtone->fileName,
-                'filePath' => asset('storage/' . $ringtone->filePath), // Generates full URL
+                // Generates full URL using 'storage/' base path
+                'filePath' => url('storage/' . $ringtone->filePath), // Ensure full URL for ringtone
                 'ringType' => $ringtone->ringType,
                 'fileSize' => $ringtone->fileSize,
                 'updated_at' => $ringtone->updated_at,
