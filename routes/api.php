@@ -344,10 +344,10 @@ Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list
 
   Route::apiResource('policy-and-terms', PolicyAndTermsController::class);
    //Ringtone
-  Route::get('app-setting/message-ringtone', [RingtoneController::class, 'getMessage'])->name(
+  Route::get('app-setting/message-ringtone', [RingtoneController::class, 'getMessageRingtones'])->name(
     'appsetting.message.ringtone'
   );
-  Route::get('app-setting/call-ringtone', [RingtoneController::class, 'getCall'])->name('appsetting.call.ringtone');
+  Route::get('app-setting/call-ringtone', [RingtoneController::class, 'getCallRingtones'])->name('appsetting.call.ringtone');
   Route::get('app-setting/ringtone', [RingtoneController::class, 'index'])->name('appsetting.ringtone.index');
 
   Route::post('app-setting/ringtone', [RingtoneController::class, 'store'])->name('appsetting.ringtone.store');

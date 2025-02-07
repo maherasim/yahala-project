@@ -41,6 +41,36 @@ class RingtoneController extends Controller
 
     }
 
+    public function getMessageRingtones()
+    {
+        $ringtones = Ringtone::where('ringType', 1)->get();
+        return response()->json([
+            'status' => true,
+            'message' => 'Message ringtones retrieved successfully',
+            'data' => $ringtones
+        ], 200);
+    }
+    public function getCallRingtones()
+    {
+        $ringtones = Ringtone::where('ringType', 2)->get();
+        return response()->json([
+            'status' => true,
+            'message' => 'Call ringtones retrieved successfully',
+            'data' => $ringtones
+        ], 200);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     public function destroy($id)
 {
     try {
