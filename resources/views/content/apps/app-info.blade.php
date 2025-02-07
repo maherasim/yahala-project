@@ -53,7 +53,7 @@
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="col-md-3 flex-grow-1 container-p-y w-100 d-flex justify-content-center">
-                                    <a href="{{url('/')}}" class="app-brand-link gap-2">
+                                    <a href="" class="app-brand-link gap-2">
                                         <span class="app-brand-logo demo">@include('_partials.macros',["width"=>220])</span>
                                         <!-- <span class="app-brand-text demo text-body fw-bolder">Yekbun</span> -->
                                     </a>
