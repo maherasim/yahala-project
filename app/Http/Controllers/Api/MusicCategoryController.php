@@ -18,7 +18,7 @@ class MusicCategoryController extends Controller
     public function index() {
         $categories = MusicCategory::all();      
         foreach ($categories as $category) {
-            $category->icon = url('storage/' . $category->icon);
+            $category->icon = url('storage/public/' . $category->icon);
         }
     
         return response()->json(['MusicCategory' => $categories], 200);
