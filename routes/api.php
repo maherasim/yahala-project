@@ -115,6 +115,9 @@ Route::post('/verify-otp-lostdevice', [AuthController::class, 'verifyOtpdevice']
 
 
 
+Route::get('/user-personal-profile', [AuthController::class, 'userprofile'])->name('userprofile');
+
+
 
 
 

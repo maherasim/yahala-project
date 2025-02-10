@@ -58,6 +58,29 @@ public function login(Request $request)
         return response()->json(['error' => 'Password is wrong'], 401);
     }
 }
+public function userprofile(Request $request)
+{
+    // Get token from the request header
+    $token = $request->header('Authorization');
+
+    if (!$token) {
+        return response()->json(['error' => 'Token not provided'], 401);
+    }
+
+    // Find user by token
+    $user = \App\Models\User::where('token', $token)->first();
+
+    if (!$user) {
+        return response()->json(['error' => 'Invalid token'], 401);
+    }
+
+    // Return user profile
+    return response()->json([
+        'success' => true,
+        'user' => $user,
+    ]);
+}
+
 
 
 public function verifyDevice(Request $request)
