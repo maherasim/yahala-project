@@ -29,11 +29,11 @@ class ArtistController extends Controller
     
         foreach ($artists as $artist) {
             // Ensure image URL is properly formatted
-            $artist->image = $artist->image ? url('storage/' . $artist->image) : null;
+            $artist->image = $artist->image ? url('public/storage/' . $artist->image) : null;
     
             // Format music data with full song URLs (if needed)
             foreach ($artist->musics as $music) {
-                $music->file_url = $music->file ? url('storage/' . $music->file) : null;
+                $music->file_url = $music->file ? url('public/storage/' . $music->file) : null;
             }
         }
     
@@ -49,7 +49,7 @@ class ArtistController extends Controller
     {
         $songs = Song::where('artist_id', $id)->get();
         foreach ($songs as $song) {
-            $song->audio = url('storage/' .  $song->audio);
+            $song->audio = url('public/storage/' .  $song->audio);
         }
         if ($songs->isEmpty()) {
             return response()->json([
@@ -70,7 +70,7 @@ class ArtistController extends Controller
     {
         $songs = VideoClip::where('artist_id', $id)->get();
         foreach ($songs as $song) {
-            $song->video = url('storage/' .  $song->video);
+            $song->video = url('public/storage/' .  $song->video);
         }
         if ($songs->isEmpty()) {
             return response()->json([
