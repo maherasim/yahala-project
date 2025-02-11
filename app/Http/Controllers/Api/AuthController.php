@@ -59,7 +59,7 @@ public function login(Request $request)
     }
 }
 
-public function userprofile(Request $request)
+public function userprofile(Request $request) 
 {
     try {
         // Get token from the Authorization header
@@ -82,6 +82,9 @@ public function userprofile(Request $request)
         if (!$user) {
             return response()->json(['error' => 'Invalid token'], 401);
         }
+
+        // Append full image URL
+        $user->image = $user->image ? url('public/storage/' . $user->image) : null;
 
         // Return user profile
         return response()->json([
