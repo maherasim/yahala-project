@@ -62,22 +62,25 @@ public function login(Request $request)
 public function userprofile(Request $request)
 {
     try {
-        // Get token from the request header
-        $token = $request->header('Authorization');
+        // Get token from the Authorization header
+        $authHeader = $request->header('Authorization');
 
-        if (!$token) {
-            return response()->json([
-                'error' => 'Token not provided'
-            ], 401);
+        if (!$authHeader) {
+            return response()->json(['error' => 'Token not provided'], 401);
+        }
+
+        // Extract token from "Bearer <token>"
+        if (strpos($authHeader, 'Bearer ') === 0) {
+            $token = substr($authHeader, 7); // Remove 'Bearer ' prefix
+        } else {
+            return response()->json(['error' => 'Invalid token format'], 401);
         }
 
         // Find user by token
         $user = \App\Models\User::where('token', $token)->first();
 
         if (!$user) {
-            return response()->json([
-                'error' => 'Invalid token'
-            ], 401);
+            return response()->json(['error' => 'Invalid token'], 401);
         }
 
         // Return user profile
@@ -86,16 +89,13 @@ public function userprofile(Request $request)
             'user' => $user,
         ]);
     } catch (\Exception $e) {
-        // Return full error details
         return response()->json([
             'error' => 'An error occurred',
-            'message' => $e->getMessage(),
-            'file' => $e->getFile(),
-            'line' => $e->getLine(),
-            'trace' => $e->getTrace()
+            'message' => $e->getMessage()
         ], 500);
     }
 }
+
 
 
 
