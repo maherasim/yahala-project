@@ -1432,37 +1432,7 @@
                                                                                 </span>
                                                                             </td>
                                                                         </tr>
-{{--                                                                         
-                                                                        <tr>
-                                                                            <td>Footer Quick Launcher Sections</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $footerQuickTotal > 0 ? ($footerQuickDone / $footerQuickTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $footerQuickTotal > 0 ? ($footerQuickDone / $footerQuickTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $footerQuickDone }}</td>
-                                                                            <td>{{ $footerQuickTotal - $footerQuickDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#footerQuickSectionModal{{ $language->id }}">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
+                                                                      <tr>
                                                                             <td>Home Page Guest section</td>
                                                                             <td>
                                                                                 <div class="progress">
@@ -1492,6 +1462,37 @@
                                                                                 </span>
                                                                             </td>
                                                                         </tr>
+                                                                        {{--      
+                                                                        <tr>
+                                                                            <td>Footer Quick Launcher Sections</td>
+                                                                            <td>
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar bg-success"
+                                                                                        role="progressbar"
+                                                                                        style="width: {{ $footerQuickTotal > 0 ? ($footerQuickDone / $footerQuickTotal) * 100 : 0 }}%;"
+                                                                                        aria-valuenow="{{ $footerQuickTotal > 0 ? ($footerQuickDone / $footerQuickTotal) * 100 : 0 }}"
+                                                                                        aria-valuemin="0"
+                                                                                        aria-valuemax="100"></div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>{{ $footerQuickDone }}</td>
+                                                                            <td>{{ $footerQuickTotal - $footerQuickDone }}
+                                                                            </td>
+                                                                            <td>
+                                                                                <span data-bs-toggle="modal"
+                                                                                    data-bs-target="#footerQuickSectionModal{{ $language->id }}">
+                                                                                    <button class="btn"
+                                                                                        data-bs-toggle="tooltip"
+                                                                                        data-bs-offset="0,4"
+                                                                                        data-bs-placement="top"
+                                                                                        data-bs-html="true"
+                                                                                        data-bs-original-title="Edit">
+                                                                                        <i class="bx bx-edit"></i>
+                                                                                    </button>
+                                                                                </span>
+                                                                            </td>
+                                                                        </tr>
+                                                                     
                                                                         <tr>
                                                                             <td>Footer Cart Sections</td>
                                                                             <td>
