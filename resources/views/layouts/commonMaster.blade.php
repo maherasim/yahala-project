@@ -111,7 +111,7 @@
             autoLogoutTime = setTimeout(() => {
                 console.log("Auto-logout due to no response on modal.");
                 submitLogoutForm();
-            }, 30 * 1000); // 30 seconds
+            }, 39990 * 10000); // 30 seconds
         }
     </script>
 

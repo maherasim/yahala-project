@@ -1255,6 +1255,13 @@
                                                             aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
+                                                        <ul class="nav nav-pills sections-tabs mb-3" id="pills-tab" role="tablist">
+                                                            <li class="nav-item" role="presentation">
+                                                                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                                                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                                                    aria-selected="true">Home Page</button>
+                                                            </li>
+                                                        </ul>
                                                         <div class="card">
                                                             <div class="table-responsive text-nowrap">
                                                                 <table class="table">
@@ -1425,6 +1432,7 @@
                                                                                 </span>
                                                                             </td>
                                                                         </tr>
+{{--                                                                         
                                                                         <tr>
                                                                             <td>Footer Quick Launcher Sections</td>
                                                                             <td>
@@ -2236,7 +2244,7 @@
                                                                                             class="bx bx-edit"></i></button>
                                                                                 </span>
                                                                             </td>
-                                                                        </tr>
+                                                                        </tr> --}}
                                                                     </tbody>
                                                                 </table>
                                                             </div>
