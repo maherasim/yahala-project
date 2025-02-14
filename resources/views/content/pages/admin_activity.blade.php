@@ -49,10 +49,10 @@
         }
 
         /*
-            .custom-option-body img{
-                height:136px;
-            }
-    */
+                            .custom-option-body img{
+                                height:136px;
+                            }
+                    */
         .dropdown-item h6,
         .h6,
         h5,
@@ -838,12 +838,9 @@
     <!--hero-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 
-    <link href="
-https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css
-" rel="stylesheet">
-    <link href="
-https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
-" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
 @endsection
 
 @section('vendor-script')
@@ -870,8 +867,8 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
     <!-- Concatenated js plugins and jQuery -->
     <script src="{{ asset('assets/friendkit/js/app.js') }}"></script>
     <script src="
-                                            https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js
-                                            "></script>
+                                                            https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js
+                                                            "></script>
     <!-- Core js -->
     <script src="{{ asset('assets/friendkit/js/global.js') }}"></script>
 
@@ -911,6 +908,7 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
     <script src="{{ asset('assets/friendkit/js/autocompletes.js') }}"></script>
     <!--hero-->
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
 @endsection
 
 @section('content')
@@ -929,200 +927,151 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
     <div id="wizard-create-deal" class="bs-stepper vertical mt-2 linear"
         style="box-shadow:none;background-color:transparent">
         <div class="bs-stepper-content">
-            <form id="wizard-create-deal-form" onsubmit="return false">
-                <!-- Deal Type -->
+            <form id="wizard-create-deal-form" onsubmit="return!1">
                 <div id="deal-type" class="content active fv-plugins-bootstrap5 fv-plugins-framework">
                     <div class="row g-3">
                         <div class="col-12">
                             <div class="row">
-
-                                <div class="col-md mb-md-0 mb-2" style="display:none;">
-                                    <div class="form-check card custom-option-icon hki custom-options" id="hki">
-                                        <a href="javascript:void(0)"
+                                <div class="col-md mb-md-0 mb-2" style="display:none">
+                                    <div class="form-check card custom-option-icon hki custom-options" id="hki"><a
+                                            href="javascript:void(0)"
                                             class="form-check-label custom-option-content news-modal-btn"
                                             for="customRadioPercentage" data-bs-toggle="modal"
-                                            data-bs-target="#requestpopup">
-                                            <span class="custom-option-body">
-                                                <img src="{{ asset('assets/svg/icons/newspaper.svg') }}" class="my-2"
-                                                    width="40" alt="">
-                                                <span class="custom-option-title">Create News</span>
-                                                <small>Share News with your Community</small>
-                                            </span>
-                                            <input name="customRadioIcon" class="form-check-input" type="radio"
-                                                value="" id="customRadioPercentage" checked="">
-                                        </a>
-                                    </div>
+                                            data-bs-target="#requestpopup"><span class="custom-option-body"><img
+                                                    src="{{ asset('assets/svg/icons/newspaper.svg') }}" class="my-2"
+                                                    width="40" alt=""><span class="custom-option-title">Create
+                                                    News</span><small>Share News with your Community</small></span><input
+                                                name="customRadioIcon" class="form-check-input" type="radio"
+                                                value="" id="customRadioPercentage" checked=""></a></div>
                                 </div>
-                                <div class="col-md mb-md-0 mb-2" style="display:none;">
-                                    <div class="form-check  card custom-option-icon hki custom-options">
-                                        <a href="javascript:void(0)" class="form-check-label custom-option-content "
-                                            data-bs-toggle="modal" data-bs-target="#requestpopuptwo" for="customRadioFlat">
-                                            <span class="custom-option-body">
-                                                <img src="{{ asset('assets/svg/icons/network-connection.svg') }}"
-                                                    class="my-2" width="40" alt="">
-                                                <span class="custom-option-title"> Add Feeds </span>
-                                                <small>Share a Feed with Community</small>
-                                            </span>
-                                            <input name="customRadioIcon" class="form-check-input" type="radio"
-                                                value="" id="customRadioFlat">
-                                        </a>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md mb-md-0 mb-2">
-                                    <div class="form-check  card custom-option-icon hki custom-options">
-                                        <a href="javascript:void(0)" class="form-check-label custom-option-content popcall1"
-                                            data-bs-toggle="modal" data-bs-target="#modal1" for="customRadioPrime">
-
-                                            <span class="custom-option-body">
-                                                <img src="{{ asset('assets/svg/svg-dialog/Group 1000008347.svg') }}"
-                                                    class="my-2 pop-img" width="40" alt="">
-                                                <span class="custom-option-title pop-heading"> System </span>
-                                                <small class="pop-txt">Share System info</small>
-                                            </span>
-                                            <input name="customRadioIcon" class="form-check-input" type="radio"
-                                                value="" id="customRadioPrime">
-                                        </a>
-                                    </div>
+                                <div class="col-md mb-md-0 mb-2" style="display:none">
+                                    <div class="form-check card custom-option-icon hki custom-options"><a
+                                            href="javascript:void(0)" class="form-check-label custom-option-content"
+                                            data-bs-toggle="modal" data-bs-target="#requestpopuptwo"
+                                            for="customRadioFlat"><span class="custom-option-body"><img
+                                                    src="{{ asset('assets/svg/icons/network-connection.svg') }}"
+                                                    class="my-2" width="40" alt=""><span
+                                                    class="custom-option-title">Add Feeds</span><small>Share a Feed with
+                                                    Community</small></span><input name="customRadioIcon"
+                                                class="form-check-input" type="radio" value=""
+                                                id="customRadioFlat"></a></div>
                                 </div>
                                 <div class="col-md mb-md-0 mb-2">
-                                    <div class="form-check  card custom-option-icon hki custom-options">
-
-                                        <a href="javascript:void(0)"
+                                    <div class="form-check card custom-option-icon hki custom-options"><a
+                                            href="javascript:void(0)"
                                             class="form-check-label custom-option-content popcall1" data-bs-toggle="modal"
-                                            data-bs-target="#modal10" for="customRadioPrime">
-                                            <span class="custom-option-body">
-                                                <img src="{{ asset('assets/svg/svg-dialog/Group 1000008357.svg') }}"
-                                                    class="my-2 pop-img" width="40" alt="">
-                                                <span class="custom-option-title pop-heading"> Donation </span>
-                                                <small class="pop-txt">Create Donation</small>
-                                            </span>
-                                            <input name="customRadioIcon" class="form-check-input" type="radio"
-                                                value="" id="customRadioPrime">
-                                        </a>
-                                    </div>
+                                            data-bs-target="#modal1" for="customRadioPrime"><span
+                                                class="custom-option-body"><img
+                                                    src="{{ asset('assets/svg/svg-dialog/Group 1000008347.svg') }}"
+                                                    class="my-2 pop-img" width="40" alt=""><span
+                                                    class="custom-option-title pop-heading">System</span><small
+                                                    class="pop-txt">Share System info</small></span><input
+                                                name="customRadioIcon" class="form-check-input" type="radio"
+                                                value="" id="customRadioPrime"></a></div>
                                 </div>
                                 <div class="col-md mb-md-0 mb-2">
-                                    <div class="form-check  card custom-option-icon hki custom-options">
-
-                                        <a href="javascript:void(0)"
+                                    <div class="form-check card custom-option-icon hki custom-options"><a
+                                            href="javascript:void(0)"
                                             class="form-check-label custom-option-content popcall1" data-bs-toggle="modal"
-                                            data-bs-target="#modal3" for="customRadioPrime">
-                                            <span class="custom-option-body">
-                                                <img src="{{ asset('assets/svg/svg-dialog/Group.svg') }}"
-                                                    class="my-2 pop-img" width="40" alt="">
-                                                <span class="custom-option-title pop-heading"> Surveys </span>
-                                                <small class="pop-txt">Create Surveys</small>
-                                            </span>
-                                            <input name="customRadioIcon" class="form-check-input" type="radio"
-                                                value="" id="customRadioPrime">
-                                        </a>
-                                    </div>
+                                            data-bs-target="#modal10" for="customRadioPrime"><span
+                                                class="custom-option-body"><img
+                                                    src="{{ asset('assets/svg/svg-dialog/Group 1000008357.svg') }}"
+                                                    class="my-2 pop-img" width="40" alt=""><span
+                                                    class="custom-option-title pop-heading">Donation</span><small
+                                                    class="pop-txt">Create Donation</small></span><input
+                                                name="customRadioIcon" class="form-check-input" type="radio"
+                                                value="" id="customRadioPrime"></a></div>
                                 </div>
                                 <div class="col-md mb-md-0 mb-2">
-                                    <div class="form-check  card custom-option-icon hki custom-options">
-
-                                        <a href="javascript:void(0)"
+                                    <div class="form-check card custom-option-icon hki custom-options"><a
+                                            href="javascript:void(0)"
                                             class="form-check-label custom-option-content popcall1" data-bs-toggle="modal"
-                                            data-bs-target="#modal4" for="customRadioPrime">
-                                            <span class="custom-option-body">
-                                                <img src="{{ asset('assets/svg/svg-dialog/Group 1000008455.svg') }}"
-                                                    class="my-2 pop-img" width="40" alt="">
-                                                <span class="custom-option-title pop-heading"> Greetings </span>
-                                                <small class="pop-txt">Share Greetings</small>
-                                            </span>
-                                            <input name="customRadioIcon" class="form-check-input" type="radio"
-                                                value="" id="customRadioPrime">
-                                        </a>
-                                    </div>
+                                            data-bs-target="#modal3" for="customRadioPrime"><span
+                                                class="custom-option-body"><img
+                                                    src="{{ asset('assets/svg/svg-dialog/Group.svg') }}"
+                                                    class="my-2 pop-img" width="40" alt=""><span
+                                                    class="custom-option-title pop-heading">Surveys</span><small
+                                                    class="pop-txt">Create Surveys</small></span><input
+                                                name="customRadioIcon" class="form-check-input" type="radio"
+                                                value="" id="customRadioPrime"></a></div>
                                 </div>
                                 <div class="col-md mb-md-0 mb-2">
-                                    <div class="form-check  card custom-option-icon hki custom-options">
-
-                                        <a href="javascript:void(0)" class="form-check-label custom-option-content "
-                                            data-bs-toggle="modal" data-bs-target="#system_popup" for="customRadioPrime">
-                                            <span class="custom-option-body">
-                                                <img src="{{ asset('assets/svg/svg-dialog/Ñëîé_1.svg') }}"
-                                                    class="my-2 pop-img" width="40" alt="">
-                                                <span class="custom-option-title pop-heading"> Events </span>
-                                                <small class="pop-txt">Share Events</small>
-                                            </span>
-                                            <input name="customRadioIcon" class="form-check-input" type="radio"
-                                                value="" id="customRadioPrime">
-                                        </a>
-                                    </div>
+                                    <div class="form-check card custom-option-icon hki custom-options"><a
+                                            href="javascript:void(0)"
+                                            class="form-check-label custom-option-content popcall1" data-bs-toggle="modal"
+                                            data-bs-target="#modal4" for="customRadioPrime"><span
+                                                class="custom-option-body"><img
+                                                    src="{{ asset('assets/svg/svg-dialog/Group 1000008455.svg') }}"
+                                                    class="my-2 pop-img" width="40" alt=""><span
+                                                    class="custom-option-title pop-heading">Greetings</span><small
+                                                    class="pop-txt">Share Greetings</small></span><input
+                                                name="customRadioIcon" class="form-check-input" type="radio"
+                                                value="" id="customRadioPrime"></a></div>
+                                </div>
+                                <div class="col-md mb-md-0 mb-2">
+                                    <div class="form-check card custom-option-icon hki custom-options"><a
+                                            href="javascript:void(0)" class="form-check-label custom-option-content"
+                                            data-bs-toggle="modal" data-bs-target="#eventModal"
+                                            for="customRadioPrime"><span class="custom-option-body"><img
+                                                    src="{{ asset('assets/svg/svg-dialog/Ñëîé_1.svg') }}"
+                                                    class="my-2 pop-img" width="40" alt=""><span
+                                                    class="custom-option-title pop-heading">Events</span><small
+                                                    class="pop-txt">Share Events</small></span><input
+                                                name="customRadioIcon" class="form-check-input" type="radio"
+                                                value="" id="customRadioPrime"></a></div>
                                 </div>
                                 <div class="col-md mb-md-0 mb-4">
-                                    <div class="form-check  card custom-option-icon hki custom-options">
-
-                                        <a href="javascript:void(0)" class="form-check-label custom-option-content "
-                                            data-bs-toggle="modal" data-bs-target="#system_popup" for="customRadioPrime">
-                                            <span class="custom-option-body">
-                                                <img src="{{ asset('assets/svg/svg-dialog/Group 1000008478.svg') }}"
-                                                    class="my-2 pop-img" width="40" alt="">
-                                                <span class="custom-option-title pop-heading"> User </span>
-                                                <small class="pop-txt">Warn SOS</small>
-                                            </span>
-                                            <input name="customRadioIcon" class="form-check-input" type="radio"
-                                                value="" id="customRadioPrime">
-                                        </a>
-                                    </div>
+                                    <div class="form-check card custom-option-icon hki custom-options"><a
+                                            href="javascript:void(0)" class="form-check-label custom-option-content"
+                                            data-bs-toggle="modal" data-bs-target="#system_popup"
+                                            for="customRadioPrime"><span class="custom-option-body"><img
+                                                    src="{{ asset('assets/svg/svg-dialog/Group 1000008478.svg') }}"
+                                                    class="my-2 pop-img" width="40" alt=""><span
+                                                    class="custom-option-title pop-heading">User</span><small
+                                                    class="pop-txt">Warn SOS</small></span><input name="customRadioIcon"
+                                                class="form-check-input" type="radio" value=""
+                                                id="customRadioPrime"></a></div>
                                 </div>
                                 <div class="col-md mb-md-0 mb-2">
-                                    <div class="form-check  card custom-option-icon hki custom-options">
-
-                                        <a href="javascript:void(0)" class="form-check-label custom-option-content "
+                                    <div class="form-check card custom-option-icon hki custom-options"><a
+                                            href="javascript:void(0)" class="form-check-label custom-option-content"
                                             data-bs-toggle="modal" data-bs-target="#requestpopupnew"
-                                            for="customRadioPrime">
-
-                                            <span class="custom-option-body">
-                                                <img class="my-2 pop-img" width="40" alt=""
-                                                    src="{{ asset('assets/svg/icons/onair.png') }}">
-                                                <span class="custom-option-title pop-heading"> Live Stream </span>
-                                                <small class="pop-txt">Go Live now</small>
-                                            </span>
-                                            <input name="customRadioIcon" class="form-check-input" type="radio"
-                                                value="" id="customRadioPrime">
-                                        </a>
-                                    </div>
+                                            for="customRadioPrime"><span class="custom-option-body"><img
+                                                    class="my-2 pop-img" width="40" alt=""
+                                                    src="{{ asset('assets/svg/icons/onair.png') }}"><span
+                                                    class="custom-option-title pop-heading">Live Stream</span><small
+                                                    class="pop-txt">Go Live now</small></span><input
+                                                name="customRadioIcon" class="form-check-input" type="radio"
+                                                value="" id="customRadioPrime"></a></div>
                                 </div>
-
-
-
-
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Deal Details -->
                 <div id="deal-details" class="content fv-plugins-bootstrap5 fv-plugins-framework">
                     <div class="row g-3">
-                        <div class="col-sm-6 fv-plugins-icon-container">
-                            <label class="form-label" for="dealTitle">Deal Title</label>
-                            <input type="text" id="dealTitle" name="dealTitle" class="form-control"
+                        <div class="col-sm-6 fv-plugins-icon-container"><label class="form-label" for="dealTitle">Deal
+                                Title</label><input type="text" id="dealTitle" name="dealTitle" class="form-control"
                                 placeholder="Black friday sale, 25% off">
                             <div
                                 class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
                             </div>
                         </div>
-                        <div class="col-sm-6 fv-plugins-icon-container">
-                            <label class="form-label" for="dealCode">Deal Code</label>
-                            <input type="text" id="dealCode" name="dealCode" class="form-control"
+                        <div class="col-sm-6 fv-plugins-icon-container"><label class="form-label" for="dealCode">Deal
+                                Code</label><input type="text" id="dealCode" name="dealCode" class="form-control"
                                 placeholder="25PEROFF">
                             <div
                                 class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <label class="form-label" for="dealDescription">Deal Description</label>
+                        <div class="col-sm-6"><label class="form-label" for="dealDescription">Deal Description</label>
                             <textarea id="dealDescription" name="dealDescription" class="form-control" rows="5"
                                 placeholder="To sell or distribute something as a business deal"></textarea>
                         </div>
                         <div class="col-sm-6">
                             <div class="row">
-                                <div class="col-12 mb-3">
-                                    <label class="form-label" for="dealOfferedItem">Offered Items</label>
+                                <div class="col-12 mb-3"><label class="form-label" for="dealOfferedItem">Offered
+                                        Items</label>
                                     <div class="position-relative"><select class="select2 select2-hidden-accessible"
                                             id="dealOfferedItem" name="dealOfferedItem" multiple=""
                                             data-select2-id="dealOfferedItem" tabindex="-1" aria-hidden="true">
@@ -1134,7 +1083,7 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                                             <option value="85466">Apple iPhone 11 (64GB)</option>
                                             <option value="98564">OnePlus Nord CE 5G (128GB)</option>
                                         </select><span class="select2 select2-container select2-container--default"
-                                            dir="ltr" data-select2-id="2" style="width: auto;"><span
+                                            dir="ltr" data-select2-id="2" style="width:auto"><span
                                                 class="selection"><span
                                                     class="select2-selection select2-selection--multiple" role="combobox"
                                                     aria-haspopup="true" aria-expanded="false" tabindex="-1"
@@ -1145,137 +1094,101 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                                                                 tabindex="0" autocomplete="off" autocorrect="off"
                                                                 autocapitalize="none" spellcheck="false" role="searchbox"
                                                                 aria-autocomplete="list"
-                                                                placeholder="Select an offered item" style="width: 0px;">
-                                                        </li>
+                                                                placeholder="Select an offered item" style="width:0"></li>
                                                     </ul>
                                                 </span></span><span class="dropdown-wrapper"
                                                 aria-hidden="true"></span></span></div>
                                 </div>
-                                <div class="col-12">
-                                    <label class="form-label" for="dealCartCondition">Cart condition</label>
-                                    <select class="form-select" id="dealCartCondition" name="dealCartCondition">
+                                <div class="col-12"><label class="form-label" for="dealCartCondition">Cart
+                                        condition</label><select class="form-select" id="dealCartCondition"
+                                        name="dealCartCondition">
                                         <option disabled="" value="">Select cart condition</option>
                                         <option value="all">Cart must contain all selected Downloads</option>
-                                        <option value="any">Cart needs one or more of the selected Downloads
-                                        </option>
-                                    </select>
-                                </div>
+                                        <option value="any">Cart needs one or more of the selected Downloads</option>
+                                    </select></div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <label for="dealDuration" class="form-label">Deal Duration</label>
-                            <input type="text" id="dealDuration" name="dealDuration"
+                        <div class="col-sm-6"><label for="dealDuration" class="form-label">Deal Duration</label><input
+                                type="text" id="dealDuration" name="dealDuration"
                                 class="form-control flatpickr-input" placeholder="YYYY-MM-DD to YYYY-MM-DD"
-                                readonly="readonly">
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="form-label">Notify Users</label>
+                                readonly="readonly"></div>
+                        <div class="col-sm-6"><label class="form-label">Notify Users</label>
                             <div class="row">
                                 <div class="col mt-2">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="dealNotifyEmail"
-                                            name="dealNotifyEmail" value="email">
-                                        <label class="form-check-label" for="dealNotifyEmail">Email</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="dealNotifySMS"
-                                            name="dealNotifySMS" value="sms">
-                                        <label class="form-check-label" for="dealNotifySMS">SMS</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="dealNotifyPush"
-                                            name="dealNotifyPush" value="push">
-                                        <label class="form-check-label" for="dealNotifyPush">Push
-                                            Notification</label>
-                                    </div>
+                                    <div class="form-check form-check-inline"><input class="form-check-input"
+                                            type="checkbox" id="dealNotifyEmail" name="dealNotifyEmail"
+                                            value="email"><label class="form-check-label"
+                                            for="dealNotifyEmail">Email</label></div>
+                                    <div class="form-check form-check-inline"><input class="form-check-input"
+                                            type="checkbox" id="dealNotifySMS" name="dealNotifySMS"
+                                            value="sms"><label class="form-check-label"
+                                            for="dealNotifySMS">SMS</label></div>
+                                    <div class="form-check form-check-inline"><input class="form-check-input"
+                                            type="checkbox" id="dealNotifyPush" name="dealNotifyPush"
+                                            value="push"><label class="form-check-label" for="dealNotifyPush">Push
+                                            Notification</label></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 d-flex justify-content-between">
-                            <button class="btn btn-primary btn-prev">
-                                <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
-                                <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                            </button>
-                            <button class="btn btn-primary btn-next">
-                                <span class="align-middle d-sm-inline-block d-none me-sm-1">Next</span>
-                                <i class="bx bx-chevron-right bx-sm me-sm-n2"></i></button>
-                        </div>
+                        <div class="col-12 d-flex justify-content-between"><button class="btn btn-primary btn-prev"><i
+                                    class="bx bx-chevron-left bx-sm ms-sm-n2"></i><span
+                                    class="align-middle d-sm-inline-block d-none">Previous</span></button><button
+                                class="btn btn-primary btn-next"><span
+                                    class="align-middle d-sm-inline-block d-none me-sm-1">Next</span><i
+                                    class="bx bx-chevron-right bx-sm me-sm-n2"></i></button></div>
                     </div>
                 </div>
-                <!-- Deal Usage -->
                 <div id="deal-usage" class="content fv-plugins-bootstrap5 fv-plugins-framework">
                     <div class="row g-3">
-                        <div class="col-sm-6">
-                            <label class="form-label" for="dealUserType">User Type</label>
-                            <select id="dealUserType" name="dealUserType" class="form-select">
+                        <div class="col-sm-6"><label class="form-label" for="dealUserType">User Type</label><select
+                                id="dealUserType" name="dealUserType" class="form-select">
                                 <option selected="" disabled="" value="">Select user type</option>
                                 <option value="all">All</option>
                                 <option value="registered">Registered</option>
                                 <option value="unregistered">Unregistered</option>
                                 <option value="prime-members">Prime members</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="form-label" for="dealMaxUsers">Max Users</label>
-                            <input type="number" id="dealMaxUsers" name="dealMaxUsers" class="form-control"
-                                placeholder="500">
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="form-label" for="dealMinimumCartAmount">Minimum Cart Amount</label>
-                            <input type="number" id="dealMinimumCartAmount" name="dealMinimumCartAmount"
-                                class="form-control" placeholder="$99">
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="form-label" for="dealPromotionalFee">Promotional Fee</label>
-                            <input type="number" id="dealPromotionalFee" name="dealPromotionalFee" class="form-control"
-                                placeholder="$9">
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="form-label" for="dealPaymentMethod">Payment Method</label>
-                            <select id="dealPaymentMethod" name="dealPaymentMethod" class="form-select">
-                                <option selected="" disabled="" value="">Select payment method
-                                </option>
+                            </select></div>
+                        <div class="col-sm-6"><label class="form-label" for="dealMaxUsers">Max Users</label><input
+                                type="number" id="dealMaxUsers" name="dealMaxUsers" class="form-control"
+                                placeholder="500"></div>
+                        <div class="col-sm-6"><label class="form-label" for="dealMinimumCartAmount">Minimum Cart
+                                Amount</label><input type="number" id="dealMinimumCartAmount"
+                                name="dealMinimumCartAmount" class="form-control" placeholder="$99"></div>
+                        <div class="col-sm-6"><label class="form-label" for="dealPromotionalFee">Promotional
+                                Fee</label><input type="number" id="dealPromotionalFee" name="dealPromotionalFee"
+                                class="form-control" placeholder="$9"></div>
+                        <div class="col-sm-6"><label class="form-label" for="dealPaymentMethod">Payment
+                                Method</label><select id="dealPaymentMethod" name="dealPaymentMethod"
+                                class="form-select">
+                                <option selected="" disabled="" value="">Select payment method</option>
                                 <option value="any">Any</option>
                                 <option value="credit-card">Credit Card</option>
                                 <option value="net-banking">Net Banking</option>
                                 <option value="wallet">Wallet</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="form-label" for="dealStatus">Deal Status</label>
-                            <select id="dealStatus" name="dealStatus" class="form-select">
+                            </select></div>
+                        <div class="col-sm-6"><label class="form-label" for="dealStatus">Deal Status</label><select
+                                id="dealStatus" name="dealStatus" class="form-select">
                                 <option selected="" disabled="" value="">Select status</option>
                                 <option value="active">Active</option>
                                 <option value="inactive">Inactive</option>
                                 <option value="suspend">Suspend</option>
                                 <option value="abandon">Abandone</option>
-                            </select>
+                            </select></div>
+                        <div class="col-lg-12"><label class="switch"><input type="checkbox" class="switch-input"
+                                    id="dealLimitUser" name="dealLimitUser"><span class="switch-toggle-slider"><span
+                                        class="switch-on"></span><span class="switch-off"></span></span><span
+                                    class="switch-label">Limit this discount to a single-use per customer?</span></label>
                         </div>
-                        <div class="col-lg-12">
-                            <label class="switch">
-                                <input type="checkbox" class="switch-input" id="dealLimitUser" name="dealLimitUser">
-                                <span class="switch-toggle-slider">
-                                    <span class="switch-on"></span>
-                                    <span class="switch-off"></span>
-                                </span>
-                                <span class="switch-label"> Limit this discount to a single-use per
-                                    customer?</span>
-                            </label>
-                        </div>
-                        <div class="col-12 d-flex justify-content-between">
-                            <button class="btn btn-primary btn-prev"> <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
-                                <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                            </button>
-                            <button class="btn btn-primary btn-next"> <span
-                                    class="align-middle d-sm-inline-block d-none me-sm-1">Next</span> <i
-                                    class="bx bx-chevron-right bx-sm me-sm-n2"></i></button>
-                        </div>
+                        <div class="col-12 d-flex justify-content-between"><button class="btn btn-primary btn-prev"><i
+                                    class="bx bx-chevron-left bx-sm ms-sm-n2"></i><span
+                                    class="align-middle d-sm-inline-block d-none">Previous</span></button><button
+                                class="btn btn-primary btn-next"><span
+                                    class="align-middle d-sm-inline-block d-none me-sm-1">Next</span><i
+                                    class="bx bx-chevron-right bx-sm me-sm-n2"></i></button></div>
                     </div>
                 </div>
-                <!-- Review & Complete -->
                 <div id="review-complete" class="content fv-plugins-bootstrap5 fv-plugins-framework">
                     <div class="row g-3">
-
                         <div class="col-lg-6">
                             <div class="row">
                                 <div class="col-12 mb-0">
@@ -1310,52 +1223,37 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
                                             <tr>
                                                 <td class="ps-0 align-top text-nowrap py-1"><span class="fw-medium">Deal
                                                         Duration</span></td>
-                                                <td class="px-0 py-1"><span class="fw-medium">2021-07-14</span> to
-                                                    <span class="fw-medium">2021-07-30</span>
-                                                </td>
+                                                <td class="px-0 py-1"><span class="fw-medium">2021-07-14</span>to<span
+                                                        class="fw-medium">2021-07-30</span></td>
                                             </tr>
                                         </tbody>
                                     </table>
-
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 d-flex align-items-center justify-content-center">
-                            <img class="img-fluid w-px-200"
+                        <div class="col-lg-6 d-flex align-items-center justify-content-center"><img
+                                class="img-fluid w-px-200"
                                 src="{{ asset('assets/img/illustrations/man-with-laptop-light.png') }}"
                                 alt="deal image cap" data-app-light-img="illustrations/man-with-laptop-light.png"
-                                data-app-dark-img="illustrations/man-with-laptop-dark.png">
-                        </div>
-                        <div class="col-md-12">
-                            <label class="switch">
-                                <input type="checkbox" class="switch-input" id="dealConfirmed" name="dealConfirmed">
-                                <span class="switch-toggle-slider">
-                                    <span class="switch-on"></span>
-                                    <span class="switch-off"></span>
-                                </span>
-                                <span class="switch-label"> I have confirmed the deal details.</span>
-                            </label>
-                        </div>
-                        <div class="col-12 d-flex justify-content-between">
-                            <button class="btn btn-primary btn-prev"> <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
-                                <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                            </button>
-                            <button class="btn btn-success btn-submit btn-next">Submit</button>
-                        </div>
+                                data-app-dark-img="illustrations/man-with-laptop-dark.png"></div>
+                        <div class="col-md-12"><label class="switch"><input type="checkbox" class="switch-input"
+                                    id="dealConfirmed" name="dealConfirmed"><span class="switch-toggle-slider"><span
+                                        class="switch-on"></span><span class="switch-off"></span></span><span
+                                    class="switch-label">I have confirmed the deal details.</span></label></div>
+                        <div class="col-12 d-flex justify-content-between"><button class="btn btn-primary btn-prev"><i
+                                    class="bx bx-chevron-left bx-sm ms-sm-n2"></i><span
+                                    class="align-middle d-sm-inline-block d-none">Previous</span></button><button
+                                class="btn btn-success btn-submit btn-next">Submit</button></div>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-
-    <!--top bar-->
-
     <style>
         .pop_div {
-
-            background-color: white;
+            background-color: #fff;
             border-radius: 10px;
-            padding: 5px;
+            padding: 5px
         }
 
         .pop_sub {
@@ -1364,7 +1262,7 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
             justify-content: space-between;
             align-items: center;
             margin: 0;
-            top: 10px;
+            top: 10px
         }
 
         .pop_head {
@@ -1373,14 +1271,13 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 5px;
-
+            padding: 5px
         }
 
         .pop_tit {
             display: flex;
             align-items: start;
-            align-items: center;
+            align-items: center
         }
 
         .pop_heading {
@@ -1389,7 +1286,7 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
             justify-content: start;
             align-items: flex-start;
             margin-left: 5px;
-            gap: 8px;
+            gap: 8px
         }
 
         .pop_head_line {
@@ -1399,13 +1296,12 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
             text-decoration-skip-ink: none;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 5px
         }
 
         .pop_title {
             border-radius: 45%;
-            background: #00000066;
-
+            background: #00000066
         }
 
         .pop_description {
@@ -1413,7 +1309,7 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
             font-weight: 400;
             color: gray;
             text-align: left;
-            background: #F7F7F7;
+            background: #f7f7f7;
             padding: 7px;
             font-family: Genos;
             margin-top: 7px;
@@ -1421,14 +1317,14 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
             border-radius: 5px;
             display: flex;
             align-items: center;
-            justify-content: left;
+            justify-content: left
         }
 
         .pop_main_image {
             position: relative;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, .1)
         }
 
         .pop_overlay {
@@ -1438,136 +1334,67 @@ https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css
             display: flex;
             align-items: center;
             border-radius: 5px;
-            background: #1C274C99;
-            gap: 5px;
+            background: #1c274C99;
+            gap: 5px
         }
     </style>
-
     <div class="content-wrapper">
-
-        <!-- Content -->
         <div class="container-xxl flex-grow-1 container-p-y">
-
             <div class="view-wrapper">
                 <div id="main-feed" class="container">
                     <div id="activity-feed" class="view-wrap true-dom">
-
                         <div class="columns">
-                            <div style="padding:0px;" class="column is-3 ">
+                            <div style="padding:0" class="column is-3">
                                 <div class="card">
                                     <div class="card-body p-0 border-none">
-                                        <div class="list-group nav nav-tab" role="tablist">
-
-                                            <a class="list-group-item list-group-item-action {{ request('type') == 'all-news' ? 'active' : '' }}"
-                                                href="#tab5">
-                                                Popup Feeds<br>
-                                                <small class="text-muted">Admin has Popup</small>
-                                                <a class="list-group-item list-group-item-action {{ request('type') == 'admin-feeds' ? 'active' : '' }}"
-                                                    href="#tab1">
-                                                    Admin Feeds<br>
-                                                    <small class="text-muted">Admin has Post</small>
-                                                </a>
-
-                                                <a class="list-group-item list-group-item-action {{ request('type') == 'all-news' ? 'active' : '' }}"
-                                                    href="#tab2">
-                                                    All News<br>
-                                                    <small class="text-muted">Admin has create</small>
-                                                </a>
-                                                <a class="list-group-item list-group-item-action {{ request('type') == 'all-news' ? 'active' : '' }}"
-                                                    href="#tab3">
-                                                    Go live Soon<br>
-                                                    <small class="text-muted">Planed Live Stream</small>
-                                                </a>
-                                                <a class="list-group-item list-group-item-action {{ request('type') == 'all-news' ? 'active' : '' }}"
-                                                    href="#tab4">
-                                                    Admin Live Stream<br>
-                                                    <small class="text-muted">Live Stream by Admin</small>
-                                                </a>
-
-
-                                        </div>
+                                        <div class="list-group nav nav-tab" role="tablist"><a
+                                                class="list-group-item list-group-item-action {{ request('type') == 'all-news' ? 'active' : '' }}"
+                                                href="#tab5">Admin Feeds<br><small class="text-muted">Admin has
+                                                    Post</small></a><a
+                                                class="list-group-item list-group-item-action {{ request('type') == 'all-news' ? 'active' : '' }}"
+                                                href="#tab3">Go live Soon<br><small class="text-muted">Planed Live
+                                                    Stream</small></a><a
+                                                class="list-group-item list-group-item-action {{ request('type') == 'all-news' ? 'active' : '' }}"
+                                                href="#tab4">Admin Live Stream<br><small class="text-muted">Live Stream
+                                                    by Admin</small></a></div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- tab post feeds -->
-
-                            <div style="padding-top:0px;" class="column column is-6 tab-content" id="tab5">
-
+                            <div style="padding-top:0" class="column column is-6 tab-content" id="tab5">
                                 @foreach ($popfeeds as $key => $feed)
                                     <div id="feed-post-{{ $key }}" class="card is-post">
-                                        <!-- pop started -->
-
                                         <div class="pop_div">
                                             <div class="pop_sub">
-
                                                 <div class="pop_head">
-                                                    <div class="pop_tit">
-                                                        <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000003833.svg') }}"
-                                                            style="width: 28px; height: 28px; object-fit: cover">
+                                                    <div class="pop_tit"><img
+                                                            src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000003833.svg') }}"
+                                                            style="width:28px;height:28px;object-fit:cover">
                                                         <div class="pop_heading" style="">
-                                                            <div class="pop_head_line" style="
-
-                        ">
-                                                                <div class="pop_title"
-                                                                    style="
-                            "></div>
-
-                                                                YekBun Team
-
+                                                            <div class="pop_head_line" style="">
+                                                                <div class="pop_title" style=""></div>YekBun Team
                                                                 <div
-                                                                    style="
-                      width: 2px;
-                      height: 2px;
-                      border-radius: 45%;
-                      background: #00000066;
-                      ">
+                                                                    style="width:2px;height:2px;border-radius:45%;background:#00000066">
                                                                 </div>
                                                             </div>
-
                                                             <div
-                                                                style="
-                    width: 150px;
-                    height: 6px;
-                    font-family: Genos;
-font-size: 14px;
-text-align: left;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-                          color: #7e7e7e;
-                          display: flex;
-                          align-items: center;
-                          gap: 5px;
-                        ">
-
-                                                                {{ \Carbon\Carbon::parse($feed->date_start)->format('d M y') }}
-
+                                                                style="width:150px;height:6px;font-family:Genos;font-size:14px;text-align:left;text-underline-position:from-font;text-decoration-skip-ink:none;color:#7e7e7e;display:flex;align-items:center;gap:5px">
+                                                                {{ \Carbon\Carbon::parse($feed->created_at)->format('d M y') }}
                                                             </div>
                                                         </div>
-                                                    </div>
-
-                                                    <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000008317.svg') }}"
-                                                        style="width: 25px; height: 27px; object-fit: cover; border: none;"
+                                                    </div><img
+                                                        src="{{ asset('assets/svg/svg-dialog/' . $feed->share_option . '.svg') }}"
+                                                        style="width:25px;height:27px;object-fit:cover;border:none"
                                                         class="img-thumbnail">
                                                 </div>
-
-                                                <!-- delete -->
                                                 <form action="delete_popfeed"
                                                     onsubmit="confirmAction(event, () => event.target.submit())"
-                                                    method="post" class="d-inline">
-                                                    @csrf
-                                                    <input type="hidden" name="delid" value="{{ $feed->id }}" />
-                                                    <div class="pop_action_div">
-                                                        <button class="pop_action">
-                                                            <img type="submit"
-                                                                src="{{ asset('assets/svg/delete.svg') }}"
-                                                                class="pop_action_image">
-                                                        </button>
-                                                </form>
-
-                                                @php
+                                                    method="post" class="d-inline">@csrf <input type="hidden"
+                                                        name="delid" value="{{ $feed->id }}">
+                                                    <div class="pop_action_div"><button class="pop_action"><img
+                                                                type="submit" src="{{ asset('assets/svg/delete.svg') }}"
+                                                                class="pop_action_image"></button>
+                                                </form>@php
                                                     $modalnumber = 1;
-
                                                     $paypal = '';
                                                     $gpay = '';
                                                     $payoffice = '';
@@ -1579,7 +1406,6 @@ text-decoration-skip-ink: none;
                                                     $icon1 = '';
                                                     $icon2 = '';
                                                     $icon3 = '';
-
                                                     if ($feed->type == 'System') {
                                                         $modalnumber = 1;
                                                     } elseif ($feed->type == 'Donation') {
@@ -1600,15 +1426,11 @@ text-decoration-skip-ink: none;
                                                     } elseif ($feed->type == 'Greetings') {
                                                         $modalnumber = 4;
                                                     }
-
-                                                @endphp
-
-
-
-                                                <a href="javascript:void(0)" class="pop_action edit_popup1"
-                                                    data-bs-toggle="modal" data-bs-target="#modal{{ $modalnumber }}"
-                                                    for="customRadioPrime" data-id="{{ $feed->_id }}"
-                                                    data-name="{{ $feed->title }}" data-image="{{ $feed->image }}"
+                                                @endphp<a href="javascript:void(0)"
+                                                    class="pop_action edit_popup1" data-bs-toggle="modal"
+                                                    data-bs-target="#modal{{ $modalnumber }}" for="customRadioPrime"
+                                                    data-id="{{ $feed->_id }}" data-name="{{ $feed->title }}"
+                                                    data-image="{{ $feed->image }}"
                                                     data-start="{{ $feed->date_start }}"
                                                     data-end="{{ $feed->date_ends }}" data-type="{{ $feed->type }}"
                                                     data-option="{{ $feed->share_option }}"
@@ -1620,556 +1442,180 @@ text-decoration-skip-ink: none;
                                                     data-other="{{ $payother }}" data-limit="{{ $limited }}"
                                                     data-txt1="{{ $txt1 }}" data-txt2="{{ $txt2 }}"
                                                     data-txt3="{{ $txt3 }}" data-icon1="{{ $icon1 }}"
-                                                    data-icon2="{{ $icon2 }}" data-icon3="{{ $icon3 }}">
-                                                    <img src="{{ asset('assets/svg/edit.svg') }}"
-                                                        class="pop_action_image">
-                                                </a>
+                                                    data-icon2="{{ $icon2 }}"
+                                                    data-icon3="{{ $icon3 }}"><img
+                                                        src="{{ asset('assets/svg/edit.svg') }}"
+                                                        class="pop_action_image"></a>
                                             </div>
-
                                         </div>
-
-                                        <div class="pop_description">
-                                            {{ $feed->title }}
-                                        </div>
-
+                                        <div class="pop_description">{{ $feed->title }}</div>
                                         <div class="pop_main_image pop_main_image_{{ $feed->_id }}">
-                                            <img src="{{ asset('storage/'.$feed->image) }}"
-                                                style="width: 100%; object-fit: cover; border-radius: 7px; padding: 0; display: block;">
+                                            @if ($feed->video != null)
+                                                <!-- Custom controls are defined here -->
+                                                {{-- <video src="{{ asset('storage/' . $feed->video) }}" style="width:100%;object-fit:cover;border-radius:7px;padding:0;display:block"></video> --}}
 
+                                                <video
+                                                    id="my-player"
+                                                    class="video-js"
+                                                    controls
+                                                    preload="auto"
+                                                    {{-- poster="//vjs.zencdn.net/v/oceans.png" --}}
+                                                    data-setup='{}' style="width:100%;height:350px;object-fit:cover;border-radius:7px;padding:0;display:block">
+                                                <source src="{{ asset('storage/' . $feed->video) }}" type="video/mp4"></source>
+                                            </video>
 
-                                            <div class="audio-icon"
-                                                style="position: absolute;
-                bottom: 10px;
-                right: 10px;
-                background: rgba(0, 0, 0, 0.6);
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-                cursor: pointer;">
-                                                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group 1000008129.svg') }}"
-                                                    style="width: 20px; height: 20px; margin: 5px; border-radius: 5px; object-fit: cover; color:#FFFFFF;">
-                                            </div>
-                                        </div>
-
-
-                                        <div
-                                            style="
-            height: 29px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #f8f9fa;
-            border-radius: 5px;
-            padding: 5px;
-            gap: 10px;
-            margin-top: 7px;
-          ">
-                                            <div
-                                                style="
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              width: 200px;
-              height: 100%;
-            ">
-                                                <div
-                                                    style="
-                display: flex;
-                align-items: center;
-                gap: 3px;
-                height: 100%;
-              ">
-                                                    <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Eye%20Scan.svg') }}"
-                                                        style="width: 100%; height: 100%; object-fit: cover">
-                                                    <span style="font-weight: 400; font-family: Genos;
-">123</span>
-                                                </div>
-
-                                                <div
-                                                    style="
-                display: flex;
-                align-items: center;
-                gap: 3px;
-                height: 100%;
-              ">
-                                                    <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/share.svg') }}"
-                                                        style="width: 100%; height: 100%; object-fit: cover">
-                                                    <span style="font-weight: 400; font-family: Genos;
-">123</span>
-                                                </div>
-
-                                                <div
-                                                    style="
-                display: flex;
-                align-items: center;
-                gap: 3px;
-                height: 100%;
-              ">
-                                                    <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Pen%202.svg') }}"
-                                                        style="width: 100%; height: 100%; object-fit: cover">
-                                                    <span style="font-weight: 400; font-family: Genos;
-">123</span>
-                                                </div>
-
-                                                <div
-                                                    style="
-                display: flex;
-                align-items: center;
-                gap: 3px;
-                height: 100%;
-              ">
-                                                    <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/microphone-2.svg') }}"
-                                                        style="width: 100%; height: 100%; object-fit: cover">
-                                                    <span style="font-weight: 400; font-family: Genos;
-">123</span>
-                                                </div>
-                                            </div>
-
-                                            <div
-                                                style="
-              display: flex;
-              align-items: center;
-              gap: 2px;
-              height: 100%;
-            ">
-                                                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000002356.svg') }}"
-                                                    style="width: 100%; height: 100%; object-fit: cover;
-">
-                                                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000002630.svg') }}"
-                                                    style="width: 100%; height: 100%; object-fit: cover;;
-">
-                                                <span style="font-weight: 400; font-family: Genos;
-">123</span>
-                                            </div>
-                                        </div>
-
-
-                                        <div
-                                            style="
-
-            height: 30px;
-            display: flex;
-            background-color: white;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 10px;
-          ">
-                                            <div
-                                                style="
-              width: 120px;
-              height: 30px;
-              display: flex;
-              align-items: center;
-              gap: 5px;
-              height: 100%;
-            ">
-                                                <div
-                                                    style="padding: 3px;
-                border-radius: 4px;
-                width: 30px;
-                height: 30px;
-                background: #F2F2F2;
-                display: flex;
-                align-items: center;
-                justify-content: center;">
-                                                    <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/share.svg') }}"
-                                                        style="width: 24px; height: 24px; object-fit: cover">
-                                                </div>
-
-                                                <div
-                                                    style="padding: 3px;
-                border-radius: 4px;
-                width: 30px;
-                height: 30px;
-                background: #F2F2F2;
-                display: flex;
-                align-items: center;
-                justify-content: center;">
-                                                    <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000002356.svg') }}"
-                                                        style="width: 24px; height: 24px; object-fit: cover">
-                                                </div>
-                                                <div
-                                                    style="padding: 3px;
-                border-radius: 4px;
-                width: 30px;
-                height: 30px;
-                background: #F2F2F2;
-                display: flex;
-                align-items: center;
-                justify-content: center;">
-                                                    <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/microphone-2.svg') }}"
-                                                        style="width: 24px; height: 24px; object-fit: cover">
-                                                </div>
-                                            </div>
-
-                                            <div
-                                                style="
-              background-color: #f8f9fa;
-              border-radius: 7px;
-              height: 30px;
-              width: auto;
-              display: flex;
-              align-items: center;
-              gap: 5px;
-              font-size: 10px;
-              font-family: Genos;
-              padding: 5px;
-            ">
-                                                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Pen%202.svg') }}"
-                                                    style="width: 24px; height: 24px">
-
-                                                <span>add a comment here</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <!-- pop ended -->
-                            </div>
-                            @endforeach
-                        </div>
-
-                        <!-- tab post feeds -->
-
-
-                        {{-- Old Feeds Section --}}
-
-
-                        <div style="padding-top:0px;" class="column column is-6 tab-content" id="tab4">
-
-                            {{-- <div id="admin-live-1" class="card is-post">
-                                    <!-- Main wrap -->
-                                    <div class="content-wrap">
-                                        <!-- Post header -->
-                                        <div class="card-heading">
-                                            <!-- User meta -->
-                                            <div class="user-block">
-                                                <div class="image">
-                                                    <img src="{{ asset('assets/img/logo.png') }}"
-                                                        data-demo-src="{{ asset('assets/img/logo.png') }}"
-                                                        data-user-popover="1" alt="">
-                                                </div>
-                                                <div class="user-info">
-                                                    <span class="d-flex"><a href="#">Yekbun</a><i
-                                                            class="bx bx-world ml-2"></i></span>
-                                                    <span class="time">. CEO .</span>
-                                                </div>
-                                            </div>
-                                            <!-- Right side dropdown -->
-                                            <!-- /partials/pages/feed/dropdowns/feed-post-dropdown.html -->
-                                            <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
-                                                <div>
-                                                    <div class="button">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                            height="24" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                            stroke-linejoin="round" class="feather feather-more-vertical">
-                                                            <circle cx="12" cy="12" r="1"></circle>
-                                                            <circle cx="12" cy="5" r="1"></circle>
-                                                            <circle cx="12" cy="19" r="1"></circle>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                                <div class="dropdown-menu" role="menu">
-                                                    <div class="dropdown-content">
-                                                        <a href="javascript:void(0)" class="dropdown-item">
-                                                            <div class="media">
-                                                                <div class="media-content">
-                                                                    <h3>Remove Feed</h3>
-                                                                    <small>Feed Removed Only</small>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a href="javascript:void(0)" class="dropdown-item">
-                                                            <div class="media">
-                                                                <div class="media-content">
-                                                                    <h3>Repost the Feed</h3>
-                                                                    <small>Post it again</small>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /Post header -->
-
-                                        <!-- Post body -->
-                                        <div class="card-body">
-                                            <!-- Post body text -->
-                                            <div class="post-text">
-                                                <p>
-                                                    Yesterday with <a href="#">@Karen Miller</a> and
-                                                    <a href="#">@Marvin Stemperd</a> at the
-                                                    <a href="#">#Rock'n'Rolla</a> concert in LA. Was totally
-                                                    fantastic!
-                                                    People were really excited about this one!
-                                                </p>
-                                            </div>
-                                            <!-- Featured image -->
-                                            <div class="post-image">
-                                                <a data-fancybox="post1" data-lightbox-type="comments"
-                                                    data-thumb="{{ asset('assets/img/feed-image.jpeg') }}"
-                                                    href="{{ asset('assets/img/feed-image.jpeg') }}"
-                                                    data-demo-href="{{ asset('assets/img/feed-image.jpeg') }}">
-                                                    <img src="{{ asset('assets/img/feed-image.jpeg') }}"
-                                                        data-demo-src="{{ asset('assets/img/feed-image.jpeg') }}"
-                                                        alt="">
-                                                </a>
-                                                <!-- Action buttons -->
-
-                                            </div>
-                                        </div>
-                                        <!-- /Post body -->
-
-                                        <!-- Post footer -->
-                                        <div class="card-footer">
-                                            <!-- Followers avatars -->
-                                            <div class="likers-group">
-                                                <img src="{{ asset('assets/svg/icons/haha-emoji.svg') }}"
-                                                    data-demo-src="{{ asset('assets/svg/icons/haha-emoji.svg') }}"
-                                                    data-user-popover="1" alt="">
-                                                <img src="{{ asset('assets/svg/icons/love-emoji.svg') }}"
-                                                    data-demo-src="{{ asset('assets/svg/icons/love-emoji.svg') }}"
-                                                    data-user-popover="4" alt="">
-                                                <img src="{{ asset('assets/svg/icons/sad-emoji.svg') }}"
-                                                    data-demo-src="{{ asset('assets/svg/icons/sad-emoji.svg') }}"
-                                                    data-user-popover="5" alt="">
-                                            </div>
-                                            <!-- Followers text -->
-                                            <div class="likers-text">
-
-                                            </div>
-                                            <!-- Post statistics -->
-                                            <div class="social-count">
-                                                <div class="shares-count" style="cursor: pointer">
-                                                    <img src="{{ asset('assets/svg/icons/Share.svg') }}" width="15"
-                                                        alt="">
-                                                    <span>9</span>
-                                                </div>
-                                                <div class="likes-count" style="cursor: pointer">
-                                                    <img src="{{ asset('assets/svg/icons/views.svg') }}" width="15"
-                                                        alt="">
-                                                    <span>27</span>
-                                                </div>
-                                                <div class="comments-count is-comment-light" style="cursor: pointer">
-                                                    <img src="{{ asset('assets/svg/icons/Comments.svg') }}"
-                                                        width="15" alt="">
-                                                    <span>3</span>
-                                                </div>
-                                                <div class="comments-count" style="cursor: pointer">
-                                                    <img src="{{ asset('assets/svg/icons/voice.svg') }}" width="15"
-                                                        alt="">
-                                                    <span>3</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /Post footer -->
-                                    </div>
-                                    <!-- /Main wrap -->
-
-                                    <!-- Post #1 Comments -->
-                                    <div class="comments-wrap is-hidden" style="top: 0rem;position: relative;">
-                                        <div class="comments-header">
-                                            @if (request('type') === 'flag')
-                                                <img src="{{ asset('assets/img/exclamation-mark.png') }}"
-                                                    style="position: absolute;top:1rem;right:3.5rem" width="15"
-                                                    alt="">
+                                                {{-- <div class="audio-icon"
+                                                    style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.6);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer">
+                                                    <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group 1000008129.svg') }}"
+                                                        style="width:20px;height:20px;margin:5px;border-radius:5px;object-fit:cover;color:#fff">
+                                                </div> --}}
+                                            @else
+                                                <img src="{{ asset('storage/' . $feed->image) }}"
+                                                    style="width:100%;object-fit:cover;border-radius:7px;padding:0;display:block">
                                             @endif
                                         </div>
+                                        <div
+                                            style="height:29px;display:flex;justify-content:space-between;align-items:center;background-color:#f8f9fa;border-radius:5px;padding:5px;gap:10px;margin-top:7px">
+                                            <div
+                                                style="display:flex;align-items:center;justify-content:space-between;width:200px;height:100%">
+
+                                                <div style="display:flex;align-items:center;gap:3px;height:100%"><img
+                                                        src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Eye%20Scan.svg') }}"
+                                                        style="width:100%;height:100%;object-fit:cover"><span
+                                                        style="font-weight:400;font-family:Genos">123</span>
+                                                </div>
+
+                                                <div style="display:flex;align-items:center;gap:3px;height:100%"><img
+                                                        src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/share.svg') }}"
+                                                        style="width:100%;height:100%;object-fit:cover"><span
+                                                        style="font-weight:400;font-family:Genos">123</span>
+                                                </div>
+
+                                                @if ($feed->is_comments == 1)
+                                                    <div style="display:flex;align-items:center;gap:3px;height:100%"><img
+                                                            src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Pen%202.svg') }}"
+                                                            style="width:100%;height:100%;object-fit:cover"><span
+                                                            style="font-weight:400;font-family:Genos">123</span>
+                                                    </div>
+                                                @endif
+                                                @if ($feed->is_share == 1)
+                                                    <div style="display:flex;align-items:center;gap:3px;height:100%"><img
+                                                            src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/microphone-2.svg') }}"
+                                                            style="width:100%;height:100%;object-fit:cover"><span
+                                                            style="font-weight:400;font-family:Genos">123</span>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                            @if ($feed->is_emoji == 1)
+                                                <div style="display:flex;align-items:center;gap:2px;height:100%">
+                                                    <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000002356.svg') }}"
+                                                        style="width:100%;height:100%;object-fit:cover">
+                                                    <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000002630.svg') }}"
+                                                        style="width:100%;height:100%;object-fit:cover">
+                                                    <span style="font-weight:400;font-family:Genos">123</span>
+                                                </div>
+                                            @endif
+                                        </div>
+                                        {{-- <div
+                                            style="height:30px;display:flex;background-color:#fff;justify-content:space-between;align-items:center;margin-top:10px">
+                                            <div
+                                                style="width:120px;height:30px;display:flex;align-items:center;gap:5px;height:100%">
+                                                <div
+                                                    style="padding:3px;border-radius:4px;width:30px;height:30px;background:#f2f2f2;display:flex;align-items:center;justify-content:center">
+                                                    <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/share.svg') }}"
+                                                        style="width:24px;height:24px;object-fit:cover">
+                                                </div>
+                                                @if ($feed->is_emoji == 1)
+                                                <div
+                                                    style="padding:3px;border-radius:4px;width:30px;height:30px;background:#f2f2f2;display:flex;align-items:center;justify-content:center">
+                                                    <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000002356.svg') }}"
+                                                        style="width:24px;height:24px;object-fit:cover">
+                                                </div>
+                                                @endif
+                                                @if ($feed->is_share == 1)
+                                                <div
+                                                    style="padding:3px;border-radius:4px;width:30px;height:30px;background:#f2f2f2;display:flex;align-items:center;justify-content:center">
+                                                    <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/microphone-2.svg') }}"
+                                                        style="width:24px;height:24px;object-fit:cover">
+                                                </div>
+                                                @endif
+                                            </div>
+                                            @if ($feed->is_comments == 1)
+                                            <div
+                                                style="background-color:#f8f9fa;border-radius:7px;height:30px;width:auto;display:flex;align-items:center;gap:5px;font-size:10px;font-family:Genos;padding:5px">
+                                                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Pen%202.svg') }}"
+                                                    style="width:24px;height:24px"><span>add a comment here</span>
+                                            </div>
+                                            @endif
+                                        </div> --}}
                                     </div>
-                                    <!-- /Post #1 Comments -->
-                                </div> --}}
-                        </div>
+                            </div>
+                            @endforeach
+                        </div>{{-- Old Feeds Section --}}
+                        <div style="padding-top:0" class="column column is-6 tab-content" id="tab4"></div>
                         <div class="col-sm-3"></div>
                     </div>
                 </div>
             </div>
-
         </div>
-        <!-- / Content -->
-
         <div class="content-backdrop fade"></div>
     </div>
+    <x-modal id="requestpopup" size="lg">@include('content.include.live_stream.createnews')</x-modal>
+    <x-modal id="requestpopuptwo" size="md">@include('content.include.live_stream.createmusictwo')</x-modal>
+    <x-modal id="requestpopupnew" size="lg">@include('content.include.live_stream.golive')</x-modal>
 
-    <x-modal id="requestpopup" size="lg">
-        @include('content.include.live_stream.createnews')
-    </x-modal>
-
-    <x-modal id="requestpopuptwo" size="md">
-        @include('content.include.live_stream.createmusictwo')
-    </x-modal>
-
-    <x-modal id="requestpopupnew" size="lg">
-        @include('content.include.live_stream.golive')
-    </x-modal>
-
-    <!-- system modal
-
-            <x-modal
-        id="modal1"
-        title="Add Member"
-        saveBtnText="Create"
-        saveBtnType="submit"
-        saveBtnForm="createForm"
-        size="md"
-        :show="old('showCreateFormModal') ? true : false"
-      >
-        @include('content.pages.includes.system_form')
-      </x-modal>-->
     @include('content.pages.includes.fullpopup')
+
     <div class="modal fade popmodal" id="modal1__old" tabindex="-1" aria-labelledby="Modlal1">
         <div id="moo" class="modal-dialog modal-dialog-centered">
             <div class="modal-content"
-                style="Width:375px; Height:812px; background-color: #f8f9fa;
-        padding: 5px;
-        border-radius: 10px;">
-                <div class="modal-body"
-                    style="
-              position: relative;
-              border-radius: 10px;
-              border: 2px dashed #356899
-            ">
+                style="Width:375px;Height:812px;background-color:#f8f9fa;padding:5px;border-radius:10px">
+                <div class="modal-body" style="position:relative;border-radius:10px;border:2px dashed #356899">
                     <div
-                        style="
-                width: Fixed (333px)px;
-                height: Hug (761.24px)px;
-                display: flex;
-                border-radius: 10px;
-                flex-direction: column;
-                align-items: center;
-                gap: 110px;
-
-              ">
-
+                        style="width:Fixed (333px) px;height:Hug (761.24px) px;display:flex;border-radius:10px;flex-direction:column;align-items:center;gap:110px">
                         <img src="{{ asset('assets/svg/svg-dialog/first-svg-dialog/Group%201000008335.svg') }}"
                             alt="Illustration" data-target="#modal6" data-bs-dismiss="modal"
-                            style="height: 250px; width: 100%" />
-
-                        <div id="previewContainerWrapper" style="width: 100%; display: flex; gap: 10px; flex-wrap: wrap">
+                            style="height:250px;width:100%">
+                        <div id="previewContainerWrapper" style="width:100%;display:flex;gap:10px;flex-wrap:wrap">
                             <div class="previewContainer"
-                                style="
-                    width: 100%;
-                    height: 81px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-size: contain;
-                    cursor: pointer;
-                    border-radius: 10px;
-                  ">
+                                style="width:100%;height:81px;display:flex;justify-content:center;align-items:center;background-size:contain;cursor:pointer;border-radius:10px">
                                 <img src="{{ asset('assets/svg/svg-dialog/first-svg-dialog/Object.svg') }}"
                                     alt="Illustration" data-target="#modal6" data-bs-dismiss="modal"
-                                    style="height: 96px; width: 69%" id="addImageButton" />
-
-                                <input type="file" class="fileInput" multiple accept="image/*"
-                                    style="
-                      opacity: 0;
-                      width: 100%;
-                      height: 100%;
-                      position: absolute;
-                      cursor: pointer;
-                    " />
+                                    style="height:96px;width:69%" id="addImageButton"> <input type="file"
+                                    class="fileInput" multiple="multiple" accept="image/*"
+                                    style="opacity:0;width:100%;height:100%;position:absolute;cursor:pointer">
                             </div>
                         </div>
                     </div>
-
                     <div
-                        style="
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Centrage horizontal */
-            gap: 50px; /* Réduit l'écart entre l'image et le texte */
-            background-color: #fff;
-            margin-top: 230px;
-            border-radius: 10px;
-            margin-left:3%;
-            margin-right:3%;
-            padding: 5px; /* Ajoute un peu de padding pour un espacement interne */
-          ">
-                        <!-- Image à gauche -->
-                        <div style="display: flex; align-items: center; justify-content: center;">
-                            <img id="displayImage2"
+                        style="height:80px;display:flex;align-items:center;justify-content:center;gap:50px;background-color:#fff;margin-top:230px;border-radius:10px;margin-left:3%;margin-right:3%;padding:5px">
+                        <div style="display:flex;align-items:center;justify-content:center"><img id="displayImage2"
                                 src="{{ asset('assets/svg/svg-dialog/first-svg-dialog/Group%201000008026.svg') }}"
                                 alt="Illustration" class="img-fluid"
-                                style="height: 40px; width: 41px; cursor: pointer;margin-left: 2px;" />
-                            <input type="file" id="imageUploader2" accept="image/*" style="display: none;" />
-                        </div>
-
-                        <!-- Texte à droite -->
+                                style="height:40px;width:41px;cursor:pointer;margin-left:2px"> <input type="file"
+                                id="imageUploader2" accept="image/*" style="display:none"></div>
                         <div
-                            style="
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center; /* Centrage vertical */
-              gap: 2px;
-              font-family: Genos;
-            ">
-                            <h4 style="margin: 0; text-align: center;">Another Selection</h4>
-                            <h6 style="margin: 0; text-align: center;">File Size H 812 - W 350</h6>
-                            <p style="margin: 0; text-align: center;">MP4-JPG Or PNG - <span style="color: red;">Max 5
+                            style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-family:Genos">
+                            <h4 style="margin:0;text-align:center">Another Selection</h4>
+                            <h6 style="margin:0;text-align:center">File Size H 812 - W 350</h6>
+                            <p style="margin:0;text-align:center">MP4-JPG Or PNG -<span style="color:red">Max 5
                                     Image</span></p>
                         </div>
                     </div>
-
-
-
                     <div
-                        style="
-                position: absolute;
-                bottom: -10%;
-                left: 100px;
-                width: 202px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 10px;
-              ">
+                        style="position:absolute;bottom:-10%;left:100px;width:202px;display:flex;align-items:center;justify-content:center;gap:10px">
                         <div id="backButton" data-target="#popupModal"
-                            style="
-                  outline: none;
-                  width: 50px;
-                  height: 40px;
-                  background-color: #fff;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  border-radius: 10px;
-                ">
-                            <img src="{{ asset('assets/svg/svg-dialog/first-svg-dialog/Group%201000008245.svg') }}" />
+                            style="outline:0;width:50px;height:40px;background-color:#fff;display:flex;align-items:center;justify-content:center;border-radius:10px">
+                            <img src="{{ asset('assets/svg/svg-dialog/first-svg-dialog/Group%201000008245.svg') }}">
                         </div>
-
                         <div id="createButton" data-target="#modal7"
-                            style="
-                  outline: none;
-                  width: 100px;
-                  height: 40px;
-                  background-color: #fff;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  border-radius: 10px;
-                  gap: 5px;
-                  font-family: Genos;
-                ">
-                            Create
-                            <img src="{{ asset('assets/svg/svg-dialog/first-svg-dialog/Path_2-2.svg') }}" />
-                        </div>
-
+                            style="outline:0;width:100px;height:40px;background-color:#fff;display:flex;align-items:center;justify-content:center;border-radius:10px;gap:5px;font-family:Genos">
+                            Create <img src="{{ asset('assets/svg/svg-dialog/first-svg-dialog/Path_2-2.svg') }}"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-    <!-- sytem modal -->
 
 
     <script>
@@ -2241,12 +1687,14 @@ text-decoration-skip-ink: none;
             $(".paymentOffice").prop("checked", true);
             $(".others").prop("checked", false);
 
-            $("#unlimit_img_uc").show();
-            $("#unlimit_img_c").hide();
-            $("#limit_img_c").show();
-            $("#limit_img_uc").hide();
-            $("#unlimi_bars").show();
-            $("#limi_bars").hide();
+            $("#unlimit_img_uc").hide();
+            $("#unlimit_img_c").show();
+            $("#limit_img_c").hide();
+            $("#limit_img_uc").show();
+            $("#unlimi_bars").hide();
+            $("#limi_bars").show();
+            $("#unlimited_duration").show();
+            $("#limited_duration").hide();
 
 
             $("#button1Modal8").css("background-color", "rgb(28, 162, 237)");
@@ -2368,6 +1816,10 @@ text-decoration-skip-ink: none;
                     $("#limit_img_uc").hide();
                     $("#unlimi_bars").show();
                     $("#limi_bars").hide();
+                    $('#limited_note').show();
+                    $('#unlimited_note').hide();
+                    $("#unlimited_duration").hide();
+                    $("#limited_duration").show();
                 } else {
                     $("#unlimit_img_uc").hide();
                     $("#unlimit_img_c").show();
@@ -2375,6 +1827,10 @@ text-decoration-skip-ink: none;
                     $("#limit_img_uc").show();
                     $("#unlimi_bars").hide();
                     $("#limi_bars").show();
+                    $('#limited_note').hide();
+                    $('#unlimited_note').show();
+                    $("#unlimited_duration").show();
+                    $("#limited_duration").hide();
                 }
 
                 $("#st_date").text(p_start);
