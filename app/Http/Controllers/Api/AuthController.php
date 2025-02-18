@@ -29,7 +29,7 @@ class AuthController extends Controller
   
 public function login(Request $request)
 {
-    $credentials = $request->only('email', 'password');
+    $credentials = $request->only('email', 'password', 'device_id');
 
     // Check if the user exists with the provided email
     $user = \App\Models\User::where('email', $credentials['email'])->first();
@@ -37,6 +37,12 @@ public function login(Request $request)
     if (!$user) {
         // If the user doesn't exist, return an email error
         return response()->json(['error' => 'Email is wrong'], 401);
+    }
+
+    // Check if the device_id matches the one stored for the user
+    if ($user->device_id !== $credentials['device_id']) {
+        // If the device ID doesn't match, return a device error
+        return response()->json(['error' => 'Device ID does not match'], 401);
     }
 
     // Attempt login using the provided credentials (email and password)
@@ -58,6 +64,7 @@ public function login(Request $request)
         return response()->json(['error' => 'Password is wrong'], 401);
     }
 }
+
 
 public function userprofile(Request $request) 
 {
