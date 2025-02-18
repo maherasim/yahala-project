@@ -8,7 +8,7 @@
     <div class="app-brand demo ">
         <a href="{{ url('/') }}" class="app-brand-link">
             <span class="app-brand-logo demo">
-                <img src="{{ asset('assets/svg/mylogo.jpg') }}" alt="Yahala" style="width: 50%; height: 50%; padding-left: 26px;">
+                <img src="{{ asset('assets/img/yahala-logo.jgp') }}" alt="Yahala" style="width: 50%; height: 50%; padding-left: 26px;">
 
                 {{-- <svg width="220" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink">
