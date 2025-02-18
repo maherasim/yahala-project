@@ -24,7 +24,7 @@
     <!-- Canonical SEO -->
     <link rel="canonical" href="{{ config('variables.productPage') ? config('variables.productPage') : '' }}">
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('public/assets/svg/mylogo.jpg') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/svg/mylogo.jpg') }}" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
