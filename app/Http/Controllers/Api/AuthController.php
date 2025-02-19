@@ -440,15 +440,7 @@ public function signup(Request $request)
         ], 500);
     }
 }
-
-
-
-
-
-
-
-
-
+ 
 
 
 public function lostdevicecheckEmail(Request $request)

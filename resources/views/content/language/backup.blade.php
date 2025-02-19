@@ -74,13 +74,17 @@
                                         <img src="{{ asset('path/to/default/icon.png') }}" width="50" height="50">
                                     @endif
                                 </td>
+                            </tr></tbody></table></div></div>
 
 
 
 
 
-
-
+                                {{-- <td>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: {{ ( $language->translations_count *100)/$language->texts_count}}%" aria-valuenow="{{ $language->translations_count }}" aria-valuemin="0" aria-valuemax="{{ $language->texts_count }}">{{  floor(($language->translations_count *100)/$language->texts_count)}}%</div>
+                        </div>
+                    </td> --}}
                                 <td>
                                     <div class="">
                                         <span data-bs-toggle="modal" data-bs-target="#languageModal{{ $language->id }}">
@@ -1258,24 +1262,19 @@
                                                     <div class="modal-body">
                                                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                                             <li class="nav-item" role="presentation">
-                                                                <button class="nav-link active" id="pills-home-tab"
-                                                                    data-bs-toggle="pill" data-bs-target="#pills-home"
-                                                                    type="button" role="tab"
-                                                                    aria-controls="pills-home" aria-selected="true">Home
-                                                                    Section</button>
+                                                                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                                                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                                                    aria-selected="true">Home Section</button>
                                                             </li>
                                                             <li class="nav-item" role="presentation">
-                                                                <button class="nav-link" id="pills-settings-tab"
-                                                                    data-bs-toggle="pill" data-bs-target="#pills-settings"
-                                                                    type="button" role="tab"
-                                                                    aria-controls="pills-settings"
+                                                                <button class="nav-link" id="pills-settings-tab" data-bs-toggle="pill"
+                                                                    data-bs-target="#pills-settings" type="button" role="tab" aria-controls="pills-settings"
                                                                     aria-selected="false">Setting Section</button>
                                                             </li>
                                                         </ul>
                                                         <div class="tab-content" id="pills-tabContent">
                                                             <!-- Home Section Tab -->
-                                                            <div class="tab-pane fade show active" id="pills-home"
-                                                                role="tabpanel" aria-labelledby="pills-home-tab">
+                                                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                                                                 <div class="card">
                                                                     <div class="table-responsive text-nowrap">
                                                                         <table class="table">
@@ -1486,12 +1485,11 @@
                                                             </div>
 
 
-                                                            <div class="tab-pane fade" id="pills-settings"
-                                                                role="tabpanel" aria-labelledby="pills-settings-tab">
+                                                            <div class="tab-pane fade" id="pills-settings" role="tabpanel" aria-labelledby="pills-settings-tab">
                                                                 <div class="card">
                                                                     <div class="table-responsive text-nowrap">
                                                                         <table class="table">
-                                                                            <thead>
+                                                                         <thead>
                                                                                 <tr>
                                                                                     <th scope="col">Section</th>
                                                                                     <th scope="col">Progress</th>
@@ -1600,7 +1598,7 @@
 
 
 
-<
+                                                    
 
 
 
@@ -2308,51 +2306,50 @@
                                                                                 </span>
                                                                             </td>
                                                                         </tr> --}}
-
+                                                         
+                                                             
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-label-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-
-
-
-
-                                        {{-- Edit language model __1 --}}
-
-
-                                        <div class="modal fade" id="languageModal__1{{ $language->id }}" tabindex="-1"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog modal-md modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="modalCenterTitle">Home page
-                                                            Landing
-                                                            Page
-                                                        </h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-label-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                        </div>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        <form action="{{ route('languages.keywordstore') }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            <input type="hidden" name="language_id"
-                                                                value="{{ $language->id }}">
-                                                            <div class="container">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <h5>English Language</h5>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <h5>{{ $language->title }} Language</h5>
-                                                                    </div>
-                                                                </div>
+                                              
+                                          
 
-                                                                @foreach ([
+
+                                            {{-- Edit language model __1 --}}
+
+
+                                            <div class="modal fade" id="languageModal__1{{ $language->id }}"
+                                                tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="modalCenterTitle">Home page
+                                                                Landing
+                                                                Page
+                                                            </h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="{{ route('languages.keywordstore') }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                <input type="hidden" name="language_id"
+                                                                    value="{{ $language->id }}">
+                                                                <div class="container">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <h5>English Language</h5>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <h5>{{ $language->title }} Language</h5>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    @foreach ([
             'alert' => 'This Module is only for Premium User Please Upgrade your Account',
             'upgrade' => 'Select the plan',
             'premium' => 'Premium',
@@ -2391,558 +2388,563 @@
             'Food_delivery' => 'Food delivery',
             'Restaurant' => 'Restaurant',
         ] as $field => $placeholder)
+                                                                        <div class="row mt-2">
+                                                                            <div class="col-md-6">
+                                                                                <h6>{{ ucfirst(str_replace('_', ' ', $field)) }}
+                                                                                </h6>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <input type="text" class="form-control"
+                                                                                    name="{{ $field }}"
+                                                                                    placeholder="{{ $placeholder }}"
+                                                                                    value="{{ $keywords->$field ?? '' }}">
+                                                                            </div>
+                                                                        </div>
+                                                                    @endforeach
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="submit"
+                                                                        class="btn btn-label-secondary">Save</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+
+                                            {{-- //Sign up Section --}}
+                                            @php
+                                                // Retrieve the existing SignupSection data for the given language_id
+                                                $signupsection = App\Models\SignupSection::where(
+                                                    'language_id',
+                                                    $language->id,
+                                                )->first();
+                                            @endphp
+
+
+                                            <div class="modal fade" id="signupsection__1{{ $language->id }}"
+                                                tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="modalCenterTitle">Sign up Section
+                                                            </h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="{{ route('languages.signupsection') }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                <input type="hidden" name="language_id"
+                                                                    value="{{ $language->id }}">
+
+                                                                <div class="container">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <h5>English Language</h5>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <h5>{{ $language->title }} Language</h5>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Language -->
                                                                     <div class="row mt-2">
                                                                         <div class="col-md-6">
-                                                                            <h6>{{ ucfirst(str_replace('_', ' ', $field)) }}
-                                                                            </h6>
+                                                                            <h6>Language</h6>
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <input type="text" class="form-control"
-                                                                                name="{{ $field }}"
-                                                                                placeholder="{{ $placeholder }}"
-                                                                                value="{{ $keywords->$field ?? '' }}">
+                                                                                name="language_search"
+                                                                                value="{{ $signupsection->language_search ?? '' }}"
+                                                                                placeholder="Search">
                                                                         </div>
                                                                     </div>
-                                                                @endforeach
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="submit"
-                                                                    class="btn btn-label-secondary">Save</button>
-                                                            </div>
-                                                        </form>
+
+                                                                    <!-- Select Gender -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Select Gender</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="gender"
+                                                                                value="{{ $signupsection->gender ?? '' }}"
+                                                                                placeholder="select gender">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Male</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="male"
+                                                                                value="{{ $signupsection->male ?? '' }}"
+                                                                                placeholder="male">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>FeMale</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="female"
+                                                                                value="{{ $signupsection->female ?? '' }}"
+                                                                                placeholder="female">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Select Location -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Select Location</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="location"
+                                                                                value="{{ $signupsection->location ?? '' }}"
+                                                                                placeholder="Search">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Firstname -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Firstname</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="firstname"
+                                                                                value="{{ $signupsection->firstname ?? '' }}"
+                                                                                placeholder="Your Firstname">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Lastname -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Lastname</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="lastname"
+                                                                                value="{{ $signupsection->lastname ?? '' }}"
+                                                                                placeholder="Your Lastname">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Username -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Your Username</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="username"
+                                                                                value="{{ $signupsection->username ?? '' }}"
+                                                                                placeholder="Your Username">
+                                                                        </div>
+                                                                    </div>
+
+
+
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Your First name</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="your_first_name"
+                                                                                value="{{ $signupsection->your_first_name ?? '' }}"
+                                                                                placeholder="your_first_name">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Your Last name</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="your_last_name"
+                                                                                value="{{ $signupsection->your_last_name ?? '' }}"
+                                                                                placeholder="your_last_name">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Birthday and Status -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Your Birthday</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="birthday"
+                                                                                value="{{ $signupsection->birthday ?? '' }}"
+                                                                                placeholder="Your Birthday">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Your Status</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="your_status"
+                                                                                value="{{ $signupsection->your_status ?? '' }}"
+                                                                                placeholder="Your Status">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Select Origin -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Origin</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="origin"
+                                                                                value="{{ $signupsection->origin ?? '' }}"
+                                                                                placeholder="Select origin">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Province -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Province</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="select_province"
+                                                                                value="{{ $signupsection->select_province ?? '' }}"
+                                                                                placeholder="Select your Province">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- E-Mail Address -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Your E-Mail Address</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="your_email"
+                                                                                value="{{ $signupsection->your_email ?? '' }}"
+                                                                                placeholder="Type your your_email">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Repeat your E-Mail -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Repeat your E-Mail</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="repeat_email"
+                                                                                value="{{ $signupsection->repeat_email ?? '' }}"
+                                                                                placeholder="Repeat your E-Mail">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- E-Mail issue Message -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>E-Mail issue Message</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="email_issue_message"
+                                                                                value="{{ $signupsection->email_issue_message ?? '' }}"
+                                                                                placeholder="E-Mail issue Message">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Error Found -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Error Found</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="error_found"
+                                                                                value="{{ $signupsection->error_found ?? '' }}"
+                                                                                placeholder="Error found">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- User already exist -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>User already exist</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="user_already_exist"
+                                                                                value="{{ $signupsection->user_already_exist ?? '' }}"
+                                                                                placeholder="User already exist">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Phone Number -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Your Phone Number</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="your_phone_number"
+                                                                                value="{{ $signupsection->your_phone_number ?? '' }}"
+                                                                                placeholder="Your Phone Number">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Create Password -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Create Password</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="create_password"
+                                                                                value="{{ $signupsection->create_password ?? '' }}"
+                                                                                placeholder="create_password">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Repeat a Password</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="repeat_password"
+                                                                                value="{{ $signupsection->password ?? '' }}"
+                                                                                placeholder="Repeat a Password">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Account Created -->
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Account Created!</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="account_created_success_message"
+                                                                                value="{{ $signupsection->account_created_success_message ?? '' }}"
+                                                                                placeholder="Your account has been created, successfully. Please sign in to use your account, and enjoy">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Sign In Redirect</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="sign_in_redirect"
+                                                                                value="{{ $signupsection->sign_in_redirect ?? '' }}"
+                                                                                placeholder="Take me to sign in">
+                                                                        </div>
+                                                                    </div>
+
+
+
+                                                                    {{-- Nationality --}}
+
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6>Nationality</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="nationality"
+                                                                                placeholder="nationality"
+                                                                                value="{{ $signupsection->nationality ?? '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6> Select Your Nationality</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="select_nationality"
+                                                                                placeholder="select_nationality"
+                                                                                value="{{ $signupsection->select_nationality ?? '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6> Information</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="information"
+                                                                                placeholder="information"
+                                                                                value="{{ $signupsection->information ?? '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6> Information Description</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="information_description"
+                                                                                placeholder="information_description"
+                                                                                value="{{ $signupsection->information_description ?? '' }}">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    {{-- Verifiy device --}}
+
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6> Setup New device</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="setup_new_device"
+                                                                                placeholder="setup_new_device"
+                                                                                value="{{ $signupsection->setup_new_device ?? '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6> Start Now</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="start_now" placeholder="start_now"
+                                                                                value="{{ $signupsection->start_now ?? '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6> Your New Devices</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="your_new_devices"
+                                                                                placeholder="start_now"
+                                                                                value="{{ $signupsection->start_now ?? '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6> Old Device</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="old_devices"
+                                                                                placeholder="old_devices"
+                                                                                value="{{ $signupsection->old_devices ?? '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6> Verify now</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="verify_now" placeholder="verify_now"
+                                                                                value="{{ $signupsection->verify_now ?? '' }}">
+                                                                        </div>
+                                                                    </div>
+
+
+
+                                                                    {{-- //Button --}}
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6> Next Button</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="next_button"
+                                                                                placeholder="next_button"
+                                                                                value="{{ $signupsection->next_button ?? '' }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-md-6">
+                                                                            <h6> Back Button</h6>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" class="form-control"
+                                                                                name="back_button"
+                                                                                placeholder="back_button"
+                                                                                value="{{ $signupsection->back_button ?? '' }}">
+                                                                        </div>
+                                                                    </div>
+
+
+
+                                                                </div> <!-- End of container -->
+
+                                                                <div class="modal-footer">
+                                                                    <button type="submit" class="btn btn-label-secondary"
+                                                                        data-bs-dismiss="modal">Save</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+
+
+
+                                            @include('content.include.language.editForm', [
+                                                'language' => $language,
+                                            ])
+                                            {{-- Signin Section --}}
+                                            @include('footercartsection', ['language' => $language])
+                                            @include('guestsection', ['language' => $language])
+                                            @include('footerchatsection', ['language' => $language])
+                                            @include('homepagelanguage', ['language' => $language])
+                                            @include('app_policy', ['language' => $language])
+                                            @include('visiterprofile', ['language' => $language])
+                                            @include('headerstories', ['language' => $language])
+                                            @include('headergreating', ['language' => $language])
+                                            @include('headerdonation', ['language' => $language])
+                                            @include('headerhistory', ['language' => $language])
+                                            @include('headervoter', ['language' => $language])
+                                            @include('headermusic', ['language' => $language])
+                                            @include('headervideo', ['language' => $language])
+                                            @include('headerstream', ['language' => $language])
+                                            @include('headerevent', ['language' => $language])
+                                            @include('headeronlineshop', ['language' => $language])
+                                            @include('header_restorent', ['language' => $language])
+                                            @include('header_serviceportal', ['language' => $language])
+                                            @include('settingoverview', ['language' => $language])
+                                            @include('settingsection', ['language' => $language])
+                                            @include('myprofilesection', ['language' => $language])
+                                            @include('profilemultimedia', ['language' => $language])
+                                            @include('myprofilefriend', ['language' => $language])
+                                            @include('startpage', ['language' => $language])
+                                            @include('profileofficesection', ['language' => $language])
+                                            @include('chanel', ['language' => $language])
+                                            @include('channel_setting', ['language' => $language])
+                                            @include('headerfeedsection', ['language' => $language])
+                                            @include('footerfriends', ['language' => $language])
+                                            @include('edit_footer_quick_section_modal', [
+                                                'language' => $language,
+                                            ])
+
+                                            @include('signinsection', ['language' => $language])
+
                                         </div>
-
-
-
-
-
-
-
-
-                                        {{-- //Sign up Section --}}
-                                        @php
-                                            // Retrieve the existing SignupSection data for the given language_id
-                                            $signupsection = App\Models\SignupSection::where(
-                                                'language_id',
-                                                $language->id,
-                                            )->first();
-                                        @endphp
-
-
-                                        <div class="modal fade" id="signupsection__1{{ $language->id }}" tabindex="-1"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog modal-md modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="modalCenterTitle">Sign up Section
-                                                        </h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form action="{{ route('languages.signupsection') }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            <input type="hidden" name="language_id"
-                                                                value="{{ $language->id }}">
-
-                                                            <div class="container">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <h5>English Language</h5>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <h5>{{ $language->title }} Language</h5>
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Language -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Language</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="language_search"
-                                                                            value="{{ $signupsection->language_search ?? '' }}"
-                                                                            placeholder="Search">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Select Gender -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Select Gender</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="gender"
-                                                                            value="{{ $signupsection->gender ?? '' }}"
-                                                                            placeholder="select gender">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Male</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="male"
-                                                                            value="{{ $signupsection->male ?? '' }}"
-                                                                            placeholder="male">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>FeMale</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="female"
-                                                                            value="{{ $signupsection->female ?? '' }}"
-                                                                            placeholder="female">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Select Location -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Select Location</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="location"
-                                                                            value="{{ $signupsection->location ?? '' }}"
-                                                                            placeholder="Search">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Firstname -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Firstname</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="firstname"
-                                                                            value="{{ $signupsection->firstname ?? '' }}"
-                                                                            placeholder="Your Firstname">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Lastname -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Lastname</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="lastname"
-                                                                            value="{{ $signupsection->lastname ?? '' }}"
-                                                                            placeholder="Your Lastname">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Username -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Your Username</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="username"
-                                                                            value="{{ $signupsection->username ?? '' }}"
-                                                                            placeholder="Your Username">
-                                                                    </div>
-                                                                </div>
-
-
-
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Your First name</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="your_first_name"
-                                                                            value="{{ $signupsection->your_first_name ?? '' }}"
-                                                                            placeholder="your_first_name">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Your Last name</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="your_last_name"
-                                                                            value="{{ $signupsection->your_last_name ?? '' }}"
-                                                                            placeholder="your_last_name">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Birthday and Status -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Your Birthday</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="birthday"
-                                                                            value="{{ $signupsection->birthday ?? '' }}"
-                                                                            placeholder="Your Birthday">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Your Status</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="your_status"
-                                                                            value="{{ $signupsection->your_status ?? '' }}"
-                                                                            placeholder="Your Status">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Select Origin -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Origin</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="origin"
-                                                                            value="{{ $signupsection->origin ?? '' }}"
-                                                                            placeholder="Select origin">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Province -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Province</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="select_province"
-                                                                            value="{{ $signupsection->select_province ?? '' }}"
-                                                                            placeholder="Select your Province">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- E-Mail Address -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Your E-Mail Address</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="your_email"
-                                                                            value="{{ $signupsection->your_email ?? '' }}"
-                                                                            placeholder="Type your your_email">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Repeat your E-Mail -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Repeat your E-Mail</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="repeat_email"
-                                                                            value="{{ $signupsection->repeat_email ?? '' }}"
-                                                                            placeholder="Repeat your E-Mail">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- E-Mail issue Message -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>E-Mail issue Message</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="email_issue_message"
-                                                                            value="{{ $signupsection->email_issue_message ?? '' }}"
-                                                                            placeholder="E-Mail issue Message">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Error Found -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Error Found</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="error_found"
-                                                                            value="{{ $signupsection->error_found ?? '' }}"
-                                                                            placeholder="Error found">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- User already exist -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>User already exist</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="user_already_exist"
-                                                                            value="{{ $signupsection->user_already_exist ?? '' }}"
-                                                                            placeholder="User already exist">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Phone Number -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Your Phone Number</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="your_phone_number"
-                                                                            value="{{ $signupsection->your_phone_number ?? '' }}"
-                                                                            placeholder="Your Phone Number">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Create Password -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Create Password</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="create_password"
-                                                                            value="{{ $signupsection->create_password ?? '' }}"
-                                                                            placeholder="create_password">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Repeat a Password</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="repeat_password"
-                                                                            value="{{ $signupsection->password ?? '' }}"
-                                                                            placeholder="Repeat a Password">
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Account Created -->
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Account Created!</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="account_created_success_message"
-                                                                            value="{{ $signupsection->account_created_success_message ?? '' }}"
-                                                                            placeholder="Your account has been created, successfully. Please sign in to use your account, and enjoy">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Sign In Redirect</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="sign_in_redirect"
-                                                                            value="{{ $signupsection->sign_in_redirect ?? '' }}"
-                                                                            placeholder="Take me to sign in">
-                                                                    </div>
-                                                                </div>
-
-
-
-                                                                {{-- Nationality --}}
-
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6>Nationality</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="nationality" placeholder="nationality"
-                                                                            value="{{ $signupsection->nationality ?? '' }}">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6> Select Your Nationality</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="select_nationality"
-                                                                            placeholder="select_nationality"
-                                                                            value="{{ $signupsection->select_nationality ?? '' }}">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6> Information</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="information" placeholder="information"
-                                                                            value="{{ $signupsection->information ?? '' }}">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6> Information Description</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="information_description"
-                                                                            placeholder="information_description"
-                                                                            value="{{ $signupsection->information_description ?? '' }}">
-                                                                    </div>
-                                                                </div>
-
-                                                                {{-- Verifiy device --}}
-
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6> Setup New device</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="setup_new_device"
-                                                                            placeholder="setup_new_device"
-                                                                            value="{{ $signupsection->setup_new_device ?? '' }}">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6> Start Now</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="start_now" placeholder="start_now"
-                                                                            value="{{ $signupsection->start_now ?? '' }}">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6> Your New Devices</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="your_new_devices"
-                                                                            placeholder="start_now"
-                                                                            value="{{ $signupsection->start_now ?? '' }}">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6> Old Device</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="old_devices" placeholder="old_devices"
-                                                                            value="{{ $signupsection->old_devices ?? '' }}">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6> Verify now</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="verify_now" placeholder="verify_now"
-                                                                            value="{{ $signupsection->verify_now ?? '' }}">
-                                                                    </div>
-                                                                </div>
-
-
-
-                                                                {{-- //Button --}}
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6> Next Button</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="next_button" placeholder="next_button"
-                                                                            value="{{ $signupsection->next_button ?? '' }}">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mt-2">
-                                                                    <div class="col-md-6">
-                                                                        <h6> Back Button</h6>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control"
-                                                                            name="back_button" placeholder="back_button"
-                                                                            value="{{ $signupsection->back_button ?? '' }}">
-                                                                    </div>
-                                                                </div>
-
-
-
-                                                            </div> <!-- End of container -->
-
-                                                            <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-label-secondary"
-                                                                    data-bs-dismiss="modal">Save</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-
-                                        @include('content.include.language.editForm', [
-                                            'language' => $language,
-                                        ])
-                                        {{-- Signin Section --}}
-                                        @include('footercartsection', ['language' => $language])
-                                        @include('guestsection', ['language' => $language])
-                                        @include('footerchatsection', ['language' => $language])
-                                        @include('homepagelanguage', ['language' => $language])
-                                        @include('app_policy', ['language' => $language])
-                                        @include('visiterprofile', ['language' => $language])
-                                        @include('headerstories', ['language' => $language])
-                                        @include('headergreating', ['language' => $language])
-                                        @include('headerdonation', ['language' => $language])
-                                        @include('headerhistory', ['language' => $language])
-                                        @include('headervoter', ['language' => $language])
-                                        @include('headermusic', ['language' => $language])
-                                        @include('headervideo', ['language' => $language])
-                                        @include('headerstream', ['language' => $language])
-                                        @include('headerevent', ['language' => $language])
-                                        @include('headeronlineshop', ['language' => $language])
-                                        @include('header_restorent', ['language' => $language])
-                                        @include('header_serviceportal', ['language' => $language])
-                                        @include('settingoverview', ['language' => $language])
-                                        @include('settingsection', ['language' => $language])
-                                        @include('myprofilesection', ['language' => $language])
-                                        @include('profilemultimedia', ['language' => $language])
-                                        @include('myprofilefriend', ['language' => $language])
-                                        @include('startpage', ['language' => $language])
-                                        @include('profileofficesection', ['language' => $language])
-                                        @include('chanel', ['language' => $language])
-                                        @include('channel_setting', ['language' => $language])
-                                        @include('headerfeedsection', ['language' => $language])
-                                        @include('footerfriends', ['language' => $language])
-                                        @include('edit_footer_quick_section_modal', [
-                                            'language' => $language,
-                                        ])
-
-                                        @include('signinsection', ['language' => $language])
-
-                                    </div>
                                 </td>
                             </tr>
                         @endforeach
