@@ -1510,7 +1510,10 @@
                                                                                                 style="width: {{ $settingoverviewTotal > 0 ? ($settingoverviewDone / $settingoverviewTotal) * 100 : 0 }}%;"
                                                                                                 aria-valuenow="{{ $settingoverviewTotal > 0 ? ($settingoverviewDone / $settingoverviewTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($settingoverviewTotal > 0 ? ($settingoverviewDone / $settingoverviewTotal) * 100 : 0, 1) }}%
+
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
                                                                                     <td>{{ $settingoverviewDone }}</td>
