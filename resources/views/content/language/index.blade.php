@@ -1258,24 +1258,24 @@
                                                     <div class="modal-body">
                                                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                                             <li class="nav-item" role="presentation">
-                                                                <button class="nav-link active" id="pills-home-tab"
-                                                                    data-bs-toggle="pill" data-bs-target="#pills-home"
+                                                                <button class="nav-link active" id="pills-home-tab{{ $language->id }}"
+                                                                    data-bs-toggle="pill" data-bs-target="#pills-home{{ $language->id }}"
                                                                     type="button" role="tab"
-                                                                    aria-controls="pills-home" aria-selected="true">Home
+                                                                    aria-controls="pills-home{{ $language->id }}" aria-selected="true">Home
                                                                     Section</button>
                                                             </li>
                                                             <li class="nav-item" role="presentation">
-                                                                <button class="nav-link" id="pills-settings-tab"
-                                                                    data-bs-toggle="pill" data-bs-target="#pills-settings"
+                                                                <button class="nav-link" id="pills-settings-tab{{ $language->id }}"
+                                                                    data-bs-toggle="pill" data-bs-target="#pills-settings{{ $language->id }}"
                                                                     type="button" role="tab"
-                                                                    aria-controls="pills-settings"
+                                                                    aria-controls="pills-settings{{ $language->id }}"
                                                                     aria-selected="false">Setting Section</button>
                                                             </li>
                                                         </ul>
                                                         <div class="tab-content" id="pills-tabContent">
                                                             <!-- Home Section Tab -->
-                                                            <div class="tab-pane fade show active" id="pills-home"
-                                                                role="tabpanel" aria-labelledby="pills-home-tab">
+                                                            <div class="tab-pane fade show active" id="pills-home{{ $language->id }}"
+                                                                role="tabpanel" aria-labelledby="pills-home-tab{{ $language->id }}">
                                                                 <div class="card">
                                                                     <div class="table-responsive text-nowrap">
                                                                         <table class="table">
@@ -1486,8 +1486,8 @@
                                                             </div>
 
 
-                                                            <div class="tab-pane fade" id="pills-settings"
-                                                                role="tabpanel" aria-labelledby="pills-settings-tab">
+                                                            <div class="tab-pane fade" id="pills-settings{{ $language->id }}"
+                                                                role="tabpanel" aria-labelledby="pills-settings-tab{{ $language->id }}">
                                                                 <div class="card">
                                                                     <div class="table-responsive text-nowrap">
                                                                         <table class="table">
@@ -1613,8 +1613,8 @@
 
 
 
-                                                        {{--      
-                                                                       
+                                                        {{--
+
                                                                         <tr>
                                                                             <td>Footer Chat Section</td>
                                                                             <td>
