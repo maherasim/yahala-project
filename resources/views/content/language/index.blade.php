@@ -1294,14 +1294,17 @@
                                                                                     <td>Home page Language </td>
                                                                                     <td>
                                                                                         <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
+                                                                                            <div class="progress-bar bg-success text-white text-center"
                                                                                                 role="progressbar"
                                                                                                 style="width: {{ $homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0 }}%;"
                                                                                                 aria-valuenow="{{ $homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0, 1) }}%
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
+                                                                                    
                                                                                     <td>{{ $homepagelanguageDone }}</td>
                                                                                     <td>{{ $homepagelanguageTotal - $startpageDone }}
                                                                                     </td>
@@ -1364,14 +1367,17 @@
                                                                                     <td>Home page Landing Page</td>
                                                                                     <td>
                                                                                         <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
+                                                                                            <div class="progress-bar bg-success text-white text-center"
                                                                                                 role="progressbar"
                                                                                                 style="width: {{ $total > 0 ? ($done / $total) * 100 : 0 }}%;"
                                                                                                 aria-valuenow="{{ $total > 0 ? ($done / $total) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($total > 0 ? ($done / $total) * 100 : 0, 1) }}%
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
+                                                                                    
                                                                                     <td>{{ $done }}</td>
                                                                                     <td>{{ $total - $done }}</td>
                                                                                     <td>
@@ -1394,14 +1400,17 @@
                                                                                     <td> Home page Sign up Section</td>
                                                                                     <td>
                                                                                         <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
+                                                                                            <div class="progress-bar bg-success text-white text-center"
                                                                                                 role="progressbar"
                                                                                                 style="width: {{ $signupTotal > 0 ? ($signupDone / $signupTotal) * 100 : 0 }}%;"
                                                                                                 aria-valuenow="{{ $signupTotal > 0 ? ($signupDone / $signupTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($signupTotal > 0 ? ($signupDone / $signupTotal) * 100 : 0, 1) }}%
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
+                                                                                    
                                                                                     <td>{{ $signupDone }}</td>
                                                                                     <td>{{ $signupTotal - $signupDone }}
                                                                                     </td>
@@ -1425,14 +1434,17 @@
                                                                                     <td> Home page Sign in Section</td>
                                                                                     <td>
                                                                                         <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
+                                                                                            <div class="progress-bar bg-success text-white text-center"
                                                                                                 role="progressbar"
                                                                                                 style="width: {{ $signinTotal > 0 ? ($signinDone / $signinTotal) * 100 : 0 }}%;"
                                                                                                 aria-valuenow="{{ $signinTotal > 0 ? ($signinDone / $signinTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($signinTotal > 0 ? ($signinDone / $signinTotal) * 100 : 0, 1) }}%
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
+                                                                                    
                                                                                     <td>{{ $signinDone }}</td>
                                                                                     <td>{{ $signinTotal - $signinDone }}
                                                                                     </td>
@@ -1455,14 +1467,17 @@
                                                                                     <td>Home Page Guest section</td>
                                                                                     <td>
                                                                                         <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
+                                                                                            <div class="progress-bar bg-success text-white text-center"
                                                                                                 role="progressbar"
                                                                                                 style="width: {{ $guestFieldsTotal > 0 ? ($guestDone / $guestFieldsTotal) * 100 : 0 }}%;"
                                                                                                 aria-valuenow="{{ $guestFieldsTotal > 0 ? ($guestDone / $guestFieldsTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($guestFieldsTotal > 0 ? ($guestDone / $guestFieldsTotal) * 100 : 0, 1) }}%
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
+                                                                                    
                                                                                     <td>{{ $guestDone }}</td>
                                                                                     <td>{{ $guestFieldsTotal - $guestDone }}
                                                                                     </td>
@@ -1541,14 +1556,17 @@
                                                                                     <td>Setting Section</td>
                                                                                     <td>
                                                                                         <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
+                                                                                            <div class="progress-bar bg-success text-white text-center"
                                                                                                 role="progressbar"
                                                                                                 style="width: {{ $settingSectionTotal > 0 ? ($settingSectionDone / $settingSectionTotal) * 100 : 0 }}%;"
                                                                                                 aria-valuenow="{{ $settingSectionTotal > 0 ? ($settingSectionDone / $settingSectionTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($settingSectionTotal > 0 ? ($settingSectionDone / $settingSectionTotal) * 100 : 0, 1) }}%
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
+                                                                                    
                                                                                     <td>{{ $settingSectionDone }}</td>
                                                                                     <td>{{ $settingSectionTotal - $settingSectionDone }}
                                                                                     </td>
@@ -1572,14 +1590,17 @@
                                                                             <td>My Profile  Section</td>
                                                                             <td>
                                                                                 <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
+                                                                                    <div class="progress-bar bg-success text-white text-center"
                                                                                         role="progressbar"
                                                                                         style="width: {{ $myProfileHomeTotal > 0 ? ($myProfileHomeDone / $myProfileHomeTotal) * 100 : 0 }}%;"
                                                                                         aria-valuenow="{{ $myProfileHomeTotal > 0 ? ($myProfileHomeDone / $myProfileHomeTotal) * 100 : 0 }}"
                                                                                         aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
+                                                                                        aria-valuemax="100">
+                                                                                        {{ round($myProfileHomeTotal > 0 ? ($myProfileHomeDone / $myProfileHomeTotal) * 100 : 0, 1) }}%
+                                                                                    </div>
                                                                                 </div>
                                                                             </td>
+                                                                            
                                                                             <td>{{ $myProfileHomeDone }}</td>
                                                                             <td>{{ $myProfileHomeTotal - $myProfileHomeDone }}
                                                                             </td>
