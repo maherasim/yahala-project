@@ -50,63 +50,37 @@ $settingsection = App\Models\SectionSetting::where('language_id', $language->id)
                                 <br>
                                 <label for="repeatNewEmail">Repeat New E-Mail:</label>
                                 <input type="text" id="repeatNewEmail" name="repeatNewEmail" class="form-control" value="{{ $settingsection->repeatNewEmail ?? '' }}">
-                                <div class="col-md-6">
-                                    <h6>User Details</h6>
-                                    <label for="details">Details:</label>
-                                    <input type="text" id="details" name="details" class="form-control" value="{{ $settingsection->details ?? '' }}">
-                                    <br>
-                                    <label for="status">Your Status:</label>
-                                    <input type="text" id="status" name="status" class="form-control" value="{{ $settingsection->status ?? '' }}">
-                                </div>
-                                <div class="col-md-6">
-                                    <h6>Notifications</h6>
-                                    <label for="notificationType">Notification Type:</label>
-                                    <input type="text" id="notificationType" name="notificationType" class="form-control" value="{{ implode(',', $settingsection->notificationType ?? []) }}">
-                                </div>
-                                <div class="col-md-6">
-                                    <h6>Music</h6>
-                                    <label for="musicSetting">Music Setting:</label>
-                                    <input type="text" id="musicSetting" name="musicSetting" class="form-control" value="{{ implode(',', $settingsection->musicSetting ?? []) }}">
-                                    <br>
-                                    <label for="musicVolume">Music Volume:</label>
-                                    <input type="text" id="musicVolume" name="musicVolume" class="form-control" value="{{ $settingsection->musicVolume ?? 50 }}">
-                                </div>
-                                <div class="col-md-6">
-                                    <h6>Ringtone</h6>
-                                    <label for="messagesRingtone">Messages:</label>
-                                    <input type="text" id="messagesRingtone" name="messagesRingtone" class="form-control" value="{{ $settingsection->messagesRingtone ?? '' }}"><br>
-                                    <label for="callRingtone">Call:</label>
-                                    <input type="text" id="callRingtone" name="callRingtone" class="form-control" value="{{ $settingsection->callRingtone ?? '' }}"><br>
-                                    <label for="notificationsRingtone">Notifications:</label>
-                                    <input type="text" id="notificationsRingtone" name="notificationsRingtone" class="form-control" value="{{ $settingsection->notificationsRingtone ?? '' }}">
-                                </div>
-                                <div class="col-md-6">
-                                    <h6>Disable Account</h6>
-                                    <label for="leaveReason">Leave Reason:</label>
-                                    <input type="text" id="leaveReason" name="leaveReason" class="form-control" value="{{ implode(',', $settingsection->leaveReason ?? []) }}">
-                                    <br>
-                                    <label for="describeReason">Describe:</label>
-                                    <input type="text" id="describeReason" name="describeReason" class="form-control" value="{{ $settingsection->describeReason ?? '' }}">
-                                </div>
-                                <div class="col-md-6">
-                                    <h6>Policy and Terms</h6>
-                                    <p>Display policy and terms here</p>
-                                    <h6>Contact</h6>
-                                    <label for="contactType">Contact Type:</label>
-                                    <input type="text" id="contactType" name="contactType" class="form-control" value="{{ $settingsection->contactType ?? '' }}">
-                                    <br>
-                                    <label for="message">Message:</label>
-                                    <input type="text" id="message" name="message" class="form-control" value="{{ $settingsection->message ?? '' }}">
-                                    <div class="col-md-6">
-                                        <h6>About Portal</h6>
-                                        <p>Display portal information and address here</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h6>Logout</h6>
-                                        <label>Are you sure to logout from Yahala?</label><br>
-                                        <button type="submit" class="btn btn-secondary">Save</button>
-                                    </div>
-                                </div>
+                                <label for="details">Details:</label>
+                                <input type="text" id="details" name="details" class="form-control" value="{{ $settingsection->details ?? '' }}">
+                                <br>
+                                <label for="status">Your Status:</label>
+                                <input type="text" id="status" name="status" class="form-control" value="{{ $settingsection->status ?? '' }}">
+                                <label for="notificationType">Notification Type:</label>
+                                <input type="text" id="notificationType" name="notificationType" class="form-control" value="{{ implode(',', $settingsection->notificationType ?? []) }}">
+                                <label for="musicSetting">Music Setting:</label>
+                                <input type="text" id="musicSetting" name="musicSetting" class="form-control" value="{{ implode(',', $settingsection->musicSetting ?? []) }}">
+                                <br>
+                                <label for="musicVolume">Music Volume:</label>
+                                <input type="text" id="musicVolume" name="musicVolume" class="form-control" value="{{ $settingsection->musicVolume ?? 50 }}">
+                                <label for="messagesRingtone">Messages:</label>
+                                <input type="text" id="messagesRingtone" name="messagesRingtone" class="form-control" value="{{ $settingsection->messagesRingtone ?? '' }}"><br>
+                                <label for="callRingtone">Call:</label>
+                                <input type="text" id="callRingtone" name="callRingtone" class="form-control" value="{{ $settingsection->callRingtone ?? '' }}"><br>
+                                <label for="notificationsRingtone">Notifications:</label>
+                                <input type="text" id="notificationsRingtone" name="notificationsRingtone" class="form-control" value="{{ $settingsection->notificationsRingtone ?? '' }}">
+                                <label for="leaveReason">Leave Reason:</label>
+                                <input type="text" id="leaveReason" name="leaveReason" class="form-control" value="{{ implode(',', $settingsection->leaveReason ?? []) }}">
+                                <br>
+                                <label for="describeReason">Describe:</label>
+                                <input type="text" id="describeReason" name="describeReason" class="form-control" value="{{ $settingsection->describeReason ?? '' }}">
+                                <label for="contactType">Contact Type:</label>
+                                <input type="text" id="contactType" name="contactType" class="form-control" value="{{ $settingsection->contactType ?? '' }}">
+                                <br>
+                                <label for="message">Message:</label>
+                                <input type="text" id="message" name="message" class="form-control" value="{{ $settingsection->message ?? '' }}">
+                                 
+                               
+                                
                             </div>
                             
                         </div>
