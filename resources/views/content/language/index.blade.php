@@ -1327,14 +1327,17 @@
                                                                                     <td>Home page App Policy </td>
                                                                                     <td>
                                                                                         <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
+                                                                                            <div class="progress-bar bg-success text-white text-center"
                                                                                                 role="progressbar"
                                                                                                 style="width: {{ $app_policyTotal > 0 ? ($app_policyDone / $app_policyTotal) * 100 : 0 }}%;"
                                                                                                 aria-valuenow="{{ $app_policyTotal > 0 ? ($app_policyDone / $app_policyTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($app_policyTotal > 0 ? ($app_policyDone / $app_policyTotal) * 100 : 0, 1) }}%
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
+                                                                                    
                                                                                     <td>{{ $app_policyDone }}</td>
                                                                                     <td>{{ $app_policyTotal - $app_policyDone }}
                                                                                     </td>
