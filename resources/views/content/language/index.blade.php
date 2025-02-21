@@ -1502,53 +1502,23 @@
                                                                             </thead>
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <td>Footer Quick Launcher Sections</td>
+                                                                                    <td>Setting Overview Section</td>
                                                                                     <td>
                                                                                         <div class="progress">
                                                                                             <div class="progress-bar bg-success"
                                                                                                 role="progressbar"
-                                                                                                style="width: {{ $footerQuickTotal > 0 ? ($footerQuickDone / $footerQuickTotal) * 100 : 0 }}%;"
-                                                                                                aria-valuenow="{{ $footerQuickTotal > 0 ? ($footerQuickDone / $footerQuickTotal) * 100 : 0 }}"
+                                                                                                style="width: {{ $settingoverviewTotal > 0 ? ($settingoverviewDone / $settingoverviewTotal) * 100 : 0 }}%;"
+                                                                                                aria-valuenow="{{ $settingoverviewTotal > 0 ? ($settingoverviewDone / $settingoverviewTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
                                                                                                 aria-valuemax="100"></div>
                                                                                         </div>
                                                                                     </td>
-                                                                                    <td>{{ $footerQuickDone }}</td>
-                                                                                    <td>{{ $footerQuickTotal - $footerQuickDone }}
+                                                                                    <td>{{ $settingoverviewDone }}</td>
+                                                                                    <td>{{ $settingoverviewTotal - $settingoverviewDone }}
                                                                                     </td>
                                                                                     <td>
                                                                                         <span data-bs-toggle="modal"
-                                                                                            data-bs-target="#footerQuickSectionModal{{ $language->id }}">
-                                                                                            <button class="btn"
-                                                                                                data-bs-toggle="tooltip"
-                                                                                                data-bs-offset="0,4"
-                                                                                                data-bs-placement="top"
-                                                                                                data-bs-html="true"
-                                                                                                data-bs-original-title="Edit">
-                                                                                                <i class="bx bx-edit"></i>
-                                                                                            </button>
-                                                                                        </span>
-                                                                                    </td>
-                                                                                </tr>
-
-                                                                                <tr>
-                                                                                    <td>Footer Cart Sections</td>
-                                                                                    <td>
-                                                                                        <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
-                                                                                                role="progressbar"
-                                                                                                style="width: {{ $footerCartTotal > 0 ? ($footerCartDone / $footerCartTotal) * 100 : 0 }}%;"
-                                                                                                aria-valuenow="{{ $footerCartTotal > 0 ? ($footerCartDone / $footerCartTotal) * 100 : 0 }}"
-                                                                                                aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td>{{ $footerCartDone }}</td>
-                                                                                    <td>{{ $footerCartTotal - $footerCartDone }}
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <span data-bs-toggle="modal"
-                                                                                            data-bs-target="#footercart{{ $language->id }}"
+                                                                                            data-bs-target="#settingoverview{{ $language->id }}"
                                                                                             onclick="openSectionModal('alert')">
                                                                                             <button class="btn"
                                                                                                 data-bs-toggle="tooltip"
@@ -1562,23 +1532,23 @@
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>Footer Friends Sections</td>
+                                                                                    <td>Setting Section</td>
                                                                                     <td>
                                                                                         <div class="progress">
                                                                                             <div class="progress-bar bg-success"
                                                                                                 role="progressbar"
-                                                                                                style="width: {{ $footerFriendsTotal > 0 ? ($footerFriendsDone / $footerFriendsTotal) * 100 : 0 }}%;"
-                                                                                                aria-valuenow="{{ $footerFriendsTotal > 0 ? ($footerFriendsDone / $footerFriendsTotal) * 100 : 0 }}"
+                                                                                                style="width: {{ $settingSectionTotal > 0 ? ($settingSectionDone / $settingSectionTotal) * 100 : 0 }}%;"
+                                                                                                aria-valuenow="{{ $settingSectionTotal > 0 ? ($settingSectionDone / $settingSectionTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
                                                                                                 aria-valuemax="100"></div>
                                                                                         </div>
                                                                                     </td>
-                                                                                    <td>{{ $footerFriendsDone }}</td>
-                                                                                    <td>{{ $footerFriendsTotal - $footerFriendsDone }}
+                                                                                    <td>{{ $settingSectionDone }}</td>
+                                                                                    <td>{{ $settingSectionTotal - $settingSectionDone }}
                                                                                     </td>
                                                                                     <td>
                                                                                         <span data-bs-toggle="modal"
-                                                                                            data-bs-target="#footerfriendssection{{ $language->id }}"
+                                                                                            data-bs-target="#settingsectionsok{{ $language->id }}"
                                                                                             onclick="openSectionModal('alert')">
                                                                                             <button class="btn"
                                                                                                 data-bs-toggle="tooltip"
@@ -1591,6 +1561,37 @@
                                                                                         </span>
                                                                                     </td>
                                                                                 </tr>
+                                                                                   
+                                                                        <tr>
+                                                                            <td>My Profile  Section</td>
+                                                                            <td>
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar bg-success"
+                                                                                        role="progressbar"
+                                                                                        style="width: {{ $myProfileHomeTotal > 0 ? ($myProfileHomeDone / $myProfileHomeTotal) * 100 : 0 }}%;"
+                                                                                        aria-valuenow="{{ $myProfileHomeTotal > 0 ? ($myProfileHomeDone / $myProfileHomeTotal) * 100 : 0 }}"
+                                                                                        aria-valuemin="0"
+                                                                                        aria-valuemax="100"></div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>{{ $myProfileHomeDone }}</td>
+                                                                            <td>{{ $myProfileHomeTotal - $myProfileHomeDone }}
+                                                                            </td>
+                                                                            <td>
+                                                                                <span data-bs-toggle="modal"
+                                                                                    data-bs-target="#myprofilesection{{ $language->id }}"
+                                                                                    onclick="openSectionModal('alert')">
+                                                                                    <button class="btn"
+                                                                                        data-bs-toggle="tooltip"
+                                                                                        data-bs-offset="0,4"
+                                                                                        data-bs-placement="top"
+                                                                                        data-bs-html="true"
+                                                                                        data-bs-original-title="Edit">
+                                                                                        <i class="bx bx-edit"></i>
+                                                                                    </button>
+                                                                                </span>
+                                                                            </td>
+                                                                        </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
