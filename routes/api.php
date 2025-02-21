@@ -151,8 +151,7 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
   Route::get('countries', [CountryController::class, 'index'])->name('countries.index');
 
   Route::get('/nationality', [CountryController::class, 'getNationality'])->name('nationality');
-
-  Route::post('countries', [CountryController::class, 'store'])->name('countries.store');
+ 
   Route::put('countries/{id}', [CountryController::class, 'update'])->name('countries.update');
   Route::delete('countries/{id}', [CountryController::class, 'destroy'])->name('countries.destroy');
 
@@ -289,7 +288,7 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
   //Manage Cards
 Route::get('/list-cards', [StoryController::class, 'Listcard'])->name('list.cards');
 Route::post('/list-cards-store', [StoryController::class, 'Cardstore'])->name('list.cards.store');
-Route::delete('/list-card/{card}', [StoryController::class, 'destroycard'])->name('list.cards.delete');
+Route::delete('/list-card/{card}', [StoryController::class, 'destroycard'])->name('list.cards.delete2');
 Route::get('story/ManageStories', [StoryController::class, 'ManageStories']);
 Route::get('stories_time', [StoryController::class, 'storage_setting']);
 Route::post('/story-time', [StoryController::class, 'storetime'])->name('story.time.store');
