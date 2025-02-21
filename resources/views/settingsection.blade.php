@@ -29,29 +29,29 @@ $settingsection = App\Models\SectionSetting::where('language_id', $language->id)
                             <div class="col-md-6">
                                 <h6>My Account</h6>
                                 <label for="setNewPassword">Set New Password:</label>
-                                <input type="password" id="setNewPassword" name="setNewPassword" class="form-control" value="{{ $settingsection->setNewPassword ?? '' }}">
+                                <input type="text" id="setNewPassword" name="setNewPassword" class="form-control" value="{{ $settingsection->setNewPassword ?? '' }}">
                                 <br>
                                 <label for="oldPassword">Old Password:</label>
-                                <input type="password" id="oldPassword" name="oldPassword" class="form-control" value="{{ $settingsection->oldPassword ?? '' }}">
+                                <input type="text" id="oldPassword" name="oldPassword" class="form-control" value="{{ $settingsection->oldPassword ?? '' }}">
                                 <br>
                                 <label for="newPassword">New Password:</label>
-                                <input type="password" id="newPassword" name="newPassword" class="form-control" value="{{ $settingsection->newPassword ?? '' }}">
+                                <input type="text" id="newPassword" name="newPassword" class="form-control" value="{{ $settingsection->newPassword ?? '' }}">
                                 <br>
                                 <label for="confirmNewPassword">Confirm New Password:</label>
-                                <input type="password" id="confirmNewPassword" name="confirmNewPassword" class="form-control" value="{{ $settingsection->confirmNewPassword ?? '' }}">
+                                <input type="text" id="confirmNewPassword" name="confirmNewPassword" class="form-control" value="{{ $settingsection->confirmNewPassword ?? '' }}">
                             </div>
                             <div class="col-md-6">
                                 <label for="email">E-Mail:</label>
-                                <input type="email" id="email" name="email" class="form-control" value="{{ $settingsection->email ?? '' }}">
+                                <input type="text" id="email" name="email" class="form-control" value="{{ $settingsection->email ?? '' }}">
                                 <br>
                                 <label for="oldEmail">Old E-Mail:</label>
-                                <input type="email" id="oldEmail" name="oldEmail" class="form-control" value="{{ $settingsection->oldEmail ?? '' }}">
+                                <input type="text" id="oldEmail" name="oldEmail" class="form-control" value="{{ $settingsection->oldEmail ?? '' }}">
                                 <br>
                                 <label for="newEmail">New E-Mail:</label>
-                                <input type="email" id="newEmail" name="newEmail" class="form-control" value="{{ $settingsection->newEmail ?? '' }}">
+                                <input type="text" id="newEmail" name="newEmail" class="form-control" value="{{ $settingsection->newEmail ?? '' }}">
                                 <br>
                                 <label for="repeatNewEmail">Repeat New E-Mail:</label>
-                                <input type="email" id="repeatNewEmail" name="repeatNewEmail" class="form-control" value="{{ $settingsection->repeatNewEmail ?? '' }}">
+                                <input type="text" id="repeatNewEmail" name="repeatNewEmail" class="form-control" value="{{ $settingsection->repeatNewEmail ?? '' }}">
                             </div>
                         </div>
 
