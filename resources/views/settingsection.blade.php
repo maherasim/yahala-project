@@ -27,7 +27,7 @@ $settingsection = App\Models\SectionSetting::where('language_id', $language->id)
                         <!-- My Account -->
                         <div class="row mt-4">
                             <div class="col-md-6">
-                                <h6>My Account</h6>
+                                <h6>My Accoun as</h6>
                                 <label for="setNewPassword">Set New Password:</label>
                                 <input type="text" id="setNewPassword" name="setNewPassword" class="form-control" value="{{ $settingsection->setNewPassword ?? '' }}">
                                 <br>
