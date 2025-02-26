@@ -322,7 +322,7 @@ Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list
     'destroy',
     'update',
   ]);
-  Route::get('feedreasons', [ReasonController::class, 'index'])->name('stories.reasons');
+  Route::get('feedreasons', [FeedsController::class, 'feedindex'])->name('stories.reasons');
            
   Route::resource('/storysong', SongController::class);
   Route::resource('/storysong', SongController::class)->names([

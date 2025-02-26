@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Models\Feed;
+use App\Models\FeedReason;
 use App\Models\News;
 use FFMpeg\FFMpeg;
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +22,16 @@ class FeedsController extends Controller
     {
         $feeds = Feed::orderBy('created_at', 'desc')->get();
         return response()->json(['feeds' => $feeds], 200);
+    }
+    public function feedindex()
+    {
+        try {
+            $reasons = FeedReason::all();
+            return response()->json(['status' => true, 'data' => $reasons], 200);
+        } catch (\Exception $e) {
+            Log::error('Error fetching reasons: ' . $e->getMessage());
+            return response()->json(['status' => false, 'message' => 'Failed to fetch reasons'], 500);
+        }
     }
 
     public function news()
