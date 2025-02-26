@@ -4,6 +4,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\EmojiFeedController;
+use App\Http\Controllers\Api\BackgroundFeedController;
+use App\Http\Controllers\Api\FeedsController;
 use App\Http\Controllers\Api\BazarController;
 use App\Http\Controllers\Api\AdminActivityController;
 use App\Http\Controllers\Api\EventController;
@@ -129,6 +132,23 @@ Route::get('/user-personal-profile', [AuthController::class, 'userprofile'])->na
 
 
 
+ Route::get('/feed-background', [BackgroundFeedController::class, 'index'])->name('feed.background');
+
+
+
+
+
+
+ //News Feed Section
+Route::post('news-feeds', [FeedsController::class, 'news_store']);
+Route::get('news-feeds', [FeedsController::class, 'news']);
+
+//Feed section
+Route::post('feeds', [FeedsController::class, 'store']);
+Route::get('feeds', [FeedsController::class, 'index']);
+//Event Section
+Route::post('events', [FeedsController::class, 'store_event']);
+Route::get('events', [FeedsController::class, 'index']);
 
 
 
@@ -435,6 +455,13 @@ Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list
   // Feed image background
   Route::post('/upload-background', [FeedBackgroundImageController::class, 'upload'])->name('upload-background');
   Route::get('/get-background', [FeedBackgroundImageController::class, 'get'])->name('get-background');
+
+  // Feed emojis
+  Route::get('emojis', [EmojiFeedController::class, 'index']);
+  Route::post('emojis', [EmojiFeedController::class, 'store']);
+
+
+
 
   // collectoin feed
   Route::post('/add-collection', [CollectionController::class, 'insert'])->name('add-collection');
