@@ -610,7 +610,7 @@ Route::post('/languages/keyword/section/donation', [LanguageController::class, '
         
             Route::view('/app/portal-notification', 'content.apps.app-portal-notification')->name('app.portal.notification');
         
-            Route::get('yekbun-location/countries', [CountryController::class, 'index'])->name('yekbun_location.countries.index');
+            Route::get('yahala-location/countries', [CountryController::class, 'index'])->name('yekbun_location.countries.index');
         
             Route::get('/app/popup', $controller_path . '\apps\popup\Popup@index')->name('app.popup');
         
