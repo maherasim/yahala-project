@@ -30,7 +30,7 @@ class CountryController extends Controller
     
     public function showcountries()
     {
-        $country_list = Country::orderBy('name', 'asc')->paginate(20);
+        $country_list = Country::orderBy('name', 'asc')->get();
   
         return response()->json([
             'country_list' => $country_list
