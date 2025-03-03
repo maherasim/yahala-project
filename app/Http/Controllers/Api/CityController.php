@@ -26,6 +26,22 @@ class CityController extends Controller
         ]);
     }
 
+    public function getCitiesByCountry($country_id)
+    {
+        $cities = City::where('country_id', $country_id)
+                      ->orderBy("name", "ASC")
+                      ->paginate(50); // Paginate to avoid overload
+    
+        return response()->json([
+            'cities' => $cities
+        ]);
+    }
+    
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.

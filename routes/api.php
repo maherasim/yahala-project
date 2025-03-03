@@ -413,6 +413,13 @@ Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list
   //Cities
   Route::resource('/cities', CityController::class);
 
+  Route::get('/cities/{country_id}', [CityController::class, 'getCitiesByCountry']);
+
+
+
+
+
+
   Route::post('/searchlocation', [CountryController::class, 'search_location']);
 
   // Privacy and Policy
