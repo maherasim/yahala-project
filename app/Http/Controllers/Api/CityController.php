@@ -19,10 +19,9 @@ class CityController extends Controller
      */
     public function index()
     {
-        $cities = City::orderBy("name", "ASC")->get();
-        
-        return response()->json([
-             
+        $cities = City::orderBy("name", "ASC")->paginate(100); 
+    
+        return response()->json([             
             'cities' => $cities
         ]);
     }
