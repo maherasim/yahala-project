@@ -11,7 +11,7 @@ class CitiesTableSeeder extends Seeder
     public function run()
     {
         // Read JSON file
-        $jsonFile = database_path('data/city.json');
+        $jsonFile = database_path('data/cities.json');
         $jsonData = json_decode(file_get_contents($jsonFile), true);
 
         foreach ($jsonData as $city) {
