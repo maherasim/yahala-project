@@ -31,7 +31,7 @@ class CityController extends Controller
         $cities = City::where('country_id', $country_id)
                       ->orderBy("name", "ASC")
                       ->paginate(50); // Paginate to avoid overload
-    
+    dd( $cities);
         return response()->json([
             'cities' => $cities
         ]);
