@@ -10,13 +10,15 @@ class CitiesTableSeeder extends Seeder
 {
     public function run()
     {
-        // Path to the JSON file
-        $jsonFile = database_path('data/cities.json');
-
-        // Decode the JSON data
+        // Read JSON file
+        $jsonFile = database_path('data/city.json');
         $jsonData = json_decode(file_get_contents($jsonFile), true);
 
         foreach ($jsonData as $city) {
+            // Ensure 'updated_at' and 'created_at' are properly formatted
+            $updatedAt = isset($city['updated_at']['$date']) ? strtotime($city['updated_at']['$date']) * 1000 : null;
+            $createdAt = isset($city['created_at']['$date']) ? strtotime($city['created_at']['$date']) * 1000 : null;
+
             City::updateOrCreate(
                 ['_id' => $city['_id']['$oid']], // Check by MongoDB ObjectId
                 [
@@ -24,8 +26,8 @@ class CitiesTableSeeder extends Seeder
                     'name' => $city['name'],
                     'state_id' => $city['state_id'],
                     'country_id' => $city['country_id'],
-                    'updated_at' => new UTCDateTime(strtotime($city['updated_at']['$date']) * 1000),
-                    'created_at' => new UTCDateTime(strtotime($city['created_at']['$date']) * 1000),
+                    'updated_at' => $updatedAt ? new UTCDateTime($updatedAt) : null,
+                    'created_at' => $createdAt ? new UTCDateTime($createdAt) : null,
                 ]
             );
         }
