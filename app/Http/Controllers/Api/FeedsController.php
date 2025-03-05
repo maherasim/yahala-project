@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Models\Feed;
-use App\Models\FeedReason;
 use App\Models\News;
 use FFMpeg\FFMpeg;
 use Illuminate\Support\Facades\Auth;
@@ -21,29 +20,19 @@ class FeedsController extends Controller
     public function index()
     {
         $feeds = Feed::orderBy('created_at', 'desc')->get();
-        return response()->json(['feeds' => $feeds], 200);
-    }
-    public function feedindex()
-    {
-        try {
-            $reasons = FeedReason::all();
-            return response()->json(['status' => true, 'data' => $reasons], 200);
-        } catch (\Exception $e) {
-            Log::error('Error fetching reasons: ' . $e->getMessage());
-            return response()->json(['status' => false, 'message' => 'Failed to fetch reasons'], 500);
-        }
+        return response()->json(['feeds' => $feeds, 'success' => true], 200);
     }
 
     public function news()
     {
         $news = News::orderBy('created_at', 'desc')->get();
-        return response()->json(['news' => $news], 200);
+        return response()->json(['news' => $news, 'success' => true], 200);
     }
 
     public function events()
     {
         $events = Event::orderBy('created_at', 'desc')->get();
-        return response()->json(['events' => $events], 200);
+        return response()->json(['events' => $events, 'success' => true], 200);
     }
 
     public function store_news(Request $request)
@@ -77,9 +66,9 @@ class FeedsController extends Controller
         $news->emotion = (int)$request->emotion ?? 0;
         $news->status = $request->status;
         if ($news->save()) {
-            return response()->json(['message' => 'News Feed has been created Successfully', 'news' => $news], 201);
+            return response()->json(['message' => 'News Feed has been created Successfully', 'news' => $news, 'success' => true], 201);
         } else {
-            return response()->json(['message' => 'Something went Wrong!'], 403);
+            return response()->json(['message' => 'Something went Wrong!', 'success' => false], 403);
         }
     }
 
@@ -100,9 +89,9 @@ class FeedsController extends Controller
         $event->start_time = $request->start_time;
         $event->end_time = $request->end_time;
         if ($event->save()) {
-            return response()->json(['message' => 'Event has been created Successfully', 'event' => $event], 201);
+            return response()->json(['message' => 'Event has been created Successfully', 'event' => $event, 'success' => true], 201);
         } else {
-            return response()->json(['message' => 'Something went Wrong!'], 403);
+            return response()->json(['message' => 'Something went Wrong!', 'success' => false], 403);
         }
     }
 
@@ -113,8 +102,8 @@ class FeedsController extends Controller
             'feed_type' => 'required',
         ]);
         $feeds = new Feed();
-// dd($request->all());
-        if($request->feed_type == 'text'){
+        // dd($request->all());
+        if ($request->feed_type == 'text') {
             $feeds->background_image = $request->background_image;
             $feeds->text_color = $request->text_color;
         }
@@ -127,40 +116,42 @@ class FeedsController extends Controller
         $feeds->user_type = $request->user_type;
         $feeds->feed_type = $request->feed_type;
         $images = [];
-$videos = [];
+        $videos = [];
 
-// Handle multiple image uploads
-if ($request->hasFile('images')) {
-    foreach ($request->file('images') as $image) {
-        $images[] = [
-            'path' => $image->store('images/user_feeds'),
-            'name' => $image->getClientOriginalName(),
-            'size' => $image->getSize(),
-        ];
-    }
-    $feeds->images = $images; // Store as an array of objects in MongoDB
-}
+        // Handle multiple image uploads
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $uniqueName = uniqid() . '___' . str_replace(' ', '_', $image->getClientOriginalName());
+                $images[] = [
+                    'path' => $image->storeAs("images/user_feeds", $uniqueName, "public"),
+                    'name' => $image->getClientOriginalName(),
+                    'size' => $image->getSize(),
+                ];
+            }
+            $feeds->images = $images; // Store as an array of objects in MongoDB
+        }
 
-// Handle multiple video uploads
-if ($request->hasFile('videos')) {
-    foreach ($request->file('videos') as $video) {
-        $videos[] = [
-            'path' => $video->store('videos/user_feeds'),
-            'name' => $video->getClientOriginalName(),
-            'size' => $video->getSize(),
-            // 'length' => $this->getMediaDuration($video), // Optional
-        ];
-    }
-    $feeds->videos = $videos; // Store as an array of objects in MongoDB
-}
+        // Handle multiple video uploads
+        if ($request->hasFile('videos')) {
+            foreach ($request->file('videos') as $video) {
+                $uniqueName = uniqid() . '___' . str_replace(' ', '_', $video->getClientOriginalName());
+                $videos[] = [
+                    'path' => $video->storeAs("videos/user_feeds", $uniqueName, "public"),
+                    'name' => $video->getClientOriginalName(),
+                    'size' => $video->getSize(),
+                    // 'length' => $this->getMediaDuration($video), // Optional
+                ];
+            }
+            $feeds->videos = $videos; // Store as an array of objects in MongoDB
+        }
 
-// Save the feed
-$feeds->save();
+        // Save the feed
+        $feeds->save();
 
         if ($feeds->save()) {
-            return response()->json(['message' => 'Feed has been created Successfully', 'feed' => $feeds], 201);
+            return response()->json(['message' => 'Feed has been created Successfully', 'feed' => $feeds, 'success' => true], 201);
         } else {
-            return response()->json(['message' => 'Something went Wrong!'], 403);
+            return response()->json(['message' => 'Something went Wrong!', 'success' => false], 403);
         }
     }
 
