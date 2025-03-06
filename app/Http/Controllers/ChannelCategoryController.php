@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Channel;
@@ -15,12 +15,12 @@ class ChannelCategoryController extends Controller
         /* Handle the file upload */
         if ($request->hasFile('banner')) {
             $file = $request->file('banner');
-    
+
             /* Check if file is valid */
             if ($file->isValid()) {
-                $originalFileName = $file->getClientOriginalName(); 
-                $filePath = $file->storeAs('channel-banners', $originalFileName, 'public'); 
-    
+                $originalFileName = $file->getClientOriginalName();
+                $filePath = $file->storeAs('channel-banners', $originalFileName, 'public');
+
                 $fileUrl = Storage::url($filePath);
             } else {
                 return back()->with('error', 'Uploaded file is not valid');
@@ -45,7 +45,7 @@ class ChannelCategoryController extends Controller
             return redirect()->back()->with('success', 'Your Channel has been created');
         } else {
             return redirect()->back()->with('error', 'OOps try again!');
-        } 
+        }
     }
 
     public function destroy_channel($id) {
@@ -75,18 +75,18 @@ class ChannelCategoryController extends Controller
         /* Handle the file upload */
         if ($request->hasFile('banner')) {
             $file = $request->file('banner');
-    
+
             /* Check if file is valid */
-            if ($file->isValid()) {                
-                $originalFileName = $file->getClientOriginalName(); 
-                $filePath = $file->storeAs('channel-banners', $originalFileName, 'public'); 
-    
+            if ($file->isValid()) {
+                $originalFileName = $file->getClientOriginalName();
+                $filePath = $file->storeAs('channel-banners', $originalFileName, 'public');
+
                 $channel->banner = $filePath;
             } else {
                 return back()->with('error', 'Uploaded file is not valid');
             }
 
-        } 
+        }
 
         $channel->name = $request->input('name');
 
@@ -94,18 +94,18 @@ class ChannelCategoryController extends Controller
             return redirect()->back()->with('success', 'Your Channel has been updated');
         } else {
             return redirect()->back()->with('error', 'Oops try again!');
-        } 
+        }
     }
 
     public function add_channel_subcategory(Request $request) {
         if ($request->hasFile('banner')) {
             $file = $request->file('banner');
-    
+
             /* Check if file is valid */
             if ($file->isValid()) {
-                $originalFileName = $file->getClientOriginalName(); 
-                $filePath = $file->storeAs('channel_subcategory-banners', $originalFileName, 'public'); 
-    
+                $originalFileName = $file->getClientOriginalName();
+                $filePath = $file->storeAs('channel_subcategory-banners', $originalFileName, 'public');
+
             } else {
                 return back()->with('error', 'Uploaded file is not valid');
             }
@@ -130,19 +130,19 @@ class ChannelCategoryController extends Controller
             return redirect()->back()->with('success', 'Your Channel subcategory has been created');
         } else {
             return redirect()->back()->with('error', 'Oops try again!');
-        } 
+        }
     }
     public function edit_channel_subcategory(Request $request, $id) {
         $subcategory = ChannelSubcategory::findOrFail($id);
 
         if ($request->hasFile('banner')) {
             $file = $request->file('banner');
-    
+
             /* Check if file is valid */
             if ($file->isValid()) {
-                $originalFileName = $file->getClientOriginalName(); 
-                $filePath = $file->storeAs('channel_subcategory-banners', $originalFileName, 'public'); 
-    
+                $originalFileName = $file->getClientOriginalName();
+                $filePath = $file->storeAs('channel_subcategory-banners', $originalFileName, 'public');
+
                 $subcategory->banner = $filePath;
             } else {
                 return back()->with('error', 'Uploaded file is not valid');
@@ -164,7 +164,7 @@ class ChannelCategoryController extends Controller
             return redirect()->back()->with('success', 'Your Channel subcategory has been updated');
         } else {
             return redirect()->back()->with('error', 'Oops try again!');
-        } 
+        }
     }
 
     public function destroy_channel_subcategory($id) {
