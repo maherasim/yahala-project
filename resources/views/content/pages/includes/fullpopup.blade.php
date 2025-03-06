@@ -1358,7 +1358,7 @@ margin-top: 5px;
   border-radius: 7px;
   transition: transform 0.2s ease;
 ">
-              <img src="{{ asset('assets/svg/svg-dialog/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <img src="{{ asset('assets/svg/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
               <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
             </button>
 
@@ -1887,7 +1887,7 @@ margin-top: 5px;
 <input class="options_btns button2Modal8" type="radio" name="option_2" value="educated">
 
 
-              <img src="{{ asset('assets/svg/svg-dialog/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <img src="{{ asset('assets/svg/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
               <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
 </label>
 
@@ -2935,7 +2935,7 @@ margin-top: 5px;
 <input class="options_btns button2Modal8" type="radio" name="option" value="educated">
 
 
-              <img src="{{ asset('assets/svg/svg-dialog/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <img src="{{ asset('assets/svg/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
               <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
 </label>
 
@@ -3240,7 +3240,7 @@ margin-top: 5px;
 <input class="options_btns button2Modal8_3" type="radio" name="option_3" value="educated">
 
 
-              <img src="{{ asset('assets/svg/svg-dialog/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <img src="{{ asset('assets/svg/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
               <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
 </label>
 
@@ -3710,7 +3710,7 @@ margin-top: 5px;
 <input class="options_btns button2Modal8_3" type="radio" name="option_3" value="educated">
 
 
-              <img src="{{ asset('assets/svg/svg-dialog/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <img src="{{ asset('assets/svg/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
               <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
 </label>
 
@@ -4017,7 +4017,7 @@ margin-top: 5px;
 <input class="options_btns button2Modal8_4" type="radio" name="option_4" value="educated">
 
 
-              <img src="{{ asset('assets/svg/svg-dialog/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <img src="{{ asset('assets/svg/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
               <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
 </label>
 
@@ -4845,7 +4845,7 @@ gap: 5px;">
     border-radius: 7px;
     transition: transform 0.2s ease;
   ">
-              <img src="{{ asset('assets/svg/svg-dialog/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <img src="{{ asset('assets/svg/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
               <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
             </button>
 
@@ -5247,7 +5247,7 @@ gap: 5px;">
                               <label id="button2Modal8_9" class="toggle-buttonModal8" style="background:rgb(242, 242, 242)"
                               onclick='toggleColor("button2Modal8_9")'><input class="options_btns button2Modal8"
                                   type="radio" name="option_5" value="educated"> <img
-                                  src="{{ asset('assets/svg/svg-dialog/Yahala_Edcucated_Icon.svg') }}" alt="Educated"
+                                  src="{{ asset('assets/svg/Yahala_Edcucated_Icon.svg') }}" alt="Educated"
                                   style="width:55px;height:55px"><span
                                   style="font-size:12px;font-weight:700;margin-top:5px;font-family:Genos;color:gray">Educated</span></label>
 
@@ -5964,7 +5964,7 @@ margin-top: 5px;
   border-radius: 7px;
   transition: transform 0.2s ease;
 ">
-              <img src="{{ asset('assets/svg/svg-dialog/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <img src="{{ asset('assets/svg/Yahala_Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
               <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
             </button>
 
