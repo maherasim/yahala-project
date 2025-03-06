@@ -247,7 +247,7 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
 Route::get('/welcome', [AdminProfileController::class, 'welcome'])->name('welcome');
 
 Route::get('/login', [LoginController::class, 'index'])
-    ->name('admin.login')
+    // ->name('admin.login')
     ->middleware('guest');
 
 Route::post('/login', [LoginController::class, 'authenticate'])
