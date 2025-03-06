@@ -28594,8 +28594,8 @@ body.is-dark .error-container .error-wrapper .error-inner h3 {
 
 .card.is-post .content-wrap .card-footer .likers-group img,
 .shop-wrapper .cart-container .cart-content .cart-summary .is-post.summary-card .content-wrap .card-footer .likers-group img {
-  height: 38px;
-  width: 38px;
+  height: 32px;
+  width: 32px;
   border-radius: 50%;
   border: 3px solid #fff
 }

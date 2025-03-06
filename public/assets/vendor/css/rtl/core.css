@@ -5029,7 +5029,7 @@ textarea.form-control-lg {
 }
 
 .modal-backdrop {
-  --bs-backdrop-zindex: 1047;
+  --bs-backdrop-zindex: 9999;
   --bs-backdrop-bg: #435971;
   --bs-backdrop-opacity: 0.5;
   position: fixed;
