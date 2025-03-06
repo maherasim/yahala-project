@@ -128,7 +128,7 @@ Route::get('/user-personal-profile', [AuthController::class, 'userprofile'])->na
 
 
  
- Route::middleware('verify.token')->get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin_profile');
+ Route::middleware('verify.token')->get('/admin/profile', [AdminProfileController::class, 'index']);
 
 
 
