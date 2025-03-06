@@ -170,7 +170,7 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
 
   Route::get('countries', [CountryController::class, 'index'])->name('countries.index');
 
-  Route::get('/nationality', [CountryController::class, 'getNationality'])->name('nationality');
+  Route::get('/nationality', [CountryController::class, 'getNationality']);
  
   Route::put('countries/{id}', [CountryController::class, 'update'])->name('countries.update');
   Route::delete('countries/{id}', [CountryController::class, 'destroy'])->name('countries.destroy');
