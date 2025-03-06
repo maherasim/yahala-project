@@ -1358,8 +1358,8 @@ margin-top: 5px;
   border-radius: 7px;
   transition: transform 0.2s ease;
 ">
-              <img src="{{ asset('assets/svg/svg-dialog/educated.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
-              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated as</span>
+              <img src="{{ asset('assets/svg/svg-dialog/Yahala _Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
             </button>
 
             <button id="button3Modal12" class="toggle-buttonModal12" onclick="toggleColorModal12('button3Modal12')" style="
@@ -1887,8 +1887,8 @@ margin-top: 5px;
 <input class="options_btns button2Modal8" type="radio" name="option_2" value="educated">
 
 
-              <img src="{{ asset('assets/svg/svg-dialog/educated.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
-              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated as</span>
+              <img src="{{ asset('assets/svg/svg-dialog/Yahala _Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
 </label>
 
             <label  id="button3Modal8_2" class="toggle-buttonModal8 " onclick="toggleColor('button3Modal8_2')">
@@ -2935,8 +2935,8 @@ margin-top: 5px;
 <input class="options_btns button2Modal8" type="radio" name="option" value="educated">
 
 
-              <img src="{{ asset('assets/svg/svg-dialog/educated.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
-              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated as</span>
+              <img src="{{ asset('assets/svg/svg-dialog/Yahala _Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
 </label>
 
             <label  id="button3Modal8" class="toggle-buttonModal8 " onclick="toggleColor('button3Modal8')">
@@ -3240,8 +3240,8 @@ margin-top: 5px;
 <input class="options_btns button2Modal8_3" type="radio" name="option_3" value="educated">
 
 
-              <img src="{{ asset('assets/svg/svg-dialog/educated.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
-              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated as</span>
+              <img src="{{ asset('assets/svg/svg-dialog/Yahala _Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
 </label>
 
             <label  id="button3Modal8_3" class="toggle-buttonModal8 " onclick="toggleColor('button3Modal8_3')" >
@@ -3710,8 +3710,8 @@ margin-top: 5px;
 <input class="options_btns button2Modal8_3" type="radio" name="option_3" value="educated">
 
 
-              <img src="{{ asset('assets/svg/svg-dialog/educated.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
-              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated as</span>
+              <img src="{{ asset('assets/svg/svg-dialog/Yahala _Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
 </label>
 
             <label  id="button3Modal8_3" class="toggle-buttonModal8 " onclick="toggleColor('button3Modal8_3')" >
@@ -4017,8 +4017,8 @@ margin-top: 5px;
 <input class="options_btns button2Modal8_4" type="radio" name="option_4" value="educated">
 
 
-              <img src="{{ asset('assets/svg/svg-dialog/educated.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
-              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated asim</span>
+              <img src="{{ asset('assets/svg/svg-dialog/Yahala _Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
 </label>
 
             <label  id="button3Modal8_4" class="toggle-buttonModal8 " onclick="toggleColor('button3Modal8_4')" >
@@ -4845,8 +4845,8 @@ gap: 5px;">
     border-radius: 7px;
     transition: transform 0.2s ease;
   ">
-              <img src="{{ asset('assets/svg/svg-dialog/educated.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
-              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated asim</span>
+              <img src="{{ asset('assets/svg/svg-dialog/Yahala _Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
             </button>
 
             <button id="button3Modal9" class="toggle-buttonModal9" onclick="toggleColorModal9('button3Modal9')" style="
@@ -5247,9 +5247,9 @@ gap: 5px;">
                               <label id="button2Modal8_9" class="toggle-buttonModal8" style="background:rgb(242, 242, 242)"
                               onclick='toggleColor("button2Modal8_9")'><input class="options_btns button2Modal8"
                                   type="radio" name="option_5" value="educated"> <img
-                                  src="{{ asset('assets/svg/svg-dialog/educated.svg') }}" alt="Educated"
+                                  src="{{ asset('assets/svg/svg-dialog/Yahala _Edcucated_Icon.svg') }}" alt="Educated"
                                   style="width:55px;height:55px"><span
-                                  style="font-size:12px;font-weight:700;margin-top:5px;font-family:Genos;color:gray">Educated asim</span></label>
+                                  style="font-size:12px;font-weight:700;margin-top:5px;font-family:Genos;color:gray">Educated</span></label>
 
                               <label
                               id="button3Modal8_9" class="toggle-buttonModal8" style="background:rgb(242, 242, 242)"
@@ -5964,7 +5964,7 @@ margin-top: 5px;
   border-radius: 7px;
   transition: transform 0.2s ease;
 ">
-              <img src="{{ asset('assets/svg/svg-dialog/educated.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
+              <img src="{{ asset('assets/svg/svg-dialog/Yahala _Edcucated_Icon.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
               <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
             </button>
 
