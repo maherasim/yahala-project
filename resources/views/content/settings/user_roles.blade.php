@@ -66,7 +66,7 @@ https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css
     <a type="button" class="nav-link justify-content-start nav-text-left {{ ucfirst($userLevel) == 'Premium' ? 'active' : '' }}" href="{{url('settings/user-roles/premium')}}" aria-selected="{{ ucfirst($userLevel) == 'Premium' ? 'true' : 'false' }}" tabindex="-1">
         <div class="d-flex justify-content-start align-items-center">
             <div class="avatar-wrapper">
-                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/userrole/icons/cultivated.svg')}}"
+                <div class="avatar avatar-sm me-3"><img src="{{asset('{{ asset('assets/svg/cul.svg')}}')}}"
                         alt="Avatar"></div>
             </div>
             <div class="d-flex flex-column genos-font">
