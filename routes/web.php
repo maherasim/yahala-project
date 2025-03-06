@@ -169,11 +169,11 @@ Route::group(['middleware' => 'permission:avatars.read'], function () {
     Route::get('/manage-avatars/', [AvatarsController::class, 'manag_avatars']);
     Route::get('/manage-avatars/{id}', [AvatarsController::class, 'manag_avatars']);
     Route::get('/get-avatars/{id}', [AvatarsController::class, 'get_avatars']);
-    
+
     Route::resource('/avatars', AvatarsController::class);
-    
+
     Route::get('/test-avatars', [AvatarsController::class, 'testavatar']);
-    
+
     });
 
 Route::resource('/settings/countrieslist', CountryLocationController::class);
@@ -220,6 +220,9 @@ Route::middleware('check.role:Super Admin')->group(function () {
     Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin_profile')->middleware('auth');
 
     Route::get("/admin_activity", [AdminProfileController::class, 'admin_activity'])->name('admin_activity');
+    Route::post("/admin_activity/postpops", [AdminProfileController::class, 'store_pops'])->name('postpops');
+    Route::get("/admin_activity/get-popfeeds", [AdminProfileController::class, 'get_popfeeds'])->name('get.popfeeds');
+    Route::post("/delete_popfeed", [AdminProfileController::class, 'delete_pops']);
     Route::post("/admin_activity/news", [AdminProfileController::class, 'store_news'])->name('admin_activity.store_news');
     Route::post("/admin_activity/event", [AdminProfileController::class, 'store_event'])->name('admin_activity.store_event');
     Route::post("/admin_activity/feeds", [AdminProfileController::class, 'store_feeds'])->name('admin_activity.store_feeds');
@@ -533,8 +536,8 @@ Route::middleware(['admin.auth', '2fa'])->group(function () use ($controller_pat
     Route::get('/series/{id}/thumbnail', [UploadMovieController::class, 'deleteImage'])->name('series.delete-thumbnail');
 
     //   Route::get('/currency', [CurrencyController::class, 'index'])->name('index');
-    
-    
+
+
 
 
 
@@ -603,19 +606,19 @@ Route::post('/languages/keyword/section/donation', [LanguageController::class, '
         Route::middleware('check.role:Super Admin')->group(function ( )  use ($controller_path) {
 
             Route::resource('/currency', CurrencyController::class);
-        
+
             Route::get('/app/user-income', $controller_path . '\apps\income\Income@userIncome')->name('app-user-income');
-        
+
             Route::get('/app/invoice/edit', $controller_path . '\apps\InvoiceEdit@index')->name('app-invoice-edit');
-        
+
             Route::view('/app/portal-notification', 'content.apps.app-portal-notification')->name('app.portal.notification');
-        
+
             Route::get('yahala-location/countries', [CountryController::class, 'index'])->name('yekbun_location.countries.index');
-        
+
             Route::get('/app/popup', $controller_path . '\apps\popup\Popup@index')->name('app.popup');
-        
+
             Route::get('app-setting/maintainance', [UserRolesController::class, 'standard'])->name('appsetting.maintainance');
-            
+
 
 
     Route::get('/app/user/storage', $controller_path . '\apps\popup\Popup@index')->name('user.storage');
@@ -630,9 +633,9 @@ Route::post('/add_channel_reason',[ChannelReasonController::class, 'add_reason']
 Route::put('/edit_channel_reason/{id}',[ChannelReasonController::class, 'edit_reason'])->name('edit.reason');
 Route::delete('/destory_reason/{id}',[ChannelReasonController::class, 'destroy_reason'])->name('destroy.reason');
 Route::get('/destroy_policy_desc/{id}',  [ChannelPolicyController::class, 'destroy_desc'])->name('destroy.desc');
-Route::get("/admin_activity", [AdminProfileController::class, 'admin_activity'])->name('admin_activity');
-Route::post("/admin_activity/postpops", [AdminProfileController::class, 'store_pops'])->name('postpops');
-Route::post("/delete_popfeed", [AdminProfileController::class, 'delete_pops']);
+// Route::get("/admin_activity", [AdminProfileController::class, 'admin_activity'])->name('admin_activity');
+// Route::post("/admin_activity/postpops", [AdminProfileController::class, 'store_pops'])->name('postpops');
+// Route::post("/delete_popfeed", [AdminProfileController::class, 'delete_pops']);
 //Channels
 Route::get('managecategories', [FlaggedUserController::class, 'managecategories'])->name('channels');
 
@@ -754,7 +757,7 @@ Route::delete('/list-reels-card/{card}', [ReelController::class, 'destroycard'])
                 'yekbun_location.countries.index'
             );
             Route::get('stories/reasons', [ReasonController::class, 'index'])->name('stories.reasons');
-           
+
             Route::resource('/countries', CountryController::class);
             //App Setting
             $controller_path = 'App\Http\Controllers';
@@ -790,8 +793,8 @@ Route::delete('/list-reels-card/{card}', [ReelController::class, 'destroycard'])
                 'update' => 'storysong.update',
                 'destroy' => 'storysong.destroy',
             ]);
-            
-            
+
+
             Route::resource('/bank-transfer', BankTransferController::class);
 
             Route::get('chats/prefix', [PrefixController::class, 'index'])->name('chats.prefix');
@@ -850,9 +853,9 @@ Route::delete('/list-reels-card/{card}', [ReelController::class, 'destroycard'])
     Route::post('/app/task/store', $controller_path . '\Task\Task@store')->name('app-task-store');
     Route::post('/app/task/update/{id}', $controller_path . '\Task\Task@update')->name('app-task-update');
     Route::delete('/app/task/delete/{id}', $controller_path . '\Task\Task@destroy')->name('app-task-delete');
-    
+
 });
-    
+
     Route::get('/upload_movies/{id}/{status}', [UploadMovieController::class, 'status'])->name('movies_status');
     Route::get('/movie_category/{id}/{status}', [UploadMovieCategoryController::class, 'status'])->name(
         'moviecat_status'
@@ -1012,7 +1015,7 @@ Route::delete('/advertisement-policy/{policy}', [AdvertismentController::class, 
 Route::post('advert-saveFileds', [AdvertismentController::class, 'saveFileds'])->name('adver.policy_and_terms.saveFileds');
 
 
- 
+
  Route::prefix('advertisement')->name('advertisement.')->group(function () {
     Route::match(['get', 'post'], 'advert/pricing', [AdvertismentController::class, 'pricing2'])->name('pricing');
 });
