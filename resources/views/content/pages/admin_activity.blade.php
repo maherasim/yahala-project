@@ -1367,7 +1367,7 @@
                                             <div class="pop_sub">
                                                 <div class="pop_head">
                                                     <div class="pop_tit"><img
-                                                            src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000003833.svg') }}"
+                                                            src="{{ asset('assets/svg/logoo.jpg') }}"
                                                             style="width:28px;height:28px;object-fit:cover">
                                                         <div class="pop_heading" style="">
                                                             <div class="pop_head_line" style="">
