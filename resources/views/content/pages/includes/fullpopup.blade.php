@@ -1359,7 +1359,7 @@ margin-top: 5px;
   transition: transform 0.2s ease;
 ">
               <img src="{{ asset('assets/svg/svg-dialog/educated.svg')}}" alt="Educated" style="width: 55px; height: 55px;" />
-              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
+              <span style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;"> asEducated</span>
             </button>
 
             <button id="button3Modal12" class="toggle-buttonModal12" onclick="toggleColorModal12('button3Modal12')" style="
