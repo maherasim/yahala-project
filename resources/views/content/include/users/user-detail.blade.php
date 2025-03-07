@@ -2,12 +2,11 @@
     <div class="card-body">
         <div class="user-avatar-section">
             <div class=" d-flex align-items-center flex-column">
-                <img style="border-radius:100%" class="img-fluid my-4"
+                <img style="border-radius:100%;width:110px;height:110px" class="img-fluid my-4"
                     src="{{ $user->image ? asset('storage/' . $user->image) : 'https://www.w3schools.com/howto/img_avatar.png' }}"
-                    height="110" width="110" alt="User avatar">
+                    alt="User avatar" onerror="this.src='https://www.w3schools.com/howto/img_avatar.png'">
                 <div class="user-info text-center">
-                    <h4 class="mb-2"><img height="20px"
-                            src="{{asset('assets/img/medal-ribbon.jpeg')}}">
+                    <h4 class="mb-2">
                         {{ $user->name ?? '' }} {{ $user->last_name ?? '' }}</h4>
                     {{-- <p class="mb-2"><img height="20px"
                             src="{{asset('assets/img/germany-flag-png.png')}}"> Rojava
@@ -15,7 +14,8 @@
                             src="{{asset('assets/img/germany-flag-png.png')}}"> Hannover
                     </p> --}}
                     <b>
-                        <p class="mb-2 ">{{$user->level == 0 ? 'Educated' : ($user->level == 1 ? 'Cultivated' : 'Academic')}} User</p>
+                        <p class="mb-2 "><img height="20px;width:20px"
+                            src="{{asset('assets/svg/svg-dialog/'.($user->level == 0 ? 'educated' : ($user->level == 1 ? 'cultivated' : 'academic')).'.svg')}}"> {{$user->level == 0 ? 'Educated' : ($user->level == 1 ? 'Cultivated' : 'Academic')}} User</p>
                     </b>
                     @if ($user->user_id)
                         <span>User Id: {{$user->user_id}}</span>
@@ -42,13 +42,12 @@
                     <span>{{$user->email ?? ''}}</span>
                 </li>
                 <li class="mb-3">
-                    <span class="fw-bold me-2">User Id:</span>
+                    <span class="fw-bold me-2">Phone Number:</span>
                     <br>
-                    <span>{{$user->_id ?? ''}}</span>
+                    <span>{{$user->phone ?? ''}}</span>
                 </li>
-                
                 <li class="mb-3">
-                    <span class="fw-bold me-2">Joining Date:</span>
+                    <span class="fw-bold me-2">Member Since:</span>
                     <br>
                     <span>{{ $user->created_at ? \Carbon\Carbon::parse($user->created_at)->format('d/m/Y') : ''}}</span>
                 </li>
@@ -57,11 +56,7 @@
                     <br>
                     <span>Germany</span>
                 </li>
-                <li class="mb-3">
-                    <span class="fw-bold me-2">City:</span>
-                    <br>
-                    <span>Hamburg</span>
-                </li>
+
 
 
             </ul>
