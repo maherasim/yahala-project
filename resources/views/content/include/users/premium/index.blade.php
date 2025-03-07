@@ -376,7 +376,7 @@
                     <div class="form-check custom-option custom-option-icon checked">
                         <label class="form-check-label custom-option-content" for="customRadioIcon1">
                             <span class="custom-option-body">
-                                <span class="custom-option-title"><img src="{{asset('assets/svg/svg-dialog/educated.svg')}}" alt="Educated" width="20"> Educated</span>
+                                <span class="custom-option-title"><img src="{{asset('assets/svg/edu.svg')}}" alt="Educated" width="20"> Educated</span>
                             </span>
                             <input name="level" class="form-check-input" type="radio" value="0"
                                 id="customRadioIcon1">
