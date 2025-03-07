@@ -388,7 +388,7 @@
                     <div class="form-check custom-option custom-option-icon checked">
                         <label class="form-check-label custom-option-content" for="customRadioIcon2">
                             <span class="custom-option-body">
-                                <span class="custom-option-title"><img src="{{asset('assets/svg/svg-dialog/cultivated.svg')}}" alt="Educated" width="20"> Cultivated</span>
+                                <span class="custom-option-title"><img src="{{asset('assets/svg/cul.svg')}}" alt="Educated" width="20"> Cultivated</span>
                             </span>
                             <input name="level" class="form-check-input" type="radio" value="1"
                                 id="customRadioIcon2">
@@ -400,7 +400,7 @@
                     <div class="form-check custom-option custom-option-icon checked">
                         <label class="form-check-label custom-option-content" for="customRadioIcon3">
                             <span class="custom-option-body">
-                                <span class="custom-option-title"><img src="{{asset('assets/svg/svg-dialog/academic.svg')}}" alt="Educated" width="20"> Academic</span>
+                                <span class="custom-option-title"><img src="{{asset('assets/svg/aca.svg')}}" alt="Educated" width="20"> Academic</span>
                             </span>
                             <input name="level" class="form-check-input" type="radio" value="2"
                                 id="customRadioIcon3" checked="">
