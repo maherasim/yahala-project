@@ -24,7 +24,7 @@ class CitiesTableSeeder extends Seeder
                 [
                     'cityid' => $city['cityid'],
                     'name' => $city['name'],
-                    'state_id' => $city['state_id'],
+                    'region_id' => $city['state_id'],
                     'country_id' => $city['country_id'],
                     'updated_at' => $updatedAt ? new UTCDateTime($updatedAt) : null,
                     'created_at' => $createdAt ? new UTCDateTime($createdAt) : null,
