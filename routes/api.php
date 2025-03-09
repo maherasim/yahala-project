@@ -9,6 +9,8 @@ use App\Http\Controllers\Api\FeedsController;
 use App\Http\Controllers\Api\BazarController;
 use App\Http\Controllers\Api\AdminActivityController;
 use App\Http\Controllers\Api\EventController;
+use App\Http\Controllers\Api\UserRolesController;
+
 use App\Http\Controllers\Api\AdminProfileController;
 use App\Http\Controllers\Api\MediaController;
 use App\Http\Controllers\SongController;
@@ -169,6 +171,19 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable']);
   Route::get('/homepagelanguage-section/{languageId}', [LanguageController::class, 'getShomepagelanguageByLanguageId']);
   Route::get('/app_policy-section/{languageId}', [LanguageController::class, 'getShomeApp_PolicyByLanguageId']);
   Route::get('/all-language-sections/{languageId}', [LanguageController::class, 'getAllSectionsByLanguageId']);
+
+
+
+  Route::prefix('user-roles')
+    ->group(function () {
+        Route::get('/educated', [UserRolesController::class, 'educated'])->name('educated');
+        Route::get('/cultivated', [UserRolesController::class, 'cultivated'])->name('cultivated');
+        Route::get('/academic', [UserRolesController::class, 'academic'])->name('academic');
+    });
+
+
+
+
 
 
   // Admin Activity

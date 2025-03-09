@@ -827,14 +827,14 @@ Route::delete('/list-reels-card/{card}', [ReelController::class, 'destroycard'])
 
             Route::delete('/member/{id}/image', [TeamMemberController::class, 'deleteMemberImage'])->name('user.delete-img');
             Route::prefix('user-roles')
-                ->name('user-roles.')
-                ->group(function () {
-                    Route::get('/standard', [UserRolesController::class, 'standard'])->name('standard');
-                    Route::get('/premium', [UserRolesController::class, 'premium'])->name('premium');
-                    Route::get('/vip', [UserRolesController::class, 'vip'])->name('vip');
-                    Route::get('/fanpage', [UserRolesController::class, 'fanpage'])->name('fanpage');
-                    Route::post('/update', [UserRolesController::class, 'update'])->name('update.permissions');
-                });
+            ->name('user-roles.')
+            ->group(function () {
+                Route::get('/educated', [UserRolesController::class, 'educated'])->name('educated');
+                Route::get('/cultivated', [UserRolesController::class, 'cultivated'])->name('cultivated');
+                Route::get('/academic', [UserRolesController::class, 'academic'])->name('academic');
+                Route::get('/fanpage', [UserRolesController::class, 'fanpage'])->name('fanpage');
+                Route::post('/update', [UserRolesController::class, 'update'])->name('update.permissions');
+            });
             Route::get('/reasons', [ReasonController::class, 'index'])->name('reasons');
 
             Route::get('/pricing', [PricingController::class, 'index'])->name('pricing');
