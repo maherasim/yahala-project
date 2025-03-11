@@ -39,7 +39,7 @@ $customizerHidden = 'customizer-hide';
               <span class="app-brand-logo demo login-logo">
                 {{-- @include('_partials.macros',["width"=>220]) --}}
 
-                    <img src = "{{ asset('assets/svg/logoo.jpg') }}" alt="Yahala"/>
+                    <img src = "{{ asset('assets/svg/bird_logo.svg') }}" alt="Yahala"/>
 
               </span>
               <!-- <span class="app-brand-text demo text-body fw-bolder">Yahala</span> -->

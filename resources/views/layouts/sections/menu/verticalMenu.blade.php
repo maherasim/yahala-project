@@ -111,8 +111,8 @@
                                     <div>Profile Banner</div>
                                 </a>
                             </li>
-                            <li class="menu-item {{ Request::is('settings/user-roles/standard') ? 'active' : '' }}">
-                                <a href="{{ url('/settings/user-roles/standard') }}" class="menu-link">
+                            <li class="menu-item {{ Request::is('settings/user-roles/educated') ? 'active' : '' }}">
+                                <a href="{{ url('/settings/user-roles/educated') }}" class="menu-link">
                                     <div>User Roles</div>
                                 </a>
                             </li>
@@ -1919,6 +1919,14 @@
             </a>
         </li>
     @endcan
+    @can('manageorigin.read')
+    <li class="menu-item {{ Request::is('settings/app-setting/app-info') ? 'active' : '' }}">
+        <a href="{{ route('yekbun_location.countries.index') }}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-info-square"></i>
+            <div>Manage Country</div>
+        </a>
+    </li>
+@endcan
 
     @can('addringtone.read')
         <li class="menu-item {{ Request::is('settings/app-setting/message-ringtone') ? 'active open' : (Request::is('settings/app-setting/call-ringtone') ? 'active open' : '') }}"

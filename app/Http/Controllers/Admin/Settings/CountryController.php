@@ -18,12 +18,7 @@ class CountryController extends Controller
     public function index()
     {
 
-        $n = new Country();
-        $n->name = "test";
-        //$n->save();
-        
-        //$countries = Country::orderBy("name", "ASC")->get();
-        $countries = Country::orderBy("name", "ASC")->get();
+        $countries = Country::select('name','flag_path')->orderBy("name", "ASC")->get();
 
         return view("content.settings.countries.index", compact("countries"));
     }
@@ -49,17 +44,17 @@ class CountryController extends Controller
             $flagpath = $filename;
         }
 
-        
+
 
         $cont = new Country();
         $cont->name = $request->name;
-       
+
         $cont->flag_path = $flagpath;
-        
+
 
         $cont->save();
-        
-        
+
+
         //$country = Country::create($validated);
 
         return back()->with("success", "Country successfully added.");

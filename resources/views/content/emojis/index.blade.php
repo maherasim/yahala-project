@@ -130,8 +130,8 @@
                                 <div class="post-image">
                                     <a data-fancybox="post1" data-lightbox-type="comments">
                                         <img src="{{ asset('storage/'.$emoji->image) }}" style="width: 375px;height:264px"
-                                            data-demo-src="{{ asset('storage/'.$emoji->image) }}"
-                                            data-user-popover="1" alt="">
+                                            data-demo-src="{{ asset('storage/'.$emoji->image) }}" data-user-popover="1"
+                                            onerror="this.onerror=null;this.src='{{$emoji->image}}';" alt="">
                                     </a>
                                 </div>
                             </div>

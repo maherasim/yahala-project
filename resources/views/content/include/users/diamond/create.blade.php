@@ -8,7 +8,7 @@
 
 @section('content')
 <h4 class="fw-bold py-3 mb-4">
-    <span class="text-muted fw-light">Users /</span> Add Premium User
+    <span class="text-muted fw-light">Users /</span> Add Diamond User
 </h4>
 <div class="row">
     <div class="col-12">
@@ -16,7 +16,7 @@
         <div id="sticky-wrapper" class="sticky-wrapper" style="height: 86.9375px;"><div class="card-header sticky-element bg-label-secondary d-flex justify-content-sm-between align-items-sm-center flex-column flex-sm-row" style="">
           <h5 class="card-title mb-sm-0 me-2">User</h5>
           <div class="action-btns">
-            <a href="{{ route('users.premium.index') }}">
+            <a href="{{ route('users.diamond.index') }}">
             <button class="btn btn-label-primary me-3">
               <span class="align-middle"> Back</span>
             </button>
@@ -24,7 +24,7 @@
           </div>
         </div></div>
         <div class="card-body">
-            <form action="{{ route('users.cultivated.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('users.diamond.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-lg-8 mx-auto">

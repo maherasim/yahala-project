@@ -1258,24 +1258,24 @@
                                                     <div class="modal-body">
                                                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                                             <li class="nav-item" role="presentation">
-                                                                <button class="nav-link active" id="pills-home-tab"
-                                                                    data-bs-toggle="pill" data-bs-target="#pills-home"
+                                                                <button class="nav-link active" id="pills-home-tab{{ $language->id }}"
+                                                                    data-bs-toggle="pill" data-bs-target="#pills-home{{ $language->id }}"
                                                                     type="button" role="tab"
-                                                                    aria-controls="pills-home" aria-selected="true">Home
+                                                                    aria-controls="pills-home{{ $language->id }}" aria-selected="true">Home
                                                                     Section</button>
                                                             </li>
                                                             <li class="nav-item" role="presentation">
-                                                                <button class="nav-link" id="pills-settings-tab"
-                                                                    data-bs-toggle="pill" data-bs-target="#pills-settings"
+                                                                <button class="nav-link" id="pills-settings-tab{{ $language->id }}"
+                                                                    data-bs-toggle="pill" data-bs-target="#pills-settings{{ $language->id }}"
                                                                     type="button" role="tab"
-                                                                    aria-controls="pills-settings"
+                                                                    aria-controls="pills-settings{{ $language->id }}"
                                                                     aria-selected="false">Setting Section</button>
                                                             </li>
                                                         </ul>
                                                         <div class="tab-content" id="pills-tabContent">
                                                             <!-- Home Section Tab -->
-                                                            <div class="tab-pane fade show active" id="pills-home"
-                                                                role="tabpanel" aria-labelledby="pills-home-tab">
+                                                            <div class="tab-pane fade show active" id="pills-home{{ $language->id }}"
+                                                                role="tabpanel" aria-labelledby="pills-home-tab{{ $language->id }}">
                                                                 <div class="card">
                                                                     <div class="table-responsive text-nowrap">
                                                                         <table class="table">
@@ -1294,14 +1294,17 @@
                                                                                     <td>Home page Language </td>
                                                                                     <td>
                                                                                         <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
+                                                                                            <div class="progress-bar bg-success text-white text-center"
                                                                                                 role="progressbar"
                                                                                                 style="width: {{ $homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0 }}%;"
                                                                                                 aria-valuenow="{{ $homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($homepagelanguageTotal > 0 ? ($homepagelanguageDone / $homepagelanguageTotal) * 100 : 0, 1) }}%
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
+                                                                                    
                                                                                     <td>{{ $homepagelanguageDone }}</td>
                                                                                     <td>{{ $homepagelanguageTotal - $startpageDone }}
                                                                                     </td>
@@ -1327,14 +1330,17 @@
                                                                                     <td>Home page App Policy </td>
                                                                                     <td>
                                                                                         <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
+                                                                                            <div class="progress-bar bg-success text-white text-center"
                                                                                                 role="progressbar"
                                                                                                 style="width: {{ $app_policyTotal > 0 ? ($app_policyDone / $app_policyTotal) * 100 : 0 }}%;"
                                                                                                 aria-valuenow="{{ $app_policyTotal > 0 ? ($app_policyDone / $app_policyTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($app_policyTotal > 0 ? ($app_policyDone / $app_policyTotal) * 100 : 0, 1) }}%
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
+                                                                                    
                                                                                     <td>{{ $app_policyDone }}</td>
                                                                                     <td>{{ $app_policyTotal - $app_policyDone }}
                                                                                     </td>
@@ -1361,14 +1367,17 @@
                                                                                     <td>Home page Landing Page</td>
                                                                                     <td>
                                                                                         <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
+                                                                                            <div class="progress-bar bg-success text-white text-center"
                                                                                                 role="progressbar"
                                                                                                 style="width: {{ $total > 0 ? ($done / $total) * 100 : 0 }}%;"
                                                                                                 aria-valuenow="{{ $total > 0 ? ($done / $total) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($total > 0 ? ($done / $total) * 100 : 0, 1) }}%
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
+                                                                                    
                                                                                     <td>{{ $done }}</td>
                                                                                     <td>{{ $total - $done }}</td>
                                                                                     <td>
@@ -1391,14 +1400,17 @@
                                                                                     <td> Home page Sign up Section</td>
                                                                                     <td>
                                                                                         <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
+                                                                                            <div class="progress-bar bg-success text-white text-center"
                                                                                                 role="progressbar"
                                                                                                 style="width: {{ $signupTotal > 0 ? ($signupDone / $signupTotal) * 100 : 0 }}%;"
                                                                                                 aria-valuenow="{{ $signupTotal > 0 ? ($signupDone / $signupTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($signupTotal > 0 ? ($signupDone / $signupTotal) * 100 : 0, 1) }}%
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
+                                                                                    
                                                                                     <td>{{ $signupDone }}</td>
                                                                                     <td>{{ $signupTotal - $signupDone }}
                                                                                     </td>
@@ -1422,14 +1434,17 @@
                                                                                     <td> Home page Sign in Section</td>
                                                                                     <td>
                                                                                         <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
+                                                                                            <div class="progress-bar bg-success text-white text-center"
                                                                                                 role="progressbar"
                                                                                                 style="width: {{ $signinTotal > 0 ? ($signinDone / $signinTotal) * 100 : 0 }}%;"
                                                                                                 aria-valuenow="{{ $signinTotal > 0 ? ($signinDone / $signinTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($signinTotal > 0 ? ($signinDone / $signinTotal) * 100 : 0, 1) }}%
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
+                                                                                    
                                                                                     <td>{{ $signinDone }}</td>
                                                                                     <td>{{ $signinTotal - $signinDone }}
                                                                                     </td>
@@ -1452,14 +1467,17 @@
                                                                                     <td>Home Page Guest section</td>
                                                                                     <td>
                                                                                         <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
+                                                                                            <div class="progress-bar bg-success text-white text-center"
                                                                                                 role="progressbar"
                                                                                                 style="width: {{ $guestFieldsTotal > 0 ? ($guestDone / $guestFieldsTotal) * 100 : 0 }}%;"
                                                                                                 aria-valuenow="{{ $guestFieldsTotal > 0 ? ($guestDone / $guestFieldsTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($guestFieldsTotal > 0 ? ($guestDone / $guestFieldsTotal) * 100 : 0, 1) }}%
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
+                                                                                    
                                                                                     <td>{{ $guestDone }}</td>
                                                                                     <td>{{ $guestFieldsTotal - $guestDone }}
                                                                                     </td>
@@ -1486,8 +1504,8 @@
                                                             </div>
 
 
-                                                            <div class="tab-pane fade" id="pills-settings"
-                                                                role="tabpanel" aria-labelledby="pills-settings-tab">
+                                                            <div class="tab-pane fade" id="pills-settings{{ $language->id }}"
+                                                                role="tabpanel" aria-labelledby="pills-settings-tab{{ $language->id }}">
                                                                 <div class="card">
                                                                     <div class="table-responsive text-nowrap">
                                                                         <table class="table">
@@ -1502,53 +1520,26 @@
                                                                             </thead>
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <td>Footer Quick Launcher Sections</td>
+                                                                                    <td>Setting Overview Section</td>
                                                                                     <td>
                                                                                         <div class="progress">
                                                                                             <div class="progress-bar bg-success"
                                                                                                 role="progressbar"
-                                                                                                style="width: {{ $footerQuickTotal > 0 ? ($footerQuickDone / $footerQuickTotal) * 100 : 0 }}%;"
-                                                                                                aria-valuenow="{{ $footerQuickTotal > 0 ? ($footerQuickDone / $footerQuickTotal) * 100 : 0 }}"
+                                                                                                style="width: {{ $settingoverviewTotal > 0 ? ($settingoverviewDone / $settingoverviewTotal) * 100 : 0 }}%;"
+                                                                                                aria-valuenow="{{ $settingoverviewTotal > 0 ? ($settingoverviewDone / $settingoverviewTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td>{{ $footerQuickDone }}</td>
-                                                                                    <td>{{ $footerQuickTotal - $footerQuickDone }}
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <span data-bs-toggle="modal"
-                                                                                            data-bs-target="#footerQuickSectionModal{{ $language->id }}">
-                                                                                            <button class="btn"
-                                                                                                data-bs-toggle="tooltip"
-                                                                                                data-bs-offset="0,4"
-                                                                                                data-bs-placement="top"
-                                                                                                data-bs-html="true"
-                                                                                                data-bs-original-title="Edit">
-                                                                                                <i class="bx bx-edit"></i>
-                                                                                            </button>
-                                                                                        </span>
-                                                                                    </td>
-                                                                                </tr>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($settingoverviewTotal > 0 ? ($settingoverviewDone / $settingoverviewTotal) * 100 : 0, 1) }}%
 
-                                                                                <tr>
-                                                                                    <td>Footer Cart Sections</td>
-                                                                                    <td>
-                                                                                        <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
-                                                                                                role="progressbar"
-                                                                                                style="width: {{ $footerCartTotal > 0 ? ($footerCartDone / $footerCartTotal) * 100 : 0 }}%;"
-                                                                                                aria-valuenow="{{ $footerCartTotal > 0 ? ($footerCartDone / $footerCartTotal) * 100 : 0 }}"
-                                                                                                aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
-                                                                                    <td>{{ $footerCartDone }}</td>
-                                                                                    <td>{{ $footerCartTotal - $footerCartDone }}
+                                                                                    <td>{{ $settingoverviewDone }}</td>
+                                                                                    <td>{{ $settingoverviewTotal - $settingoverviewDone }}
                                                                                     </td>
                                                                                     <td>
                                                                                         <span data-bs-toggle="modal"
-                                                                                            data-bs-target="#footercart{{ $language->id }}"
+                                                                                            data-bs-target="#settingoverview{{ $language->id }}"
                                                                                             onclick="openSectionModal('alert')">
                                                                                             <button class="btn"
                                                                                                 data-bs-toggle="tooltip"
@@ -1562,23 +1553,26 @@
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td>Footer Friends Sections</td>
+                                                                                    <td>Setting Section</td>
                                                                                     <td>
                                                                                         <div class="progress">
-                                                                                            <div class="progress-bar bg-success"
+                                                                                            <div class="progress-bar bg-success text-white text-center"
                                                                                                 role="progressbar"
-                                                                                                style="width: {{ $footerFriendsTotal > 0 ? ($footerFriendsDone / $footerFriendsTotal) * 100 : 0 }}%;"
-                                                                                                aria-valuenow="{{ $footerFriendsTotal > 0 ? ($footerFriendsDone / $footerFriendsTotal) * 100 : 0 }}"
+                                                                                                style="width: {{ $settingSectionTotal > 0 ? ($settingSectionDone / $settingSectionTotal) * 100 : 0 }}%;"
+                                                                                                aria-valuenow="{{ $settingSectionTotal > 0 ? ($settingSectionDone / $settingSectionTotal) * 100 : 0 }}"
                                                                                                 aria-valuemin="0"
-                                                                                                aria-valuemax="100"></div>
+                                                                                                aria-valuemax="100">
+                                                                                                {{ round($settingSectionTotal > 0 ? ($settingSectionDone / $settingSectionTotal) * 100 : 0, 1) }}%
+                                                                                            </div>
                                                                                         </div>
                                                                                     </td>
-                                                                                    <td>{{ $footerFriendsDone }}</td>
-                                                                                    <td>{{ $footerFriendsTotal - $footerFriendsDone }}
+                                                                                    
+                                                                                    <td>{{ $settingSectionDone }}</td>
+                                                                                    <td>{{ $settingSectionTotal - $settingSectionDone }}
                                                                                     </td>
                                                                                     <td>
                                                                                         <span data-bs-toggle="modal"
-                                                                                            data-bs-target="#footerfriendssection{{ $language->id }}"
+                                                                                            data-bs-target="#settingsectionsok{{ $language->id }}"
                                                                                             onclick="openSectionModal('alert')">
                                                                                             <button class="btn"
                                                                                                 data-bs-toggle="tooltip"
@@ -1591,555 +1585,22 @@
                                                                                         </span>
                                                                                     </td>
                                                                                 </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-                                                        {{--      
-                                                                       
+                                                                                   
                                                                         <tr>
-                                                                            <td>Footer Chat Section</td>
+                                                                            <td>My Profile  Section</td>
                                                                             <td>
                                                                                 <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $footerChatTotal > 0 ? ($footerChatDone / $footerChatTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $footerChatTotal > 0 ? ($footerChatDone / $footerChatTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $footerChatDone }}</td>
-                                                                            <td>{{ $footerChatTotal - $footerChatDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#footerchatsection{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Header Feed Sections</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $headerFeedTotal > 0 ? ($headerFeedDone / $headerFeedTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $headerFeedTotal > 0 ? ($headerFeedDone / $headerFeedTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $headerFeedDone }}</td>
-                                                                            <td>{{ $headerFeedTotal - $headerFeedDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#headerfeedsection{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-
-                                                                        <tr>
-                                                                            <td>Visitor Profile</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $visitorProfileTotal > 0 ? ($visitorProfileDone / $visitorProfileTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $visitorProfileTotal > 0 ? ($visitorProfileDone / $visitorProfileTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $visitorProfileDone }}</td>
-                                                                            <td>{{ $visitorProfileTotal - $visitorProfileDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#visitprofilesection{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Header Stories Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $headerStoriesTotal > 0 ? ($headerStoriesDone / $headerStoriesTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $headerStoriesTotal > 0 ? ($headerStoriesDone / $headerStoriesTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $headerStoriesDone }}</td>
-                                                                            <td>{{ $headerStoriesTotal - $headerStoriesDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#headerstoriessection{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Header Greeting & Wishes Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $headerGreetingTotal > 0 ? ($headerGreetingDone / $headerGreetingTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $headerGreetingTotal > 0 ? ($headerGreetingDone / $headerGreetingTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $headerGreetingDone }}</td>
-                                                                            <td>{{ $headerGreetingTotal - $headerGreetingDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#headergreating{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Header History Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $headerHistoryTotal > 0 ? ($headerHistoryDone / $headerHistoryTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $headerHistoryTotal > 0 ? ($headerHistoryDone / $headerHistoryTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $headerHistoryDone }}</td>
-                                                                            <td>{{ $headerHistoryTotal - $headerHistoryDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#headerhistory{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Header Voting Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $headerVotingTotal > 0 ? ($headerVotingDone / $headerVotingTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $headerVotingTotal > 0 ? ($headerVotingDone / $headerVotingTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $headerVotingDone }}</td>
-                                                                            <td>{{ $headerVotingTotal - $headerVotingDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#headervoter{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Header Donation Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $headerDonationTotal > 0 ? ($headerDonationDone / $headerDonationTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $headerDonationTotal > 0 ? ($headerDonationDone / $headerDonationTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $headerDonationDone }}</td>
-                                                                            <td>{{ $headerDonationTotal - $headerDonationDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#headerdonation{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Header Music Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $headerMusicTotal > 0 ? ($headerMusicDone / $headerMusicTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $headerMusicTotal > 0 ? ($headerMusicDone / $headerMusicTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $headerMusicDone }}</td>
-                                                                            <td>{{ $headerMusicTotal - $headerMusicDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#headermusic{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Header Videos Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $headerVideoTotal > 0 ? ($headerVideoDone / $headerVideoTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $headerVideoTotal > 0 ? ($headerVideoDone / $headerVideoTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $headerVideoDone }}</td>
-                                                                            <td>{{ $headerVideoTotal - $headerVideoDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#headervideo{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-
-                                                                        <tr>
-                                                                            <td>Header Stream Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $headerStreamTotal > 0 ? ($headerStreamDone / $headerStreamTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $headerStreamTotal > 0 ? ($headerStreamDone / $headerStreamTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $headerStreamDone }}</td>
-                                                                            <td>{{ $headerStreamTotal - $headerStreamDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#headerstreamsection{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Header Event Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $headerEventTotal > 0 ? ($headerEventDone / $headerEventTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $headerEventTotal > 0 ? ($headerEventDone / $headerEventTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $headerEventDone }}</td>
-                                                                            <td>{{ $headerEventTotal - $headerEventDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#headerevent{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-
-                                                                        <tr>
-                                                                            <td>Header OnlineShop Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $headerOnlineShopTotal > 0 ? ($headerOnlineShopDone / $headerOnlineShopTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $headerOnlineShopTotal > 0 ? ($headerOnlineShopDone / $headerOnlineShopTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $headerOnlineShopDone }}</td>
-                                                                            <td>{{ $headerOnlineShopTotal - $headerOnlineShopDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#headeronlineshop{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Header Restaurant Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $headerRestaurantTotal > 0 ? ($headerRestaurantDone / $headerRestaurantTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $headerRestaurantTotal > 0 ? ($headerRestaurantDone / $headerRestaurantTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $headerRestaurantDone }}</td>
-                                                                            <td>{{ $headerRestaurantTotal - $headerRestaurantDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#headerrestaurant{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Header ServicePortal Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $headerserviceTotal > 0 ? ($headerserviceDone / $headerserviceTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $headerserviceTotal > 0 ? ($headerserviceDone / $headerserviceTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $headerserviceDone }}</td>
-                                                                            <td>{{ $headerserviceTotal - $headerserviceDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#headerserviceportal{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Setting Overview Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $settingoverviewTotal > 0 ? ($settingoverviewDone / $settingoverviewTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $settingoverviewTotal > 0 ? ($settingoverviewDone / $settingoverviewTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $settingoverviewDone }}</td>
-                                                                            <td>{{ $settingoverviewTotal - $settingoverviewDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#settingoverview{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Setting Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $settingSectionTotal > 0 ? ($settingSectionDone / $settingSectionTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $settingSectionTotal > 0 ? ($settingSectionDone / $settingSectionTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $settingSectionDone }}</td>
-                                                                            <td>{{ $settingSectionTotal - $settingSectionDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#settingsectionsok{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>My Profile Home Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
+                                                                                    <div class="progress-bar bg-success text-white text-center"
                                                                                         role="progressbar"
                                                                                         style="width: {{ $myProfileHomeTotal > 0 ? ($myProfileHomeDone / $myProfileHomeTotal) * 100 : 0 }}%;"
                                                                                         aria-valuenow="{{ $myProfileHomeTotal > 0 ? ($myProfileHomeDone / $myProfileHomeTotal) * 100 : 0 }}"
                                                                                         aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
+                                                                                        aria-valuemax="100">
+                                                                                        {{ round($myProfileHomeTotal > 0 ? ($myProfileHomeDone / $myProfileHomeTotal) * 100 : 0, 1) }}%
+                                                                                    </div>
                                                                                 </div>
                                                                             </td>
+                                                                            
                                                                             <td>{{ $myProfileHomeDone }}</td>
                                                                             <td>{{ $myProfileHomeTotal - $myProfileHomeDone }}
                                                                             </td>
@@ -2158,156 +1619,15 @@
                                                                                 </span>
                                                                             </td>
                                                                         </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+ 
 
-                                                                        <tr>
-                                                                            <td>My Profile Multimedia Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $profileMultiTotal > 0 ? ($profileMultiDone / $profileMultiTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $profileMultiTotal > 0 ? ($profileMultiDone / $profileMultiTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $profileMultiDone }}</td>
-                                                                            <td>{{ $profileMultiTotal - $profileMultiDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#profilemultimedia{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>My Profile Friends Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $profileFriendTotal > 0 ? ($profileFriendDone / $profileFriendTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $profileFriendTotal > 0 ? ($profileFriendDone / $profileFriendTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $profileFriendDone }}</td>
-                                                                            <td>{{ $profileFriendTotal - $profileFriendDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#myprofilefriends{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>My Profile Office Section</td>
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ $profileOfficeTotal > 0 ? ($profileOfficeDone / $profileOfficeTotal) * 100 : 0 }}%;"
-                                                                                        aria-valuenow="{{ $profileOfficeTotal > 0 ? ($profileOfficeDone / $profileOfficeTotal) * 100 : 0 }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{{ $profileOfficeDone }}</td>
-                                                                            <td>{{ $profileOfficeTotal - $profileOfficeDone }}
-                                                                            </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#myprofileoffice{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit">
-                                                                                        <i class="bx bx-edit"></i>
-                                                                                    </button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-
-                                                                        <tr>
-                                                                            <td>Channels</td>
-
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ rand(0, 100) }}%;"
-                                                                                        aria-valuenow="{{ rand(0, 100) }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td> </td>
-                                                                            <td> </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#myaschannels{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit"><i
-                                                                                            class="bx bx-edit"></i></button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Channel Settings</td>
-
-                                                                            <td>
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar"
-                                                                                        role="progressbar"
-                                                                                        style="width: {{ rand(0, 100) }}%;"
-                                                                                        aria-valuenow="{{ rand(0, 100) }}"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"></div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td> </td>
-                                                                            <td> </td>
-                                                                            <td>
-                                                                                <span data-bs-toggle="modal"
-                                                                                    data-bs-target="#mychannelsetting{{ $language->id }}"
-                                                                                    onclick="openSectionModal('alert')">
-                                                                                    <button class="btn"
-                                                                                        data-bs-toggle="tooltip"
-                                                                                        data-bs-offset="0,4"
-                                                                                        data-bs-placement="top"
-                                                                                        data-bs-html="true"
-                                                                                        data-bs-original-title="Edit"><i
-                                                                                            class="bx bx-edit"></i></button>
-                                                                                </span>
-                                                                            </td>
-                                                                        </tr> --}}
+                                                     
 
                                                     </div>
                                                 </div>

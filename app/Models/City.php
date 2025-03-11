@@ -14,11 +14,13 @@ class City extends Model
     protected $table = 'cities_orig';
 
     protected $fillable = [
+        '_id',
+        'cityid',
         'name',
+        'state_id',
         'country_id',
-        'region_id',
-        'zipcode',
-        'status',
+        'updated_at',
+        'created_at',
     ];
 
     public function getActivitylogOptions(): LogOptions

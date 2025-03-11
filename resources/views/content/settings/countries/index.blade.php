@@ -71,7 +71,7 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>Flag</th>
+            
             <th>Country Name</th>
             <th>Total People</th>
             <th>Options</th>
@@ -81,14 +81,14 @@
           @forelse($countries as $country)
           <tr>
             <td>{{$loop->iteration}}</td>
-            <td>
+            {{-- <td>
             @if($country->flag_path != "")
               <img src="{{asset('/images/flags/' . $country->flag_path)}}" class="flag" />
             @else 
             <img src="{{asset('/images/flags/flag.png')}}" class="flag" />
             @endif
 
-            </td>
+            </td> --}}
             <td>
              
             {{ $country->name }}</td>

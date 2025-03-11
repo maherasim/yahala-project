@@ -10,7 +10,7 @@ class UserRoleSettingSeeder extends Seeder
 {
     public function run()
     {
-      $userLevels = ['standard', 'premium', 'vip'];
+      $userLevels = ['educated', 'academic', 'cultivated'];
 
       $permissions = [
           'friends_allow_request' => false,
