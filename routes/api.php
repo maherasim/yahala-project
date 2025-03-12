@@ -81,6 +81,10 @@ use App\Http\Controllers\Api\AvatarsController;
 Route::get('/getfeeds', [AvatarsController::class, 'getFeeds']);
 Route::post('/postfeed', [AvatarsController::class, 'postfeed']);
 
+Route::get('/getbgfeed', [CountryController::class, 'getbgfeed']);
+
+
+
 // Authentication
 Route::post('/signup', [AuthController::class, 'signup']);
 Route::post('/login', [AuthController::class, 'login']);
