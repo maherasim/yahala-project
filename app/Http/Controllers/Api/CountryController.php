@@ -53,29 +53,26 @@ class CountryController extends Controller
             'data' => $nationalities,
         ]);
     }
-    public function AvatarsFeeds34() 
+    public function AvatarsFeeds34()
     {
-       
-        $Feeds = AvatarsFeeds::select([
-            'user_type', 
-            'feed_type', 
-            'background_image', 
-            'text_color', 
-            'grid_style', 
-            'description', 
-            'text', 
-            'text_properties', 
-            'updated_at', 
-            'created_at'
-        ])->get();
+        try {
+            $Feeds = AvatarsFeeds::all();
     
-        return response()->json([
-            'success' => true,
-            'message' => 'feedFeeds retrieved successfully.',
-            'data' => $Feeds,
-        ]);
+            return response()->json([
+                'success' => true,
+                'message' => 'feedFeeds retrieved successfully.',
+                'data' => $Feeds,
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error retrieving feeds',
+                'error' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine()
+            ], 500);
+        }
     }
-    
     
     
 

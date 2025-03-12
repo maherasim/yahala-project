@@ -59,56 +59,76 @@ class AvatarsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-	public function postfeed(Request $request)
-	{
-		try {
-			$feed = new AvatarsFeeds();
-			$feed->user_type = $request->user_type;
-			$feed->feed_type = $request->feed_type;
-			$feed->background_image = $request->background_image;
-			$feed->text_color = $request->text_color;
-			$feed->grid_style = $request->grid_style;
-			$feed->description = $request->description;
-			$feed->text = $request->text;
-			$feed->text_properties = $request->text_properties;
-			$feed->save();
-	
-			return response()->json([
-				'success' => true,
-				'message' => 'Feed created successfully.',
-				'data' => $feed
-			], 201);
-		} catch (\Exception $e) {
-			return response()->json([
-				'success' => false,
-				'message' => 'Error creating feed',
-				'error' => $e->getMessage(),
-				'file' => $e->getFile(),
-				'line' => $e->getLine()
-			], 500);
-		}
-	}
-	
+    public function postfeed(Request $request)
+    {
+		
+		$av_id = $request['avatar'];
+		$title = $request['title'];
+		$image = $request['image_path'];
+		$content = $request['content'];
+		
+		$feed = new AvatarsFeeds();
+		$feed->avatar_Id = $av_id;
+		$feed->title = $title;
+		$feed->image = $image;
+		$feed->content = $content;
+		$feed->forwards = 0;
+		$feed->online = 0;
+		
+		$feed->comments = 0;
+		$feed->likes = 0;
+		$feed->save();
+		
+		return response()->json(['message' => 'Ok'],201);
+		
+        //
+    }
 
 	public function asimpostfeed(Request $request) 
 	{
-		$data = $request->only([
-			'avatar', 'title', 'content', 'user_type', 'feed_type', 
-			'background_image', 'text_color', 'grid_style', 'description', 
-			'text', 'text_properties'
-		]);
+		try {
+			// Log received data
+			\Log::info('Received Data:', $request->all());
 	
-		$data['image'] = (array) $request->input('images', []);
-		$data['videos'] = (array) $request->input('videos', []);
-		$data['forwards'] = 0;
-		$data['comments'] = [];
-		$data['likes'] = 0;
+			// Convert `images` and `videos` to arrays if needed
+			$image = $request->input('images', []);
+			if (!is_array($image)) {
+				$image = [$image];
+			}
 	
-		$feed = AvatarsFeeds::create($data);
+			$videos = $request->input('videos', []);
+			if (!is_array($videos)) {
+				$videos = [$videos];
+			}
 	
-		return response()->json(['message' => 'Feed stored successfully', 'data' => $feed], 201);
+			// Create new feed
+			$feed = new AvatarsFeeds();
+			$feed->avatar_Id = $request->input('avatar');
+			$feed->title = $request->input('title');
+			$feed->image = $image;
+			$feed->content = $request->input('content');
+			$feed->forwards = 0;
+			$feed->comments = [];
+			$feed->likes = 0;
+			$feed->videos = $videos;
+			$feed->user_type = $request->input('user_type');
+			$feed->feed_type = $request->input('feed_type');
+			$feed->background_image = $request->input('background_image');
+			$feed->text_color = $request->input('text_color');
+			$feed->grid_style = $request->input('grid_style');
+			$feed->description = $request->input('description');
+			$feed->text = $request->input('text');
+			$feed->text_properties = $request->input('text_properties');
+			$feed->save();
+	
+			return response()->json(['message' => 'Feed stored successfully', 'data' => $feed], 201);
+		} catch (\Exception $e) {
+			return response()->json([
+				'message' => 'Error saving feed',
+				'error' => $e->getMessage()
+			], 500);
+		}
 	}
-	
 	
 	
 
