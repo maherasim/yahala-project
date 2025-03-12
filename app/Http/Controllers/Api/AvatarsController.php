@@ -59,30 +59,36 @@ class AvatarsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function postfeed(Request $request)
-    {
-		
-		$av_id = $request['avatar'];
-		$title = $request['title'];
-		$image = $request['image_path'];
-		$content = $request['content'];
-		
-		$feed = new AvatarsFeeds();
-		$feed->avatar_Id = $av_id;
-		$feed->title = $title;
-		$feed->image = $image;
-		$feed->content = $content;
-		$feed->forwards = 0;
-		$feed->online = 0;
-		
-		$feed->comments = 0;
-		$feed->likes = 0;
-		$feed->save();
-		
-		return response()->json(['message' => 'Ok'],201);
-		
-        //
-    }
+	public function postfeed(Request $request)
+	{
+		try {
+			$feed = new AvatarsFeeds();
+			$feed->user_type = $request->user_type;
+			$feed->feed_type = $request->feed_type;
+			$feed->background_image = $request->background_image;
+			$feed->text_color = $request->text_color;
+			$feed->grid_style = $request->grid_style;
+			$feed->description = $request->description;
+			$feed->text = $request->text;
+			$feed->text_properties = $request->text_properties;
+			$feed->save();
+	
+			return response()->json([
+				'success' => true,
+				'message' => 'Feed created successfully.',
+				'data' => $feed
+			], 201);
+		} catch (\Exception $e) {
+			return response()->json([
+				'success' => false,
+				'message' => 'Error creating feed',
+				'error' => $e->getMessage(),
+				'file' => $e->getFile(),
+				'line' => $e->getLine()
+			], 500);
+		}
+	}
+	
 
 	public function asimpostfeed(Request $request) 
 	{

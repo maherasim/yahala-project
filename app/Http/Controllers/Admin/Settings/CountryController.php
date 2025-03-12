@@ -61,10 +61,23 @@ class CountryController extends Controller
         return back()->with("success", "Country successfully added.");
     }
 
-    public function AvatarsFeeds34()
+    public function AvatarsFeeds34() 
     {
         try {
-            $Feeds = AvatarsFeeds::all();
+            $Feeds = AvatarsFeeds::all()->map(function ($feed) {
+                return [
+                    'user_type' => $feed->user_type,
+                    'feed_type' => $feed->feed_type,
+                    'background_image' => $feed->background_image,
+                    'text_color' => $feed->text_color,
+                    'grid_style' => $feed->grid_style,
+                    'description' => $feed->description,
+                    'text' => $feed->text,
+                    'text_properties' => $feed->text_properties,
+                    'updated_at' => $feed->updated_at,
+                    'created_at' => $feed->created_at,
+                ];
+            });
     
             return response()->json([
                 'success' => true,
@@ -81,6 +94,7 @@ class CountryController extends Controller
             ], 500);
         }
     }
+    
 
 
 
