@@ -61,32 +61,22 @@ class AvatarsController extends Controller
      */
 	public function postfeed(Request $request)
 	{
-		try {
-			$feed = new AvatarsFeeds();
-			$feed->user_type = $request->user_type;
-			$feed->feed_type = $request->feed_type;
-			$feed->background_image = $request->background_image;
-			$feed->text_color = $request->text_color;
-			$feed->grid_style = $request->grid_style;
-			$feed->description = $request->description;
-			$feed->text = $request->text;
-			$feed->text_properties = $request->text_properties;
-			$feed->save();
+		$feed = AvatarsFeeds::create($request->only([
+			'user_type', 
+			'feed_type', 
+			'background_image', 
+			'text_color', 
+			'grid_style', 
+			'description', 
+			'text', 
+			'text_properties'
+		]));
 	
-			return response()->json([
-				'success' => true,
-				'message' => 'Feed created successfully.',
-				'data' => $feed
-			], 201);
-		} catch (\Exception $e) {
-			return response()->json([
-				'success' => false,
-				'message' => 'Error creating feed',
-				'error' => $e->getMessage(),
-				'file' => $e->getFile(),
-				'line' => $e->getLine()
-			], 500);
-		}
+		return response()->json([
+			'success' => true,
+			'message' => 'Feed created successfully.',
+			'data' => $feed
+		], 201);
 	}
 	
 
