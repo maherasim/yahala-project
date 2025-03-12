@@ -26,7 +26,7 @@ class AvatarsController extends Controller
 	 {
 		 try {
 			 $avatars = Avatars_Feed::all();
-	 dd( $avatars);
+	 dd( 'asim',$avatars);
 			 return response()->json([
 				 'message' => 'Ok',
 				 'data' => $avatars
