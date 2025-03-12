@@ -25,6 +25,7 @@ class AvatarsController extends Controller
 	 public function getFeeds()
 	 {
 		 try {
+			dd("testing");
 			 $avatars = Avatars_Feed::all();
 	 dd( 'asim'	);
 			 return response()->json([
