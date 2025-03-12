@@ -60,8 +60,26 @@ https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css
             </div>
         </div>
     </a>
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
     <div class="{{ ucfirst($userLevel) == 'Educated' ? 'tab--selected' : '' }} tab__slider"></div>
   </li>
+  <div id="success-message" style="display: none; color: green; font-weight: bold;">
+    ✅ Permission updated successfully!
+</div>
+
+
+  
   <li class="nav-item" role="presentation">
     <a type="button" class="nav-link justify-content-start nav-text-left {{ ucfirst($userLevel) == 'Cultivated' ? 'active' : '' }}" href="{{url('settings/user-roles/cultivated')}}" aria-selected="{{ ucfirst($userLevel) == 'Cultivated' ? 'true' : 'false' }}" tabindex="-1">
         <div class="d-flex justify-content-start align-items-center">
@@ -2586,24 +2604,27 @@ https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css
     }
 
     function updatePermission(key, newValue, valueType) {
-        $.ajax({
-            url: '{{ route("settings.user-roles.update.permissions") }}',
-            method: 'POST',
-            data: {
-                _token: '{{ csrf_token() }}',
-                key: key,
-                value: newValue,
-                userLevel: '{{ $userLevel }}',
-                valueType: valueType
-            },
-            success: function(response) {
-                console.log('Permission updated successfully');
-            },
-            error: function(error) {
-                console.error('Error updating permission', error);
-            }
-        });
-    }
+    $.ajax({
+        url: '{{ route("settings.user-roles.update.permissions") }}',
+        method: 'POST',
+        data: {
+            _token: '{{ csrf_token() }}',
+            key: key,
+            value: newValue,
+            userLevel: '{{ $userLevel }}',
+            valueType: valueType
+        },
+        success: function(response) {
+            $('#success-message').fadeIn().delay(2000).fadeOut(); // Show success message then hide
+            setTimeout(() => location.reload(), 2000); // Reload after 2 seconds
+        },
+        error: function(error) {
+            console.error('Error updating permission', error);
+        }
+    });
+}
+
+
 
 
     document.addEventListener('DOMContentLoaded', function() {

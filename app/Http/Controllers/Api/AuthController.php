@@ -128,7 +128,7 @@ public function verifyDevice(Request $request)
 
         try {
             $details = [
-                'title' => 'Mail from Yekbun.org',
+                'title' => 'Mail from yahala.org',
                 'code' => $code,
                 'username' => $user->username ?? 'User',
             ];
