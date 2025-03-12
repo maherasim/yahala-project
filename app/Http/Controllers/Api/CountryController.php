@@ -55,14 +55,14 @@ class CountryController extends Controller
     }
     public function AvatarsFeeds34()
     {
-        $nationalities = AvatarsFeeds::all();
+        $Feeds = AvatarsFeeds::all();
            
        
 
         return response()->json([
             'success' => true,
-            'message' => 'Nationalities retrieved successfully.',
-            'data' => $nationalities,
+            'message' => 'feedFeeds retrieved successfully.',
+            'data' => $Feeds,
         ]);
     }
     

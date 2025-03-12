@@ -78,10 +78,10 @@ use App\Http\Controllers\Api\AvatarsController;
 |
 */
 
-Route::get('/getfeeds', [AvatarsController::class, 'getFeeds']);
+// Route::get('/getfeeds', [AvatarsController::class, 'getFeeds']);
 Route::post('/postfeed', [AvatarsController::class, 'postfeed']);
 
-Route::get('/getbgfeed', [CountryController::class, 'AvatarsFeeds34']);
+Route::get('/getfeeds', [CountryController::class, 'AvatarsFeeds34']);
 
 
 
