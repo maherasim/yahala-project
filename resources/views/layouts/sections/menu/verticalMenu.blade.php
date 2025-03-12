@@ -1904,19 +1904,6 @@
                 <div>Add Nationality</div>
             </a>
         </li>
-        <li class="menu-item {{ Request::is('getfeeds') ? 'active' : '' }}">
-            <a href="{{ url('/getfeeds') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-flag"></i>
-                <div>Add Nationality</div>
-            </a>
-        </li>
-
-        getfeeds
-
-
-
-
-
         <li class="menu-item {{ Request::is('app/popup') ? 'active' : '' }} ">
             <a href="{{ url('/app/popup') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-message-square-add"></i>
