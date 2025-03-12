@@ -61,28 +61,7 @@ class CountryController extends Controller
         return back()->with("success", "Country successfully added.");
     }
 
-    public function AvatarsFeeds34() 
-    {
-        $Feeds = AvatarsFeeds::select([
-            'user_type', 
-            'feed_type', 
-            'background_image', 
-            'text_color', 
-            'grid_style', 
-            'description', 
-            'text', 
-            'text_properties', 
-            'updated_at', 
-            'created_at'
-        ])->get();
-    dd($Feeds);
-        return response()->json([
-            'success' => true,
-            'message' => 'feedFeeds retrieved successfully.',
-            'data' => $Feeds,
-        ]);
-    }
-    
+
 
 
 
