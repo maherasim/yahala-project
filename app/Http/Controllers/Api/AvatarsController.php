@@ -32,9 +32,16 @@ class AvatarsController extends Controller
 				 'data' => $avatars
 			 ], 200);
 		 } catch (\Exception $e) {
+			 Log::error('Error fetching feeds: ' . $e->getMessage(), [
+				 'file' => $e->getFile(),
+				 'line' => $e->getLine()
+			 ]);
+	 
 			 return response()->json([
 				 'message' => 'Error',
-				 'error' => $e->getMessage()
+				 'error' => $e->getMessage(),
+				 'file' => $e->getFile(),
+				 'line' => $e->getLine()
 			 ], 500);
 		 }
 	 }
