@@ -55,7 +55,7 @@ class CountryController extends Controller
     }
     public function AvatarsFeeds()
     {
-        $nationalities = Avatars_Feed::all();
+        $nationalities = AvatarsFeeds::all();
            
        
 
