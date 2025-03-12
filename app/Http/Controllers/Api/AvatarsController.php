@@ -22,29 +22,20 @@ class AvatarsController extends Controller
 	
 	
 
+	 
 	 public function getFeeds()
 	 {
-		 try {
-			dd("testing");
-			 $avatars = Avatars_Feed::all();
-	 dd( 'asim'	);
-			 return response()->json([
-				 'message' => 'Ok',
-				 'data' => $avatars
-			 ], 200);
-		 } catch (\Exception $e) {
-			 Log::error('Error fetching feeds: ' . $e->getMessage(), [
-				 'file' => $e->getFile(),
-				 'line' => $e->getLine()
-			 ]);
+		$feeds = Avatars_Feed::all()->map(function($nationality) {
+			 // Use the `storage_path` helper to create the correct URL
+			 $nationality->thumbnail_path = asset('storage/' . $nationality->thumbnail_path); // Ensure correct path
+			 return $nationality;
+		 });
 	 
-			 return response()->json([
-				 'message' => 'Error',
-				 'error' => $e->getMessage(),
-				 'file' => $e->getFile(),
-				 'line' => $e->getLine()
-			 ], 500);
-		 }
+		 return response()->json([
+			 'success' => true,
+			 'message' => 'feeds retrieved successfully.',
+			 'data' =>$feeds,
+		 ]);
 	 }
 	 
 	
