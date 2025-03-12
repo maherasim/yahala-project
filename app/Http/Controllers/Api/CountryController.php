@@ -57,7 +57,7 @@ class CountryController extends Controller
     {
         $nationalities = Nationality::all();
            
-        use App\Models\Avatars_Feed;
+       
 
         return response()->json([
             'success' => true,
