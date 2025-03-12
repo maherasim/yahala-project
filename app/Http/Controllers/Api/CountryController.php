@@ -51,6 +51,20 @@ class CountryController extends Controller
             'data' => $nationalities,
         ]);
     }
+    public function getbgfeed()
+    {
+        $nationalities = Nationality::all()->map(function($nationality) {
+            // Use the `storage_path` helper to create the correct URL
+            $nationality->thumbnail_path = asset('storage/' . $nationality->thumbnail_path); // Ensure correct path
+            return $nationality;
+        });
+    
+        return response()->json([
+            'success' => true,
+            'message' => 'Nationalities retrieved successfully.',
+            'data' => $nationalities,
+        ]);
+    }
     
 
     public function search_location(Request $request)
