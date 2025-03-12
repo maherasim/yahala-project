@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Avatars;
 use App\Models\Avatars_sources;
-use App\Models\Avatars_Feed;
+use App\Models\AvatarsFeeds;
 use Illuminate\Http\Request;
 use App\Models\Language;
 use DateTime;
@@ -67,7 +67,7 @@ class AvatarsController extends Controller
 		$image = $request['image_path'];
 		$content = $request['content'];
 		
-		$feed = new Avatars_Feed();
+		$feed = new AvatarsFeeds();
 		$feed->avatar_Id = $av_id;
 		$feed->title = $title;
 		$feed->image = $image;

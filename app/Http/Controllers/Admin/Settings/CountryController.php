@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCountryRequest;
 use App\Http\Requests\UpdateCountryRequest;
 use App\Models\Country;
+use App\Models\AvatarsFeeds;
 use Illuminate\Http\Request;
 
 class CountryController extends Controller
@@ -59,6 +60,36 @@ class CountryController extends Controller
 
         return back()->with("success", "Country successfully added.");
     }
+
+    public function AvatarsFeeds34()
+    {
+        try {
+            $Feeds = AvatarsFeeds::all();
+    
+            return response()->json([
+                'success' => true,
+                'message' => 'feedFeeds retrieved successfully.',
+                'data' => $Feeds,
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error retrieving feeds',
+                'error' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine()
+            ], 500);
+        }
+    }
+
+
+
+
+
+
+
+
+
 
     /**
      * Update the specified resource in storage.
