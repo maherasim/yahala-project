@@ -55,9 +55,9 @@ class CountryController extends Controller
     }
     public function getbgfeed()
     {
-        $nationalities = Avatars_Feed::all();
+        $nationalities = Nationality::all();
            
-        
+        use App\Models\Avatars_Feed;
 
         return response()->json([
             'success' => true,
