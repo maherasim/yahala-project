@@ -9,7 +9,6 @@ class AvatarsFeeds extends Model
     use HasFactory;
 
     protected $connection = 'mongodb';
-    protected $table = 'avatars_feeds'; // MongoDB collection name
 
     protected $fillable = [
         'avatar_Id',
