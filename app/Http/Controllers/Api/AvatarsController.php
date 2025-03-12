@@ -23,9 +23,10 @@ class AvatarsController extends Controller
 	
 
 	 
+ 
 	 public function getFeeds()
 	 {
-		$feeds = Avatars_Feed::all()->map(function($nationality) {
+		 $nationalities = Nationality::all()->map(function($nationality) {
 			 // Use the `storage_path` helper to create the correct URL
 			 $nationality->thumbnail_path = asset('storage/' . $nationality->thumbnail_path); // Ensure correct path
 			 return $nationality;
@@ -33,8 +34,8 @@ class AvatarsController extends Controller
 	 
 		 return response()->json([
 			 'success' => true,
-			 'message' => 'feeds retrieved successfully.',
-			 'data' =>$feeds,
+			 'message' => 'Nationalities retrieved successfully.',
+			 'data' => $nationalities,
 		 ]);
 	 }
 	 
