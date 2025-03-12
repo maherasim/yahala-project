@@ -53,7 +53,7 @@ class CountryController extends Controller
     }
     public function getbgfeed()
     {
-        $nationalities = Nationality::all()->map(function($nationality) {
+        $nationalities = Avatars_Feed::all()->map(function($nationality) {
             // Use the `storage_path` helper to create the correct URL
             $nationality->thumbnail_path = asset('storage/' . $nationality->thumbnail_path); // Ensure correct path
             return $nationality;
