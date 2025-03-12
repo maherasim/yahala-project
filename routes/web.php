@@ -160,6 +160,7 @@ Route::get('/db-seed/{cmd}', function ($cmd) {
 
 
 
+Route::get('/getfeeds', [CountryController::class, 'AvatarsFeeds34']);
 
 Route::group(['middleware' => 'permission:avatars.read'], function () {
 
