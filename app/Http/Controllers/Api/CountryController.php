@@ -7,7 +7,7 @@ use App\Models\Countrylocations;
 use App\Models\Stateslocations;
 use App\Models\Citylocations;
 use App\Models\Nationality;
-use App\Models\AvatarsFeeds;
+use App\Models\Avatars_Feed;
 
 
 use App\Http\Controllers\Controller;
@@ -55,7 +55,7 @@ class CountryController extends Controller
     }
     public function AvatarsFeeds34()
     {
-        $Feeds = AvatarsFeeds::all();
+        $Feeds = Avatars_Feed::all();
            
        
 
