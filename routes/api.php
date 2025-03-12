@@ -78,7 +78,7 @@ use App\Http\Controllers\Api\AvatarsController;
 |
 */
 
-Route::get('/getfeeds', [AvatarsController::class, 'getfeeds']);
+Route::get('/getfeeds', [AvatarsController::class, 'getFeeds']);
 Route::post('/postfeed', [AvatarsController::class, 'postfeed']);
 
 // Authentication

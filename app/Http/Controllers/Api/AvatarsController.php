@@ -22,14 +22,16 @@ class AvatarsController extends Controller
 	
 	
 
-	 public function getfeeds(){
-
-		$avatars =  Avatars_Feed::orderBy('created_at', 'desc')
-				->get();
-         
-        return response()->json(['message' => 'Ok','data' => $avatars],201);
-    }
-	
+	 public function getFeeds()
+	 {
+		 $avatars = Avatars_Feed::orderBy('created_at', 'desc')->get();
+	 
+		 return response()->json([
+			 'message' => 'Ok',
+			 'data' => $avatars
+		 ], 200);
+	 }
+	 
 	
 
    
