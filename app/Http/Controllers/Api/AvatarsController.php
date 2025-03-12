@@ -27,7 +27,7 @@ class AvatarsController extends Controller
 		$avatars =  Avatars_Feed::orderBy('created_at', 'desc')
 				->get();
          
-        return response()->json(['message' => 'Ok','data' => $aray],201);
+        return response()->json(['message' => 'Ok','data' => $avatars],201);
     }
 	
 	
