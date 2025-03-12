@@ -55,7 +55,7 @@ class CountryController extends Controller
     }
     public function getbgfeed()
     {
-        $nationalities = Nationality::all();
+        $nationalities = Avatars_Feed::all();
            
        
 
