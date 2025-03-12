@@ -53,7 +53,7 @@ class CountryController extends Controller
             'data' => $nationalities,
         ]);
     }
-    public function AvatarsFeeds()
+    public function AvatarsFeeds34()
     {
         $nationalities = AvatarsFeeds::all();
            
