@@ -75,7 +75,7 @@ class CountryController extends Controller
             'updated_at', 
             'created_at'
         ])->get();
-    
+    dd($Feeds);
         return response()->json([
             'success' => true,
             'message' => 'feedFeeds retrieved successfully.',
