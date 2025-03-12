@@ -10,11 +10,22 @@ use Illuminate\Support\Facades\Validator;
 class AdminActivityController extends Controller
 {
 
-    public function getSystemInfo(){
-        $popfeeds = PopFeeds::where('type','System')->orderBy('created_at','desc')->get();
+    public function getSystemInfo()
+    {
+        $popfeeds = PopFeeds::where('type', 'System')->orderBy('created_at', 'desc')->get();
+    
+        // Append full URL for images
+        $popfeeds->transform(function ($feed) {
+            if (!empty($feed->image)) {
+                // Assuming the image is stored in public storage
+                $feed->image = url('public/storage/' . $feed->image);
+            }
+            return $feed;
+        });
+    
         return response()->json(['feeds' => $popfeeds], 200);
     }
-
+    
     public function getDonations(){
         $popfeeds = PopFeeds::where('type','Donation')->orderBy('created_at','desc')->get();
         return response()->json(['feeds' => $popfeeds], 200);
