@@ -24,13 +24,19 @@ class AvatarsController extends Controller
 
 	 public function getFeeds()
 	 {
-		dd("test");
-		 $avatars = Avatars_Feed::all();
+		 try {
+			 $avatars = Avatars_Feed::all();
 	 
-		 return response()->json([
-			 'message' => 'Ok',
-			 'data' => $avatars
-		 ], 200);
+			 return response()->json([
+				 'message' => 'Ok',
+				 'data' => $avatars
+			 ], 200);
+		 } catch (\Exception $e) {
+			 return response()->json([
+				 'message' => 'Error',
+				 'error' => $e->getMessage()
+			 ], 500);
+		 }
 	 }
 	 
 	
