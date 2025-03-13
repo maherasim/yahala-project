@@ -20,7 +20,7 @@
                         <option value="">Select Origin</option>
                         @foreach($nationality as $item)
                         <option value="{{ $item->code }}" 
-                                data-thumbnail="{{ asset('storage/thumbnails/' . basename($item->thumbnail_path)) }}">
+                                data-thumbnail="{{ asset('public/storage/thumbnails/' . basename($item->thumbnail_path)) }}">
                             {{ $item->name }}
                         </option>
                         @endforeach
