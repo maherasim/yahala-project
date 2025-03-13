@@ -19,6 +19,12 @@
 @endsection
 
 @section('content')
+<style>
+    .avatar img {
+    width: 76%;
+    height: 76%;
+}
+</style>
     <script>
         const dropZoneInitFunctions = [];
     </script>
@@ -79,7 +85,7 @@
                                         </a>
                                         <span class="text-muted">
                                             {{ ucfirst($artist->gender) }},
-                                            <img src="{{ asset(str_replace('public/', '', $artist->origin)) }}" alt="Origin Image" width="25" height="25">
+                                            <img src="{{ asset(str_replace('public/', '', $artist->origin)) }}" alt="Origin Image" width="15" height="15">
                                         </span>
                                         
                                         
