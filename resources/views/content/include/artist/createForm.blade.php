@@ -1,29 +1,7 @@
 @php
     $musicCategory = \App\Models\MusicCategory::all();
-    $arabicCountries = [
-        'sa' => '🇸🇦 Saudi Arabia',
-        'ae' => '🇦🇪 United Arab Emirates',
-        'qa' => '🇶🇦 Qatar',
-        'kw' => '🇰🇼 Kuwait',
-        'bh' => '🇧🇭 Bahrain',
-        'om' => '🇴🇲 Oman',
-        'ye' => '🇾🇪 Yemen',
-        'eg' => '🇪🇬 Egypt',
-        'sd' => '🇸🇩 Sudan',
-        'ly' => '🇱🇾 Libya',
-        'dz' => '🇩🇿 Algeria',
-        'ma' => '🇲🇦 Morocco',
-        'tn' => '🇹🇳 Tunisia',
-        'iq' => '🇮🇶 Iraq',
-        'lb' => '🇱🇧 Lebanon',
-        'ps' => '🇵🇸 Palestine',
-        'sy' => '🇸🇾 Syria',
-        'jo' => '🇯🇴 Jordan',
-        'mr' => '🇲🇷 Mauritania',
-        'so' => '🇸🇴 Somalia',
-        'dj' => '🇩🇯 Djibouti',
-        'km' => '🇰🇲 Comoros',
-    ];
+    $nationality = \App\Models\Nationality::all();
+    
 @endphp
 
 <!-- Include Flag Icons CSS via CDN -->
@@ -46,16 +24,19 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label" for="origin">Origin (Country)</label>
+                    <label class="form-label" for="origin">Select Origin</label>
                     <select name="origin" class="form-control" id="origin">
                         <option value="">Select Country</option>
-                        @foreach($arabicCountries as $code => $country)
-                            <option value="{{ $code }}">
-                                <span class="fi fi-{{ $code }} me-2"></span> {{ $country }}
-                            </option>
+                        @foreach($nationality as $item)
+                        <option value="{{ $item->name }}" data-thumbnail="{{ asset($item->thumbnail_path) }}">
+                            {{ $item->name }}
+                        </option>
+                        
                         @endforeach
                     </select>
                 </div>
+                <img id="country-thumbnail" src="" alt="Country Flag" style="display:none; width:50px; height:30px; margin-top:10px;">
+                
 
                 <!-- First & Last Name -->
                 <div class="col-md-6">
