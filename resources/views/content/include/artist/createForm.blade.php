@@ -26,14 +26,18 @@
     ];
 @endphp
 
+<!-- Include Flag Icons CSS via CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
+
 <form id="{{ isset($form) ? $form : 'createForm' }}" method="POST" action="{{ route('artist.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="hidden-inputs"></div>
     <div class="row">
         <div class="col-lg-12 mx-auto">
             <div class="row g-3">
+
                 <!-- Gender -->
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label class="form-label" for="gender">Gender</label>
                     <select name="gender" class="form-select">
                         <option selected>Select Gender</option>
@@ -41,16 +45,24 @@
                         <option value="female">Female</option>
                     </select>
                 </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="origin">Origin (Country)</label>
+                    <select name="origin" class="form-control" id="origin">
+                        <option value="">Select Country</option>
+                        @foreach($arabicCountries as $code => $country)
+                            <option value="{{ $code }}">
+                                <span class="fi fi-{{ $code }} me-2"></span> {{ $country }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
 
-                <!-- First Name & Last Name in the Same Row -->
+                <!-- First & Last Name -->
                 <div class="col-md-6">
-                    <label class="form-label" for="first_name">First Name</label>
-                    <input type="text" id="first_name" class="form-control" placeholder="Enter First Name" name="first_name">
+                    <label class="form-label" for="first_name">First-Lastname</label>
+                    <input type="text" id="first_name" class="form-control" placeholder="Enter First-last Name" name="first_name">
                 </div>
-                <div class="col-md-6">
-                    <label class="form-label" for="last_name">Last Name</label>
-                    <input type="text" id="last_name" class="form-control" placeholder="Enter Last Name" name="last_name">
-                </div>
+                
 
                 <!-- Music Category Dropdown -->
                 <div class="col-md-12">
@@ -63,18 +75,10 @@
                     </select>
                 </div>
 
-                <!-- Arabic Countries Dropdown (Origin) -->
-                <div class="col-md-12">
-                    <label class="form-label" for="origin">Origin (Country)</label>
-                    <select name="origin" class="form-control" id="origin">
-                        <option value="">Select Country</option>
-                        @foreach($arabicCountries as $code => $country)
-                            <option value="{{ $code }}">{{ $country }}</option>
-                        @endforeach
-                    </select>
-                </div>
+                <!-- Arabic Countries Dropdown (Using Flag Icons) -->
+              
 
-                <!-- Image Upload Section -->
+                <!-- Image Upload -->
                 <div class="col-12">
                     <div class="card">
                         <h5 class="card-header">Image</h5>
@@ -104,3 +108,10 @@
         </div>
     </div>
 </form>
+
+<!-- Add Styling for Flags inside Select -->
+<style>
+    .fi {
+        margin-right: 8px;
+    }
+</style>
