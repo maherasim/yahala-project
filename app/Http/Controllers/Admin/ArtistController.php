@@ -163,7 +163,7 @@ class ArtistController extends Controller
         $artist->delete();
     
         // Return a response, e.g., a redirect back with a success message
-        return redirect()->route('artists.index')->with('success', 'Artist deleted successfully');
+        return redirect()->back()->with('success', 'Artist deleted successfully');
     }
     
     

@@ -26,7 +26,7 @@
     <div class="d-flex justify-content-between">
         <div>
             <h4 class="fw-bold py-3 mb-4">
-                <span class="text-muted fw-light">Artist /</span> All Artist
+                <span class="text-muted fw-light">Artist /</span> All Artist 
             </h4>
         </div>
         <div class="">
@@ -433,7 +433,7 @@
         </script>
         <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js" onload="drpzone_init()"></script>
 
-        <script>
+        {{-- <script>
             $(document).ready(function() {
                 $('.artistDetail').click(function() {
                     let id = $(this).attr('data-id');
@@ -752,6 +752,6 @@
                     $('#music_id').val(music_id);
                 });
             });
-        </script>
+        </script> --}}
     @endsection
 @endsection
