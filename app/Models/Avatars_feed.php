@@ -1,9 +1,7 @@
-<?php
-
+<?php 
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
 use Jenssegers\Mongodb\Eloquent\Model;
 
 class Avatars_Feed extends Model
@@ -19,6 +17,16 @@ class Avatars_Feed extends Model
         'content',
         'forwards',
         'comments',
-        'likes'
+        'likes',
+        'videos'
+    ];
+
+    protected $casts = [
+        'image' => 'array',
+        'videos' => 'array',
     ];
 }
+
+
+
+?>

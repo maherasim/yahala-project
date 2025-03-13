@@ -56,7 +56,7 @@ class ArtistController extends Controller
       //  dd($request->all());
         $request->validate([
             'first_name' => 'required',
-            'last_name' => 'required',
+            //'last_name' => 'required',
             //'city' => 'required',
             'gender' => 'required',
             'image' => 'required'
@@ -66,8 +66,7 @@ class ArtistController extends Controller
         $artist->first_name = $request->first_name;
         $artist->last_name = $request->last_name;
         $artist->gender = $request->gender;
-        $artist->status = $request->status;
-        $artist->city_id = $request->city;
+        
         $artist->music_category = $request->music_category;
         $artist->image = $request->image ?? '';
         if ($artist->save()) {
@@ -163,7 +162,7 @@ class ArtistController extends Controller
         $artist->delete();
     
         // Return a response, e.g., a redirect back with a success message
-        return redirect()->route('artists.index')->with('success', 'Artist deleted successfully');
+        return redirect()->back()->with('success', 'Artist deleted successfully');
     }
     
     

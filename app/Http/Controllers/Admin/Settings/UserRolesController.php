@@ -40,18 +40,24 @@ class UserRolesController extends Controller
         $value = $request->input('value');
         $userLevel = $request->input('userLevel');
         $valueType = $request->input('valueType');
-
+    
         $permission = Setting::where('name', $userLevel)->first();
         if ($permission) {
             $permissionValue = $permission->getAttribute('value');
-
-            $permissionValue[$key] = $valueType == 'boolean' ? filter_var($value, FILTER_VALIDATE_BOOLEAN) : ($valueType == 'int' ? (int) $value : ($valueType == 'float' ? (float) $value : $value));
+    
+            $permissionValue[$key] = $valueType == 'boolean' ? filter_var($value, FILTER_VALIDATE_BOOLEAN) : 
+                ($valueType == 'int' ? (int) $value : 
+                ($valueType == 'float' ? (float) $value : $value));
+    
             $permission->setAttribute('value', $permissionValue);
             $permission->save();
+    
+            return redirect()->back()->with('success', 'Settings updated successfully.');
         }
-
-        return response()->json(['status' => 'success']);
+    
+        return redirect()->back()->with('error', 'Setting not found.');
     }
+    
 
     public function fanpage()
     {

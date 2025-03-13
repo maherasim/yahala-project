@@ -1,12 +1,17 @@
 @php
     $musicCategory = \App\Models\MusicCategory::all();
+<<<<<<< HEAD
     $nationalities = \App\Models\Nationality::select('id', 'name', 'thumbnail_path')->get();
 
+=======
+    $nationality = \App\Models\Nationality::all();
+>>>>>>> 2edac169a4311eff8e4e30f6cb240eba353189af
     
 @endphp
 
 <!-- Include Flag Icons CSS via CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
+<<<<<<< HEAD
  <!-- Select2 CSS -->
 <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
 
@@ -14,6 +19,9 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 
 
+=======
+
+>>>>>>> 2edac169a4311eff8e4e30f6cb240eba353189af
 <form id="{{ isset($form) ? $form : 'createForm' }}" method="POST" action="{{ route('artist.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="hidden-inputs"></div>
@@ -32,6 +40,7 @@
                 </div>
                 <div class="col-md-6">
                     <label class="form-label" for="origin">Select Origin</label>
+<<<<<<< HEAD
                     <select name="origin" class="form-control select2" id="origin">
                         <option value="">Select Origin</option>
                         @foreach($nationalities as $nationality)
@@ -65,6 +74,39 @@
                         @endforeach
                     </select>
                 </div>
+=======
+                    <select name="origin" class="form-control" id="origin">
+                        <option value="">Select Origin</option>
+                        @foreach($nationality as $item)
+                        <option value="{{ $item->code }}" data-thumbnail="{{ asset('storage/thumbnails/' . basename($item->thumbnail_path)) }}">
+                            {{ $item->name }}
+                        </option>
+                        
+                        
+                        @endforeach
+                    </select>
+                </div>
+                <img id="country-thumbnail" src="" alt="Country Flag" style="display:none; width:50px; height:30px; margin-top:10px;">
+                
+
+                <!-- First & Last Name -->
+                <div class="col-md-6">
+                    <label class="form-label" for="first_name">First-Lastname</label>
+                    <input type="text" id="first_name" class="form-control" placeholder="Enter First-last Name" name="first_name">
+                </div>
+                
+
+                <!-- Music Category Dropdown -->
+                <div class="col-md-6">
+                    <label class="form-label" for="music_category">Music Category</label>
+                    <select name="music_category" class="form-control" id="music_category">
+                        <option value="">Select Category</option>
+                        @foreach($musicCategory as $item)
+                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+>>>>>>> 2edac169a4311eff8e4e30f6cb240eba353189af
 
                 <!-- Arabic Countries Dropdown (Using Flag Icons) -->
               
@@ -106,6 +148,7 @@
         margin-right: 8px;
     }
 </style>
+<<<<<<< HEAD
  <script>
     $(document).ready(function() {
         function formatNationality(nationality) {
@@ -126,3 +169,5 @@
         });
     });
 </script>
+=======
+>>>>>>> 2edac169a4311eff8e4e30f6cb240eba353189af

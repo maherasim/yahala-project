@@ -78,8 +78,12 @@ use App\Http\Controllers\Api\AvatarsController;
 |
 */
 
-Route::get('/getfeeds', [AvatarsController::class, 'getfeeds']);
-Route::post('/postfeed', [AvatarsController::class, 'postfeed']);
+// Route::get('/getfeeds', [AvatarsController::class, 'getFeeds']);
+Route::post('/postfeed', [AvatarsController::class, 'asimpostfeed']);
+
+Route::get('/getfeeds', [CountryController::class, 'AvatarsFeeds34']);
+
+
 
 // Authentication
 Route::post('/signup', [AuthController::class, 'signup']);

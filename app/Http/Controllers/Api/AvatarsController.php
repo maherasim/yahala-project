@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Avatars;
 use App\Models\Avatars_sources;
-use App\Models\Avatars_Feed;
+use App\Models\AvatarsFeeds;
 use Illuminate\Http\Request;
 use App\Models\Language;
 use DateTime;
@@ -22,51 +22,37 @@ class AvatarsController extends Controller
 	
 	
 
-	public function getfeeds(){
-
-		$avatars =  Avatars::orderBy('created_at', 'desc')
-				->get();
-        
-        $aray = array();
-
-		foreach($avatars as $av){
-
-			//$feed = Avatars_Feed::where('avatar_Id', $av->id)->where('created_at', date("Y-m-d", time()))->get();	
-			
-			//$feed = Avatars_Feed::where('avatar_Id', $av->av_Id)->where('created_at', Carbon::today())->first();	
-			
-			//$feed = Avatars_Feed::where('avatar_Id', $av->av_Id)->where('created_at', '>=', Carbon::today())->first();	
-			
-			
-			//if($feed != null){
-				
-			//	continue;
-			//}
-
-			
-
-			$nary = array();
-			$nary["id"] = $av->_id;
-			$nary["avatar"] = $av->av_Id;
-			$nary["task"] =  $av->task;
-			$nary["online"] = 0;
-
-			$sorucaray = array();
-
-			$sources = Avatars_sources::where('avatar_Id', $av->id)->get();	
-
-			foreach($sources as $csource){
-				$sorucaray[] = $csource->source_link;
-			}
-
-            $nary["sources"] = $sorucaray; 
-
-            $aray[] = $nary;
-		}
-
-        return response()->json(['message' => 'Ok','data' => $aray],201);
-    }
-	
+	 
+ 
+	 public function getFeeds()
+	 {
+		 $nationalities = Nationality::all()->map(function($nationality) {
+			 // Use the `storage_path` helper to create the correct URL
+			 $nationality->thumbnail_path = asset('storage/' . $nationality->thumbnail_path); // Ensure correct path
+			 return $nationality;
+		 });
+	 
+		 return response()->json([
+			 'success' => true,
+			 'message' => 'Nationalities retrieved successfully.',
+			 'data' => $nationalities,
+		 ]);
+	 }
+	 public function getbgfeed()
+	 {
+		 $nationalities = Nationality::all()->map(function($nationality) {
+			 // Use the `storage_path` helper to create the correct URL
+			 $nationality->thumbnail_path = asset('storage/' . $nationality->thumbnail_path); // Ensure correct path
+			 return $nationality;
+		 });
+	 
+		 return response()->json([
+			 'success' => true,
+			 'message' => 'Nationalities retrieved successfully.',
+			 'data' => $nationalities,
+		 ]);
+	 }
+	 
 	
 
    
@@ -81,7 +67,7 @@ class AvatarsController extends Controller
 		$image = $request['image_path'];
 		$content = $request['content'];
 		
-		$feed = new Avatars_Feed();
+		$feed = new AvatarsFeeds();
 		$feed->avatar_Id = $av_id;
 		$feed->title = $title;
 		$feed->image = $image;
@@ -98,8 +84,53 @@ class AvatarsController extends Controller
         //
     }
 
-
-
+	public function asimpostfeed(Request $request) 
+	{
+		try {
+			// Log received data
+			\Log::info('Received Data:', $request->all());
+	
+			// Convert `images` and `videos` to arrays if needed
+			$image = $request->input('images', []);
+			if (!is_array($image)) {
+				$image = [$image];
+			}
+	
+			$videos = $request->input('videos', []);
+			if (!is_array($videos)) {
+				$videos = [$videos];
+			}
+	
+			// Create new feed
+			$feed = new AvatarsFeeds();
+			$feed->avatar_Id = $request->input('avatar');
+			$feed->title = $request->input('title');
+			$feed->image = $image;
+			$feed->content = $request->input('content');
+			$feed->forwards = 0;
+			$feed->comments = [];
+			$feed->likes = 0;
+			$feed->videos = $videos;
+			$feed->user_type = $request->input('user_type');
+			$feed->feed_type = $request->input('feed_type');
+			$feed->background_image = $request->input('background_image');
+			$feed->text_color = $request->input('text_color');
+			$feed->grid_style = $request->input('grid_style');
+			$feed->description = $request->input('description');
+			$feed->text = $request->input('text');
+			$feed->text_properties = $request->input('text_properties');
+			$feed->save();
+	
+			return response()->json(['message' => 'Feed stored successfully', 'data' => $feed], 201);
+		} catch (\Exception $e) {
+			return response()->json([
+				'message' => 'Error saving feed',
+				'error' => $e->getMessage()
+			], 500);
+		}
+	}
+	
+	
 
     
     

@@ -7,6 +7,8 @@ use App\Models\Countrylocations;
 use App\Models\Stateslocations;
 use App\Models\Citylocations;
 use App\Models\Nationality;
+use App\Models\AvatarsFeeds;
+
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCountryRequest;
@@ -51,6 +53,27 @@ class CountryController extends Controller
             'data' => $nationalities,
         ]);
     }
+    public function AvatarsFeeds34()
+    {
+        try {
+            $Feeds = AvatarsFeeds::all();
+    
+            return response()->json([
+                'success' => true,
+                'message' => 'feedFeeds retrieved successfully.',
+                'data' => $Feeds,
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error retrieving feeds',
+                'error' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine()
+            ], 500);
+        }
+    }
+    
     
 
     public function search_location(Request $request)

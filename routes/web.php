@@ -159,8 +159,7 @@ Route::get('/db-seed/{cmd}', function ($cmd) {
 //Route::get('/avatars/{id}', [AvatarsController::class, 'edit']);
 
 
-
-
+ 
 Route::group(['middleware' => 'permission:avatars.read'], function () {
 
     //Route::resource('/avatars', AvatarsController::class);

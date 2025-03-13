@@ -20,6 +20,7 @@ class Artist extends Model
         'last_name',
         'city',
         'dob',
+        'origin',
         'gender',
         'image'
     ];
