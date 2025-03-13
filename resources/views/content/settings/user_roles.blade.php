@@ -43,54 +43,54 @@ https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css
     <h4 class="fw-bold py-3 mb-4">
         <span class="text-muted fw-light">Settings /</span>
         {{-- <span class="text-muted fw-light">User Roles /</span> --}}
-        {{ ucfirst($userLevel) == 'Standard' ? 'Educated' : (ucfirst($userLevel) == 'Premium' ? 'Cultivated' : 'Academic') }} User
+        {{ ucfirst($userLevel) }} User
     </h4>
 </div>
 <ul class="nav nav-tabs nav-fill" role="tablist">
   <li class="nav-item" role="presentation">
-    <a type="button" class="nav-link justify-content-start nav-text-left {{ ucfirst($userLevel) == 'Standard' ? 'active' : '' }}" href="{{url('settings/user-roles/standard')}}" aria-selected="{{ ucfirst($userLevel) == 'Standard' ? 'true' : 'false' }}" tabindex="-1">
+    <a type="button" class="nav-link justify-content-start nav-text-left {{ ucfirst($userLevel) == 'Educated' ? 'active' : '' }}" href="{{url('settings/user-roles/educated')}}" aria-selected="{{ ucfirst($userLevel) == 'Educated' ? 'true' : 'false' }}" tabindex="-1">
         <div class="d-flex justify-content-start align-items-center">
             <div class="avatar-wrapper">
-                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/userrole/icons/educated.svg')}}"
+                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/edu.svg')}}"
                         alt="Avatar"></div>
             </div>
             <div class="d-flex flex-column genos-font">
-                <span class="fw-semibold">Educated</span>
-                <small class="text-muted">Standard User</small>
+                <span class="fw-semibold">Educated User</span>
+                {{-- <small class="text-muted">Educated User</small> --}}
             </div>
         </div>
     </a>
-    <div class="{{ ucfirst($userLevel) == 'Standard' ? 'tab--selected' : '' }} tab__slider"></div>
+    <div class="{{ ucfirst($userLevel) == 'Educated' ? 'tab--selected' : '' }} tab__slider"></div>
   </li>
   <li class="nav-item" role="presentation">
-    <a type="button" class="nav-link justify-content-start nav-text-left {{ ucfirst($userLevel) == 'Premium' ? 'active' : '' }}" href="{{url('settings/user-roles/premium')}}" aria-selected="{{ ucfirst($userLevel) == 'Premium' ? 'true' : 'false' }}" tabindex="-1">
+    <a type="button" class="nav-link justify-content-start nav-text-left {{ ucfirst($userLevel) == 'Cultivated' ? 'active' : '' }}" href="{{url('settings/user-roles/cultivated')}}" aria-selected="{{ ucfirst($userLevel) == 'Cultivated' ? 'true' : 'false' }}" tabindex="-1">
         <div class="d-flex justify-content-start align-items-center">
             <div class="avatar-wrapper">
-                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/userrole/icons/cultivated.svg')}}"
+                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/cul.svg')}}"
                         alt="Avatar"></div>
             </div>
             <div class="d-flex flex-column genos-font">
-                <span class="fw-semibold">Cultivated</span>
-                <small class="text-muted">Premium User</small>
+                <span class="fw-semibold">Cultivated User</span>
+                {{-- <small class="text-muted">Cultivated User</small> --}}
             </div>
         </div>
     </a>
-    <div class="{{ ucfirst($userLevel) == 'Premium' ? 'tab--selected' : '' }} tab__slider"></div>
+    <div class="{{ ucfirst($userLevel) == 'Cultivated' ? 'tab--selected' : '' }} tab__slider"></div>
   </li>
   <li class="nav-item" role="presentation">
-    <a type="button" class="nav-link justify-content-start nav-text-left {{ ucfirst($userLevel) == 'Vip' ? 'active' : '' }}" href="{{url('settings/user-roles/vip')}}" aria-selected="{{ ucfirst($userLevel) == 'Vip' ? 'true' : 'false' }}" tabindex="-1">
+    <a type="button" class="nav-link justify-content-start nav-text-left {{ ucfirst($userLevel) == 'Academic' ? 'active' : '' }}" href="{{url('settings/user-roles/academic')}}" aria-selected="{{ ucfirst($userLevel) == 'Academic' ? 'true' : 'false' }}" tabindex="-1">
         <div class="d-flex justify-content-start align-items-center">
             <div class="avatar-wrapper">
-                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/userrole/icons/academic.svg')}}"
+                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/aca.svg')}}"
                         alt="Avatar"></div>
             </div>
             <div class="d-flex flex-column genos-font">
-                <span class="fw-semibold">Academic</span>
-                <small class="text-muted">VIP-User</small>
+                <span class="fw-semibold">Academic User</span>
+                {{-- <small class="text-muted">VIP-User</small> --}}
             </div>
         </div>
     </a>
-    <div class="{{ ucfirst($userLevel) == 'Vip' ? 'tab--selected' : '' }} tab__slider"></div>
+    <div class="{{ ucfirst($userLevel) == 'Academic' ? 'tab--selected' : '' }} tab__slider"></div>
   </li>
 </ul>
 <div class="nav-align-left mb-4">
@@ -176,7 +176,7 @@ https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css
                                         alt="educated"></div>
                             </div>
                             <div class="d-flex flex-column genos-font">
-                                <span class="fw-semibold">{{ ucfirst($userLevel) == 'Standard' ? 'Educated' : (ucfirst($userLevel) == 'Premium' ? 'Cultivated' : 'Academic') }} User</span>
+                                <span class="fw-semibold">{{ ucfirst($userLevel) == 'Educated' ? 'Educated' : (ucfirst($userLevel) == 'Cultivated' ? 'Cultivated' : 'Academic') }} User</span>
                                 <small class="text-muted">{{ ucfirst($userLevel) }} User</small>
                             </div>
                         </div>
@@ -319,7 +319,7 @@ https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css
                                 <div class="flex-grow-1 row">
                                 <div class="col-10 mb-sm-0 mb-2">
                                     <h6 class="mb-0 title-color">Educated User</h6>
-                                    <small class="text-muted">The Total Storage Amount that allowed for Standard Users</small>
+                                    <small class="text-muted">The Total Storage Amount that allowed for Educated Users</small>
                                 </div>
                                 <div class="col-2 text-end mt-1">
                                     <label class="switch me-0">

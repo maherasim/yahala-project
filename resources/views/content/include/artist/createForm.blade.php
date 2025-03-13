@@ -1,51 +1,75 @@
 @php
-    $musicCategory= \App\Models\MusicCategory::all();
+    $musicCategory = \App\Models\MusicCategory::all();
+    $nationalities = \App\Models\Nationality::select('id', 'name', 'thumbnail_path')->get();
+
+    
 @endphp
 
+<!-- Include Flag Icons CSS via CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
+ <!-- Select2 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
 
-<form id="{{ isset($form) ? $form : 'createForm'}}" method="POST" action="{{ route('artist.store') }}" enctype="multipart/form-data">
+<!-- Select2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+
+<form id="{{ isset($form) ? $form : 'createForm' }}" method="POST" action="{{ route('artist.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="hidden-inputs"></div>
     <div class="row">
         <div class="col-lg-12 mx-auto">
             <div class="row g-3">
-                <div class="col-md-12">
-                    <label class="form-label" for="fullname">Gender</label>
+
+                <!-- Gender -->
+                <div class="col-md-6">
+                    <label class="form-label" for="gender">Gender</label>
                     <select name="gender" class="form-select">
                         <option selected>Select Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
                 </div>
-                <div class="col-md-12">
-                    <label class="form-label" for="fullname">First Name</label>
-                    <input type="text" id="fullname" class="form-control" placeholder="lorem" name="first_name">
+                <div class="col-md-6">
+                    <label class="form-label" for="origin">Select Origin</label>
+                    <select name="origin" class="form-control select2" id="origin">
+                        <option value="">Select Origin</option>
+                        @foreach($nationalities as $nationality)
+                            <option value="{{ $nationality->id }}" data-image="{{ asset($nationality->thumbnail_path) }}">
+                                <!-- Remove text, keep option empty -->
+                            </option>
+                        @endforeach
+                    </select>
+                    
                 </div>
-                <div class="col-md-12">
-                    <label class="form-label" for="fullname">Last Name</label>
-                    <input type="text" id="fullname" class="form-control" placeholder="lorem" name="last_name">
+                
+                
+                
+                <img id="country-thumbnail" src="" alt="Country Flag" style="display:none; width:50px; height:30px; margin-top:10px;">
+                
+
+                <!-- First & Last Name -->
+                <div class="col-md-6">
+                    <label class="form-label" for="first_name">First-Lastname</label>
+                    <input type="text" id="first_name" class="form-control" placeholder="Enter First-last Name" name="first_name">
                 </div>
-                <div class="col-md-4">
-                    <label class="form-label" for="fullname"> Music Category</label>
-                    <select name="music_category" class="form-control province_id" id="province_id" data-url={{ url('get/city') }} value="{{ old('province_id') }}">
+                
+
+                <!-- Music Category Dropdown -->
+                <div class="col-md-6">
+                    <label class="form-label" for="music_category">Music Category</label>
+                    <select name="music_category" class="form-control" id="music_category">
                         <option value="">Select Category</option>
                         @foreach($musicCategory as $item)
-                        <option value="{{ $item->id }}">{{ $item->name ?? '' }}</option>
+                            <option value="{{ $item->id }}">{{ $item->name }}</option>
                         @endforeach
                     </select>
                 </div>
-                {{-- <div class="col-md-8">
-                    <label class="form-label" for="fullname">City</label>
-                    <select name="city" class="form-control city_id" id="city_id">
-                        <option value="">Select City</option>
-                    </select>
-                </div> --}}
 
-                {{-- <div class="col-md-12">
-                    <label class="form-label" for="fullname">Image</label>
-                    <input type="file" id="fullname" class="form-control" name="image">
-                </div> --}}
+                <!-- Arabic Countries Dropdown (Using Flag Icons) -->
+              
 
+                <!-- Image Upload -->
                 <div class="col-12">
                     <div class="card">
                         <h5 class="card-header">Image</h5>
@@ -55,24 +79,50 @@
                                     Drop files here or click to upload
                                 </div>
                                 <div class="fallback">
-                                    <input accept="image/*" type="file" name="image"  id="image" />
+                                    <input accept="image/*" type="file" name="image" id="image" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Status Dropdown -->
                 <div class="col-md-12">
                     <label class="form-label" for="status">Status</label>
                     <select class="form-select" name="status">
                         <option selected value="">Select</option>
-                        <option  value="1">Publish</option>
-                        <option  value="0">UnPublish</option>
-
+                        <option value="1">Publish</option>
+                        <option value="0">UnPublish</option>
                     </select>
-
                 </div>
             </div>
         </div>
     </div>
 </form>
+
+<!-- Add Styling for Flags inside Select -->
+<style>
+    .fi {
+        margin-right: 8px;
+    }
+</style>
+ <script>
+    $(document).ready(function() {
+        function formatNationality(nationality) {
+            if (!nationality.id) {
+                return nationality.text;
+            }
+            var imgSrc = $(nationality.element).data('image');
+            if (!imgSrc) {
+                imgSrc = 'https://via.placeholder.com/20x15'; // Fallback image
+            }
+            var $nationality = $('<span><img src="' + imgSrc + '" class="img-flag" style="width: 30px; height: 20px;" /></span>');
+            return $nationality;
+        }
+
+        $('#origin').select2({
+            templateResult: formatNationality,  // Show only image in dropdown
+            templateSelection: formatNationality // Show only image when selected
+        });
+    });
+</script>

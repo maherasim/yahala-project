@@ -4,15 +4,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\EmojiFeedController;
+use App\Http\Controllers\Api\FeedsController;
 use App\Http\Controllers\Api\BazarController;
 use App\Http\Controllers\Api\AdminActivityController;
 use App\Http\Controllers\Api\EventController;
-use App\Http\Controllers\Api\CountryLocationController;
-use App\Http\Controllers\Api\ReasonController;
+use App\Http\Controllers\Api\UserRolesController;
+
 use App\Http\Controllers\Api\AdminProfileController;
 use App\Http\Controllers\Api\MediaController;
 use App\Http\Controllers\SongController;
-use App\Http\Controllers\Api\StoryController;
 use App\Http\Controllers\Api\MusicController;
 use App\Http\Controllers\Api\ArtistController;
 use App\Http\Controllers\Api\ReportController;
@@ -21,16 +22,13 @@ use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\TicketController;
 use App\Http\Controllers\Api\VotingController;
 use App\Http\Controllers\Admin\Donation\DonationController as DonationDonationController;
-
 use App\Http\Controllers\Api\FanPageController;
 use App\Http\Controllers\Api\HistoryController;
 use App\Http\Controllers\Api\PolicyAndTermsController;
-
 use App\Http\Controllers\Api\DonationController;
 use App\Http\Controllers\Api\DiamondUserController;
 use App\Http\Controllers\Api\FlaggedUserController;
 use App\Http\Controllers\Api\PremiumUserController;
-use App\Http\Controllers\Api\BlockFanPageController;
 use App\Http\Controllers\Api\NewsCategoryController;
 use App\Http\Controllers\Api\OrganizationController;
 use App\Http\Controllers\Api\StandardUserController;
@@ -51,15 +49,12 @@ use App\Http\Controllers\Api\BazarSubCategoryController;
 use App\Http\Controllers\Api\TwoFactorController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\LanguageController;
-use App\Http\Controllers\Api\PrivacyAndPolicyController;
 use App\Http\Controllers\Api\TranslationController;
 use App\Http\Controllers\Api\AccountSettingController;
 use App\Http\Controllers\Api\ContactUsController;
 use App\Http\Controllers\Api\FeedBackgroundImageController;
 use App\Http\Controllers\Api\UserSettingController;
-use App\Http\Controllers\Api\FeedController;
 use App\Http\Controllers\Api\RingtoneController;
-use App\Http\Controllers\Api\UploadMediaController;
 use App\Http\Controllers\Api\CollectionController;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\UpgradeAccountController;
@@ -91,17 +86,17 @@ Route::post('/signup', [AuthController::class, 'signup']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('forgot-password', [AuthController::class, 'forgot_password']);
 Route::post('change-password', [AuthController::class, 'change_password']);
-Route::post('/reset/password', [AuthController::class, 'reset'])->name('password.reset');
-Route::post('/reset', [AuthController::class, 'resetpassword'])->name('reset.complete');
-Route::post('/reset/resend', [AuthController::class, 'reset_resend'])->name('reset.resend');
-Route::post('2fa', [TwoFactorController::class, 'store'])->name('2fa.post');
-Route::post('2fa/reset', [TwoFactorController::class, 'resend'])->name('2fa.resend');
+Route::post('/reset/password', [AuthController::class, 'reset']);
+Route::post('/reset', [AuthController::class, 'resetpassword']);
+Route::post('/reset/resend', [AuthController::class, 'reset_resend']);
+Route::post('2fa', [TwoFactorController::class, 'store']);
+Route::post('2fa/reset', [TwoFactorController::class, 'resend']);
 Route::post('/verify-otp', [AuthController::class, 'verifyOTP']);
 Route::delete('/user/delete', [AuthController::class, 'deleteUserByEmail']);
 Route::post('/check-user-exists', [AuthController::class, 'checkUserExists']);
 Route::post('/check-email-exists', [AuthController::class, 'checkEmailExists']);
 Route::post('/check-phone-exists', [AuthController::class, 'checkPhoneExists']);
- 
+
 
 //lost device
 Route::post('/register-device', [AuthController::class, 'registerDevice']);
@@ -114,61 +109,59 @@ Route::post('/check-email-lost', [AuthController::class, 'lostdevicecheckEmail']
 Route::post('/verify-otp-lostdevice', [AuthController::class, 'verifyOtpdevice']);
 
 
-
-Route::get('/user-personal-profile', [AuthController::class, 'userprofile'])->name('userprofile');
-
+Route::get('/user-personal-profile', [AuthController::class, 'userprofile']);
 
 
+ Route::middleware('verify.token')->get('/admin/profile', [AdminProfileController::class, 'index']);
 
 
+ //News Feed Section
+Route::post('news-feeds', [FeedsController::class, 'news_store']);
+Route::get('news-feeds', [FeedsController::class, 'news']);
 
-
-
- 
- Route::middleware('verify.token')->get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin_profile');
-
-
-
-
-
-
+//Feed section
+Route::post('feeds', [FeedsController::class, 'store']);
+Route::get('feeds', [FeedsController::class, 'index']);
+//Event Section
+Route::post('events', [FeedsController::class, 'store_event']);
+Route::get('events', [FeedsController::class, 'index']);
 
 
 
-Route::post('/admin/profile/store', [AdminProfileController::class, 'store'])->name('admin_profile.store');
-Route::get('/admin/profile/security', [AdminProfileController::class, 'security'])->name('admin_profile.security');
-Route::get('/admin/profile/account', [AdminProfileController::class, 'account'])->name('admin_profile.account');
-Route::get('/admin/profile/billing', [AdminProfileController::class, 'billing'])->name('admin_profile.billing');
-Route::get('/admin/profile/notification', [AdminProfileController::class, 'notification'])->name('admin_profile.notification');
-Route::get('/admin/profile/connection', [AdminProfileController::class, 'connection'])->name('admin_profile.connection');
-Route::post('/admin/change-password', [AdminProfileController::class, 'change_password'])->name('admin_change_password');
-Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin.enable.2fa');
+
+
+
+Route::post('/admin/profile/store', [AdminProfileController::class, 'store']);
+Route::get('/admin/profile/security', [AdminProfileController::class, 'security']);
+Route::get('/admin/profile/account', [AdminProfileController::class, 'account']);
+Route::get('/admin/profile/billing', [AdminProfileController::class, 'billing']);
+Route::get('/admin/profile/notification', [AdminProfileController::class, 'notification']);
+Route::get('/admin/profile/connection', [AdminProfileController::class, 'connection']);
+Route::post('/admin/change-password', [AdminProfileController::class, 'change_password']);
+Route::get('/admin/2FA', [AdminProfileController::class, 'enable']);
 
 // Route::middleware('auth:sanctum')->group(function () {
-  Route::get('countries', [CountryController::class, 'index'])->name('countries.index');
+  Route::get('countries', [CountryController::class, 'index']);
 
 
-  Route::get('countries', [CountryController::class, 'index'])->name('countries.index');
+  Route::get('countries', [CountryController::class, 'index']);
 
-  Route::get('/nationality', [CountryController::class, 'getNationality'])->name('nationality');
- 
-  Route::put('countries/{id}', [CountryController::class, 'update'])->name('countries.update');
-  Route::delete('countries/{id}', [CountryController::class, 'destroy'])->name('countries.destroy');
+  Route::get('/nationality', [CountryController::class, 'getNationality']);
 
-  
+  Route::put('countries/{id}', [CountryController::class, 'update']);
+  Route::delete('countries/{id}', [CountryController::class, 'destroy']);
 
-  Route::get('policy_and_terms', [PolicyAndTermsController::class, 'index'])->name('policy_and_terms.index');
-  Route::post('policy_and_terms', [PolicyAndTermsController::class, 'storekrdo'])->name('policy_and_terms.store');
-  Route::post('policy/saveFileds', [PolicyAndTermsController::class, 'saveFileds'])->name('policy_and_terms.saveFileds'
-  );
-  Route::delete('policy_and_terms/{id}', [PolicyAndTermsController::class, 'destroy'])->name(
-    'policy_and_terms.destroy'
-  );
 
-  Route::get('languages', [LanguageController::class, 'index'])->name('languages.index');
-  Route::post('languages', [LanguageController::class, 'store'])->name('languages.store');
-  Route::post('languages/{id}', [LanguageController::class, 'update'])->name('languages.update');
-  Route::delete('languages/{id}', [LanguageController::class, 'destroy'])->name('languages.destroy');
+
+  Route::get('policy_and_terms', [PolicyAndTermsController::class, 'index']);
+  Route::post('policy_and_terms', [PolicyAndTermsController::class, 'storekrdo']);
+  Route::post('policy/saveFileds', [PolicyAndTermsController::class, 'saveFileds']);
+  Route::delete('policy_and_terms/{id}', [PolicyAndTermsController::class, 'destroy']);
+
+  Route::get('languages', [LanguageController::class, 'index']);
+  Route::post('languages', [LanguageController::class, 'store']);
+  Route::post('languages/{id}', [LanguageController::class, 'update']);
+  Route::delete('languages/{id}', [LanguageController::class, 'destroy']);
 
   Route::post('/logout', [AuthController::class, 'logout']);
 
@@ -178,6 +171,19 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
   Route::get('/homepagelanguage-section/{languageId}', [LanguageController::class, 'getShomepagelanguageByLanguageId']);
   Route::get('/app_policy-section/{languageId}', [LanguageController::class, 'getShomeApp_PolicyByLanguageId']);
   Route::get('/all-language-sections/{languageId}', [LanguageController::class, 'getAllSectionsByLanguageId']);
+
+
+
+  Route::prefix('user-roles')
+    ->group(function () {
+        Route::get('/educated', [UserRolesController::class, 'educated'])->name('educated');
+        Route::get('/cultivated', [UserRolesController::class, 'cultivated'])->name('cultivated');
+        Route::get('/academic', [UserRolesController::class, 'academic'])->name('academic');
+    });
+
+
+
+
 
 
   // Admin Activity
@@ -191,7 +197,7 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
   Route::post("/admin-activity/surveys", [AdminActivityController::class, 'store_surveys']);
   Route::post("/admin-activity/greetings", [AdminActivityController::class, 'store_greetings']);
   Route::post("/admin-activity/delete-feeds", [AdminActivityController::class, 'delete_pops']);
-  
+
 
 
 
@@ -224,7 +230,6 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
 
   // Users
   Route::prefix('/users')
-    ->name('users.')
     ->group(function () {
       Route::resource('standard', StandardUserController::class);
       Route::resource('premium', PremiumUserController::class);
@@ -286,14 +291,6 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable'])->name('admin
     'update',
   ]);
   //Manage Cards
-Route::get('/list-cards', [StoryController::class, 'Listcard'])->name('list.cards');
-Route::post('/list-cards-store', [StoryController::class, 'Cardstore'])->name('list.cards.store');
-Route::delete('/list-card/{card}', [StoryController::class, 'destroycard'])->name('list.cards.delete2');
-Route::get('story/ManageStories', [StoryController::class, 'ManageStories']);
-Route::get('stories_time', [StoryController::class, 'storage_setting']);
-Route::post('/story-time', [StoryController::class, 'storetime'])->name('story.time.store');
-Route::get('story/ReportedStories', [StoryController::class, 'ManageStoriestwo']);
-Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list.cards.delete');
   Route::resource('history', HistoryController::class)->only(['index', 'store', 'show', 'destroy', 'update']);
   Route::resource('bazar-category', BazarCategoryController::class)->only([
     'index',
@@ -302,8 +299,8 @@ Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list
     'destroy',
     'update',
   ]);
-  Route::get('stories/reasons', [ReasonController::class, 'index'])->name('stories.reasons');
-           
+  Route::get('feedreasons', [FeedsController::class, 'feedindex']);
+
   Route::resource('/storysong', SongController::class);
   Route::resource('/storysong', SongController::class)->names([
       'index' => 'storysong.index',
@@ -314,7 +311,7 @@ Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list
       'update' => 'storysong.update',
       'destroy' => 'storysong.destroy',
   ]);
-  
+
   Route::resource('bazar-subcategory', BazarSubCategoryController::class)->only([
     'index',
     'store',
@@ -346,17 +343,13 @@ Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list
 
   Route::apiResource('policy-and-terms', PolicyAndTermsController::class);
    //Ringtone
-  Route::get('app-setting/message-ringtone', [RingtoneController::class, 'getMessageRingtones'])->name(
-    'appsetting.message.ringtone'
-  );
-  Route::get('app-setting/call-ringtone', [RingtoneController::class, 'getCallRingtones'])->name('appsetting.call.ringtone');
-  Route::get('app-setting/ringtone', [RingtoneController::class, 'index'])->name('appsetting.ringtone.index');
+  Route::get('app-setting/message-ringtone', [RingtoneController::class, 'getMessageRingtones']);
+  Route::get('app-setting/call-ringtone', [RingtoneController::class, 'getCallRingtones']);
+  Route::get('app-setting/ringtone', [RingtoneController::class, 'index']);
 
-  Route::post('app-setting/ringtone', [RingtoneController::class, 'store'])->name('appsetting.ringtone.store');
+  Route::post('app-setting/ringtone', [RingtoneController::class, 'store']);
 
-  Route::delete('app-setting/ringtone/{id}', [RingtoneController::class, 'destroy'])->name(
-    'appsetting.ringtone.destroy'
-  );
+  Route::delete('app-setting/ringtone/{id}', [RingtoneController::class, 'destroy']);
 
   //Language
   // Route::resource('/language', LanguageController::class);
@@ -364,28 +357,25 @@ Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list
   /*--------------------------
  Donation
 ----------------------------*/
-  Route::post('/add_donation', [DonationDonationController::class, 'add_donation'])->name('create.donation');
-  Route::put('/edit_donation/{id}', [DonationDonationController::class, 'edit_donation'])->name('edit.donation');
-  Route::delete('/destroy_donation/{id}', [DonationDonationController::class, 'destroy_donation'])->name(
-    'destroy.donation'
-  );
+  Route::post('/add_donation', [DonationDonationController::class, 'add_donation']);
+  Route::put('/edit_donation/{id}', [DonationDonationController::class, 'edit_donation']);
+  Route::delete('/destroy_donation/{id}', [DonationDonationController::class, 'destroy_donation']);
 
   // Account Setting  Controller
   Route::post('/change-password', [AccountSettingController::class, 'change_password'])
-    ->name('change-password')
     ->middleware('auth:sanctum');
-  Route::post('/send-email-code', [AccountSettingController::class, 'send_email_code'])->name('send-email-code');
-  Route::post('/resend-email', [AccountSettingController::class, 'resend_email_code'])->name('resend-email');
-  Route::post('/change-email', [AccountSettingController::class, 'change_email'])->name('change-email');
-  Route::post('/upgrade-account', [AccountsettingController::class, 'upgrade_account'])->name('upgrade-account');
+  Route::post('/send-email-code', [AccountSettingController::class, 'send_email_code']);
+  Route::post('/resend-email', [AccountSettingController::class, 'resend_email_code']);
+  Route::post('/change-email', [AccountSettingController::class, 'change_email']);
+  Route::post('/upgrade-account', [AccountsettingController::class, 'upgrade_account']);
 
   // Contact Us Controller
-  Route::post('/contact-us', [ContactUsController::class, 'contact_us'])->name('contact-us');
+  Route::post('/contact-us', [ContactUsController::class, 'contact_us']);
 
   // Country Controller
-  // Route::get('province', [CountryController::class, 'province'])->name('province');
-  // Route::post('country/store', [CountryController::class, 'store'])->name('country.store');
-  // Route::put('country/store/update/yes', [CountryController::class, 'update'])->name('country.update');
+  // Route::get('province', [CountryController::class, 'province']);
+  // Route::post('country/store', [CountryController::class, 'store']);
+  // Route::put('country/store/update/yes', [CountryController::class, 'update']);
 
   //provinces
   Route::resource('/provinces', RegionController::class);
@@ -393,53 +383,46 @@ Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list
   //Cities
   Route::resource('/cities', CityController::class);
 
+  Route::get('/cities/{country_id}', [CityController::class, 'getCitiesByCountry']);
+
+
+
+
+
+
   Route::post('/searchlocation', [CountryController::class, 'search_location']);
 
   // Privacy and Policy
-  // Route::get('privacy', [PrivacyAndPolicyController::class, 'privacy'])->name('privacy');
-  // Route::get('/single-privacy/{name}', [PrivacyAndPolicyController::class, 'single_privacy'])->name('single_privacy');
+  // Route::get('privacy', [PrivacyAndPolicyController::class, 'privacy']);
+  // Route::get('/single-privacy/{name}', [PrivacyAndPolicyController::class, 'single_privacy']);
 
   // Translation
   Route::prefix('/translate')
-    ->name('api.translate.')
     ->group(function () {
-      Route::get('/languages', [TranslationController::class, 'fetch_languages'])->name('languages');
-      Route::get('/{id}', [TranslationController::class, 'translate'])->name('translate');
+      Route::get('/languages', [TranslationController::class, 'fetch_languages']);
+      Route::get('/{id}', [TranslationController::class, 'translate']);
     });
 
   // User  Setting Controller
-  Route::post('/user-setting/{user_id}', [UserSettingController::class, 'index'])->name('user-setting');
+  Route::post('/user-setting/{user_id}', [UserSettingController::class, 'index']);
   Route::post('/user-setting/save', [UserSettingController::class, 'save'])
-    ->name('user-setting-save')
     ->middleware('auth:sanctum');
 
-  // Feed Controller
-  Route::get('share-feed', [FeedController::class, 'shareWidget'])->name('share-feed');
-
-  // Ringtone Controller
-  Route::get('/ringtone', [RingtoneController::class, 'get'])->name('ringtone');
-
-  Route::post('/upload-media', [UploadMediaController::class, 'index']);
-  Route::post('/add-feed', [FeedController::class, 'add_feed'])->name('add-feed');
-  Route::get('/fetch-feed/{id?}', [FeedController::class, 'fetch_feed'])->name('fetch-feed');
-  Route::get('/get-feed/{id}', [FeedController::class, 'get_feed'])->name('get-feed');
-  Route::get('/get-first-feed/{id}', [FeedController::class, 'get_first_feed'])->name('get-feed-first');
-  Route::get('/get-feed-bg/{id}', [FeedController::class, 'get_feed_bg'])->name('get-feed-bg');
-  Route::get('/get-feed-background/{id}', [FeedController::class, 'get_all'])->name('get-feed-background');
-  Route::get('/feed-background-video/{id}', [FeedController::class, 'get_feed_background_video'])->name(
-    'feed-background-video'
-  );
-  Route::get('/get-all-videos/{id}', [FeedController::class, 'get_all_feed_videos'])->name('get-all-videos');
-  Route::get('/feed/media/{id}', [FeedController::class, 'get_feed_media'])->name('feed.media');
-  Route::get('/feed/media-delete', [FeedController::class, 'feed_media_delete'])->name('feed.media.delete');
   // Feed image background
-  Route::post('/upload-background', [FeedBackgroundImageController::class, 'upload'])->name('upload-background');
-  Route::get('/get-background', [FeedBackgroundImageController::class, 'get'])->name('get-background');
+  Route::post('/upload-background', [FeedBackgroundImageController::class, 'upload']);
+  Route::get('/get-background', [FeedBackgroundImageController::class, 'get']);
+
+  // Feed emojis
+  Route::get('emojis', [EmojiFeedController::class, 'index']);
+  Route::post('emojis', [EmojiFeedController::class, 'store']);
+
+
+
 
   // collectoin feed
-  Route::post('/add-collection', [CollectionController::class, 'insert'])->name('add-collection');
-  Route::get('/get_collection/{user_id}', [CollectionController::class, 'get_collection'])->name('get-collection');
-  Route::delete('/remove-collection/{id}', [CollectionController::class, 'destroy'])->name('remove-collection');
+  Route::post('/add-collection', [CollectionController::class, 'insert']);
+  Route::get('/get_collection/{user_id}', [CollectionController::class, 'get_collection']);
+  Route::delete('/remove-collection/{id}', [CollectionController::class, 'destroy']);
 
   // Paypal
   Route::post('charge', [PaymentController::class, 'charge']);
@@ -452,9 +435,8 @@ Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list
   Route::get('/stripe/update-transaction', [StripeController::class, 'update']);
   Route::get('/stripe/update-success', [StripeController::class, 'success']);
 
-  Route::get('get_account_price', [UpgradeAccountController::class, 'price_upgrade'])->name('get_account_price');
+  Route::get('get_account_price', [UpgradeAccountController::class, 'price_upgrade']);
   Route::post('/account-upgrade', [UpgradeAccountController::class, 'account_upgrade'])
-    ->name('account-upgrade')
     ->middleware('auth:sanctum');
 
   // News
@@ -481,31 +463,27 @@ Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list
   Route::get('/voting-stats/{id}', [VotingController::class, 'stats']);
 
   //Animation Emojji
-  Route::get('/get-all-emoji/{userId?}/{type?}/{value?}', [AnimationEmojiController::class, 'get_all_emoji'])->name(
-    'get-all-emoji'
-  );
+  Route::get('/get-all-emoji/{userId?}/{type?}/{value?}', [AnimationEmojiController::class, 'get_all_emoji']);
 
   // Reaction
-  Route::post('/store-reaction', [ReactionController::class, 'store_reaction'])->name('store-reaction');
+  Route::post('/store-reaction', [ReactionController::class, 'store_reaction']);
   // comments
-  Route::get('/get-comment/{type}/{id}/{parent_id?}', [CommentController::class, 'get_comment'])->name('get-comment');
-  Route::post('/store-comment', [CommentController::class, 'store_comment'])->name('store-comment');
+  Route::get('/get-comment/{type}/{id}/{parent_id?}', [CommentController::class, 'get_comment']);
+  Route::post('/store-comment', [CommentController::class, 'store_comment']);
 
   // Music
-  Route::get('/music', [MusicController::class, 'index'])->name('music');
-  Route::get('/popular-song/{id}', [MusicController::class, 'popular_song'])->name('popular-song');
+  Route::get('/music', [MusicController::class, 'index']);
+  Route::get('/popular-song/{id}', [MusicController::class, 'popular_song']);
 
   // Artist
-  Route::get('/artist-music', [ArtistController::class, 'get_all_artist_music'])->name('artist-music');
-  Route::get('/single-aritst-music/{id}', [ArtistController::class, 'get_single_artist_music'])->name(
-    'single-aritst-music'
-  );
-  Route::get('/get-latest-artist', [ArtistController::class, 'get_two_latest_artist'])->name('get-latest-artist');
+  Route::get('/artist-music', [ArtistController::class, 'get_all_artist_music']);
+  Route::get('/single-aritst-music/{id}', [ArtistController::class, 'get_single_artist_music']);
+  Route::get('/get-latest-artist', [ArtistController::class, 'get_two_latest_artist']);
 
   Route::resource('/artist', ArtistController::class);
 
-  Route::get('/get-music-artist/{artist_id}', [ArtistController::class, 'get_music_by_artist'])->name('get-music-by-artist');
-  Route::get('/get-video-artist/{artist_id}', [ArtistController::class, 'get_video_by_artist'])->name('get-video-by-artist');
+  Route::get('/get-music-artist/{artist_id}', [ArtistController::class, 'get_music_by_artist']);
+  Route::get('/get-video-artist/{artist_id}', [ArtistController::class, 'get_video_by_artist']);
 
 
 
@@ -515,39 +493,29 @@ Route::delete('/cards/{id}', [StoryController::class, 'deleteCard'])->name('list
   Route::get('/album-details/{id}', [AlbumController::class, 'albums_details']);
 
   // Market Service
-  Route::post('/market-services', [MarketServiceContorller::class, 'market_services'])->name('market-services');
-  // Route::post('/market-categories' ,[MarketServiceContorller::class , 'market_categories'])->name('market-categories');
-  // Route::post('/market-gallery' ,[MarketServiceContorller::class , 'market_gallery'])->name('market-gallery');
-  // Route::post('/market-view-options' , [MarketServiceContorller::class , 'market_view_option'])->name('market-view-options');
+  Route::post('/market-services', [MarketServiceContorller::class, 'market_services']);
+  // Route::post('/market-categories' ,[MarketServiceContorller::class , 'market_categories']);
+  // Route::post('/market-gallery' ,[MarketServiceContorller::class , 'market_gallery']);
+  // Route::post('/market-view-options' , [MarketServiceContorller::class , 'market_view_option']);
 
   // Playlist
-  Route::post('/playlists', [PlaylistController::class, 'playlist'])->name('playlists');
-  Route::post('/get-playlist', [PlaylistController::class, 'get_playlist'])->name('get-playlist');
-  Route::get('/get-single-playlist/{playlist_id}', [PlaylistController::class, 'get_single_playlist'])->name(
-    'get-single-playlist'
-  );
+  Route::post('/playlists', [PlaylistController::class, 'playlist']);
+  Route::post('/get-playlist', [PlaylistController::class, 'get_playlist']);
+  Route::get('/get-single-playlist/{playlist_id}', [PlaylistController::class, 'get_single_playlist']);
   // Set music to playlist
-  Route::post('/set-music-playlist', [PlaylistController::class, 'set_music_to_playlist'])->name('set-music-playlist');
+  Route::post('/set-music-playlist', [PlaylistController::class, 'set_music_to_playlist']);
   // fovourite artist
-  Route::post('/favourite-artist', [PlaylistController::class, 'favourite_artist'])->name('favourite-aritst');
-  Route::get('/get-favourite-artist/{user_id}', [PlaylistController::class, 'get_favourite_artist'])->name(
-    'get-favourite-artist'
-  );
-  Route::get('/get-favourite-artist-id/{user_id}', [PlaylistController::class, 'get_favourite_artist_ids'])->name(
-    'get-favourite-artist-id'
-  );
-  // Route::get('/get-music-playlist' , [PlaylistController::class , 'get_music_playlist'])->name('get-music-playlist');
+  Route::post('/favourite-artist', [PlaylistController::class, 'favourite_artist']);
+  Route::get('/get-favourite-artist/{user_id}', [PlaylistController::class, 'get_favourite_artist']);
+  Route::get('/get-favourite-artist-id/{user_id}', [PlaylistController::class, 'get_favourite_artist_ids']);
+  // Route::get('/get-music-playlist' , [PlaylistController::class , 'get_music_playlist']);
   // Ablbum controller
-  Route::post('/favourite-album', [AlbumController::class, 'favourite_album'])->name('favourite-album');
-  Route::get('/get-favourite-album/{user_id}', [AlbumController::class, 'get_favourite_album'])->name(
-    'get-favourite-album'
-  );
-  Route::get('/get-favourite-album-id/{user_id}', [AlbumController::class, 'get_favourite_album_ids'])->name(
-    'get-favourite-album-id'
-  );
- 
+  Route::post('/favourite-album', [AlbumController::class, 'favourite_album']);
+  Route::get('/get-favourite-album/{user_id}', [AlbumController::class, 'get_favourite_album']);
+  Route::get('/get-favourite-album-id/{user_id}', [AlbumController::class, 'get_favourite_album_ids']);
 
-  Route::get('countrieslistshow', [CountryController::class, 'showcountries'])->name('countries.store');
+
+  Route::get('countrieslistshow', [CountryController::class, 'showcountries']);
 
 
   Route::post('/get-gallery', [PostGalleryController::class, 'get_gallery']);
