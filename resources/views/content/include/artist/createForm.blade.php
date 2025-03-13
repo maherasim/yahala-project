@@ -14,34 +14,34 @@
         width: 200px;
     }
     .options {
-    position: absolute;
-    width: 100%;
-    background: white;
-    border: 1px solid #ccc;
-    display: none;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    z-index: 100;
-    text-align: center; /* Centers inline elements */
-}
+        position: absolute;
+        width: 100%;
+        background: white;
+        border: 1px solid #ccc;
+        display: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        z-index: 100;
+        text-align: center;
+    }
 
-.options li {
-    display: flex;
-    justify-content: center; /* Centers the image horizontally */
-    align-items: center; /* Centers the image vertically */
-    padding: 8px;
-    cursor: pointer;
-}
+    .options li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
+        cursor: pointer;
+    }
 
-.options li:hover {
-    background: #f0f0f0;
-}
+    .options li:hover {
+        background: #f0f0f0;
+    }
 
-.options img {
-    width: 32px;
-    height: 32px;
-}
+    .options img {
+        width: 32px;
+        height: 32px;
+    }
 
     .select-box {
         display: flex;
@@ -58,36 +58,6 @@
         width: 24px;
         height: 24px;
         display: none; /* Hide image initially */
-    }
-
-    /* Dropdown options */
-    .options {
-        position: absolute;
-        width: 100%;
-        background: white;
-        border: 1px solid #ccc;
-        display: none;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        z-index: 100;
-    }
-
-    .options li {
-        display: flex;
-        align-items: center;
-        padding: 8px;
-        cursor: pointer;
-    }
-
-    .options li:hover {
-        background: #f0f0f0;
-    }
-
-    .options img {
-        width: 24px;
-        height: 24px;
-        margin-right: 8px;
     }
 
     .placeholder-text {
@@ -118,23 +88,21 @@
                     <div class="custom-select" id="dropdown">
                         <div class="select-box" onclick="toggleDropdown()">
                             <img id="selected-img" src="{{ asset('assets/img/moroco.png') }}" alt="Selected Origin">
-
                             <span id="placeholder-text" class="placeholder-text">Select Origin</span>
                         </div>
 
-                        <input type="hidden" name="origin" id="country" value="" />
+                        <input type="hidden" name="origin" id="origin" value="" />
 
                         <ul class="options">
                             @foreach($nationalities as $nationality)
                                 @php
-                                    $imagePath = 'public' . Storage::url($nationality->thumbnail_path);
+                                    $imagePath = asset('storage/' . $nationality->thumbnail_path);
                                 @endphp
-                                <li onclick="selectOption('{{ $imagePath }}')">
+                                <li onclick="selectOption('{{ $nationality->id }}', '{{ $imagePath }}')">
                                     <img src="{{ $imagePath }}" alt="{{ $nationality->name }}">
                                 </li>
                             @endforeach
                         </ul>
-                        
                     </div>
                 </div>
 
@@ -201,7 +169,7 @@
         placeholderText.style.display = "none"; // Hide placeholder text
 
         document.querySelector(".options").style.display = "none";
-        document.getElementById("country").value = id;
+        document.getElementById("origin").value = id; // Store selected country ID
     }
 
     document.addEventListener("click", function(event) {
