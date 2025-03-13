@@ -1317,6 +1317,11 @@
                                 <div>Pricing</div>
                             </a>
                         </li>
+                        <li class="menu-item {{ Request::is('setting/music/pricing') ? 'active' : '' }}">
+                            <a href="{{ url('/setting/music/pricing') }}" class="menu-link">
+                                <div>Nationality</div>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>

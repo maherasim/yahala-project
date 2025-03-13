@@ -1,27 +1,71 @@
 @php
+    use Illuminate\Support\Facades\Storage;
     $musicCategory = \App\Models\MusicCategory::all();
-<<<<<<< HEAD
-    $nationalities = \App\Models\Nationality::select('id', 'name', 'thumbnail_path')->get();
-
-=======
-    $nationality = \App\Models\Nationality::all();
->>>>>>> 2edac169a4311eff8e4e30f6cb240eba353189af
-    
+    $nationalities = \App\Models\Nationality::all();
 @endphp
 
 <!-- Include Flag Icons CSS via CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
-<<<<<<< HEAD
- <!-- Select2 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
 
-<!-- Select2 JS -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+<style>
+    /* Style the custom dropdown */
+    .custom-select {
+        position: relative;
+        width: 200px;
+    }
 
+    .select-box {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        background-color: #fff;
+        min-height: 40px;
+        justify-content: center;
+    }
 
-=======
+    .select-box img {
+        width: 24px;
+        height: 24px;
+        display: none; /* Hide image initially */
+    }
 
->>>>>>> 2edac169a4311eff8e4e30f6cb240eba353189af
+    /* Dropdown options */
+    .options {
+        position: absolute;
+        width: 100%;
+        background: white;
+        border: 1px solid #ccc;
+        display: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        z-index: 100;
+    }
+
+    .options li {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    .options li:hover {
+        background: #f0f0f0;
+    }
+
+    .options img {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+
+    .placeholder-text {
+        color: #999;
+    }
+</style>
+
 <form id="{{ isset($form) ? $form : 'createForm' }}" method="POST" action="{{ route('artist.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="hidden-inputs"></div>
@@ -38,31 +82,33 @@
                         <option value="female">Female</option>
                     </select>
                 </div>
+
+                <!-- Custom Dropdown for Nationality -->
                 <div class="col-md-6">
-                    <label class="form-label" for="origin">Select Origin</label>
-<<<<<<< HEAD
-                    <select name="origin" class="form-control select2" id="origin">
-                        <option value="">Select Origin</option>
-                        @foreach($nationalities as $nationality)
-                            <option value="{{ $nationality->id }}" data-image="{{ asset($nationality->thumbnail_path) }}">
-                                <!-- Remove text, keep option empty -->
-                            </option>
-                        @endforeach
-                    </select>
-                    
+                    <label class="form-label">Select Country</label>
+                    <div class="custom-select" id="dropdown">
+                        <div class="select-box" onclick="toggleDropdown()">
+                            <img id="selected-img" src="" alt="Selected Country">
+                            <span id="placeholder-text" class="placeholder-text">Select Country</span>
+                        </div>
+
+                        <input type="hidden" name="country" id="country" value="" />
+
+                        <ul class="options">
+                            @foreach($nationalities as $nationality)
+                                <li onclick="selectOption('{{ $nationality->id }}', '{{ Storage::url($nationality->thumbnail_path) }}')">
+                                    <img src="{{ Storage::url($nationality->thumbnail_path) }}" alt="{{ $nationality->name }}">
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
-                
-                
-                
-                <img id="country-thumbnail" src="" alt="Country Flag" style="display:none; width:50px; height:30px; margin-top:10px;">
-                
 
                 <!-- First & Last Name -->
                 <div class="col-md-6">
                     <label class="form-label" for="first_name">First-Lastname</label>
                     <input type="text" id="first_name" class="form-control" placeholder="Enter First-last Name" name="first_name">
                 </div>
-                
 
                 <!-- Music Category Dropdown -->
                 <div class="col-md-6">
@@ -74,42 +120,6 @@
                         @endforeach
                     </select>
                 </div>
-=======
-                    <select name="origin" class="form-control" id="origin">
-                        <option value="">Select Origin</option>
-                        @foreach($nationality as $item)
-                        <option value="{{ $item->code }}" data-thumbnail="{{ asset('storage/thumbnails/' . basename($item->thumbnail_path)) }}">
-                            {{ $item->name }}
-                        </option>
-                        
-                        
-                        @endforeach
-                    </select>
-                </div>
-                <img id="country-thumbnail" src="" alt="Country Flag" style="display:none; width:50px; height:30px; margin-top:10px;">
-                
-
-                <!-- First & Last Name -->
-                <div class="col-md-6">
-                    <label class="form-label" for="first_name">First-Lastname</label>
-                    <input type="text" id="first_name" class="form-control" placeholder="Enter First-last Name" name="first_name">
-                </div>
-                
-
-                <!-- Music Category Dropdown -->
-                <div class="col-md-6">
-                    <label class="form-label" for="music_category">Music Category</label>
-                    <select name="music_category" class="form-control" id="music_category">
-                        <option value="">Select Category</option>
-                        @foreach($musicCategory as $item)
-                            <option value="{{ $item->id }}">{{ $item->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
->>>>>>> 2edac169a4311eff8e4e30f6cb240eba353189af
-
-                <!-- Arabic Countries Dropdown (Using Flag Icons) -->
-              
 
                 <!-- Image Upload -->
                 <div class="col-12">
@@ -142,32 +152,27 @@
     </div>
 </form>
 
-<!-- Add Styling for Flags inside Select -->
-<style>
-    .fi {
-        margin-right: 8px;
+<script>
+    function toggleDropdown() {
+        let dropdown = document.querySelector(".options");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
     }
-</style>
-<<<<<<< HEAD
- <script>
-    $(document).ready(function() {
-        function formatNationality(nationality) {
-            if (!nationality.id) {
-                return nationality.text;
-            }
-            var imgSrc = $(nationality.element).data('image');
-            if (!imgSrc) {
-                imgSrc = 'https://via.placeholder.com/20x15'; // Fallback image
-            }
-            var $nationality = $('<span><img src="' + imgSrc + '" class="img-flag" style="width: 30px; height: 20px;" /></span>');
-            return $nationality;
-        }
 
-        $('#origin').select2({
-            templateResult: formatNationality,  // Show only image in dropdown
-            templateSelection: formatNationality // Show only image when selected
-        });
+    function selectOption(id, img) {
+        let imgElement = document.getElementById("selected-img");
+        let placeholderText = document.getElementById("placeholder-text");
+
+        imgElement.src = img;
+        imgElement.style.display = "inline-block"; // Show image
+        placeholderText.style.display = "none"; // Hide placeholder text
+
+        document.querySelector(".options").style.display = "none";
+        document.getElementById("country").value = id;
+    }
+
+    document.addEventListener("click", function(event) {
+        if (!document.getElementById("dropdown").contains(event.target)) {
+            document.querySelector(".options").style.display = "none";
+        }
     });
 </script>
-=======
->>>>>>> 2edac169a4311eff8e4e30f6cb240eba353189af

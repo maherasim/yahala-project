@@ -53,7 +53,7 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
-      //  dd($request->all());
+        dd($request->all());
         $request->validate([
             'first_name' => 'required',
             //'last_name' => 'required',
