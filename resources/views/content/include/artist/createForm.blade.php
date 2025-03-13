@@ -13,6 +13,35 @@
         position: relative;
         width: 200px;
     }
+    .options {
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 100;
+    text-align: center; /* Centers inline elements */
+}
+
+.options li {
+    display: flex;
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+    padding: 8px;
+    cursor: pointer;
+}
+
+.options li:hover {
+    background: #f0f0f0;
+}
+
+.options img {
+    width: 32px;
+    height: 32px;
+}
 
     .select-box {
         display: flex;
