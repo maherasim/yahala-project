@@ -96,11 +96,15 @@
 
                         <ul class="options">
                             @foreach($nationalities as $nationality)
-                                <li onclick="selectOption('{{ $nationality->id }}', '{{ Storage::url($nationality->thumbnail_path) }}')">
-                                    <img src="{{ Storage::url($nationality->thumbnail_path) }}" alt="{{ $nationality->name }}">
+                                @php
+                                    $imagePath = 'public' . Storage::url($nationality->thumbnail_path);
+                                @endphp
+                                <li onclick="selectOption('{{ $imagePath }}')">
+                                    <img src="{{ $imagePath }}" alt="{{ $nationality->name }}">
                                 </li>
                             @endforeach
                         </ul>
+                        
                     </div>
                 </div>
 
