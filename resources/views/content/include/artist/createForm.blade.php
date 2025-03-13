@@ -114,11 +114,11 @@
 
                 <!-- Custom Dropdown for Nationality -->
                 <div class="col-md-6">
-                    <label class="form-label">Select Country</label>
+                    <label class="form-label">Select Origin</label>
                     <div class="custom-select" id="dropdown">
                         <div class="select-box" onclick="toggleDropdown()">
                             <img id="selected-img" src="" alt="Selected Country">
-                            <span id="placeholder-text" class="placeholder-text">Select Country</span>
+                            <span id="placeholder-text" class="placeholder-text">Select Origin</span>
                         </div>
 
                         <input type="hidden" name="country" id="country" value="" />
