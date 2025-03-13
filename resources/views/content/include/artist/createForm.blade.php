@@ -26,11 +26,12 @@
                 <div class="col-md-6">
                     <label class="form-label" for="origin">Select Origin</label>
                     <select name="origin" class="form-control" id="origin">
-                        <option value="">Select Country</option>
+                        <option value="">Select Origin</option>
                         @foreach($nationality as $item)
-                        <option value="{{ $item->name }}" data-thumbnail="{{ asset($item->thumbnail_path) }}">
+                        <option value="{{ $item->code }}" data-thumbnail="{{ asset('storage/thumbnails/' . basename($item->thumbnail_path)) }}">
                             {{ $item->name }}
                         </option>
+                        
                         
                         @endforeach
                     </select>
@@ -46,7 +47,7 @@
                 
 
                 <!-- Music Category Dropdown -->
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label class="form-label" for="music_category">Music Category</label>
                     <select name="music_category" class="form-control" id="music_category">
                         <option value="">Select Category</option>
