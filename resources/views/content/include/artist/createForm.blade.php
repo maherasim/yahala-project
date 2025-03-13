@@ -117,7 +117,8 @@
                     <label class="form-label">Select Origin</label>
                     <div class="custom-select" id="dropdown">
                         <div class="select-box" onclick="toggleDropdown()">
-                            <img id="selected-img" src="" alt="Selected Country">
+                            <img id="selected-img" src="{{ asset('assets/img/moroco.png') }}" alt="Selected Origin">
+
                             <span id="placeholder-text" class="placeholder-text">Select Origin</span>
                         </div>
 
