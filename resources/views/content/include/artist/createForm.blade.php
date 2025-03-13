@@ -121,7 +121,7 @@
                             <span id="placeholder-text" class="placeholder-text">Select Origin</span>
                         </div>
 
-                        <input type="hidden" name="country" id="country" value="" />
+                        <input type="hidden" name="origin" id="country" value="" />
 
                         <ul class="options">
                             @foreach($nationalities as $nationality)
