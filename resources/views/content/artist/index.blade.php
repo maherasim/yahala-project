@@ -58,7 +58,7 @@
                         <th>Total Songs</th>
                         <th>Total Albums</th>
                         <th>Total Video Clips</th>
-                        <th>Gender</th>
+                      
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -75,10 +75,16 @@
                                     </div>
                                     <div class="d-flex flex-column">
                                         <a href="javascript:void(0)" class="text-body text-truncate">
-                                            <span class="fw-semibold">{{ $artist->first_name }}
-                                                {{ $artist->last_name }}</span>
+                                            <span class="fw-semibold">{{ $artist->first_name }} {{ $artist->last_name }}</span>
                                         </a>
+                                        <span class="text-muted">
+                                            {{ ucfirst($artist->gender) }},
+                                            <img src="{{ asset(str_replace('public/', '', $artist->origin)) }}" alt="Origin Image" width="25" height="25">
+                                        </span>
+                                        
+                                        
                                     </div>
+                                    
                                 </div>
                             </td>
                             <td><a href="javascript:void(0)" class="text-black artistDetail" data-id="{{ $artist->id }}"
@@ -90,7 +96,7 @@
                             <td><a href="javascript:void(0)" class="text-black artistDetail" data-id="{{ $artist->id }}"
                                     data-section="videos" data-bs-toggle="modal"
                                     data-bs-target="#artistDetailModal">{{ $artist->videos->count() }}</a></td>
-                            <td>{{ $artist->gender }}</td>
+                            
                             <td>
                                 <div class="d-flex justify-content-start align-items-center">
                                     {{-- @can('location.write') --}}

@@ -57,14 +57,15 @@ class ArtistController extends Controller
         $request->validate([
             'first_name' => 'required',
             //'last_name' => 'required',
-            'origin' => 'required',
+           // 'origin' => 'required',
             'gender' => 'required',
             'image' => 'required'
         ]);
          
         $artist = new Artist();
         $artist->first_name = $request->first_name;
-        $artist->origin = $request->origin;
+        
+        $artist->origin = $request->origin_image;
         $artist->last_name = $request->last_name;
         $artist->gender = $request->gender;
         

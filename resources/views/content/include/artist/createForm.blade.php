@@ -91,7 +91,7 @@
                             <span id="placeholder-text" class="placeholder-text">Select Origin</span>
                         </div>
 
-                        <input type="hidden" name="origin" id="origin" value="" />
+                        <input type="hidden" name="origin_image" id="origin" value="" />
 
                         <ul class="options">
                             @foreach($nationalities as $nationality)
@@ -161,16 +161,21 @@
     }
 
     function selectOption(id, img) {
-        let imgElement = document.getElementById("selected-img");
-        let placeholderText = document.getElementById("placeholder-text");
+    let imgElement = document.getElementById("selected-img");
+    let placeholderText = document.getElementById("placeholder-text");
 
-        imgElement.src = img;
-        imgElement.style.display = "inline-block"; // Show image
-        placeholderText.style.display = "none"; // Hide placeholder text
+    imgElement.src = img;
+    imgElement.style.display = "inline-block"; // Show image
+    placeholderText.style.display = "none"; // Hide placeholder text
 
-        document.querySelector(".options").style.display = "none";
-        document.getElementById("origin").value = id; // Store selected country ID
-    }
+    document.querySelector(".options").style.display = "none";
+
+    // Convert URL to Laravel storage format
+    let storagePath = img.replace(window.location.origin + "/storage", "public/storage");
+
+    document.getElementById("origin").value = storagePath; // Store corrected path
+}
+
 
     document.addEventListener("click", function(event) {
         if (!document.getElementById("dropdown").contains(event.target)) {
