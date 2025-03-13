@@ -445,7 +445,7 @@
         </script>
         <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js" onload="drpzone_init()"></script>
 
-        {{-- <script>
+       <script>
             $(document).ready(function() {
                 $('.artistDetail').click(function() {
                     let id = $(this).attr('data-id');
@@ -764,6 +764,6 @@
                     $('#music_id').val(music_id);
                 });
             });
-        </script> --}}
+        </script>  
     @endsection
 @endsection
