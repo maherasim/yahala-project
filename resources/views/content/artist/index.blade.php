@@ -451,7 +451,7 @@
                     let id = $(this).attr('data-id');
                     let section = $(this).attr('data-section');
                     $.ajax({
-                        url: '{{ route('get.artist.detail') }}',
+                        url: '',
                         method: 'get',
                         data: {
                             id: id,
