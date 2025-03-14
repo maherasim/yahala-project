@@ -1748,7 +1748,7 @@
 
 
         </li>
-        <li class="menu-item {{ Request::is('app/*') ? (Request::is('app/ftp/2list') ? '' : 'active open') : '' }}">
+        {{-- <li class="menu-item {{ Request::is('app/*') ? (Request::is('app/ftp/2list') ? '' : 'active open') : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-money"></i>
                 <div>Income</div>
@@ -1795,7 +1795,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
         <li class="menu-item {{ Request::is('app/invoice/list') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-file"></i>
