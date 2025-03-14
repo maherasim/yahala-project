@@ -1879,15 +1879,15 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">App Settings</span>
         </li>
-        <li class="menu-item {{ Request::is('app/portal-notification') ? 'active' : '' }}">
+        {{-- <li class="menu-item {{ Request::is('app/portal-notification') ? 'active' : '' }}">
             <a href="{{ url('/app/portal-notification') }}" class="menu-link">
                 <i class='menu-icon tf-icons bx bx-notification'></i>
                 <div>Portal Notifications</div>
             </a>
-        </li>
+        </li> --}}
         <li class="menu-item {{ Request::is('app/portal-notification*') ? (Request::is('app/ftp/list') ? '' : 'active open') : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-money"></i>
+                <i class="menu-icon tf-icons bx bx-notification"></i>
                 <div>Portal Notification</div>
             </a>
             <ul class="menu-sub">
