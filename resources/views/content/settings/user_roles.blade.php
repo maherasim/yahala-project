@@ -51,7 +51,7 @@ https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css
     <a type="button" class="nav-link justify-content-start nav-text-left {{ ucfirst($userLevel) == 'Educated' ? 'active' : '' }}" href="{{url('settings/user-roles/educated')}}" aria-selected="{{ ucfirst($userLevel) == 'Educated' ? 'true' : 'false' }}" tabindex="-1">
         <div class="d-flex justify-content-start align-items-center">
             <div class="avatar-wrapper">
-                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/edu.svg')}}"
+                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/svg-dialog/educated.svg')}}"
                         alt="Avatar"></div>
             </div>
             <div class="d-flex flex-column genos-font">
@@ -60,14 +60,13 @@ https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css
             </div>
         </div>
     </a>
-<<<<<<< HEAD
     <div class="{{ ucfirst($userLevel) == 'Educated' ? 'tab--selected' : '' }} tab__slider"></div>
   </li>
   <li class="nav-item" role="presentation">
     <a type="button" class="nav-link justify-content-start nav-text-left {{ ucfirst($userLevel) == 'Cultivated' ? 'active' : '' }}" href="{{url('settings/user-roles/cultivated')}}" aria-selected="{{ ucfirst($userLevel) == 'Cultivated' ? 'true' : 'false' }}" tabindex="-1">
         <div class="d-flex justify-content-start align-items-center">
             <div class="avatar-wrapper">
-                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/cul.svg')}}"
+                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/svg-dialog/cultivated.svg')}}"
                         alt="Avatar"></div>
             </div>
             <div class="d-flex flex-column genos-font">
@@ -82,7 +81,7 @@ https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css
     <a type="button" class="nav-link justify-content-start nav-text-left {{ ucfirst($userLevel) == 'Academic' ? 'active' : '' }}" href="{{url('settings/user-roles/academic')}}" aria-selected="{{ ucfirst($userLevel) == 'Academic' ? 'true' : 'false' }}" tabindex="-1">
         <div class="d-flex justify-content-start align-items-center">
             <div class="avatar-wrapper">
-                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/aca.svg')}}"
+                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/svg-dialog/academic.svg')}}"
                         alt="Avatar"></div>
             </div>
             <div class="d-flex flex-column genos-font">
@@ -91,56 +90,6 @@ https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css
             </div>
         </div>
     </a>
-=======
-    @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-
-@if (session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
-
-    <div class="{{ ucfirst($userLevel) == 'Educated' ? 'tab--selected' : '' }} tab__slider"></div>
-  </li>
-  <div id="success-message" style="display: none; color: green; font-weight: bold;">
-    ✅ Permission updated successfully!
-</div>
-
-
-  
-  <li class="nav-item" role="presentation">
-    <a type="button" class="nav-link justify-content-start nav-text-left {{ ucfirst($userLevel) == 'Cultivated' ? 'active' : '' }}" href="{{url('settings/user-roles/cultivated')}}" aria-selected="{{ ucfirst($userLevel) == 'Cultivated' ? 'true' : 'false' }}" tabindex="-1">
-        <div class="d-flex justify-content-start align-items-center">
-            <div class="avatar-wrapper">
-                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/cul.svg')}}"
-                        alt="Avatar"></div>
-            </div>
-            <div class="d-flex flex-column genos-font">
-                <span class="fw-semibold">Cultivated User</span>
-                {{-- <small class="text-muted">Cultivated User</small> --}}
-            </div>
-        </div>
-    </a>
-    <div class="{{ ucfirst($userLevel) == 'Cultivated' ? 'tab--selected' : '' }} tab__slider"></div>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a type="button" class="nav-link justify-content-start nav-text-left {{ ucfirst($userLevel) == 'Academic' ? 'active' : '' }}" href="{{url('settings/user-roles/academic')}}" aria-selected="{{ ucfirst($userLevel) == 'Academic' ? 'true' : 'false' }}" tabindex="-1">
-        <div class="d-flex justify-content-start align-items-center">
-            <div class="avatar-wrapper">
-                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/aca.svg')}}"
-                        alt="Avatar"></div>
-            </div>
-            <div class="d-flex flex-column genos-font">
-                <span class="fw-semibold">Academic User</span>
-                {{-- <small class="text-muted">VIP-User</small> --}}
-            </div>
-        </div>
-    </a>
->>>>>>> 2edac169a4311eff8e4e30f6cb240eba353189af
     <div class="{{ ucfirst($userLevel) == 'Academic' ? 'tab--selected' : '' }} tab__slider"></div>
   </li>
 </ul>
@@ -2637,27 +2586,24 @@ https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css
     }
 
     function updatePermission(key, newValue, valueType) {
-    $.ajax({
-        url: '{{ route("settings.user-roles.update.permissions") }}',
-        method: 'POST',
-        data: {
-            _token: '{{ csrf_token() }}',
-            key: key,
-            value: newValue,
-            userLevel: '{{ $userLevel }}',
-            valueType: valueType
-        },
-        success: function(response) {
-            $('#success-message').fadeIn().delay(2000).fadeOut(); // Show success message then hide
-            setTimeout(() => location.reload(), 2000); // Reload after 2 seconds
-        },
-        error: function(error) {
-            console.error('Error updating permission', error);
-        }
-    });
-}
-
-
+        $.ajax({
+            url: '{{ route("settings.user-roles.update.permissions") }}',
+            method: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                key: key,
+                value: newValue,
+                userLevel: '{{ $userLevel }}',
+                valueType: valueType
+            },
+            success: function(response) {
+                console.log('Permission updated successfully');
+            },
+            error: function(error) {
+                console.error('Error updating permission', error);
+            }
+        });
+    }
 
 
     document.addEventListener('DOMContentLoaded', function() {
