@@ -51,7 +51,7 @@ https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css
     <a type="button" class="nav-link justify-content-start nav-text-left {{ ucfirst($userLevel) == 'Educated' ? 'active' : '' }}" href="{{url('settings/user-roles/educated')}}" aria-selected="{{ ucfirst($userLevel) == 'Educated' ? 'true' : 'false' }}" tabindex="-1">
         <div class="d-flex justify-content-start align-items-center">
             <div class="avatar-wrapper">
-                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/svg-dialog/educated.svg')}}"
+                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/edu.svg')}}"
                         alt="Avatar"></div>
             </div>
             <div class="d-flex flex-column genos-font">
@@ -66,7 +66,7 @@ https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css
     <a type="button" class="nav-link justify-content-start nav-text-left {{ ucfirst($userLevel) == 'Cultivated' ? 'active' : '' }}" href="{{url('settings/user-roles/cultivated')}}" aria-selected="{{ ucfirst($userLevel) == 'Cultivated' ? 'true' : 'false' }}" tabindex="-1">
         <div class="d-flex justify-content-start align-items-center">
             <div class="avatar-wrapper">
-                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/svg-dialog/cultivated.svg')}}"
+                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/cul.svg')}}"
                         alt="Avatar"></div>
             </div>
             <div class="d-flex flex-column genos-font">
@@ -172,7 +172,7 @@ https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css
                     <div class="content-group d-flex justify-content-between align-center">
                         <div class="d-flex justify-content-start align-items-center">
                             <div class="avatar-wrapper">
-                                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/userrole/icons/educated.svg')}}"
+                                <div class="avatar avatar-sm me-3"><img src="{{asset('assets/svg/edu.svg')}}"
                                         alt="educated"></div>
                             </div>
                             <div class="d-flex flex-column genos-font">
