@@ -1748,7 +1748,7 @@
 
 
         </li>
-        <li class="menu-item {{ Request::is('app/*') ? (Request::is('app/ftp/list') ? '' : 'active open') : '' }}">
+        <li class="menu-item {{ Request::is('app/*') ? (Request::is('app/ftp/2list') ? '' : 'active open') : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-money"></i>
                 <div>Income</div>
