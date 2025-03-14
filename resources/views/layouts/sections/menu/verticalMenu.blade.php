@@ -1885,7 +1885,7 @@
                 <div>Portal Notifications</div>
             </a>
         </li>
-        <li class="menu-item {{ Request::is('app/*') ? (Request::is('app/ftp/list') ? '' : 'active open') : '' }}">
+        <li class="menu-item {{ Request::is('app/portal-notification*') ? (Request::is('app/ftp/list') ? '' : 'active open') : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-money"></i>
                 <div>Portal Notification</div>
@@ -1893,7 +1893,7 @@
             <ul class="menu-sub">
                 
                 <li class="menu-item {{ Request::is('app/donation-income') ? 'active' : '' }}">
-                    <a href="{{ url('/app/donation-income') }}" class="menu-link">
+                    <a href="{{ url('/app/portal-notification') }}" class="menu-link">
                         <div>Notification Setting</div>
                     </a>
                 </li>
