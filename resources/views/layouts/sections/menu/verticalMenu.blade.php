@@ -1885,6 +1885,25 @@
                 <div>Portal Notifications</div>
             </a>
         </li>
+        <li class="menu-item {{ Request::is('app/*') ? (Request::is('app/ftp/list') ? '' : 'active open') : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-money"></i>
+                <div>Portal Notification</div>
+            </a>
+            <ul class="menu-sub">
+                
+                <li class="menu-item {{ Request::is('app/donation-income') ? 'active' : '' }}">
+                    <a href="{{ url('/app/donation-income') }}" class="menu-link">
+                        <div>Notification Setting</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('app/total-income') ? 'active' : '' }}">
+                    <a href="{{ url('/app/total-income') }}" class="menu-link">
+                        <div>Notification Report</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
     @endcan
     @can('addpolicy.read')
         <li class="menu-item {{ Request::is('app-policy') ? 'active' : '' }}">
