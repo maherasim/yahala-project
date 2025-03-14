@@ -1885,7 +1885,7 @@
                 <div>Portal Notifications</div>
             </a>
         </li> --}}
-        <li class="menu-item {{ Request::is('app/portal-notification*') ? (Request::is('app/ftp/list') ? '' : 'active open') : '' }}">
+        <li class="menu-item {{ Request::is('app/portal-notification*') ? (Request::is('app/portal-notification') ? '' : 'active open') : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-notification"></i>
                 <div>Portal Notification</div>
