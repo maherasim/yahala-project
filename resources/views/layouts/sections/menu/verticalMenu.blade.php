@@ -1885,25 +1885,25 @@
                 <div>Portal Notifications</div>
             </a>
         </li> --}}
-        <li class="menu-item {{ Request::is('app/portal-notification*') ? (Request::is('app/ftp/list') ? '' : 'active open') : '' }}">
+        <li class="menu-item {{ Request::is('portal/notification-setting') || Request::is('app/portal-notification*') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-notification"></i>
                 <div>Portal Notification</div>
             </a>
             <ul class="menu-sub">
-                
-                <li class="menu-item {{ Request::is('app/donation-income') ? 'active' : '' }}">
-                    <a href="{{ url('/app/portal-notification') }}" class="menu-link">
+                <li class="menu-item {{ Request::is('portal/notification-setting') ? 'active' : '' }}">
+                    <a href="{{ url('/portal/notification-setting') }}" class="menu-link">
                         <div>Notification Setting</div>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::is('app/total-income') ? 'active' : '' }}">
-                    <a href="{{ url('/app/total-income') }}" class="menu-link">
+                <li class="menu-item {{ Request::is('app/total-income2') ? 'active' : '' }}">
+                    <a href=" " class="menu-link">
                         <div>Notification Report</div>
                     </a>
                 </li>
             </ul>
         </li>
+        
     @endcan
     @can('addpolicy.read')
         <li class="menu-item {{ Request::is('app-policy') ? 'active' : '' }}">

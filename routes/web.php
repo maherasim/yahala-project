@@ -11,6 +11,7 @@ use App\Http\Controllers\AdvertismentController;
 use App\Http\Controllers\fanpage\FanPage;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\AlbumController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\ReelController;
@@ -914,6 +915,27 @@ Route::delete('/list-reels-card/{card}', [ReelController::class, 'destroycard'])
     Route::get('/app/popup', $controller_path . '\apps\popup\Popup@index')->name('app.popup');
     Route::get('/app/user/storage', $controller_path . '\apps\popup\Popup@index')->name('user.storage');
     Route::view('/app/portal-notification', 'content.apps.app-portal-notification')->name('app.portal.notification');
+
+
+    Route::prefix('portal')
+    ->name('portal.')
+    ->group(function () {
+        Route::get('/notification-setting', [NotificationController::class, 'notificationsetting'])->name('notificationsetting.educated');
+        Route::get('/cultivated', [NotificationController::class, 'cultivated'])->name('cultivated');
+        Route::get('/academic', [NotificationController::class, 'academic'])->name('academic');
+        Route::get('/fanpage', [NotificationController::class, 'fanpage'])->name('fanpage');
+        Route::post('/update', [NotificationController::class, 'update'])->name('update.permissions');
+    });
+
+
+
+
+
+
+
+
+
+
     Route::view('/app/live-meeting', 'content.apps.app-live-meeting');
     Route::view('/app/join-now', 'content.apps.app-join-now');
 
