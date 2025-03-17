@@ -118,70 +118,22 @@ class CommentController extends Controller
         }
     }
  
- public function getComments($post_id) 
-{
-    try {
-        // Log the request for debugging
-        Log::info("Fetching comments for post_id: " . $post_id);
-
-        // Validate post_id format (MongoDB ObjectId)
-        if (!preg_match('/^[0-9a-fA-F]{24}$/', $post_id)) {
-            return response()->json(['error' => 'Invalid post ID format'], 422);
+    public function getComments($post_id) 
+    {
+        try {
+            // Fetch comments by post_id
+            $comments = Comment::where('post_id', $post_id)->orderBy('created_at', 'desc')->get();
+    
+            return response()->json(['comments' => $comments], 200);
+        } catch (Exception $e) {
+            // Return error response
+            return response()->json([
+                'error' => 'Something went wrong!',
+                'message' => $e->getMessage()
+            ], 500);
         }
-
-        // Check if the post exists
-        $postExists = Post::where('_id', $post_id)->exists();
-        if (!$postExists) {
-            return response()->json(['error' => 'Post not found'], 404);
-        }
-
-        // Fetch comments for the given post
-        $comments = Comment::where('post_id', $post_id)->orderBy('created_at', 'desc')->get();
-
-        if ($comments->isEmpty()) {
-            return response()->json(['message' => 'No comments found for this post'], 200);
-        }
-
-        // Append full URLs for images and audio files
-        $comments->transform(function ($comment) {
-            if ($comment->image) {
-                $comment->image = url('storage/' . $comment->image);
-            }
-            if ($comment->audio) {
-                $comment->audio = url('storage/' . $comment->audio);
-            }
-            return $comment;
-        });
-
-        return response()->json(['comments' => $comments], 200);
-
-    } catch (ModelNotFoundException $e) {
-        // Handle model not found (e.g., Post or Comment not found)
-        return response()->json([
-            'error' => 'Resource not found',
-            'message' => $e->getMessage()
-        ], 404);
-
-    } catch (Exception $e) {
-        // Log full error for debugging
-        Log::error("Error fetching comments: " . $e->getMessage(), [
-            'exception' => get_class($e),
-            'file' => $e->getFile(),
-            'line' => $e->getLine()
-        ]);
-
-        // Return detailed error response
-        return response()->json([
-            'error' => 'Internal Server Error',
-            'exception' => get_class($e),  // Exception type
-            'message' => $e->getMessage(), // Actual error message
-            'file' => $e->getFile(),       // File where error occurred
-            'line' => $e->getLine()        // Line number of error
-        ], 500);
     }
-}
-
-
+    
 
 
 
