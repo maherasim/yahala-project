@@ -118,8 +118,13 @@ class CommentController extends Controller
     public function getComments($post_id)
     {
         try {
-            // Check if post_id exists
-            if (!Post::where('id', $post_id)->exists()) {
+            // Validate post_id format
+            if (!preg_match('/^[0-9a-fA-F]{24}$/', $post_id)) {
+                return response()->json(['error' => 'Invalid post ID format'], 422);
+            }
+    
+            // Check if the post exists
+            if (!Post::where('_id', $post_id)->exists()) {
                 return response()->json(['error' => 'Post not found'], 404);
             }
     
@@ -146,6 +151,7 @@ class CommentController extends Controller
             return response()->json(['error' => 'Something went wrong!', 'details' => $e->getMessage()], 500);
         }
     }
+    
     
 
 
