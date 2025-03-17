@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use Illuminate\Support\Facades\Validator;
+
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -71,61 +73,80 @@ class CommentController extends Controller
 
     public function store(Request $request)
     {
-        // Validate request
-        $validator = Validator::make($request->all(), [
-            'post_id' => 'required|integer|exists:posts,id', // ID of the post
-            'text' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'audio' => 'nullable|mimes:mp3,wav,aac|max:5120',
-            'emoji' => 'nullable|string',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 422);
+        try {
+            // Validate request
+            $validator = Validator::make($request->all(), [
+                'post_id' => 'required|integer|exists:posts,id', // ID of the post
+                'text' => 'nullable|string',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'audio' => 'nullable|mimes:mp3,wav,aac|max:5120',
+                'emoji' => 'nullable|string',
+            ]);
+    
+            if ($validator->fails()) {
+                return response()->json(['error' => $validator->errors()], 422);
+            }
+    
+            // Store image if uploaded
+            $imagePath = null;
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('comments/images', 'public');
+            }
+    
+            // Store audio if uploaded
+            $audioPath = null;
+            if ($request->hasFile('audio')) {
+                $audioPath = $request->file('audio')->store('comments/audio', 'public');
+            }
+    
+            // Create comment
+            $comment = Comment::create([
+                'post_id' => $request->post_id,
+                'text' => $request->text,
+                'image' => $imagePath,
+                'audio' => $audioPath,
+                'emoji' => $request->emoji,
+            ]);
+    
+            return response()->json(['message' => 'Comment posted successfully', 'comment' => $comment], 201);
+    
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong!', 'details' => $e->getMessage()], 500);
         }
-
-        // Store image if uploaded
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('comments/images', 'public');
-        }
-
-        // Store audio if uploaded
-        $audioPath = null;
-        if ($request->hasFile('audio')) {
-            $audioPath = $request->file('audio')->store('comments/audio', 'public');
-        }
-
-        // Create comment
-        $comment = Comment::create([
-            'post_id' => $request->post_id,
-            'text' => $request->text,
-            'image' => $imagePath,
-            'audio' => $audioPath,
-            'emoji' => $request->emoji,
-        ]);
-
-        return response()->json(['message' => 'Comment posted successfully', 'comment' => $comment], 201);
     }
+ 
     public function getComments($post_id)
-{
-    $comments = Comment::where('post_id', $post_id)->orderBy('created_at', 'desc')->get();
-
-    // Append full URLs for images and audio files
-    $comments->transform(function ($comment) {
-        if ($comment->image) {
-            $comment->image = url('storage/' . $comment->image);
+    {
+        try {
+            // Check if post_id exists
+            if (!Post::where('id', $post_id)->exists()) {
+                return response()->json(['error' => 'Post not found'], 404);
+            }
+    
+            $comments = Comment::where('post_id', $post_id)->orderBy('created_at', 'desc')->get();
+    
+            if ($comments->isEmpty()) {
+                return response()->json(['message' => 'No comments found for this post'], 200);
+            }
+    
+            // Append full URLs for images and audio files
+            $comments->transform(function ($comment) {
+                if ($comment->image) {
+                    $comment->image = url('storage/' . $comment->image);
+                }
+                if ($comment->audio) {
+                    $comment->audio = url('storage/' . $comment->audio);
+                }
+                return $comment;
+            });
+    
+            return response()->json(['comments' => $comments], 200);
+    
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong!', 'details' => $e->getMessage()], 500);
         }
-        if ($comment->audio) {
-            $comment->audio = url('storage/' . $comment->audio);
-        }
-        return $comment;
-    });
-
-    return response()->json(['comments' => $comments], 200);
-}
-
-
+    }
+    
 
 
 
