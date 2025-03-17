@@ -90,6 +90,9 @@ class CommentController extends Controller
                 return response()->json(['error' => $validator->errors()], 422);
             }
     
+            // Base storage path
+            $baseUrl = url('storage');
+    
             // Store image if uploaded
             $imagePath = null;
             if ($request->hasFile('image')) {
@@ -106,33 +109,44 @@ class CommentController extends Controller
             $comment = Comment::create([
                 'post_id' => $request->post_id,
                 'text' => $request->text,
-                'image' => $imagePath,
-                'audio' => $audioPath,
+                'image' => $imagePath ? "$baseUrl/$imagePath" : null, // Convert to full URL
+                'audio' => $audioPath ? "$baseUrl/$audioPath" : null, // Convert to full URL
                 'emoji' => $request->emoji,
             ]);
     
             return response()->json(['message' => 'Comment posted successfully', 'comment' => $comment], 201);
-    
         } catch (\Exception $e) {
             return response()->json(['error' => 'Something went wrong!', 'details' => $e->getMessage()], 500);
         }
     }
+    
  
-    public function getComments($post_id) 
+    public function getComments($post_id)
     {
         try {
             // Fetch comments by post_id
             $comments = Comment::where('post_id', $post_id)->orderBy('created_at', 'desc')->get();
     
+            // Base storage path
+            $baseUrl = url('storage');
+    
+            // Append full URLs for images and audio files
+            $comments->transform(function ($comment) use ($baseUrl) {
+                if ($comment->image) {
+                    $comment->image = "$baseUrl/{$comment->image}";
+                }
+                if ($comment->audio) {
+                    $comment->audio = "$baseUrl/{$comment->audio}";
+                }
+                return $comment;
+            });
+    
             return response()->json(['comments' => $comments], 200);
         } catch (Exception $e) {
-            // Return error response
-            return response()->json([
-                'error' => 'Something went wrong!',
-                'message' => $e->getMessage()
-            ], 500);
+            return response()->json(['error' => 'Something went wrong!', 'message' => $e->getMessage()], 500);
         }
     }
+    
     
 
 
