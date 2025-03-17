@@ -91,7 +91,7 @@ class CommentController extends Controller
             }
     
             // Base storage path
-            $baseUrl = url('storage');
+            $baseUrl = url('public/storage');
     
             // Store image if uploaded
             $imagePath = null;
@@ -128,7 +128,7 @@ class CommentController extends Controller
             $comments = Comment::where('post_id', $post_id)->orderBy('created_at', 'desc')->get();
     
             // Base storage path
-            $baseUrl = url('storage');
+            $baseUrl = url('public/storage');
     
             // Append full URLs for images and audio files
             $comments->transform(function ($comment) use ($baseUrl) {
