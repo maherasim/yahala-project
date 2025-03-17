@@ -69,6 +69,69 @@ class CommentController extends Controller
         return response()->json(['success' => true, 'data' => $formattedComments]);
     }
 
+    public function store(Request $request)
+    {
+        // Validate request
+        $validator = Validator::make($request->all(), [
+            'post_id' => 'required|integer|exists:posts,id', // ID of the post
+            'text' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'audio' => 'nullable|mimes:mp3,wav,aac|max:5120',
+            'emoji' => 'nullable|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 422);
+        }
+
+        // Store image if uploaded
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('comments/images', 'public');
+        }
+
+        // Store audio if uploaded
+        $audioPath = null;
+        if ($request->hasFile('audio')) {
+            $audioPath = $request->file('audio')->store('comments/audio', 'public');
+        }
+
+        // Create comment
+        $comment = Comment::create([
+            'post_id' => $request->post_id,
+            'text' => $request->text,
+            'image' => $imagePath,
+            'audio' => $audioPath,
+            'emoji' => $request->emoji,
+        ]);
+
+        return response()->json(['message' => 'Comment posted successfully', 'comment' => $comment], 201);
+    }
+    public function getComments($post_id)
+{
+    $comments = Comment::where('post_id', $post_id)->orderBy('created_at', 'desc')->get();
+
+    // Append full URLs for images and audio files
+    $comments->transform(function ($comment) {
+        if ($comment->image) {
+            $comment->image = url('storage/' . $comment->image);
+        }
+        if ($comment->audio) {
+            $comment->audio = url('storage/' . $comment->audio);
+        }
+        return $comment;
+    });
+
+    return response()->json(['comments' => $comments], 200);
+}
+
+
+
+
+
+
+
+
     private function formatCreatedAt($createdAt)
     {
         $now = time();

@@ -472,8 +472,14 @@ Route::get('/admin/2FA', [AdminProfileController::class, 'enable']);
   // Reaction
   Route::post('/store-reaction', [ReactionController::class, 'store_reaction']);
   // comments
-  Route::get('/get-comment/{type}/{id}/{parent_id?}', [CommentController::class, 'get_comment']);
+  Route::get('/get-comment/{id}', [CommentController::class, 'get_comment']);
   Route::post('/store-comment', [CommentController::class, 'store_comment']);
+// mycomments
+  Route::post('/comments', [CommentController::class, 'store']);
+  Route::get('/comments/{post_id}', [CommentController::class, 'getComments']);
+
+
+
 
   // Music
   Route::get('/music', [MusicController::class, 'index']);
