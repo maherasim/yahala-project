@@ -76,7 +76,7 @@ class CommentController extends Controller
         try {
             // Validate request
             $validator = Validator::make($request->all(), [
-                'post_id' => 'required|integer|exists:posts,id', // ID of the post
+                'post_id' => ['required', 'string', 'regex:/^[0-9a-fA-F]{24}$/'], // Validate MongoDB ObjectId
                 'text' => 'nullable|string',
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
                 'audio' => 'nullable|mimes:mp3,wav,aac|max:5120',
