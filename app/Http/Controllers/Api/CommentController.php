@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Exception;
 
 use Illuminate\Http\Request;
 
@@ -115,19 +118,24 @@ class CommentController extends Controller
         }
     }
  
-    public function getComments($post_id)
+    public function getComments($post_id) 
     {
         try {
-            // Validate post_id format
+            // Log the request for debugging
+            Log::info("Fetching comments for post_id: " . $post_id);
+    
+            // Validate post_id format (MongoDB ObjectId)
             if (!preg_match('/^[0-9a-fA-F]{24}$/', $post_id)) {
                 return response()->json(['error' => 'Invalid post ID format'], 422);
             }
     
             // Check if the post exists
-            if (!Post::where('_id', $post_id)->exists()) {
+            $postExists = Post::where('_id', $post_id)->exists();
+            if (!$postExists) {
                 return response()->json(['error' => 'Post not found'], 404);
             }
     
+            // Fetch comments for the given post
             $comments = Comment::where('post_id', $post_id)->orderBy('created_at', 'desc')->get();
     
             if ($comments->isEmpty()) {
@@ -147,13 +155,30 @@ class CommentController extends Controller
     
             return response()->json(['comments' => $comments], 200);
     
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Something went wrong!', 'details' => $e->getMessage()], 500);
+        } catch (ModelNotFoundException $e) {
+            // Handle model not found (e.g., Post or Comment not found)
+            return response()->json([
+                'error' => 'Resource not found',
+                'message' => $e->getMessage()
+            ], 404);
+    
+        } catch (Exception $e) {
+            // Log full error for debugging
+            Log::error("Error fetching comments: " . $e->getMessage(), [
+                'exception' => get_class($e),
+                'file' => $e->getFile(),
+                'line' => $e->getLine()
+            ]);
+    
+            // Return detailed error response
+            return response()->json([
+                'error' => 'Internal Server Error',
+                'exception' => get_class($e),  // Exception type
+                'message' => $e->getMessage(), // Actual error message
+                'file' => $e->getFile(),       // File where error occurred
+                'line' => $e->getLine()        // Line number of error
+            ], 500);
         }
-    }
-    
-    
-
 
 
 
