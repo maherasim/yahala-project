@@ -77,11 +77,10 @@ class CommentController extends Controller
      
     
  
-    
-    public function get_comment($type, $id, $parent_id = null)
+    public function get_comment($type, $id, $parent_id = null) 
     {
         $baseUrl = Config::get('app.url'); // Get base URL
-    
+        
         $query = Comment::where($type, $id);
         
         if (is_null($parent_id)) {
@@ -95,12 +94,12 @@ class CommentController extends Controller
     
             // Generate full URL for audio file
             if (!empty($comment->audio_path)) {
-                $comment->audio_path = Storage::url($comment->audio_path);
+                $comment->audio_path = $baseUrl . "/public" . Storage::url($comment->audio_path);
             }
     
             // Generate full URL for emoji file
             if (!empty($comment->emoji)) {
-                $comment->emoji = Storage::url($comment->emoji);
+                $comment->emoji = $baseUrl . "/public" . Storage::url($comment->emoji);
             }
     
             return $comment;
