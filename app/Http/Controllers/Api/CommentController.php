@@ -33,6 +33,7 @@ class CommentController extends Controller
     ];
 
    
+ 
 
     public function store_comment(Request $request)
     {
@@ -41,7 +42,7 @@ class CommentController extends Controller
             'post_id' => 'required',
             'type' => 'required',             
             'text' => 'nullable|string',
-            'emoji' => 'nullable|string',
+            'emoji' => 'nullable|file|mimes:jpg,jpeg,png,gif',
             'audio' => 'nullable|file|mimes:mp3,wav,aac',
         ]);
     
@@ -52,12 +53,17 @@ class CommentController extends Controller
         $comment->type = $request->type;
         $comment->content = $request->content ?? null;
         $comment->text = $request->text ?? null;
-        $comment->emoji = $request->emoji ?? null;
     
-        // Handle audio file upload
+        // Handle emoji file upload (if exists)
+        if ($request->hasFile('emoji')) {
+            $emojiPath = $request->file('emoji')->store('public/comments/emojis');
+            $comment->emoji = Storage::url($emojiPath); // Get public URL
+        }
+    
+        // Handle audio file upload (if exists)
         if ($request->hasFile('audio')) {
-            $path = $request->file('audio')->store('public/comments/audio');
-            $comment->audio_path = Storage::url($path);
+            $audioPath = $request->file('audio')->store('public/comments/audio');
+            $comment->audio_path = Storage::url($audioPath);
         }
     
         $comment->save();
@@ -67,6 +73,7 @@ class CommentController extends Controller
     
         return response()->json(['success' => true, 'data' => $comment, 'message' => 'Comment saved successfully.']);
     }
+    
     
 
     public function get_comment($type, $id, $parent_id = null)
