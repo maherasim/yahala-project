@@ -34,7 +34,7 @@ class CommentController extends Controller
     ];
 
    
-  
+    
     
     public function store_comment(Request $request)
     {
@@ -55,16 +55,16 @@ class CommentController extends Controller
         $comment->content = $request->content ?? null;
         $comment->text = $request->text ?? null;
     
-        // Handle emoji file upload (if exists)
+        // Handle emoji file upload
         if ($request->hasFile('emoji')) {
-            $emojiPath = $request->file('emoji')->store('comments/emojis', 'public'); 
-            $comment->emoji = "storage/" . $emojiPath; // Save correct relative path
+            $emojiPath = $request->file('emoji')->store('comments/emojis', 'public');
+            $comment->emoji = $emojiPath; // Save just the path
         }
     
-        // Handle audio file upload (if exists)
+        // Handle audio file upload
         if ($request->hasFile('audio')) {
             $audioPath = $request->file('audio')->store('comments/audio', 'public');
-            $comment->audio_path = "storage/" . $audioPath;
+            $comment->audio_path = $audioPath;
         }
     
         $comment->save();
@@ -74,13 +74,13 @@ class CommentController extends Controller
     
         return response()->json(['success' => true, 'data' => $comment, 'message' => 'Comment saved successfully.']);
     }
-    
+     
     
  
     
     public function get_comment($type, $id, $parent_id = null)
     {
-        $baseUrl = Config::get('app.url'); // Get the base URL from Laravel config
+        $baseUrl = Config::get('app.url'); // Get base URL
     
         $query = Comment::where($type, $id);
         
@@ -93,14 +93,14 @@ class CommentController extends Controller
         $formattedComments = $comments->map(function ($comment) use ($baseUrl) {
             $comment->time = $this->formatCreatedAt($comment->created_at);
     
-            // Ensure correct URL formatting for audio files
+            // Generate full URL for audio file
             if (!empty($comment->audio_path)) {
-                $comment->audio_path = $baseUrl . str_replace('/public', '', Storage::url($comment->audio_path));
+                $comment->audio_path = Storage::url($comment->audio_path);
             }
     
-            // Ensure correct URL formatting for emoji files
+            // Generate full URL for emoji file
             if (!empty($comment->emoji)) {
-                $comment->emoji = $baseUrl . str_replace('/public', '', Storage::url($comment->emoji));
+                $comment->emoji = Storage::url($comment->emoji);
             }
     
             return $comment;
@@ -108,6 +108,7 @@ class CommentController extends Controller
     
         return response()->json(['success' => true, 'data' => $formattedComments]);
     }
+    
     
     public function store(Request $request)
     {
