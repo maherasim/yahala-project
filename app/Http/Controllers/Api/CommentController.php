@@ -76,8 +76,7 @@ class CommentController extends Controller
     }
     
     
-
-   
+ 
     
     public function get_comment($type, $id, $parent_id = null)
     {
@@ -94,14 +93,14 @@ class CommentController extends Controller
         $formattedComments = $comments->map(function ($comment) use ($baseUrl) {
             $comment->time = $this->formatCreatedAt($comment->created_at);
     
-            // Generate full URL for audio file if it exists
+            // Ensure correct URL formatting for audio files
             if (!empty($comment->audio_path)) {
-                $comment->audio_path = $baseUrl . Storage::url($comment->audio_path);
+                $comment->audio_path = $baseUrl . str_replace('/public', '', Storage::url($comment->audio_path));
             }
     
-            // Generate full URL for emoji file if it exists
+            // Ensure correct URL formatting for emoji files
             if (!empty($comment->emoji)) {
-                $comment->emoji = $baseUrl . Storage::url($comment->emoji);
+                $comment->emoji = $baseUrl . str_replace('/public', '', Storage::url($comment->emoji));
             }
     
             return $comment;
