@@ -37,6 +37,7 @@ class CommentController extends Controller
             'user_id' => 'required',
             'content' => 'required',
             'type' => 'required',
+            'post_id' => 'required',
         ]);
 
         $comment = new Comment;
