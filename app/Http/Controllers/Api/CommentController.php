@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
 
@@ -31,47 +32,71 @@ class CommentController extends Controller
         "post_gallery_id"
     ];
 
+   
+
     public function store_comment(Request $request)
     {
         $request->validate([
             'user_id' => 'required',
-            'content' => 'required',
-            'type' => 'required',
             'post_id' => 'required',
+            'type' => 'required',             
+            'text' => 'nullable|string',
+            'emoji' => 'nullable|string',
+            'audio' => 'nullable|file|mimes:mp3,wav,aac',
         ]);
-
-        $comment = new Comment;
-        
-        foreach ($this->fields as $item) {
-            if ($request->has($item))
-                $comment[$item] = $request[$item];
+    
+        $comment = new Comment();
+    
+        $comment->user_id = $request->user_id;
+        $comment->post_id = $request->post_id;
+        $comment->type = $request->type;
+        $comment->content = $request->content ?? null;
+        $comment->text = $request->text ?? null;
+        $comment->emoji = $request->emoji ?? null;
+    
+        // Handle audio file upload
+        if ($request->hasFile('audio')) {
+            $path = $request->file('audio')->store('public/comments/audio');
+            $comment->audio_path = Storage::url($path);
         }
-
+    
         $comment->save();
-
+    
         $comment->time = $this->formatCreatedAt($comment->created_at);
         $comment->user = $comment->user;
-
-        return response()->json(['success' => true, 'data' => $comment, 'message' => 'Comment saved.']);
-    }
-
-    public function get_comment($type, $id , $parent_id = null)
-    {
-       
-        $query = Comment::where($type, $id);
-        if(is_null($parent_id)){
-            $comments = $query->with(['user:id,name,image' , 'gallery'])->orderBy('id', 'asc')->get();
     
-        }else{
-            $comments = $query->where('comment_id',$parent_id)->where('is_rply',1)->get();
+        return response()->json(['success' => true, 'data' => $comment, 'message' => 'Comment saved successfully.']);
+    }
+    
 
+    public function get_comment($type, $id, $parent_id = null)
+    {
+        $baseUrl = Config::get('app.url'); // Get the base URL from Laravel config
+    
+        $query = Comment::where($type, $id);
+        
+        if (is_null($parent_id)) {
+            $comments = $query->with(['user:id,name,image', 'gallery'])->orderBy('id', 'asc')->get();
+        } else {
+            $comments = $query->where('comment_id', $parent_id)->where('is_rply', 1)->get();
         }
     
-        $formattedComments = $comments->map(function ($comment) {
+        $formattedComments = $comments->map(function ($comment) use ($baseUrl) {
             $comment->time = $this->formatCreatedAt($comment->created_at);
+    
+            // Generate full URL for audio file if it exists
+            if ($comment->audio_path) {
+                $comment->audio_path = $baseUrl . Storage::url($comment->audio_path);
+            }
+    
+            // Generate full URL for emoji (assuming it's stored in public storage)
+            if ($comment->emoji) {
+                $comment->emoji = $baseUrl . Storage::url($comment->emoji);
+            }
+    
             return $comment;
         });
-
+    
         return response()->json(['success' => true, 'data' => $formattedComments]);
     }
 
