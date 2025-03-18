@@ -34,9 +34,7 @@ class CommentController extends Controller
     ];
 
    
- 
-    use Illuminate\Support\Facades\Storage;
-    use Illuminate\Support\Facades\Config;
+  
     
     public function store_comment(Request $request)
     {
