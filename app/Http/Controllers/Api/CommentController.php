@@ -35,7 +35,9 @@ class CommentController extends Controller
 
    
  
-
+    use Illuminate\Support\Facades\Storage;
+    use Illuminate\Support\Facades\Config;
+    
     public function store_comment(Request $request)
     {
         $request->validate([
@@ -57,14 +59,14 @@ class CommentController extends Controller
     
         // Handle emoji file upload (if exists)
         if ($request->hasFile('emoji')) {
-            $emojiPath = $request->file('emoji')->store('public/comments/emojis');
-            $comment->emoji = Storage::url($emojiPath); // Get public URL
+            $emojiPath = $request->file('emoji')->store('comments/emojis', 'public'); 
+            $comment->emoji = "storage/" . $emojiPath; // Save correct relative path
         }
     
         // Handle audio file upload (if exists)
         if ($request->hasFile('audio')) {
-            $audioPath = $request->file('audio')->store('public/comments/audio');
-            $comment->audio_path = Storage::url($audioPath);
+            $audioPath = $request->file('audio')->store('comments/audio', 'public');
+            $comment->audio_path = "storage/" . $audioPath;
         }
     
         $comment->save();
