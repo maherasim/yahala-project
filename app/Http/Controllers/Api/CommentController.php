@@ -94,12 +94,12 @@ class CommentController extends Controller
     
             // Generate full URL for audio file
             if (!empty($comment->audio_path)) {
-                $comment->audio_path = $baseUrl . "/public" . Storage::url($comment->audio_path);
+                $comment->audio_path = $baseUrl .   Storage::url($comment->audio_path);
             }
     
             // Generate full URL for emoji file
             if (!empty($comment->emoji)) {
-                $comment->emoji = $baseUrl . "/public" . Storage::url($comment->emoji);
+                $comment->emoji = $baseUrl .   Storage::url($comment->emoji);
             }
     
             return $comment;
