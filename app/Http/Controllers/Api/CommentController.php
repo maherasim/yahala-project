@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
+ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
@@ -76,6 +77,8 @@ class CommentController extends Controller
     
     
 
+   
+    
     public function get_comment($type, $id, $parent_id = null)
     {
         $baseUrl = Config::get('app.url'); // Get the base URL from Laravel config
@@ -92,12 +95,12 @@ class CommentController extends Controller
             $comment->time = $this->formatCreatedAt($comment->created_at);
     
             // Generate full URL for audio file if it exists
-            if ($comment->audio_path) {
+            if (!empty($comment->audio_path)) {
                 $comment->audio_path = $baseUrl . Storage::url($comment->audio_path);
             }
     
-            // Generate full URL for emoji (assuming it's stored in public storage)
-            if ($comment->emoji) {
+            // Generate full URL for emoji file if it exists
+            if (!empty($comment->emoji)) {
                 $comment->emoji = $baseUrl . Storage::url($comment->emoji);
             }
     
@@ -106,7 +109,7 @@ class CommentController extends Controller
     
         return response()->json(['success' => true, 'data' => $formattedComments]);
     }
-
+    
     public function store(Request $request)
     {
         try {
