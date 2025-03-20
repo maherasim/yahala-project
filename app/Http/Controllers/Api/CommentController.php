@@ -109,25 +109,39 @@ class CommentController extends Controller
                 'type' => !empty($comment->audio) ? 'audio' : 'text',
                 'audio' => !empty($comment->audio) ? $baseUrl . Storage::url($comment->audio) : null,
                 'emoji' => !empty($comment->emoji) ? $baseUrl . Storage::url($comment->emoji) : null,
-                'replies' => $comment->replies->map(function ($reply) use ($baseUrl) {
-                    return [
-                        'id' => $reply->id,
-                        'user_profile' => !empty($reply->user->image) 
-                            ? $baseUrl . Storage::url($reply->user->image) 
-                            : $baseUrl . '/images/default-user.png',
-                        'user_name' => $reply->user->name ?? 'Unknown User',
-                        'created_at' => $this->formatCreatedAt($reply->created_at),
-                        'comment' => $reply->text ?? '',
-                        'noLikes' => number_format($reply->likes ?? 0) . 'k',
-                        'type' => !empty($reply->audio) ? 'audio' : 'text',
-                        'audio' => !empty($reply->audio) ? $baseUrl . Storage::url($reply->audio) : null,
-                        'emoji' => !empty($reply->emoji) ? $baseUrl . Storage::url($reply->emoji) : null,
-                    ];
-                }),
+                'replies' => $this->get_replies($comment->id, $baseUrl), // Recursive replies
             ];
         });
     
         return response()->json(['success' => true, 'data' => $formattedComments]);
+    }
+    
+    /**
+     * Fetch nested replies recursively
+     */
+    private function get_replies($parent_id, $baseUrl)
+    {
+        $replies = Comment::where('parent_id', $parent_id)
+            ->with('user:id,name,image')
+            ->orderBy('id', 'asc')
+            ->get();
+    
+        return $replies->map(function ($reply) use ($baseUrl) {
+            return [
+                'id' => $reply->id,
+                'user_profile' => !empty($reply->user->image) 
+                    ? $baseUrl . Storage::url($reply->user->image) 
+                    : $baseUrl . '/images/default-user.png',
+                'user_name' => $reply->user->name ?? 'Unknown User',
+                'created_at' => $this->formatCreatedAt($reply->created_at),
+                'comment' => $reply->text ?? '',
+                'noLikes' => number_format($reply->likes ?? 0) . 'k',
+                'type' => !empty($reply->audio) ? 'audio' : 'text',
+                'audio' => !empty($reply->audio) ? $baseUrl . Storage::url($reply->audio) : null,
+                'emoji' => !empty($reply->emoji) ? $baseUrl . Storage::url($reply->emoji) : null,
+                'replies' => $this->get_replies($reply->id, $baseUrl) // Fetch deeper replies
+            ];
+        });
     }
     
     
