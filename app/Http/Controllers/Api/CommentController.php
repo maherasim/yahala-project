@@ -84,11 +84,14 @@ class CommentController extends Controller
         }
     
         if (is_null($parent_id)) {
-            $comments = $query->with(['user:id,name,image', 'gallery', 'replies.user:id,name,image'])
-                ->orderBy('id', 'asc')->get();
+            // Fetch main comments (not replies)
+            $comments = $query->whereNull('parent_id')
+                ->with(['user:id,name,image', 'replies.user:id,name,image'])
+                ->orderBy('id', 'asc')
+                ->get();
         } else {
-            $comments = $query->where('comment_id', $parent_id)
-                ->where('is_rply', 1)
+            // Fetch replies to a specific comment
+            $comments = $query->where('parent_id', $parent_id)
                 ->with('user:id,name,image')
                 ->get();
         }
@@ -101,10 +104,10 @@ class CommentController extends Controller
                     : $baseUrl . '/images/default-user.png',
                 'user_name' => $comment->user->name ?? 'Unknown User',
                 'created_at' => $this->formatCreatedAt($comment->created_at),
-                'comment' => $comment->comment_text ?? '',
+                'comment' => $comment->text ?? '',
                 'noLikes' => number_format($comment->likes ?? 0) . 'k',
-                'type' => !empty($comment->audio_path) ? 'audio' : 'text',
-                'audio' => !empty($comment->audio_path) ? $baseUrl . Storage::url($comment->audio_path) : null,
+                'type' => !empty($comment->audio) ? 'audio' : 'text',
+                'audio' => !empty($comment->audio) ? $baseUrl . Storage::url($comment->audio) : null,
                 'emoji' => !empty($comment->emoji) ? $baseUrl . Storage::url($comment->emoji) : null,
                 'replies' => $comment->replies->map(function ($reply) use ($baseUrl) {
                     return [
@@ -114,10 +117,10 @@ class CommentController extends Controller
                             : $baseUrl . '/images/default-user.png',
                         'user_name' => $reply->user->name ?? 'Unknown User',
                         'created_at' => $this->formatCreatedAt($reply->created_at),
-                        'comment' => $reply->comment_text ?? '',
+                        'comment' => $reply->text ?? '',
                         'noLikes' => number_format($reply->likes ?? 0) . 'k',
-                        'type' => !empty($reply->audio_path) ? 'audio' : 'text',
-                        'audio' => !empty($reply->audio_path) ? $baseUrl . Storage::url($reply->audio_path) : null,
+                        'type' => !empty($reply->audio) ? 'audio' : 'text',
+                        'audio' => !empty($reply->audio) ? $baseUrl . Storage::url($reply->audio) : null,
                         'emoji' => !empty($reply->emoji) ? $baseUrl . Storage::url($reply->emoji) : null,
                     ];
                 }),
