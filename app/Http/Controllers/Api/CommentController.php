@@ -33,18 +33,33 @@ class CommentController extends Controller
         "post_gallery_id"
     ];
 
-   
+ 
+    
     public function store_comment(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'user_id' => 'required',
             'post_id' => 'required',
-            'type' => 'required',             
+            'type' => 'required',
             'text' => 'nullable|string',
             'emoji' => 'nullable|string',
             'audio' => 'nullable|file|mimes:mp3,wav,aac',
-            'parent_id' => 'nullable|exists:comments,id', // Ensure the parent comment exists
+            'parent_id' => [
+                'nullable',
+                function ($attribute, $value, $fail) {
+                    if (!Comment::where('_id', $value)->exists()) {
+                        $fail('The selected parent comment does not exist.');
+                    }
+                },
+            ],
         ]);
+    
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'errors' => $validator->errors(),
+            ], 422);
+        }
     
         $comment = new Comment();
     
@@ -53,9 +68,8 @@ class CommentController extends Controller
         $comment->type = $request->type;
         $comment->text = $request->text ?? null;
         $comment->emoji = $request->emoji ?? null;
-        $comment->parent_id = $request->parent_id ?? null; // ✅ Include parent_id
+        $comment->parent_id = $request->parent_id ?? null;
     
-        // Handle audio file upload
         if ($request->hasFile('audio')) {
             $audioPath = $request->file('audio')->store('comments/audio', 'public');
             $comment->audio_path = $audioPath;
