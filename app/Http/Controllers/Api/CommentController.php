@@ -78,45 +78,46 @@ class CommentController extends Controller
         $baseUrl = Config::get('app.url'); // Get base URL
         
         $query = Comment::where($type, $id);
-        
+    
         if (is_null($parent_id)) {
-            $comments = $query->with(['user:id,name,image', 'gallery'])->orderBy('id', 'asc')->get();
+            $comments = $query->with(['user:id,name,image', 'gallery', 'replies.user:id,name,image'])->orderBy('id', 'asc')->get();
         } else {
             $comments = $query->where('comment_id', $parent_id)->where('is_rply', 1)->with('user:id,name,image')->get();
         }
     
         $formattedComments = $comments->map(function ($comment) use ($baseUrl) {
-            $comment->time = $this->formatCreatedAt($comment->created_at);
-    
-            // Ensure user exists before accessing properties
-            if ($comment->user) {
-                $comment->username = $comment->user->name;
-                
-                // Ensure proper image URL
-                $comment->user_image = !empty($comment->user->image) 
+            return [
+                'id' => $comment->id,
+                'user_profile' => !empty($comment->user->image) 
                     ? $baseUrl . Storage::url($comment->user->image) 
-                    : $baseUrl . '/images/default-user.png'; // Fallback image
-            } else {
-                $comment->username = 'Unknown User';
-                $comment->user_image = $baseUrl . '/images/default-user.png';
-            }
-    
-            // Generate full URL for audio file
-            if (!empty($comment->audio_path)) {
-                $comment->audio_path = $baseUrl . Storage::url($comment->audio_path);
-            }
-    
-            // Generate full URL for emoji file
-            if (!empty($comment->emoji)) {
-                $comment->emoji = $baseUrl . Storage::url($comment->emoji);
-            }
-    
-            return $comment;
+                    : $baseUrl . '/images/default-user.png',
+                'user_name' => $comment->user->name ?? 'Unknown User',
+                'created_at' => $this->formatCreatedAt($comment->created_at),
+                'comment' => $comment->comment_text ?? '',
+                'noLikes' => number_format($comment->likes ?? 0) . 'k',
+                'type' => !empty($comment->audio_path) ? 'audio' : 'text',
+                'audio' => !empty($comment->audio_path) ? $baseUrl . Storage::url($comment->audio_path) : null,
+                'emoji' => !empty($comment->emoji) ? $baseUrl . Storage::url($comment->emoji) : null,
+                'replies' => $comment->replies->map(function ($reply) use ($baseUrl) {
+                    return [
+                        'id' => $reply->id,
+                        'user_profile' => !empty($reply->user->image) 
+                            ? $baseUrl . Storage::url($reply->user->image) 
+                            : $baseUrl . '/images/default-user.png',
+                        'user_name' => $reply->user->name ?? 'Unknown User',
+                        'created_at' => $this->formatCreatedAt($reply->created_at),
+                        'comment' => $reply->comment_text ?? '',
+                        'noLikes' => number_format($reply->likes ?? 0) . 'k',
+                        'type' => !empty($reply->audio_path) ? 'audio' : 'text',
+                        'audio' => !empty($reply->audio_path) ? $baseUrl . Storage::url($reply->audio_path) : null,
+                        'emoji' => !empty($reply->emoji) ? $baseUrl . Storage::url($reply->emoji) : null,
+                    ];
+                }),
+            ];
         });
     
         return response()->json(['success' => true, 'data' => $formattedComments]);
     }
-    
     
     
     public function store(Request $request)
