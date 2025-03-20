@@ -34,7 +34,6 @@ class CommentController extends Controller
     ];
 
    
-    
     public function store_comment(Request $request)
     {
         $request->validate([
@@ -42,8 +41,9 @@ class CommentController extends Controller
             'post_id' => 'required',
             'type' => 'required',             
             'text' => 'nullable|string',
-            'emoji' => 'nullable|string', // Changed from file to string
+            'emoji' => 'nullable|string',
             'audio' => 'nullable|file|mimes:mp3,wav,aac',
+            'parent_id' => 'nullable|exists:comments,id', // Ensure the parent comment exists
         ]);
     
         $comment = new Comment();
@@ -51,11 +51,9 @@ class CommentController extends Controller
         $comment->user_id = $request->user_id;
         $comment->post_id = $request->post_id;
         $comment->type = $request->type;
-        $comment->content = $request->content ?? null;
         $comment->text = $request->text ?? null;
-        
-        // Store emoji as a string
         $comment->emoji = $request->emoji ?? null;
+        $comment->parent_id = $request->parent_id ?? null; // ✅ Include parent_id
     
         // Handle audio file upload
         if ($request->hasFile('audio')) {
@@ -65,11 +63,13 @@ class CommentController extends Controller
     
         $comment->save();
     
-        $comment->time = $this->formatCreatedAt($comment->created_at);
-        $comment->user = $comment->user;
-    
-        return response()->json(['success' => true, 'data' => $comment, 'message' => 'Comment saved successfully.']);
+        return response()->json([
+            'success' => true,
+            'data' => $comment,
+            'message' => $comment->parent_id ? 'Reply saved successfully.' : 'Comment saved successfully.',
+        ]);
     }
+    
     
     
  
