@@ -73,16 +73,24 @@ class CommentController extends Controller
     
     
  
-    public function get_comment($type, $id, $parent_id = null) 
+    public function get_comment($type = null, $id = null, $parent_id = null) 
     {
         $baseUrl = Config::get('app.url'); // Get base URL
-        
-        $query = Comment::where($type, $id);
+    
+        $query = Comment::query();
+    
+        if (!is_null($type) && !is_null($id)) {
+            $query->where($type, $id);
+        }
     
         if (is_null($parent_id)) {
-            $comments = $query->with(['user:id,name,image', 'gallery', 'replies.user:id,name,image'])->orderBy('id', 'asc')->get();
+            $comments = $query->with(['user:id,name,image', 'gallery', 'replies.user:id,name,image'])
+                ->orderBy('id', 'asc')->get();
         } else {
-            $comments = $query->where('comment_id', $parent_id)->where('is_rply', 1)->with('user:id,name,image')->get();
+            $comments = $query->where('comment_id', $parent_id)
+                ->where('is_rply', 1)
+                ->with('user:id,name,image')
+                ->get();
         }
     
         $formattedComments = $comments->map(function ($comment) use ($baseUrl) {
