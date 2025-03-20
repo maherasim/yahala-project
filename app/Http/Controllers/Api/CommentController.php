@@ -82,20 +82,33 @@ class CommentController extends Controller
         if (is_null($parent_id)) {
             $comments = $query->with(['user:id,name,image', 'gallery'])->orderBy('id', 'asc')->get();
         } else {
-            $comments = $query->where('comment_id', $parent_id)->where('is_rply', 1)->get();
+            $comments = $query->where('comment_id', $parent_id)->where('is_rply', 1)->with('user:id,name,image')->get();
         }
     
         $formattedComments = $comments->map(function ($comment) use ($baseUrl) {
             $comment->time = $this->formatCreatedAt($comment->created_at);
     
+            // Ensure user exists before accessing properties
+            if ($comment->user) {
+                $comment->username = $comment->user->name;
+                
+                // Ensure proper image URL
+                $comment->user_image = !empty($comment->user->image) 
+                    ? $baseUrl . Storage::url($comment->user->image) 
+                    : $baseUrl . '/images/default-user.png'; // Fallback image
+            } else {
+                $comment->username = 'Unknown User';
+                $comment->user_image = $baseUrl . '/images/default-user.png';
+            }
+    
             // Generate full URL for audio file
             if (!empty($comment->audio_path)) {
-                $comment->audio_path = $baseUrl .   Storage::url($comment->audio_path);
+                $comment->audio_path = $baseUrl . Storage::url($comment->audio_path);
             }
     
             // Generate full URL for emoji file
             if (!empty($comment->emoji)) {
-                $comment->emoji = $baseUrl .   Storage::url($comment->emoji);
+                $comment->emoji = $baseUrl . Storage::url($comment->emoji);
             }
     
             return $comment;
@@ -103,6 +116,7 @@ class CommentController extends Controller
     
         return response()->json(['success' => true, 'data' => $formattedComments]);
     }
+    
     
     
     public function store(Request $request)
