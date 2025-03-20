@@ -87,83 +87,64 @@ class CommentController extends Controller
     
     
  
-    
     public function get_comment($post_id)  
     {
         $baseUrl = Config::get('app.url'); // Get base URL
     
-        // Fetch all comments for the given post_id
+        // Fetch main comments for the post (where parent_id is null)
         $comments = Comment::where('post_id', $post_id)
-            ->with(['user:id,name,image']) // Load user details
-            ->orderBy('created_at', 'asc')
+            ->whereNull('parent_id')
+            ->with(['user:id,name,image'])
             ->get();
     
-        // Group comments by parent_id (null for main comments)
-        $groupedComments = $comments->groupBy('parent_id');
-    
-        // Process and structure comments with replies
-        $formattedComments = $groupedComments->get(null, collect())->map(function ($comment) use ($baseUrl, $groupedComments) {
-            return [
-                'id' => $comment->_id,
-                'user_profile' => !empty($comment->user->image) 
-                    ? $baseUrl . Storage::url($comment->user->image) 
-                    : $baseUrl . '/images/default-user.png',
-                'user_name' => $comment->user->name ?? 'Unknown User',
-                'created_at' => $this->formatCreatedAt($comment->created_at),
-                'comment' => $comment->text ?? '',
-                'noLikes' => number_format($comment->likes ?? 0) . 'k',
-                'type' => !empty($comment->audio) ? 'audio' : 'text',
-                'audio' => !empty($comment->audio) ? $baseUrl . Storage::url($comment->audio) : null,
-                'emoji' => !empty($comment->emoji) ? $baseUrl . Storage::url($comment->emoji) : null,
-                'replies' => $groupedComments->get($comment->_id, collect())->map(function ($reply) use ($baseUrl, $groupedComments) {
-                    return [
-                        'id' => $reply->_id,
-                        'user_profile' => !empty($reply->user->image) 
-                            ? $baseUrl . Storage::url($reply->user->image) 
-                            : $baseUrl . '/images/default-user.png',
-                        'user_name' => $reply->user->name ?? 'Unknown User',
-                        'created_at' => $this->formatCreatedAt($reply->created_at),
-                        'comment' => $reply->text ?? '',
-                        'noLikes' => number_format($reply->likes ?? 0) . 'k',
-                        'type' => !empty($reply->audio) ? 'audio' : 'text',
-                        'audio' => !empty($reply->audio) ? $baseUrl . Storage::url($reply->audio) : null,
-                        'emoji' => !empty($reply->emoji) ? $baseUrl . Storage::url($reply->emoji) : null,
-                    ];
-                }),
-            ];
+        // Format comments with nested replies
+        $formattedComments = $comments->map(function ($comment) use ($baseUrl) {
+            return $this->format_comment($comment, $baseUrl);
         });
     
         return response()->json(['success' => true, 'data' => $formattedComments]);
+    }
+    
+    /**
+     * Recursive function to fetch nested replies
+     */
+    private function format_comment($comment, $baseUrl)
+    {
+        return [
+            'id' => $comment->_id,
+            'user_profile' => !empty($comment->user->image) 
+                ? $baseUrl . Storage::url($comment->user->image) 
+                : $baseUrl . '/images/default-user.png',
+            'user_name' => $comment->user->name ?? 'Unknown User',
+            'created_at' => $this->formatCreatedAt($comment->created_at),
+            'comment' => $comment->text ?? '',
+            'noLikes' => number_format($comment->likes ?? 0) . 'k',
+            'type' => !empty($comment->audio) ? 'audio' : 'text',
+            'audio' => !empty($comment->audio) ? $baseUrl . Storage::url($comment->audio) : null,
+            'emoji' => !empty($comment->emoji) ? $baseUrl . Storage::url($comment->emoji) : null,
+            'replies' => $this->get_replies($comment->_id, $baseUrl), // Fetch nested replies
+        ];
+    }
+    
+    /**
+     * Get all replies recursively
+     */
+    private function get_replies($parent_id, $baseUrl)
+    {
+        $replies = Comment::where('parent_id', $parent_id)
+            ->with('user:id,name,image')
+            ->get();
+    
+        return $replies->map(function ($reply) use ($baseUrl) {
+            return $this->format_comment($reply, $baseUrl); // Recursively format replies
+        });
     }
     
     
     /**
      * Fetch nested replies recursively
      */
-    private function get_replies($parent_id, $baseUrl)
-    {
-        $replies = Comment::where('parent_id', $parent_id)
-            ->with('user:id,name,image')
-            ->orderBy('id', 'asc')
-            ->get();
-    
-        return $replies->map(function ($reply) use ($baseUrl) {
-            return [
-                'id' => $reply->id,
-                'user_profile' => !empty($reply->user->image) 
-                    ? $baseUrl . Storage::url($reply->user->image) 
-                    : $baseUrl . '/images/default-user.png',
-                'user_name' => $reply->user->name ?? 'Unknown User',
-                'created_at' => $this->formatCreatedAt($reply->created_at),
-                'comment' => $reply->text ?? '',
-                'noLikes' => number_format($reply->likes ?? 0) . 'k',
-                'type' => !empty($reply->audio) ? 'audio' : 'text',
-                'audio' => !empty($reply->audio) ? $baseUrl . Storage::url($reply->audio) : null,
-                'emoji' => !empty($reply->emoji) ? $baseUrl . Storage::url($reply->emoji) : null,
-                'replies' => $this->get_replies($reply->id, $baseUrl) // Fetch deeper replies
-            ];
-        });
-    }
+ 
     
     
     public function store(Request $request)
