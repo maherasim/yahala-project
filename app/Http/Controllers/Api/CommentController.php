@@ -60,9 +60,8 @@ class CommentController extends Controller
         // Handle audio file upload
         if ($request->hasFile('audio')) {
             $audioPath = $request->file('audio')->store('comments/audio', 'public');
-            $comment->audio = $audioPath; // Store in 'audio' instead of 'audio_path'
+            $comment->audio_path = $audioPath;
         }
-        
     
         $comment->save();
     

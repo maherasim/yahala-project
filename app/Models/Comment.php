@@ -30,6 +30,7 @@ class Comment extends Model
         "vote_id",
         'text',
         'audio',
+        'audio_path',
         'emoji',
         "music_id",
         "emoji_id",
