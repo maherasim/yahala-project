@@ -214,7 +214,7 @@
                 <li class="nav-item" role="presentation">
                     <a class="nav-link active" id="songs-tab" data-toggle="tab" href="#songs" role="tab"
                         aria-controls="songs" aria-selected="true">
-                        Total Songs - Total 125 - 12GB
+                        Total Songs - Total {{ $totalSongs }} -{{$formattedTotalSize}}
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">

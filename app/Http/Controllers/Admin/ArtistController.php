@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\City;
 use App\Models\Artist;
 use App\Models\Region;
+ 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Album;
@@ -23,9 +24,30 @@ class ArtistController extends Controller
     {
 
         $artists  = Artist::with('musics')->get();
+        $totalSongs = Song::count(); 
+        $music = Song::get();         
+        $totalSongsSize = Song::all()->sum(function ($song) {
+            return (float) $song->file_size;
+        });
+        
+        // Convert size to readable format (assuming MB if stored as decimal)
+        function formatSize($size)
+        {
+            if ($size >= 1024) {
+                return number_format($size / 1024, 2) . ' GB';
+            } elseif ($size >= 1) {
+                return number_format($size, 2) . ' MB';
+            } else {
+                return number_format($size * 1024, 2) . ' KB'; // Assuming < 1 is KB
+            }
+        }
+        
+        $formattedTotalSize = formatSize($totalSongsSize);
+        
+       
         $provinces = Region::get();
         $categories = MusicCategory::doesntHave('musics')->get();
-        return view('content.artist.index', compact('artists', 'provinces','categories'));
+        return view('content.artist.index', compact('artists', 'provinces','categories','totalSongs','formattedTotalSize'));
     }
     public function index2()
     {
