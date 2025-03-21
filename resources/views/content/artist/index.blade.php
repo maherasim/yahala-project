@@ -58,7 +58,7 @@
                         <th>#</th>
                         <th>Artist</th>
                         <th>Total Songs</th>
-                        <th>Total Albums</th>
+                      
                         <th>Total Video Clips</th>
 
                         <th>Actions</th>
@@ -94,9 +94,7 @@
                             <td><a href="javascript:void(0)" class="text-black artistDetail" data-id="{{ $artist->id }}"
                                     data-section="songs" data-bs-toggle="modal"
                                     data-bs-target="#artistDetailModal">{{ $artist->songs->count() }}</a></td>
-                            <td><a href="javascript:void(0)" class="text-black artistDetail" data-id="{{ $artist->id }}"
-                                    data-section="albums" data-bs-toggle="modal"
-                                    data-bs-target="#artistDetailModal">{{ $artist->albums->count() }}</a></td>
+                            
                             <td><a href="javascript:void(0)" class="text-black artistDetail" data-id="{{ $artist->id }}"
                                     data-section="videos" data-bs-toggle="modal"
                                     data-bs-target="#artistDetailModal">{{ $artist->videos->count() }}</a></td>
