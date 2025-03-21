@@ -37,7 +37,7 @@
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createmusicModal">Add Songs</button>
             {{-- @endcan --}}
             {{-- @can('alb') --}}
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createalbumModal">Add Albums</button>
+            {{-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createalbumModal">Add Albums</button> --}}
             {{-- @endcan --}}
             {{-- @can('artist.create') --}}
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createvideoModal">Add Video
@@ -217,12 +217,7 @@
                         Total Songs - {{ $totalSongs }} - {{ $formattedTotalSongsSize }}
                     </a>
                 </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="albums-tab" data-toggle="tab" href="#albums" role="tab"
-                        aria-controls="albums" aria-selected="false">
-                        Total Albums - Total 125 - 12GB
-                    </a>
-                </li>
+                
                 <li class="nav-item" role="presentation">
                     <a class="nav-link" id="videos-tab" data-toggle="tab" href="#videos" role="tab"
                         aria-controls="videos" aria-selected="false">
@@ -254,28 +249,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="albums" role="tabpanel" aria-labelledby="albums-tab">
-                    <div class="table-responsive text-nowrap pd-t-24px">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Album ID</th>
-                                    <th>Album Title</th>
-                                    <th>Total Tracks</th>
-                                    <th>Total Sales</th>
-                                    <th>Price</th>
-                                    <th>Size</th>
-                                    <th>Option</th>
-                                </tr>
-                            </thead>
-                            <tbody id="albums-tbody" class="table-border-bottom-0">
-                                <tr>
-                                    <td class="text-center" colspan="8"><b>No Data found.</b></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+              
                 <div class="tab-pane fade" id="videos" role="tabpanel" aria-labelledby="videos-tab">
                     <div class="table-responsive text-nowrap pd-t-24px">
                         <table class="table">
