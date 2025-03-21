@@ -19,12 +19,6 @@
 @endsection
 
 @section('content')
-    <style>
-        .avatar img {
-            width: 76%;
-            height: 76%;
-        }
-    </style>
     <script>
         const dropZoneInitFunctions = [];
     </script>
@@ -37,7 +31,7 @@
         </div>
         <div class="">
             {{-- @can('artist.create') --}}
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createartistModal">Add Artist</button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createartistModal">Add Artist</button>
             {{-- @endcan --}}
             {{-- @can('crea') --}}
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createmusicModal">Add Songs</button>
@@ -52,6 +46,8 @@
         </div>
     </div>
 
+    <!-- Artist List Table -->
+   
     <!-- Artist List Table -->
     <div class="card">
         <h5 class="card-header">Artist List</h5>
@@ -309,7 +305,7 @@
 
     @section('page-script')
         <script>
-            function confirmDeleteArtist(event, callback) {
+            function confirmAction(event, callback) {
                 event.preventDefault();
                 Swal.fire({
                     title: 'Are you sure?',
@@ -330,7 +326,51 @@
             }
         </script>
 
+        <script>
+            $('.province_id').change(function() {
+                let url = $(this).data('url');
+                let id = $(this).val();
+                const self = this;
 
+                $.ajax({
+                    type: 'get',
+                    url: url + '/' + id,
+                    success: function(response) {
+                        const cityIdEl = $(self).closest('form').find('.city_id');
+                        cityIdEl.html('');
+                        $.each(response, function(index, value) {
+                            console.log(index, value);
+                            cityIdEl.append('<option value="' + value.id + '">' + value.name +
+                                '</option>')
+                        })
+                    }
+                })
+
+            });
+
+            $(document).ready(function() {
+                $('.edit-form .province_id').each(function(index, provinceEl) {
+                    let url = $(provinceEl).data('url');
+                    let id = $(provinceEl).val();
+                    let selected = $(provinceEl).data('selected');
+
+                    $.ajax({
+                        type: 'get',
+                        url: url + '/' + id,
+                        success: function(response) {
+                            const cityIdEl = $(provinceEl).closest('form').find('.city_id');
+                            cityIdEl.html('');
+                            $.each(response, function(index, value) {
+                                cityIdEl.append('<option value="' + value.id + '" ' + (value
+                                        .id == selected ? 'selected' : '') + '>' + value
+                                    .name + '</option>')
+                            })
+                        }
+                    })
+
+                });
+            });
+        </script>
 
         <script>
             'use strict';
@@ -526,10 +566,8 @@
                             if (response.albums && response.albums.length > 0) {
                                 response.albums.forEach(album => {
                                     let totalFileSize = 0;
-                                    const deleteAlbumUrl = '{{ url('/') }}/album/' +
-                                        album._id;
-                                    const updateAlbumUrl = '{{ url('/') }}/album/' +
-                                        album._id;
+                                    const deleteAlbumUrl = '{{ url('/') }}/album/'+album._id;
+                                    const updateAlbumUrl = '{{ url('/') }}/album/'+album._id;
                                     if (album.artist.songs && album.artist.songs.length >
                                         0) {
                                         totalFileSize = album.artist.songs.reduce((sum,
@@ -561,7 +599,7 @@
                                                     <!-- Delete -->
                                                     <form action="${deleteAlbumUrl}" onsubmit="confirmAction(event, () => event.target.submit())" method="post" class="d-inline">
                                                         @csrf
-                                                        @extends('layouts/layoutMaster')
+                                                        @method('DELETE')
                                                         <button type="submit" class="btn btn-sm btn-icon" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" data-bs-original-title="Remove">
                                                             <!-- SVG icon for Delete button -->
                                                             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -593,7 +631,7 @@
                                                     <form id="editAlbumForm${album._id}" method="POST" action="${updateAlbumUrl}"
                                                         enctype="multipart/form-data">
                                                         @csrf
-                                                        @method('DELETE')
+                                                        @method('put')
                                                         <div class="hidden-inputs">
                                                         </div>
                                                         <div class="row">
@@ -679,12 +717,12 @@
                                         </div>
                                     </div>
                                 `);
-                                    initializeDropzone(
-                                        `#dropzone-img${album._id}`,
-                                        'image', 'images', 'image/*');
-                                    initializeDropzone(
-                                        `#dropzone-audio${album._id}`,
-                                        'album', 'audios', 'audio/*');
+                                initializeDropzone(
+                                    `#dropzone-img${album._id}`,
+                                    'image', 'images', 'image/*');
+                                initializeDropzone(
+                                    `#dropzone-audio${album._id}`,
+                                    'album', 'audios', 'audio/*');
 
                                 });
 
@@ -714,7 +752,7 @@
                                                                                                                 <!-- Delete -->
                                         <form action="${deleteVideoUrl}" onsubmit="confirmAction(event, () => event.target.submit())" method="post" class="d-inline">
                                             @csrf
-                                            undefined
+                                            @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-icon" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" data-bs-original-title="Remove"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path opacity="0.5" d="M9.84961 4.04492C10.2614 2.87973 11.3727 2.04492 12.6789 2.04492C13.9851 2.04492 15.0964 2.87973 15.5082 4.04492" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
                                                     <path d="M21.1798 6.04492H4.17969" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
