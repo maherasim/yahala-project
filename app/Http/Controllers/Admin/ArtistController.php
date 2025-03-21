@@ -20,17 +20,23 @@ class ArtistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() 
     {
-
         $artists  = Artist::with('musics')->get();
         $totalSongs = Song::count(); 
-        $music = Song::get();         
+        $totalVideos = VideoClip::count(); 
+    
+        // Calculate total song size
         $totalSongsSize = Song::all()->sum(function ($song) {
             return (float) $song->file_size;
         });
-        
-        // Convert size to readable format (assuming MB if stored as decimal)
+    
+        // Calculate total video size
+        $totalVideosSize = VideoClip::all()->sum(function ($video) {
+            return (float) $video->video_file_size;
+        });
+    
+        // Convert size to readable format
         function formatSize($size)
         {
             if ($size >= 1024) {
@@ -41,14 +47,16 @@ class ArtistController extends Controller
                 return number_format($size * 1024, 2) . ' KB'; // Assuming < 1 is KB
             }
         }
-        
-        $formattedTotalSize = formatSize($totalSongsSize);
-        
-       
+    
+        $formattedTotalSongsSize = formatSize($totalSongsSize);
+        $formattedTotalVideosSize = formatSize($totalVideosSize);
+    
         $provinces = Region::get();
         $categories = MusicCategory::doesntHave('musics')->get();
-        return view('content.artist.index', compact('artists', 'provinces','categories','totalSongs','formattedTotalSize'));
+    
+        return view('content.artist.index', compact('artists', 'provinces', 'categories', 'totalSongs', 'formattedTotalSongsSize', 'totalVideos', 'formattedTotalVideosSize'));
     }
+    
     public function index2()
     {
 

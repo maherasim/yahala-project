@@ -214,7 +214,7 @@
                 <li class="nav-item" role="presentation">
                     <a class="nav-link active" id="songs-tab" data-toggle="tab" href="#songs" role="tab"
                         aria-controls="songs" aria-selected="true">
-                        Total Songs - Total {{ $totalSongs }} -{{$formattedTotalSize}}
+                        Total Songs - {{ $totalSongs }} - {{ $formattedTotalSongsSize }}
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -226,7 +226,7 @@
                 <li class="nav-item" role="presentation">
                     <a class="nav-link" id="videos-tab" data-toggle="tab" href="#videos" role="tab"
                         aria-controls="videos" aria-selected="false">
-                        Total Video Clips - Total 125 - 12GB
+                        Total Video Clips - {{ $totalVideos }} - {{ $formattedTotalVideosSize }}
                     </a>
                 </li>
             </ul>
