@@ -44,7 +44,7 @@ class CommentController extends Controller
             'type' => 'required|in:text,audio,emoji,image',
             'text' => 'nullable|string|required_if:type,text',
             'emoji' => 'nullable|string|required_if:type,emoji',
-            'audio' => 'required|file|mimes:mp3,wav,aac',
+            'audio' => 'nullable|file|mimes:mp3,wav,aac',
             'image' => 'nullable|file|mimes:jpeg,png,jpg,gif|required_if:type,image',
             'parent_id' => [
                 'nullable',
@@ -141,9 +141,7 @@ class CommentController extends Controller
             $type = 'emoji';
         } elseif (!empty($comment->image)) {
             $type = 'image';
-        } elseif (!empty($comment->video)) {
-            $type = 'video';
-        }
+        }  
     
         return [
             'id' => $comment->_id,
@@ -158,7 +156,7 @@ class CommentController extends Controller
             'audio' => !empty($comment->audio) ? $baseUrl . Storage::url($comment->audio) : null,
             'emoji' => !empty($comment->emoji) ? $baseUrl . Storage::url($comment->emoji) : null,
             'image' => !empty($comment->image) ? $baseUrl . Storage::url($comment->image) : null,
-            'video' => !empty($comment->video) ? $baseUrl . Storage::url($comment->video) : null,
+            
             'replies' => $this->get_replies($comment->_id, $baseUrl), // Fetch nested replies
         ];
     }
