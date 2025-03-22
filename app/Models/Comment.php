@@ -35,6 +35,7 @@ class Comment extends Model
         "music_id",
         "emoji_id",
         "audio_path",
+        "audio_length",
         "duration",
         "post_gallery_id",
         "comment_id",
