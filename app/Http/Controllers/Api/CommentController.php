@@ -133,7 +133,7 @@ class CommentController extends Controller
      */
     private function format_comment($comment, $baseUrl)
     {
-        // Determine type based on available data
+        // Determine comment type
         $type = 'text';
         if (!empty($comment->audio)) {
             $type = 'audio';
@@ -153,12 +153,13 @@ class CommentController extends Controller
             'comment' => $comment->text ?? '',
             'noLikes' => number_format($comment->likes ?? 0) . 'k',
             'type' => $type,
-            'audio' => !empty($comment->audio) ? $baseUrl . Storage::url($comment->audio) : null,
-            'emoji' => $comment->emoji, // Directly return emoji as a string
-            'image' => !empty($comment->image) ? $baseUrl . Storage::url($comment->image) : null,
+            'audio' => !empty($comment->audio) ? $baseUrl . '/' . ltrim(Storage::url($comment->audio), '/') : null,
+            'emoji' => $comment->emoji, // Directly return emoji as string
+            'image' => !empty($comment->image) ? $baseUrl . '/' . ltrim(Storage::url($comment->image), '/') : null,
             'replies' => $this->get_replies($comment->_id, $baseUrl),
         ];
     }
+    
     
     
     /**
