@@ -37,17 +37,19 @@ class CommentController extends Controller
     
     public function store_comment(Request $request)
     {
+        // Validate input
         $validator = Validator::make($request->all(), [
-            'user_id' => 'required',
-            'post_id' => 'required',
-            'type' => 'required',
-            'text' => 'nullable|string',
-            'emoji' => 'nullable|string',
-            'audio' => 'nullable|file|mimes:mp3,wav,aac',
+            'user_id' => 'required|exists:users,id',
+            'post_id' => 'required|exists:posts,id',
+            'type' => 'required|in:text,audio,emoji,image',
+            'text' => 'nullable|string|required_if:type,text',
+            'emoji' => 'nullable|string|required_if:type,emoji',
+            'audio' => 'nullable|file|mimes:mp3,wav,aac|required_if:type,audio',
+            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif|required_if:type,image',
             'parent_id' => [
                 'nullable',
                 function ($attribute, $value, $fail) {
-                    if (!Comment::where('_id', $value)->exists()) {
+                    if (!empty($value) && !Comment::where('_id', $value)->exists()) {
                         $fail('The selected parent comment does not exist.');
                     }
                 },
@@ -61,8 +63,8 @@ class CommentController extends Controller
             ], 422);
         }
     
+        // Create a new comment
         $comment = new Comment();
-    
         $comment->user_id = $request->user_id;
         $comment->post_id = $request->post_id;
         $comment->type = $request->type;
@@ -70,16 +72,37 @@ class CommentController extends Controller
         $comment->emoji = $request->emoji ?? null;
         $comment->parent_id = $request->parent_id ?? null;
     
+        // Handle file uploads
+        $baseUrl = Config::get('app.url');
+    
         if ($request->hasFile('audio')) {
             $audioPath = $request->file('audio')->store('comments/audio', 'public');
-            $comment->audio_path = $audioPath;
+            $comment->audio = Storage::url($audioPath);
+        }
+    
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('comments/images', 'public');
+            $comment->image = Storage::url($imagePath);
         }
     
         $comment->save();
     
+        // Format the response like in `format_comment`
         return response()->json([
             'success' => true,
-            'data' => $comment,
+            'data' => [
+                'id' => $comment->_id,
+                'user_profile' => $baseUrl . '/images/default-user.png', // Default user profile
+                'user_name' => 'Unknown User', // Can fetch user if needed
+                'created_at' => $comment->created_at->toDateTimeString(),
+                'comment' => $comment->text ?? '',
+                'noLikes' => '0k',
+                'type' => $comment->type,
+                'audio' => $comment->audio ?? null,
+                'emoji' => $comment->emoji ?? null,
+                'image' => $comment->image ?? null,
+                'replies' => []
+            ],
             'message' => $comment->parent_id ? 'Reply saved successfully.' : 'Comment saved successfully.',
         ]);
     }
