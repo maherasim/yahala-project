@@ -39,12 +39,12 @@ class CommentController extends Controller
     {
         // Validate input
         $validator = Validator::make($request->all(), [
-            'user_id' => 'required|exists:users,id',
-            'post_id' => 'required|exists:posts,id',
+            'user_id' => 'required',
+            'post_id' => 'required',
             'type' => 'required|in:text,audio,emoji,image',
             'text' => 'nullable|string|required_if:type,text',
             'emoji' => 'nullable|string|required_if:type,emoji',
-            'audio' => 'nullable|file|mimes:mp3,wav,aac|required_if:type,audio',
+            'audio' => 'nullable|file|mimes:mp3,wav,aac',
             'image' => 'nullable|file|mimes:jpeg,png,jpg,gif|required_if:type,image',
             'parent_id' => [
                 'nullable',
