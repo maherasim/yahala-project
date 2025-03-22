@@ -116,7 +116,7 @@ class CommentController extends Controller
                 : $baseUrl . '/images/default-user.png',
             'user_name' => $comment->user->name ?? 'Unknown User',
             'created_at' => $this->formatCreatedAt($comment->created_at),
-            'comment' => $comment->text ?? '',
+            'comment' => $comment->comment ?? '',
             'noLikes' => number_format($comment->likes ?? 0) . 'k',
             'audio' => !empty($comment->audio) ? $baseUrl . Storage::url($comment->audio) : null,
             'emoji' => $comment->emoji !== "null" ? $comment->emoji : null, // Fix null issue
