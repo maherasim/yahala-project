@@ -44,7 +44,7 @@ class CommentController extends Controller
             'type' => 'required|in:text,audio,emoji,image',
             'text' => 'nullable|string|required_if:type,text',
             'emoji' => 'nullable|string|required_if:type,emoji',
-            'audio' => 'nullable|file|mimes:mp3,wav,aac',
+            'audio' => 'required|file|mimes:mp3,wav,aac',
             'image' => 'nullable|file|mimes:jpeg,png,jpg,gif|required_if:type,image',
             'parent_id' => [
                 'nullable',
