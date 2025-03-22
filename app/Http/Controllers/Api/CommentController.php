@@ -133,15 +133,15 @@ class CommentController extends Controller
      */
     private function format_comment($comment, $baseUrl)
     {
-        // Determine comment type (audio, emoji, image, video, text)
-        $type = 'text'; // Default to text
+        // Determine type based on available data
+        $type = 'text';
         if (!empty($comment->audio)) {
             $type = 'audio';
         } elseif (!empty($comment->emoji)) {
             $type = 'emoji';
         } elseif (!empty($comment->image)) {
             $type = 'image';
-        }  
+        }
     
         return [
             'id' => $comment->_id,
@@ -154,12 +154,12 @@ class CommentController extends Controller
             'noLikes' => number_format($comment->likes ?? 0) . 'k',
             'type' => $type,
             'audio' => !empty($comment->audio) ? $baseUrl . Storage::url($comment->audio) : null,
-            'emoji' => !empty($comment->emoji) ? $baseUrl . Storage::url($comment->emoji) : null,
+            'emoji' => $comment->emoji, // Directly return emoji as a string
             'image' => !empty($comment->image) ? $baseUrl . Storage::url($comment->image) : null,
-            
-            'replies' => $this->get_replies($comment->_id, $baseUrl), // Fetch nested replies
+            'replies' => $this->get_replies($comment->_id, $baseUrl),
         ];
     }
+    
     
     /**
      * Get all replies recursively
