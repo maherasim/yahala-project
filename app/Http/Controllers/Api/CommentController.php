@@ -108,9 +108,17 @@ class CommentController extends Controller
      */
     private function format_comment($comment, $baseUrl)
     {
+        $type = 'text'; // Default to text
+        if (!empty($comment->audio)) {
+            $type = 'audio';
+        } elseif (!empty($comment->emoji)) {
+            $type = 'emoji';
+        } elseif (!empty($comment->image)) {
+            $type = 'image';
+        }
+    
         return [
             'id' => $comment->_id,
-            'type' => $comment->type, // Use the type directly from the DB
             'user_profile' => !empty($comment->user->image) 
                 ? $baseUrl . Storage::url($comment->user->image) 
                 : $baseUrl . '/images/default-user.png',
@@ -118,14 +126,30 @@ class CommentController extends Controller
             'created_at' => $this->formatCreatedAt($comment->created_at),
             'comment' => $comment->comment ?? '',
             'noLikes' => number_format($comment->likes ?? 0) . 'k',
+            'type' => $type,
             'audio' => !empty($comment->audio) ? $baseUrl . Storage::url($comment->audio) : null,
-            'emoji' => $comment->emoji !== "null" ? $comment->emoji : null, // Fix null issue
+            'audio_length' => !empty($comment->audio) ? $this->getAudioDuration(storage_path('app/public/' . $comment->audio)) : null,
+            'emoji' => !empty($comment->emoji) ? $comment->emoji : null,
             'image' => !empty($comment->image) ? $baseUrl . Storage::url($comment->image) : null,
             'replies' => $this->get_replies($comment->_id, $baseUrl),
         ];
     }
     
     
+    private function getAudioDuration($filePath)
+{
+    if (!file_exists($filePath)) {
+        return null;
+    }
+
+    try {
+        $ffprobe = \FFMpeg\FFProbe::create();
+        return (float) $ffprobe->format($filePath)->get('duration');
+    } catch (\Exception $e) {
+        return null; // Return null if FFmpeg fails
+    }
+}
+
     
     
     /**
