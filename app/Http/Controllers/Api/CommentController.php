@@ -109,7 +109,7 @@ class CommentController extends Controller
     private function format_comment($comment, $baseUrl)
     {
         // Determine comment type
-        $type = 'comment';
+        $type = 'text';
         if (!empty($comment->audio)) {
             $type = 'audio';
         } elseif (!empty($comment->emoji)) {
