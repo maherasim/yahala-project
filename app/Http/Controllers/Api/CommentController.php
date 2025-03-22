@@ -108,32 +108,23 @@ class CommentController extends Controller
      */
     private function format_comment($comment, $baseUrl)
     {
-        // Determine comment type
-        $type = 'text';
-        if (!empty($comment->audio)) {
-            $type = 'audio';
-        } elseif (!empty($comment->emoji)) {
-            $type = 'emoji';
-        } elseif (!empty($comment->image)) {
-            $type = 'image';
-        }
-    
         return [
             'id' => $comment->_id,
+            'type' => $comment->type, // Use the type directly from the DB
             'user_profile' => !empty($comment->user->image) 
                 ? $baseUrl . Storage::url($comment->user->image) 
                 : $baseUrl . '/images/default-user.png',
             'user_name' => $comment->user->name ?? 'Unknown User',
             'created_at' => $this->formatCreatedAt($comment->created_at),
-            'comment' => $comment->comment ?? '',
+            'comment' => $comment->text ?? '',
             'noLikes' => number_format($comment->likes ?? 0) . 'k',
-            'type' => $type,
-            'audio' => !empty($comment->audio) ? $baseUrl . '/' . ltrim(Storage::url($comment->audio), '/') : null,
-            'emoji' => $comment->emoji, // Directly return emoji as string
-            'image' => !empty($comment->image) ? $baseUrl . '/' . ltrim(Storage::url($comment->image), '/') : null,
+            'audio' => !empty($comment->audio) ? $baseUrl . Storage::url($comment->audio) : null,
+            'emoji' => $comment->emoji !== "null" ? $comment->emoji : null, // Fix null issue
+            'image' => !empty($comment->image) ? $baseUrl . Storage::url($comment->image) : null,
             'replies' => $this->get_replies($comment->_id, $baseUrl),
         ];
     }
+    
     
     
     
