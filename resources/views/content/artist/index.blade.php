@@ -85,8 +85,7 @@
                                             <img src="{{ asset(str_replace('public/', '', $artist->origin)) }}"
                                                 alt="Origin Image" width="15" height="15">
                                         </span>
-
-
+  
                                     </div>
 
                                 </div>

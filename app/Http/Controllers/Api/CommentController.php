@@ -106,10 +106,22 @@ class CommentController extends Controller
     }
     
     /**
-     * Recursive function to fetch nested replies
+     * Recursive function to format comments and fetch nested replies
      */
     private function format_comment($comment, $baseUrl)
     {
+        // Determine comment type (audio, emoji, image, video, text)
+        $type = 'text'; // Default to text
+        if (!empty($comment->audio)) {
+            $type = 'audio';
+        } elseif (!empty($comment->emoji)) {
+            $type = 'emoji';
+        } elseif (!empty($comment->image)) {
+            $type = 'image';
+        } elseif (!empty($comment->video)) {
+            $type = 'video';
+        }
+    
         return [
             'id' => $comment->_id,
             'user_profile' => !empty($comment->user->image) 
@@ -119,9 +131,11 @@ class CommentController extends Controller
             'created_at' => $this->formatCreatedAt($comment->created_at),
             'comment' => $comment->text ?? '',
             'noLikes' => number_format($comment->likes ?? 0) . 'k',
-            'type' => !empty($comment->audio) ? 'audio' : 'text',
+            'type' => $type,
             'audio' => !empty($comment->audio) ? $baseUrl . Storage::url($comment->audio) : null,
             'emoji' => !empty($comment->emoji) ? $baseUrl . Storage::url($comment->emoji) : null,
+            'image' => !empty($comment->image) ? $baseUrl . Storage::url($comment->image) : null,
+            'video' => !empty($comment->video) ? $baseUrl . Storage::url($comment->video) : null,
             'replies' => $this->get_replies($comment->_id, $baseUrl), // Fetch nested replies
         ];
     }
