@@ -1060,7 +1060,7 @@ height: 130px;
                     width: 130px;
                     height: 30px;
                   ">
-                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000003833.svg')}}"
+                <img src="{{ asset('assets/svg/bird_logo.svg') }}"
                   style="width: 28px; height: 28px; object-fit: cover" />
                 <div style="
                 width: 100px;
@@ -1551,7 +1551,7 @@ height: 812px; padding: 0px;border-radius: 10px;">
                     width: 130px;
                     height: 30px;
                   ">
-                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000003833.svg')}}"
+                <img src="{{ asset('assets/svg/bird_logo.svg') }}"
                   style="width: 28px; height: 28px; object-fit: cover" />
                 <div style="
                 width: 100px;
@@ -1996,7 +1996,7 @@ height: 812px; padding: 0px;border-radius: 10px;">
                     width: 130px;
                     height: 30px;
                   ">
-                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000003833.svg')}}"
+                <img src="{{ asset('assets/svg/bird_logo.svg') }}"
                   style="width: 28px; height: 28px; object-fit: cover" />
                 <div style="
                 width: 100px;
@@ -4448,7 +4448,7 @@ height: 812px; padding: 0px;border-radius: 10px;">
                       width: 130px;
                       height: 30px;
                     ">
-                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000003833.svg')}}"
+                <img src="{{ asset('assets/svg/bird_logo.svg') }}"
                   style="width: 28px; height: 28px; object-fit: cover" />
                 <div style="
                   width: 100px;
@@ -5561,7 +5561,7 @@ height: 812px; padding: 0px;border-radius: 10px;">
                     width: 130px;
                     height: 30px;
                   ">
-                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000003833.svg')}}"
+                <img src="{{ asset('assets/svg/bird_logo.svg') }}"
                   style="width: 28px; height: 28px; object-fit: cover" />
                 <div style="
                 width: 100px;
@@ -6491,7 +6491,7 @@ margin-top: 5px;
                     align-items: start;
                     align-items: center;
                   ">
-                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000003833.svg')}}" class="img-thumbnail"
+                <img src="{{ asset('assets/svg/bird_logo.svg') }}" class="img-thumbnail"
                   style="width: 40px; height: 35px; object-fit: cover" />
 
                 <div style="
@@ -6844,7 +6844,7 @@ margin-top: 5px;
                     align-items: start;
                     align-items: center;
                   ">
-                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000003833.svg')}}" class="img-thumbnail"
+                <img src="{{ asset('assets/svg/bird_logo.svg') }}" class="img-thumbnail"
                   style="width: 40px; height: 35px; object-fit: cover" />
 
                 <div style="
@@ -7136,7 +7136,7 @@ margin-top: 5px;
                     align-items: start;
                     align-items: center;
                   ">
-                <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000003833.svg')}}" class="img-thumbnail"
+                <img src="{{ asset('assets/svg/bird_logo.svg') }}" class="img-thumbnail"
                   style="width: 40px; height: 35px; object-fit: cover" />
 
                 <div style="
