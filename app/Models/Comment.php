@@ -28,7 +28,7 @@ class Comment extends Model
         "news_id",
         "history_id",
         "vote_id",
-        'text',
+        'comment',
         'audio',
         'audio_path',
         'emoji',

@@ -42,7 +42,7 @@ class CommentController extends Controller
             'user_id' => 'required',
             'post_id' => 'required',
             'type' => 'required|in:text,audio,emoji,image',
-            'text' => 'nullable|string|required_if:type,text',
+            'comment' => 'nullable|string|required_if:type,text',
             'emoji' => 'nullable|string|required_if:type,emoji',
             'audio' => 'nullable|file|mimes:mp3,wav,aac|required_if:type,audio',
             'image' => 'nullable|file|mimes:jpeg,png,jpg,gif|required_if:type,image',
@@ -61,7 +61,7 @@ class CommentController extends Controller
         $comment->user_id = $request->user_id;
         $comment->post_id = $request->post_id;
         $comment->type = $request->type;
-        $comment->text = $request->text ?? null;
+        $comment->comment = $request->comment ?? null;
         $comment->emoji = $request->emoji ?? null;
         $comment->parent_id = $request->parent_id ?? null;
     
@@ -109,7 +109,7 @@ class CommentController extends Controller
     private function format_comment($comment, $baseUrl)
     {
         // Determine comment type
-        $type = 'text';
+        $type = 'comment';
         if (!empty($comment->audio)) {
             $type = 'audio';
         } elseif (!empty($comment->emoji)) {
@@ -125,7 +125,7 @@ class CommentController extends Controller
                 : $baseUrl . '/images/default-user.png',
             'user_name' => $comment->user->name ?? 'Unknown User',
             'created_at' => $this->formatCreatedAt($comment->created_at),
-            'comment' => $comment->text ?? '',
+            'comment' => $comment->comment ?? '',
             'noLikes' => number_format($comment->likes ?? 0) . 'k',
             'type' => $type,
             'audio' => !empty($comment->audio) ? $baseUrl . '/' . ltrim(Storage::url($comment->audio), '/') : null,
