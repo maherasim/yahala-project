@@ -64,18 +64,10 @@ class CommentController extends Controller
         $comment->comment = $request->comment ?? null;
         $comment->emoji = $request->emoji ?? null;
         $comment->parent_id = $request->parent_id ?? null;
-        $comment->audio_length = null; // Default null
     
         // Handle file uploads (store relative path only)
         if ($request->hasFile('audio')) {
-            $audioFile = $request->file('audio');
-            $audioPath = $audioFile->store('comments/audio', 'public');
-            $comment->audio = $audioPath;
-    
-            // Get audio duration using FFmpeg
-            $audioFullPath = storage_path('app/public/' . $audioPath);
-            $duration = $this->getAudioDuration($audioFullPath);
-            $comment->audio_length = $duration; // Store duration in seconds
+            $comment->audio = $request->file('audio')->store('comments/audio', 'public');
         }
     
         if ($request->hasFile('image')) {
