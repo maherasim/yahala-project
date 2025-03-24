@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\WizardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\user\Diamond;
 use App\Http\Controllers\user\Premium;
+use App\Http\Controllers\Admin\FeedsController;
 use App\Http\Controllers\user\Standard;
 use App\Http\Controllers\AdvertismentController;
 use App\Http\Controllers\fanpage\FanPage;
@@ -227,6 +228,20 @@ Route::middleware('check.role:Super Admin')->group(function () {
     Route::post("/admin_activity/event", [AdminProfileController::class, 'store_event'])->name('admin_activity.store_event');
     Route::post("/admin_activity/feeds", [AdminProfileController::class, 'store_feeds'])->name('admin_activity.store_feeds');
 });
+
+
+
+
+ 
+
+    Route::get('/manage-user-feeds', [FeedsController::class, 'index'])->name('manage.user.feeds');
+    Route::get("/feeds/comments", [FeedsController::class, 'getComments'])->name('get.comments');
+    Route::post("/feeds/comments", [FeedsController::class, 'storeComments'])->name('post.comments');
+    Route::post('/feeds/like', [FeedsController::class, 'feedLike'])->name('post.like');
+
+
+
+
 
 
 Route::post('/admin/profile/store', [AdminProfileController::class, 'store'])->name('admin_profile.store');

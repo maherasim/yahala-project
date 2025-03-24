@@ -208,6 +208,36 @@ fieldset[disabled] .button {
   background-color: rgba(10, 10, 10, .3)
 }
 
+.audio-icon-play {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, .6);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer
+}
+
+.audio-icon-stop {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, .6);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer
+}
+
 .modal-close:active,
 .delete:active {
   background-color: rgba(10, 10, 10, .4)
@@ -25400,9 +25430,9 @@ code {
   color: #6c6f73;
   left: auto;
   padding: 10px 0;
-  right: 44px;
+  right: 0;
   top: 0;
-  width: 350px;
+  width: 400px;
   text-align: left
 }
 
@@ -25415,6 +25445,7 @@ code {
   top: 0;
   left: 0;
   height: 100%;
+  width:100%;
   padding-bottom: 50px
 }
 
@@ -25475,7 +25506,7 @@ code {
 .fancybox-custom-layout .fancybox-caption .comment-controls .controls-inner .control .emoji-button {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 24px;
   height: 36px;
   width: 36px;
   display: flex;
@@ -25486,6 +25517,23 @@ code {
   outline: none;
   transition: all .3s;
   cursor: pointer
+}
+
+.fancybox-custom-layout .fancybox-caption .comment-controls .controls-inner .control .send-comment{
+    position: absolute;
+    color: #696cff;
+    top: 0;
+    right: 0;
+    height: 36px;
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: 0 0;
+    border: none;
+    outline: none;
+    transition: all .3s;
+    cursor: pointer;
 }
 
 .fancybox-custom-layout .fancybox-caption .comment-controls .controls-inner .control .emoji-button:hover svg {
@@ -25600,7 +25648,24 @@ code {
 }
 
 .fancybox-custom-layout .fancybox-caption .header .dropdown .dropdown-menu {
-  margin-top: 10px
+  margin-top: 46px
+}
+
+.fancybox-button--close{
+    color: #000 !important;
+}
+
+.fancybox-caption__body .dropdown.is-right .dropdown-menu {
+    left: auto;
+    right: 0;
+    padding: 0;
+    top: -22px;
+}
+
+.fancybox-caption__body .dropdown.is-spaced.is-right.dropdown-trigger {
+    position: absolute;
+    right: 46px;
+    top: 4px;
 }
 
 .fancybox-custom-layout .fancybox-caption .inner-content {
@@ -25641,7 +25706,7 @@ code {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0 20px;
+  padding: 0 0 6px;
   border-bottom: 1px solid #e8e8e8
 }
 
@@ -25724,7 +25789,7 @@ code {
 
 .fancybox-custom-layout .fancybox-caption .comments-list {
   background: #f5f6f7;
-  height: calc(100% - 162px);
+  height: calc(100% - 140px);
   padding: 20px 14px;
   overflow-y: auto
 }
@@ -25808,12 +25873,13 @@ code {
 }
 
 .fancybox-custom-layout .fancybox-toolbar {
-  background: #5596e6;
-  bottom: 0;
-  left: auto;
-  right: 0;
-  top: 0;
-  width: 44px
+    bottom: 0;
+    left: auto;
+    right: 7px;
+    top: 0;
+    z-index: 999999;
+    width: 40px;
+    height: 38px;
 }
 
 .fancybox-custom-layout .fancybox-button {
@@ -25834,6 +25900,86 @@ code {
 
 .fancybox-custom-layout .fancybox-button--arrow_right {
   right: 308px
+}
+
+.com_container {
+    position: relative;
+}
+
+.comment-line {
+    position: absolute;
+    height: calc(100%);
+    border-left: 2px solid black;
+    top: 30%;
+    left: 5%;
+    width: 5%;
+    border-radius: 10px 0 0 0;
+    border-top: 2px solid black;
+}
+
+.comment-line-2 {
+    position: absolute;
+    height: calc(100%);
+    border-left: 2px solid black;
+    top: 10%;
+    left: 5%;
+    width: 5%;
+    border-top:0;
+    border-radius:0;
+}
+
+.comment-reply{
+    margin-left: 8px;
+    margin-right: 2px;
+    margin-top: 16px;
+    color: #696dff !important;
+    outline: #696dff !important;
+}
+
+.comment-line-3 {
+    position: absolute;
+    height: calc(100%);
+    border-left: 2px solid black;
+    top: 10%;
+    left: 15%;
+    width: 5%;
+    border-top:0;
+    border-radius:0;
+}
+
+.comment-lineone {
+    position: absolute;
+    height: 153%;
+    border-left: 2px solid black;
+    top: 10%;
+    left: 5%;
+    width: 15%;
+    border-radius: 10px;
+}
+
+.arrow-line {
+    position: absolute;
+    height: 40px;
+    border-left: 2px solid black;
+    top: -20%;
+    left: 5%;
+    width: 10%;
+    border-bottom: 2px solid black;
+    border-radius: 0px 0px 0px 10px;
+}
+
+.fancybox-custom-layout .fancybox-caption .actions .like-btn.liked span{
+    color: #5596e6 !important;
+}
+
+.fancybox-custom-layout .fancybox-caption .actions .like-btn.liked svg{
+    stroke: #1b71db !important;
+    fill: #5596e6 !important;
+}
+
+.fancybox-custom-layout .fancybox-caption .comments-list .is-comment.is-nested {
+    padding-left: 40px !important;
+    margin-left: 0px !important;
 }
 
 @media only screen and (min-width:600px) {
@@ -28594,8 +28740,8 @@ body.is-dark .error-container .error-wrapper .error-inner h3 {
 
 .card.is-post .content-wrap .card-footer .likers-group img,
 .shop-wrapper .cart-container .cart-content .cart-summary .is-post.summary-card .content-wrap .card-footer .likers-group img {
-  height: 38px;
-  width: 38px;
+  height: 32px;
+  width: 32px;
   border-radius: 50%;
   border: 3px solid #fff
 }
@@ -28645,7 +28791,6 @@ body.is-dark .error-container .error-wrapper .error-inner h3 {
 
 .card.is-post .content-wrap .card-footer .social-count,
 .shop-wrapper .cart-container .cart-content .cart-summary .is-post.summary-card .content-wrap .card-footer .social-count {
-  margin-left: auto;
   display: flex;
   align-items: stretch
 }
@@ -51414,4 +51559,13 @@ body.is-dark .elements-wrap .element-block code {
 .slick-dots li.slick-active button:before {
   color: #000;
   opacity: .75
+}
+
+.m-0-auto{
+    margin: 0 auto !important;
+}
+.mt-4-auto{
+    margin-top: 1rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }

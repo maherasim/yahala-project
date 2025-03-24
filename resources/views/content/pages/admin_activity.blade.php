@@ -49,10 +49,10 @@
         }
 
         /*
-                            .custom-option-body img{
-                                height:136px;
-                            }
-                    */
+                                                                                                    .custom-option-body img{
+                                                                                                        height:136px;
+                                                                                                    }
+                                                                                            */
         .dropdown-item h6,
         .h6,
         h5,
@@ -81,23 +81,6 @@
             border-radius: 5px;
         }
 
-        .fancybox-caption {
-            position: fixed;
-            right: 0px !important;
-            background: #fff !important;
-
-            visibility: visible !important;
-            opacity: 100% !important;
-
-        }
-
-        .fancybox-bg,
-        .fancybox-inner,
-        .fancybox-outer,
-        .fancybox-stage {
-            right: 350px !important;
-        }
-
         .card.is-post .content-wrap .card-footer .social-count .shares-count span,
         .shop-wrapper .cart-container .cart-content .cart-summary .is-post.summary-card .content-wrap .card-footer .social-count .shares-count span,
         .card.is-post .content-wrap .card-footer .social-count .comments-count span,
@@ -108,12 +91,6 @@
             font-size: 18px !important;
             color: #888da8;
             margin: 0 5px;
-        }
-
-        .social-count {
-            margin-left: auto;
-            display: flex;
-            align-items: stretch;
         }
 
         #tab2,
@@ -130,49 +107,6 @@
             z-index: 12222222 !important;
             background: blue !important;
             width: 30% !important;
-        }
-
-        /*.fancybox-content{*/
-        /*    transform: translate(295px, 6px) scale(1, 1) !important;*/
-        /*    width: 800.597px !important;*/
-        /*    height: 534px !important;*/
-        /*}*/
-        .fancybox-container {
-            width: 100% !important;
-        }
-
-        /*.fancybox-slide {*/
-        /*    left:-102px;*/
-        /*    top:200px;*/
-        /*}*/
-        /*meow*/
-        .fancybox-custom-layout .fancybox-stage {
-            right: 394px !important;
-        }
-
-        .fancybox-stage {
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            margin: auto !important;
-            width: 100% !important;
-
-        }
-
-        .fancybox-bg,
-        .fancybox-inner,
-        .fancybox-outer,
-        .fancybox-stage {
-            right: 394px !important;
-        }
-
-        .fancybox-caption {
-            position: fixed;
-            right: 46px !important;
-            width: 348px !important;
-            background: #fff !important;
-            visibility: visible !important;
-            opacity: 100% !important;
         }
 
         .alert-secondary {
@@ -239,7 +173,7 @@
         }
 
         .time_input {
-            width: 150px;
+            width: 100%;
             height: 35px;
             background-color: #e0e0e0;
             border-radius: 5px;
@@ -866,9 +800,7 @@
     <script src="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.js') }}"></script>
     <!-- Concatenated js plugins and jQuery -->
     <script src="{{ asset('assets/friendkit/js/app.js') }}"></script>
-    <script src="
-                                                            https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js
-                                                            "></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!-- Core js -->
     <script src="{{ asset('assets/friendkit/js/global.js') }}"></script>
 
@@ -889,12 +821,10 @@
     <script src="{{ asset('assets/friendkit/js/explorer.js') }}"></script>
     <script src="{{ asset('assets/friendkit/js/widgets.js') }}"></script>
     <script src="{{ asset('assets/friendkit/js/modal-uploader.js') }}"></script>
-    {{-- <script src="{{ asset('assets/friendkit/js/popovers-users.js') }}"></script> --}}
+    <script src="{{ asset('assets/friendkit/js/popovers-users.js') }}"></script>
     <script src="{{ asset('assets/friendkit/js/popovers-pages.js') }}"></script>
-
     <script src="{{ asset('assets/friendkit/js/script.js') }}?v={{ time() }}"></script>
-
-    <!--<script src="{{ asset('assets/friendkit/js/lightbox.js') }}"></script>-->
+    <script src="{{ asset('assets/friendkit/js/lightbox.js') }}"></script>
 
     <!-- Landing page js -->
 
@@ -1361,14 +1291,17 @@
                                 </div>
                             </div>
                             <div style="padding-top:0" class="column column is-6 tab-content" id="tab5">
+                                <input type="hidden" name="feed_id" id="feed_id">
+                                <input type="hidden" name="feed_type" id="feed_type" value="admin_feeds">
+                                <input type="hidden" name="comment_parent_id" id="comment_parent_id">
                                 @foreach ($popfeeds as $key => $feed)
                                     <div id="feed-post-{{ $key }}" class="card is-post">
                                         <div class="pop_div">
                                             <div class="pop_sub">
                                                 <div class="pop_head">
                                                     <div class="pop_tit"><img
-                                                            src="{{ asset('assets/svg/logoo.jpg') }}"
-                                                            style="width:28px;height:28px;object-fit:cover">
+                                                            src="{{ asset('assets/svg/bird_logo.svg') }}"
+                                                            style="width:32px;height:32px;object-fit:cover">
                                                         <div class="pop_heading" style="">
                                                             <div class="pop_head_line" style="">
                                                                 <div class="pop_title" style=""></div>Yahala Team
@@ -1377,13 +1310,15 @@
                                                                 </div>
                                                             </div>
                                                             <div
-                                                                style="width:150px;height:6px;font-family:Genos;font-size:14px;text-align:left;text-underline-position:from-font;text-decoration-skip-ink:none;color:#7e7e7e;display:flex;align-items:center;gap:5px">
-                                                                {{ \Carbon\Carbon::parse($feed->created_at)->format('d M y') }}
+                                                                style="width:150px;height:6px;font-family:Genos;font-size:14px;text-align:left;text-underline-position:from-font;text-decoration-skip-ink:none;color:#7e7e7e;display:flex;align-items:center;gap:5px;position: relative;top:-9px">
+                                                                {{ \Carbon\Carbon::parse($feed->date_start)->format('d M y') }}
+                                                                -
+                                                                {{ \Carbon\Carbon::parse($feed->date_ends)->format('d M y') }}
                                                             </div>
                                                         </div>
-                                                    </div><img
-                                                        src="{{ asset('assets/svg/svg-dialog/' . $feed->share_option . '.svg') }}"
-                                                        style="width:25px;height:27px;object-fit:cover;border:none"
+                                                    </div>
+                                                    <img src="{{ asset('assets/svg/' . $feed->share_option . '.svg') }}"
+                                                        style="{{ $feed->share_option == 'all-users' ? 'width:36px;height:36px' : 'width:27px;height:36px' }};object-fit:cover;border:none"
                                                         class="img-thumbnail">
                                                 </div>
                                                 <form action="delete_popfeed"
@@ -1430,7 +1365,9 @@
                                                     class="pop_action edit_popup1" data-bs-toggle="modal"
                                                     data-bs-target="#modal{{ $modalnumber }}" for="customRadioPrime"
                                                     data-id="{{ $feed->_id }}" data-name="{{ $feed->title }}"
-                                                    data-image="{{ $feed->image }}"
+                                                    data-image="{{ asset('storage/' . $feed->image) }}"
+                                                    data-video="{{ asset('storage/' . $feed->video) }}"
+                                                    data-audio="{{ asset('storage/' . $feed->audio) }}"
                                                     data-start="{{ $feed->date_start }}"
                                                     data-end="{{ $feed->date_ends }}" data-type="{{ $feed->type }}"
                                                     data-option="{{ $feed->share_option }}"
@@ -1454,24 +1391,37 @@
                                                 <!-- Custom controls are defined here -->
                                                 {{-- <video src="{{ asset('storage/' . $feed->video) }}" style="width:100%;object-fit:cover;border-radius:7px;padding:0;display:block"></video> --}}
 
-                                                <video
-                                                    id="my-player"
-                                                    class="video-js"
-                                                    controls
-                                                    preload="auto"
-                                                    {{-- poster="//vjs.zencdn.net/v/oceans.png" --}}
-                                                    data-setup='{}' style="width:100%;height:350px;object-fit:cover;border-radius:7px;padding:0;display:block">
-                                                <source src="{{ asset('storage/' . $feed->video) }}" type="video/mp4"></source>
-                                            </video>
-
-                                                {{-- <div class="audio-icon"
-                                                    style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.6);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer">
-                                                    <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group 1000008129.svg') }}"
-                                                        style="width:20px;height:20px;margin:5px;border-radius:5px;object-fit:cover;color:#fff">
-                                                </div> --}}
+                                                <video id="my-player" class="video-js" controls preload="auto"
+                                                    {{-- poster="//vjs.zencdn.net/v/oceans.png" --}} data-setup='{}'
+                                                    style="width:100%;height:350px;object-fit:cover;border-radius:7px;padding:0;display:block">
+                                                    <source src="{{ asset('storage/' . $feed->video) }}"
+                                                        type="video/mp4">
+                                                    </source>
+                                                </video>
                                             @else
-                                                <img src="{{ asset('storage/' . $feed->image) }}"
-                                                    style="width:100%;object-fit:cover;border-radius:7px;padding:0;display:block">
+                                                <a class="view-post" data-fancybox="post1" data-lightbox-type="comments"
+                                                    data-thumb="{{ asset('storage/' . $feed->image) }}"
+                                                    href="{{ asset('storage/' . $feed->image) }}"
+                                                    data-id="{{ $feed->_id }}"
+                                                    data-demo-href="{{ asset('storage/' . $feed->image) }}">
+                                                    <img src="{{ asset('storage/' . $feed->image) }}"
+                                                        style="width:100%;object-fit:cover;border-radius:7px;padding:0;display:block">
+                                                </a>
+                                                {{-- <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group 1000008129.svg') }}"
+                                                style="width:20px;height:20px;margin:5px;border-radius:5px;object-fit:cover;color:#fff"> --}}
+                                                @if ($feed->audio !== '' && $feed->audio !== null)
+                                                    <audio src="{{ asset('storage/' . $feed->audio) }}"
+                                                        id="feed-audio-{{ $feed->id }}"></audio>
+                                                    <div class="audio-icon-play d-none"
+                                                        id="audio-icon-play{{ $feed->id }}"
+                                                        data-id="{{ $feed->id }}">
+                                                        <i class="fas fa-volume-high"></i>
+                                                    </div>
+                                                    <div class="audio-icon-stop" id="audio-icon-stop{{ $feed->id }}"
+                                                        data-id="{{ $feed->id }}">
+                                                        <i class="fas fa-volume-xmark"></i>
+                                                    </div>
+                                                @endif
                                             @endif
                                         </div>
                                         <div
@@ -1479,7 +1429,7 @@
                                             <div
                                                 style="display:flex;align-items:center;justify-content:space-between;width:200px;height:100%">
 
-                                                <div style="display:flex;align-items:center;gap:3px;height:100%"><img
+                                                {{-- <div style="display:flex;align-items:center;gap:3px;height:100%"><img
                                                         src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Eye%20Scan.svg') }}"
                                                         style="width:100%;height:100%;object-fit:cover"><span
                                                         style="font-weight:400;font-family:Genos">123</span>
@@ -1489,20 +1439,20 @@
                                                         src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/share.svg') }}"
                                                         style="width:100%;height:100%;object-fit:cover"><span
                                                         style="font-weight:400;font-family:Genos">123</span>
-                                                </div>
+                                                </div> --}}
 
                                                 @if ($feed->is_comments == 1)
                                                     <div style="display:flex;align-items:center;gap:3px;height:100%"><img
                                                             src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Pen%202.svg') }}"
                                                             style="width:100%;height:100%;object-fit:cover"><span
-                                                            style="font-weight:400;font-family:Genos">123</span>
+                                                            style="font-weight:400;font-family:Genos">0</span>
                                                     </div>
                                                 @endif
                                                 @if ($feed->is_share == 1)
                                                     <div style="display:flex;align-items:center;gap:3px;height:100%"><img
                                                             src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/microphone-2.svg') }}"
                                                             style="width:100%;height:100%;object-fit:cover"><span
-                                                            style="font-weight:400;font-family:Genos">123</span>
+                                                            style="font-weight:400;font-family:Genos">0</span>
                                                     </div>
                                                 @endif
                                             </div>
@@ -1512,7 +1462,7 @@
                                                         style="width:100%;height:100%;object-fit:cover">
                                                     <img src="{{ asset('assets/svg/svg-dialog/third-svg-dialog/Group%201000002630.svg') }}"
                                                         style="width:100%;height:100%;object-fit:cover">
-                                                    <span style="font-weight:400;font-family:Genos">123</span>
+                                                    <span style="font-weight:400;font-family:Genos">0</span>
                                                 </div>
                                             @endif
                                         </div>
@@ -1633,7 +1583,7 @@
     <script>
         $(document).ready(function() {
 
-            $('.time_input_field').datepicker({
+            $('.time_input_field').daterangepicker({
                 onSelect: function(dateText) {
 
                     $('#span_output').text(dateText);
@@ -1707,8 +1657,20 @@
 
             $(".addImageButtonModel2").show();
             $(".descriptionTextContainerModal2").show();
+            $("#descriptionTextContainerModal10").show();
             $(".image-preview-containerModal2").html("");
             $(".fileInput18").attr("required", true);
+
+            $('#Mp3InputModal10').show();
+            $('#Mp3uploadModal10').hide();
+            $('#Mp3InputModal2').show();
+            $('#Mp3uploadModal2').hide();
+            $('#Mp3InputModal3').show();
+            $('#Mp3uploadModal3').hide();
+            $('#Mp3InputModal4').show();
+            $('#Mp3uploadModal4').hide();
+            $('#Mp3InputModal5').show();
+            $('#Mp3uploadModal5').hide();
 
             var image1 = document.getElementById('defaultIcon1');
             image1.src = adddefpath;
@@ -1724,13 +1686,32 @@
 
         })
 
+        $(document).ready(function() {
 
+            $(".audio-icon-play").click(function() {
+                let id = $(this).attr('data-id');
+                let audio = $("#feed-audio-" + id)[0]; // Get the audio element
+                audio.pause();
+                audio.currentTime = 0; // Reset audio
+                $(this).addClass("d-none"); // Hide play button
+                $("#audio-icon-stop" + id).removeClass("d-none"); // Show stop button
+            });
+
+            $(".audio-icon-stop").click(function() {
+                let id = $(this).attr('data-id');
+                let audio = $("#feed-audio-" + id)[0]; // Get the audio element
+                audio.play();
+                $(this).addClass("d-none"); // Hide stop button
+                $("#audio-icon-play" + id).removeClass("d-none"); // Show play button
+            });
+        });
 
 
         $(document).on("click", ".edit_popup1", function() {
             var cid = $(this).attr("data-id");
             var p_title = $(this).attr("data-name");
             var p_image = $(this).attr("data-image");
+            var p_audio = $(this).attr("data-audio");
             var p_start = $(this).attr("data-start");
             var p_end = $(this).attr("data-end");
             var p_option = $(this).attr("data-option");
@@ -1741,7 +1722,9 @@
 
             var imgid = ".pop_main_image_" + cid;
             var imghtml = $(imgid).html();
+            let imgsrc = $(this).attr('data-image')
 
+            $('.time_input_field').val(p_start + ' - ' + p_end);
             $(".upid").val(cid);
             $(".title_field").val(p_title);
             $(".datepicker1").val(p_start);
@@ -1769,29 +1752,38 @@
 
             if (typ == "System") {
 
-                if (p_option == "Educated") {
+                if (p_option == "educated") {
                     $("#button2Modal8").attr('checked', 'checked');
                     $("#button2Modal8").click();
-                } else if (p_option == "Cultivated") {
+                } else if (p_option == "cultivated") {
                     $("#button3Modal8").attr('checked', 'checked');
                     $("#button3Modal8").click();
-                } else if (p_option == "Academic") {
+                } else if (p_option == "academic") {
                     $("#button4Modal8").attr('checked', 'checked');
                     $("#button4Modal8").click();
                 } else {
                     $("#button1Modal8").attr('checked', 'checked');
                     $("#button1Modal8").click();
                 }
+
+                if ($(this).attr('data-audio') !== "" && $(this).attr('data-audio') !== null) {
+                    loadAudio($(this).attr('data-audio'), '#DurationModal2', '#playModal2');
+                    $('#Mp3InputModal2').css('display', 'none');
+                    $('#Mp3uploadModal2').css('display', 'block');
+                } else {
+                    $('#Mp3InputModal2').css('display', 'block');
+                    $('#Mp3uploadModal2').css('display', 'none');
+                }
             } else if (typ == "Donation") {
 
-                if (p_option == "Educated") {
+                if (p_option == "educated") {
                     $("#button2Modal8_2").attr('checked', 'checked');
                     $("#button2Modal8_2").click();
-                } else if (p_option == "Cultivated") {
+                } else if (p_option == "cultivated") {
                     $("#button3Modal8_2").attr('checked', 'checked');
                     $("#button3Modal8_2").click();
 
-                } else if (p_option == "Academic") {
+                } else if (p_option == "academic") {
                     $("#button4Modal8_2").attr('checked', 'checked');
                     $("#button4Modal8_2").click();
                 } else {
@@ -1799,8 +1791,16 @@
                     $("#button1Modal8_2").click();
                 }
 
+                if ($(this).attr('data-audio') !== "" && $(this).attr('data-audio') !== null) {
+                    loadAudio($(this).attr('data-audio'), '#DurationModal10', '#playModal10');
+                    $('#Mp3InputModal10').css('display', 'none');
+                    $('#Mp3uploadModal10').css('display', 'block');
+                } else {
+                    $('#Mp3InputModal10').css('display', 'block');
+                    $('#Mp3uploadModal10').css('display', 'none');
+                }
+
                 //extra fields
-                $("#donation_img").html(imghtml);
                 var limit = $(this).attr("data-limit");
                 var paypal = $(this).attr("data-paypal");
                 var gpay = $(this).attr("data-gpay");
@@ -1860,20 +1860,30 @@
 
             } else if (typ == "Surveys") {
 
-                if (p_option == "Educated") {
+                if (p_option == "educated") {
                     $("#button2Modal8_3").attr('checked', 'checked');
                     $("#button2Modal8_3").click();
-                } else if (p_option == "Cultivated") {
+                } else if (p_option == "cultivated") {
                     $("#button3Modal8_3").attr('checked', 'checked');
                     $("#button3Modal8_3").click();
 
-                } else if (p_option == "Academic") {
+                } else if (p_option == "academic") {
                     $("#button4Modal8_3").attr('checked', 'checked');
                     $("#button4Modal8_3").click();
                 } else {
                     $("#button1Modal8_3").attr('checked', 'checked');
                     $("#button1Modal8_3").click();
                 }
+
+                if ($(this).attr('data-audio') !== "" && $(this).attr('data-audio') !== null) {
+                    loadAudio($(this).attr('data-audio'), '#DurationModal4', '#playModal4');
+                    $('#Mp3InputModal4').css('display', 'none');
+                    $('#Mp3uploadModal4').css('display', 'block');
+                } else {
+                    $('#Mp3InputModal4').css('display', 'block');
+                    $('#Mp3uploadModal4').css('display', 'none');
+                }
+
                 var txt1 = $(this).attr("data-txt1");
                 $('.txt1').val(txt1);
                 var txt2 = $(this).attr("data-txt2");
@@ -1904,14 +1914,14 @@
                 }
 
             } else if (typ == "Greetings") {
-                if (p_option == "Educated") {
+                if (p_option == "educated") {
                     $("#button2Modal8_4").attr('checked', 'checked');
                     $("#button2Modal8_4").click();
-                } else if (p_option == "Cultivated") {
+                } else if (p_option == "cultivated") {
                     $("#button3Modal8_4").attr('checked', 'checked');
                     $("#button3Modal8_4").click();
 
-                } else if (p_option == "Academic") {
+                } else if (p_option == "academic") {
                     $("#button4Modal8_4").attr('checked', 'checked');
                     $("#button4Modal8_4").click();
                 } else {
@@ -1919,14 +1929,64 @@
                     $("#button1Modal8_4").click();
                 }
 
+                if ($(this).attr('data-audio') !== "" && $(this).attr('data-audio') !== null) {
+                    loadAudio($(this).attr('data-audio'), '#DurationModal5', '#playModal5');
+                    $('#Mp3InputModal5').css('display', 'none');
+                    $('#Mp3uploadModal5').css('display', 'block');
+                } else {
+                    $('#Mp3InputModal5').css('display', 'block');
+                    $('#Mp3uploadModal5').css('display', 'none');
+                }
+
+            }
+
+            //pop_main_image
+            if (imgsrc !== "" && imgsrc !== null) {
+                $(".addImageButtonModel2").hide();
+                $(".descriptionTextContainerModal2").hide();
+                $("#descriptionTextContainerModal10").hide();
+                $(".image-preview-containerModal2").html(`
+                <img src="${imgsrc}" alt="Image Preview" style="width: 100%; height: 100%; object-fit: fill; border-radius: 10px;">
+                `);
             }
 
 
+            /** ✅ Load and play audio */
+            function loadAudio(audioPath, duration, play) {
+                let audioElement = null;
+                const durationSpan = $(duration)
+                const playButton = $(play);
+                if (!audioPath) return;
 
-            //pop_main_image
-            $(".addImageButtonModel2").hide();
-            $(".descriptionTextContainerModal2").hide();
-            $(".image-preview-containerModal2").html(imghtml);
+                audioElement = new Audio(audioPath);
+
+                // Update duration once metadata is loaded
+                $(audioElement).on("loadedmetadata", function() {
+                    durationSpan.text(formatDuration(audioElement.duration));
+                });
+
+                // Update current time during playback
+                $(audioElement).on("timeupdate", function() {
+                    durationSpan.text(formatDuration(audioElement.currentTime));
+                });
+
+                playButton.on("click", function() {
+                    if (audioElement.paused) {
+                        audioElement.play();
+                        playButton.attr("src", playpusecgrnbtn); // Change to pause icon
+                    } else {
+                        audioElement.pause();
+                        playButton.attr("src", playbtn); // Change back to play icon
+                    }
+                });
+
+                /** ✅ Format duration to "MM:SS" */
+                function formatDuration(seconds) {
+                    const minutes = Math.floor(seconds / 60);
+                    const remainingSeconds = Math.floor(seconds % 60);
+                    return `${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
+                }
+            }
 
         })
 
@@ -2333,3745 +2393,6 @@
     </script>
 
     <script>
-        $(document).ready(function() {
-            $(document).click(function() {
-
-                const lightboxing = `<div class="fancybox-container fancybox-custom-layout fancybox-show-toolbar fancybox-show-caption fancybox-is-open fancybox-is-zoomable fancybox-can-zoomIn"
-            role="dialog" tabindex="-1" id="fancybox-container-1"
-            style="transition-duration: 366ms;">
-            <div class="fancybox-inner">
-
-                <div
-                    class="fancybox-caption">
-                    <div
-                        class="fancybox-caption__body">
-                        <div class="header d-flex justify-content-between">
-                            <div class="d-flex">
-                                <img src="https://via.placeholder.com/300x300"
-                                    data-demo-src="assets/img/avatars/dan.jpg"
-                                    alt>
-                                <div class="user-meta">
-                                    <span>Dan Walker</span> <span><small>2 hours
-                                            ago</small></span>
-                                </div>
-                            </div>
-                            <div
-                                class="dropdown is-spaced is-right dropdown-trigger toggle">
-
-                                <div>
-
-                                    <div class="button"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-more-vertical"><circle
-                                                cx="12" cy="12"
-                                                r="1"></circle><circle cx="12"
-                                                cy="5" r="1"></circle><circle
-                                                cx="12" cy="19"
-                                                r="1"></circle></svg></div>
-
-                                </div>
-
-                                <div class="dropdown-menu" role="menu"
-                                    style="left:-268px;">
-
-                                    <div class="dropdown-content">
-
-                                        <div
-                                            class="dropdown-item is-title has-text-left">
-                                            Who can see this ?</div>
-
-                                        <a href="#" class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-globe"><circle
-                                                        cx="12" cy="12"
-                                                        r="10"></circle><line
-                                                        x1="2" y1="12" x2="22"
-                                                        y2="12"></line><path
-                                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Public</h3>
-                                                    <small>Anyone can see this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-users"><path
-                                                        d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle
-                                                        cx="9" cy="7"
-                                                        r="4"></circle><path
-                                                        d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path
-                                                        d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Friends</h3>
-                                                    <small>only friends can see
-                                                        this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-user"><path
-                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle
-                                                        cx="12" cy="7"
-                                                        r="4"></circle></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Specific friends</h3>
-                                                    <small>Don't show it to some
-                                                        friends.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <hr class="dropdown-divider">
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-lock"><rect
-                                                        x="3" y="11" width="18"
-                                                        height="11" rx="2"
-                                                        ry="2"></rect><path
-                                                        d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Only me</h3>
-                                                    <small>Only me can see this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="social-count ml-auto">
-
-                        </div>
-
-                        <div style="padding:10px;" class="actions">
-
-                            <div class="action"> <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="feather feather-thumbs-up"><path
-                                        d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
-                                <span>Like</span></div>
-
-                            <div class="action"> <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="feather feather-message-circle"><path
-                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                <span>Comment</span></div>
-
-                        </div>
-
-                        <div class="comments-list has-slimscroll">
-
-                            <div class="media is-comment com_container">
-                                <div class="comment-lineone"></div>
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/dan.jpg"
-                                            alt data-user-popover="1"></p>
-
-                                </figure>
-
-                                <div class="media-content pb-0">
-                                    <div
-                                        class="d-flex justify-content-between comment-actions mb-2"
-                                        style="margin-top:-7px;">
-                                        <div class="username">Dan Walker</div>
-                                        <span>28m</span>
-                                    </div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros.</p>
-
-                                </div>
-
-                            </div>
-                            <div class="text-end mx-0 px-3 w-100 my-2"
-                                style="background-color:#f5f6f7; letter-spacing:-5px;">
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%; ">😂</span>
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%;">😣</span>
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%;">😳</span>
-                            </div>
-
-                            <div
-                                class="media is-comment is-nested com_container">
-                                <div class="arrow-line"></div>
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/david.jpg"
-                                            alt data-user-popover="4"></p>
-
-                                </figure>
-
-                                <div class="media-content pb-0">
-
-                                    <div
-                                        class="d-flex justify-content-between comment-actions mb-2"
-                                        style="margin-top:-7px;">
-                                        <div class="username">David Kim</div>
-                                        <span>26m</span>
-                                    </div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing.</p>
-
-                                </div>
-
-                            </div>
-                            <div class="text-end mx-0 px-3 w-100 my-2"
-                                style="background-color:#f5f6f7; letter-spacing:-5px;">
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%; ">😂</span>
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%;">😣</span>
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%;">😳</span>
-
-                            </div>
-                            <style>
-    .com_container{
-        position:relative;
-    }
-    .comment-line{
-        position:absolute;
-        height:362%;
-        border-left:2px solid black;
-        top:10%;
-        left:5%;
-        width:15%;
-        border-radius:10px;
-    }
-    .comment-lineone{
-        position:absolute;
-        height:153%;
-        border-left:2px solid black;
-        top:10%;
-        left:5%;
-        width:15%;
-        border-radius:10px;
-    }
-    .arrow-line{
-         position: absolute;
-    height: 40px;
-    border-left: 2px solid black;
-    top: -20%;
-    left: 5%;
-    width: 10%;
-    border-bottom: 2px solid black;
-    border-radius: 0px 0px 0px 10px;
-    }
-    .fancybox-custom-layout .fancybox-caption .comments-list .is-comment.is-nested{
-        padding-left:40px !important;
-        margin-left:0px !important;
-    }
-    </style>
-
-                            <div class="media is-comment com_container">
-                                <div class="comment-line"></div>
-                                <figure class="media-left ">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/rolf.jpg"
-                                            alt data-user-popover="17"></p>
-
-                                </figure>
-
-                                <div class="media-content pb-0">
-
-                                    <div
-                                        class="d-flex justify-content-between comment-actions mb-2"
-                                        style="margin-top:-7px;">
-                                        <div class="username">Rolf Krupp</div>
-                                        <span>36m</span>
-                                    </div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros. Consectetur adipiscing elit. Proin
-                                        ornare magna eros.</p>
-
-                                </div>
-
-                            </div>
-                            <div class="text-end mx-0 px-3 w-100 my-2"
-                                style="background-color:#f5f6f7; letter-spacing:-5px;">
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%; ">😂</span>
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%;">😣</span>
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%;">😳</span>
-
-                            </div>
-
-                            <div
-                                class="media is-comment is-nested com_container ">
-                                <div class="arrow-line"></div>
-                                <figure class="media-left ">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/elise.jpg"
-                                            alt data-user-popover="6"></p>
-
-                                </figure>
-
-                                <div class="media-content pb-0">
-
-                                    <div
-                                        class="d-flex justify-content-between comment-actions mb-2"
-                                        style="margin-top:-7px;">
-                                        <div class="username">Elise Walker</div>
-                                        <span>32m</span>
-                                    </div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros.</p>
-
-                                </div>
-
-                            </div>
-                            <div class="text-end mx-0 px-3 w-100 my-2"
-                                style="background-color:#f5f6f7; letter-spacing:-5px;">
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%; ">😂</span>
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%;">😣</span>
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%;">😳</span>
-
-                            </div>
-
-                            <div
-                                class="media is-comment is-nested com_container">
-                                <div class="arrow-line"></div>
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/rolf.jpg"
-                                            alt data-user-popover="17"></p>
-
-                                </figure>
-
-                                <div class="media-content pb-0">
-
-                                    <div
-                                        class="d-flex justify-content-between comment-actions mb-2"
-                                        style="margin-top:-7px;">
-                                        <div class="username">Rolf Krupp</div>
-                                        <span>24m</span>
-                                    </div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros.</p>
-
-                                </div>
-
-                            </div>
-                            <div class="text-end mx-0 px-3 w-100 my-2"
-                                style="background-color:#f5f6f7; letter-spacing:-5px;">
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%; ">😂</span>
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%;">😣</span>
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%;">😳</span>
-
-                            </div>
-
-                            <div
-                                class="media is-comment is-nested com_container">
-                                <div class="arrow-line"></div>
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/elise.jpg"
-                                            alt data-user-popover="6"></p>
-
-                                </figure>
-
-                                <div class="media-content pb-0">
-
-                                    <div
-                                        class="d-flex justify-content-between comment-actions mb-2"
-                                        style="margin-top:-7px;">
-                                        <div class="username">Elise Walker</div>
-                                        <span>40m</span>
-                                    </div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros.</p>
-
-                                </div>
-
-                            </div>
-                            <div class="text-end mx-0 px-3 w-100 my-2"
-                                style="background-color:#f5f6f7; letter-spacing:-5px;">
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%; ">😂</span>
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%;">😣</span>
-                                <span
-                                    style="background:white;padding:1px; border-radius:50%;">😳</span>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/lana.jpeg"
-                                            alt data-user-popover="14"></p>
-
-                                </figure>
-
-                                <div class="media-content pb-0">
-                                    <div
-                                        class="d-flex justify-content-between comment-actions mb-2"
-                                        style="margin-top:-7px;">
-                                        <div class="username">Lana
-                                            Henrikssen</div>
-                                        <span>28m</span>
-                                    </div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros. Consectetur adipiscing elit.</p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="text-end mx-0 px-3 w-100 my-2"
-                            style="background-color:#f5f6f7; letter-spacing:-5px;">
-                            <span
-                                style="background:white;padding:1px; border-radius:50%; ">😂</span>
-                            <span
-                                style="background:white;padding:1px; border-radius:50%;">😣</span>
-                            <span
-                                style="background:white;padding:1px; border-radius:50%;">😳</span>
-
-                        </div>
-
-                        <div class="comment-controls has-lightbox-emojis">
-
-                            <div class="controls-inner"
-                                id="lightbox-post-comment-wrapper-1">
-                                <img src="https://via.placeholder.com/300x300"
-                                    data-demo-src="assets/img/avatars/jenna.png"
-                                    alt>
-                                <div class="control"> <textarea
-                                        class="textarea is-rounded" rows="1"
-                                        id="lightbox-post-comment-textarea-1"></textarea>
-                                    <button class="emoji-button"
-                                        id="lightbox-post-comment-button-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-smile"><circle
-                                                cx="12" cy="12"
-                                                r="10"></circle><path
-                                                d="M8 14s1.5 2 4 2 4-2 4-2"></path><line
-                                                x1="9" y1="9" x2="9.01"
-                                                y2="9"></line><line x1="15"
-                                                y1="9" x2="15.01"
-                                                y2="9"></line></svg></button></div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="header">
-                            <img src="https://via.placeholder.com/300x300"
-                                data-demo-src="assets/img/avatars/elise.jpg"
-                                alt>
-                            <div class="user-meta">
-                                <span>Elise Walker</span> <span><small>2 days
-                                        ago</small></span>
-                            </div>
-                            <button type="button" class="button">Follow</button>
-                            <div
-                                class="dropdown is-spaced is-right dropdown-trigger">
-
-                                <div>
-
-                                    <div class="button"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-more-vertical"><circle
-                                                cx="12" cy="12"
-                                                r="1"></circle><circle cx="12"
-                                                cy="5" r="1"></circle><circle
-                                                cx="12" cy="19"
-                                                r="1"></circle></svg></div>
-
-                                </div>
-
-                                <div class="dropdown-menu" role="menu">
-
-                                    <div class="dropdown-content">
-
-                                        <div
-                                            class="dropdown-item is-title has-text-left">
-                                            Who can see this ?</div>
-
-                                        <a href="#" class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-globe"><circle
-                                                        cx="12" cy="12"
-                                                        r="10"></circle><line
-                                                        x1="2" y1="12" x2="22"
-                                                        y2="12"></line><path
-                                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Public</h3>
-                                                    <small>Anyone can see this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-users"><path
-                                                        d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle
-                                                        cx="9" cy="7"
-                                                        r="4"></circle><path
-                                                        d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path
-                                                        d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Friends</h3>
-                                                    <small>only friends can see
-                                                        this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-user"><path
-                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle
-                                                        cx="12" cy="7"
-                                                        r="4"></circle></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Specific friends</h3>
-                                                    <small>Don't show it to some
-                                                        friends.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <hr class="dropdown-divider">
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-lock"><rect
-                                                        x="3" y="11" width="18"
-                                                        height="11" rx="2"
-                                                        ry="2"></rect><path
-                                                        d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Only me</h3>
-                                                    <small>Only me can see this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="inner-content">
-
-                            <div class="live-stats">
-
-                                <div class="social-count">
-
-                                    <div class="likes-count"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-heart"><path
-                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                        <span>3</span></div>
-
-                                    <div class="comments-count"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-message-circle"><path
-                                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                        <span>5</span></div>
-
-                                </div>
-
-                                <div class="social-count ml-auto">
-
-                                    <div class="views-count">
-                                        <span>5</span> <span
-                                            class="views"><small>comments</small></span>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="actions">
-
-                                <div class="action"> <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="feather feather-thumbs-up"><path
-                                            d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
-                                    <span>Like</span></div>
-
-                                <div class="action"> <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="feather feather-message-circle"><path
-                                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                    <span>Comment</span></div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="comments-list has-slimscroll">
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/gaelle.jpeg"
-                                            alt data-user-popover="11"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Gaelle Morris</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>2d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>1</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment is-nested">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/elise.jpg"
-                                            alt data-user-popover="6"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Elise Walker</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>4h</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>1</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment is-nested">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/rolf.jpg"
-                                            alt data-user-popover="13"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Rolf Krupp</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros. Consectetur adipiscing elit.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>4h</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>1</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment is-nested">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/elise.jpg"
-                                            alt data-user-popover="6"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Elise Walker</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>4h</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>1</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/nelly.png"
-                                            alt data-user-popover="7"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Nelly Schwartz</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>4h</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>1</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="comment-controls has-lightbox-emojis">
-
-                            <div class="controls-inner"
-                                id="lightbox-post-comment-wrapper-2">
-                                <img src="https://via.placeholder.com/300x300"
-                                    data-demo-src="assets/img/avatars/jenna.png"
-                                    alt>
-                                <div class="control"> <textarea
-                                        class="textarea comment-textarea is-rounded"
-                                        rows="1"
-                                        id="lightbox-post-comment-textarea-2"></textarea>
-                                    <button class="emoji-button"
-                                        id="lightbox-post-comment-button-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-smile"><circle
-                                                cx="12" cy="12"
-                                                r="10"></circle><path
-                                                d="M8 14s1.5 2 4 2 4-2 4-2"></path><line
-                                                x1="9" y1="9" x2="9.01"
-                                                y2="9"></line><line x1="15"
-                                                y1="9" x2="15.01"
-                                                y2="9"></line></svg></button></div>
-
-                            </div>
-
-                        </div>
-                        ",m='
-                        <div class="header">
-                            <img src="https://via.placeholder.com/300x300"
-                                data-demo-src="assets/img/avatars/stella.jpg"
-                                alt>
-                            <div class="user-meta">
-                                <span>Stella Bergmann</span>
-                                <span><small>Yesterday</small></span>
-                            </div>
-                            <button type="button" class="button">Follow</button>
-                            <div
-                                class="dropdown is-spaced is-right dropdown-trigger">
-
-                                <div>
-
-                                    <div class="button"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-more-vertical"><circle
-                                                cx="12" cy="12"
-                                                r="1"></circle><circle cx="12"
-                                                cy="5" r="1"></circle><circle
-                                                cx="12" cy="19"
-                                                r="1"></circle></svg></div>
-
-                                </div>
-
-                                <div class="dropdown-menu" role="menu">
-
-                                    <div class="dropdown-content">
-
-                                        <div
-                                            class="dropdown-item is-title has-text-left">
-                                            Who can see this ?</div>
-
-                                        <a href="#" class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-globe"><circle
-                                                        cx="12" cy="12"
-                                                        r="10"></circle><line
-                                                        x1="2" y1="12" x2="22"
-                                                        y2="12"></line><path
-                                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Public</h3>
-                                                    <small>Anyone can see this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-users"><path
-                                                        d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle
-                                                        cx="9" cy="7"
-                                                        r="4"></circle><path
-                                                        d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path
-                                                        d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Friends</h3>
-                                                    <small>only friends can see
-                                                        this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-user"><path
-                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle
-                                                        cx="12" cy="7"
-                                                        r="4"></circle></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Specific friends</h3>
-                                                    <small>Don't show it to some
-                                                        friends.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <hr class="dropdown-divider">
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-lock"><rect
-                                                        x="3" y="11" width="18"
-                                                        height="11" rx="2"
-                                                        ry="2"></rect><path
-                                                        d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Only me</h3>
-                                                    <small>Only me can see this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="inner-content">
-
-                            <div class="live-stats">
-
-                                <div class="social-count">
-
-                                    <div class="likes-count"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-heart"><path
-                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                        <span>33</span></div>
-
-                                    <div class="comments-count"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-message-circle"><path
-                                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                        <span>9</span></div>
-
-                                </div>
-
-                                <div class="social-count ml-auto">
-
-                                    <div class="views-count">
-                                        <span>9</span> <span
-                                            class="views"><small>comments</small></span>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="actions">
-
-                                <div class="action"> <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="feather feather-thumbs-up"><path
-                                            d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
-                                    <span>Like</span></div>
-
-                                <div class="action"> <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="feather feather-message-circle"><path
-                                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                    <span>Comment</span></div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="comments-list has-slimscroll">
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/jenna.png"
-                                            alt data-user-popover="0"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Jenna Davis</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>30m</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>0</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment is-nested">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/lana.jpeg"
-                                            alt data-user-popover="10"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Lana Henrikssen</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing. Proin ornare magna eros.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>15m</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>0</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment is-nested">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/david.jpg"
-                                            alt data-user-popover="4"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">David Kim</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>12m</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>5</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment is-nested">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/mike.jpg"
-                                            alt data-user-popover="16"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Mike Lasalle</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>8m</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>5</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment is-nested">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/stella.jpg"
-                                            alt data-user-popover="2"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Stella Bergmann</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing. Lorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>1m</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>5</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/daniel.jpg"
-                                            alt data-user-popover="3"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Daniel
-                                        Wellington</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros. Consectetur adipiscing elit. Proin
-                                        ornare magna eros.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>5h</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>3</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/bobby.jpg"
-                                            alt data-user-popover="8"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Bobby Brown</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>7h</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>3</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment is-nested">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/stella.jpg"
-                                            alt data-user-popover="2"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Stella Bergmann</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing. Lorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>7h</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>5</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment is-nested">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/lana.jpeg"
-                                            alt data-user-popover="10"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Lana Henrikssen</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing. Proin ornare magna eros.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>15m</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>0</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="comment-controls has-lightbox-emojis">
-
-                            <div class="controls-inner"
-                                id="lightbox-post-comment-wrapper-3">
-                                <img src="https://via.placeholder.com/300x300"
-                                    data-demo-src="assets/img/avatars/jenna.png"
-                                    alt>
-                                <div class="control"> <textarea
-                                        class="textarea comment-textarea is-rounded"
-                                        rows="1"
-                                        id="lightbox-post-comment-textarea-3"></textarea>
-                                    <button class="emoji-button"
-                                        id="lightbox-post-comment-button-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-smile"><circle
-                                                cx="12" cy="12"
-                                                r="10"></circle><path
-                                                d="M8 14s1.5 2 4 2 4-2 4-2"></path><line
-                                                x1="9" y1="9" x2="9.01"
-                                                y2="9"></line><line x1="15"
-                                                y1="9" x2="15.01"
-                                                y2="9"></line></svg></button></div>
-
-                            </div>
-
-                        </div>
-                        ",r='
-                        <div class="header">
-                            <img src="https://via.placeholder.com/300x300"
-                                data-demo-src="assets/img/avatars/jenna.png"
-                                alt>
-                            <div class="user-meta">
-                                <span>Jenna Davis</span> <span><small>3 days
-                                        ago</small></span>
-                            </div>
-                            <button type="button" class="button">Follow</button>
-                            <div
-                                class="dropdown is-spaced is-right dropdown-trigger">
-
-                                <div>
-
-                                    <div class="button"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-more-vertical"><circle
-                                                cx="12" cy="12"
-                                                r="1"></circle><circle cx="12"
-                                                cy="5" r="1"></circle><circle
-                                                cx="12" cy="19"
-                                                r="1"></circle></svg></div>
-
-                                </div>
-
-                                <div class="dropdown-menu" role="menu">
-
-                                    <div class="dropdown-content">
-
-                                        <div
-                                            class="dropdown-item is-title has-text-left">
-                                            Who can see this ?</div>
-
-                                        <a href="#" class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-globe"><circle
-                                                        cx="12" cy="12"
-                                                        r="10"></circle><line
-                                                        x1="2" y1="12" x2="22"
-                                                        y2="12"></line><path
-                                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Public</h3>
-                                                    <small>Anyone can see this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-users"><path
-                                                        d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle
-                                                        cx="9" cy="7"
-                                                        r="4"></circle><path
-                                                        d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path
-                                                        d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Friends</h3>
-                                                    <small>only friends can see
-                                                        this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-user"><path
-                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle
-                                                        cx="12" cy="7"
-                                                        r="4"></circle></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Specific friends</h3>
-                                                    <small>Don't show it to some
-                                                        friends.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <hr class="dropdown-divider">
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-lock"><rect
-                                                        x="3" y="11" width="18"
-                                                        height="11" rx="2"
-                                                        ry="2"></rect><path
-                                                        d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Only me</h3>
-                                                    <small>Only me can see this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="inner-content">
-
-                            <div class="live-stats">
-
-                                <div class="social-count">
-
-                                    <div class="likes-count"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-heart"><path
-                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                        <span>32</span></div>
-
-                                    <div class="comments-count"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-message-circle"><path
-                                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                        <span>5</span></div>
-
-                                </div>
-
-                                <div class="social-count ml-auto">
-
-                                    <div class="views-count">
-                                        <span>5</span> <span
-                                            class="views"><small>comments</small></span>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="actions">
-
-                                <div class="action"> <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="feather feather-thumbs-up"><path
-                                            d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
-                                    <span>Like</span></div>
-
-                                <div class="action"> <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="feather feather-message-circle"><path
-                                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                    <span>Comment</span></div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="comments-list has-slimscroll">
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/bobby.jpg"
-                                            alt data-user-popover="8"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Bobby Brown</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>1h</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>12</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/daniel.jpg"
-                                            alt data-user-popover="3"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Daniel
-                                        Wellington</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>15m</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>2</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/mike.jpg"
-                                            alt data-user-popover="12"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Mike Lasalle</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros. Consectetur adipiscing elit. Proin
-                                        ornare magna eros.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>1d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>3</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/lana.jpeg"
-                                            alt data-user-popover="10"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Lana Henrikssen</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros. Consectetur adipiscing elit. Proin
-                                        ornare magna eros.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>1d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>3</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/nelly.png"
-                                            alt data-user-popover="9"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Nelly Schwartz</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>2d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>0</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="comment-controls">
-
-                            <div class="controls-inner">
-                                <img src="https://via.placeholder.com/300x300"
-                                    data-demo-src="assets/img/avatars/jenna.png"
-                                    alt>
-                                <div class="control"> <textarea
-                                        class="textarea comment-textarea is-rounded"
-                                        rows="1"></textarea> <button
-                                        class="emoji-button"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-smile"><circle
-                                                cx="12" cy="12"
-                                                r="10"></circle><path
-                                                d="M8 14s1.5 2 4 2 4-2 4-2"></path><line
-                                                x1="9" y1="9" x2="9.01"
-                                                y2="9"></line><line x1="15"
-                                                y1="9" x2="15.01"
-                                                y2="9"></line></svg></button></div>
-
-                            </div>
-
-                        </div>
-                        ",p='
-                        <div class="header">
-                            <img src="https://via.placeholder.com/300x300"
-                                data-demo-src="assets/img/avatars/elise.jpg"
-                                alt>
-                            <div class="user-meta">
-                                <span>Elise Walker</span> <span><small>3 months
-                                        ago</small></span>
-                            </div>
-                            <button type="button" class="button">Follow</button>
-                            <div
-                                class="dropdown is-spaced is-right dropdown-trigger">
-
-                                <div>
-
-                                    <div class="button"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-more-vertical"><circle
-                                                cx="12" cy="12"
-                                                r="1"></circle><circle cx="12"
-                                                cy="5" r="1"></circle><circle
-                                                cx="12" cy="19"
-                                                r="1"></circle></svg></div>
-
-                                </div>
-
-                                <div class="dropdown-menu" role="menu">
-
-                                    <div class="dropdown-content">
-
-                                        <div
-                                            class="dropdown-item is-title has-text-left">
-                                            Who can see this ?</div>
-
-                                        <a href="#" class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-globe"><circle
-                                                        cx="12" cy="12"
-                                                        r="10"></circle><line
-                                                        x1="2" y1="12" x2="22"
-                                                        y2="12"></line><path
-                                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Public</h3>
-                                                    <small>Anyone can see this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-users"><path
-                                                        d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle
-                                                        cx="9" cy="7"
-                                                        r="4"></circle><path
-                                                        d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path
-                                                        d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Friends</h3>
-                                                    <small>only friends can see
-                                                        this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-user"><path
-                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle
-                                                        cx="12" cy="7"
-                                                        r="4"></circle></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Specific friends</h3>
-                                                    <small>Don't show it to some
-                                                        friends.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <hr class="dropdown-divider">
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-lock"><rect
-                                                        x="3" y="11" width="18"
-                                                        height="11" rx="2"
-                                                        ry="2"></rect><path
-                                                        d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Only me</h3>
-                                                    <small>Only me can see this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="inner-content">
-
-                            <div class="live-stats">
-
-                                <div class="social-count">
-
-                                    <div class="likes-count"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-heart"><path
-                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                        <span>3</span></div>
-
-                                    <div class="comments-count"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-message-circle"><path
-                                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                        <span>3</span></div>
-
-                                </div>
-
-                                <div class="social-count ml-auto">
-
-                                    <div class="views-count">
-                                        <span>3</span> <span
-                                            class="views"><small>comments</small></span>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="actions">
-
-                                <div class="action"> <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="feather feather-thumbs-up"><path
-                                            d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
-                                    <span>Like</span></div>
-
-                                <div class="action"> <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="feather feather-message-circle"><path
-                                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                    <span>Comment</span></div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="comments-list has-slimscroll">
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/stella.jpg"
-                                            alt data-user-popover="2"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Stella Bergmann</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>12h</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>2</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/nelly.png"
-                                            alt data-user-popover="9"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Nelly Schwartz</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>4h</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>0</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/bobby.jpg"
-                                            alt data-user-popover="8"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Bobby Brown</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros. Consectetur adipiscing elit. Proin
-                                        ornare magna eros.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>4h</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>3</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="comment-controls has-lightbox-emojis">
-
-                            <div class="controls-inner"
-                                id="lightbox-post-comment-wrapper-4">
-                                <img src="https://via.placeholder.com/300x300"
-                                    data-demo-src="assets/img/avatars/jenna.png"
-                                    alt>
-                                <div class="control"> <textarea
-                                        class="textarea comment-textarea is-rounded"
-                                        rows="1"
-                                        id="lightbox-post-comment-textarea-4"></textarea>
-                                    <button class="emoji-button"
-                                        id="lightbox-post-comment-button-4">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-smile"><circle
-                                                cx="12" cy="12"
-                                                r="10"></circle><path
-                                                d="M8 14s1.5 2 4 2 4-2 4-2"></path><line
-                                                x1="9" y1="9" x2="9.01"
-                                                y2="9"></line><line x1="15"
-                                                y1="9" x2="15.01"
-                                                y2="9"></line></svg></button></div>
-
-                            </div>
-
-                        </div>
-                        ",u='
-                        <div class="header">
-                            <img src="https://via.placeholder.com/300x300"
-                                data-demo-src="assets/img/avatars/jenna.png"
-                                alt>
-                            <div class="user-meta">
-                                <span>Jenna Davis</span> <span><small>oct 17
-                                        2018</small></span>
-                            </div>
-                            <button type="button" class="button">Follow</button>
-                            <div
-                                class="dropdown is-spaced is-right dropdown-trigger">
-
-                                <div>
-
-                                    <div class="button"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-more-vertical"><circle
-                                                cx="12" cy="12"
-                                                r="1"></circle><circle cx="12"
-                                                cy="5" r="1"></circle><circle
-                                                cx="12" cy="19"
-                                                r="1"></circle></svg></div>
-
-                                </div>
-
-                                <div class="dropdown-menu" role="menu">
-
-                                    <div class="dropdown-content">
-
-                                        <div
-                                            class="dropdown-item is-title has-text-left">
-                                            Who can see this ?</div>
-
-                                        <a href="#" class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-globe"><circle
-                                                        cx="12" cy="12"
-                                                        r="10"></circle><line
-                                                        x1="2" y1="12" x2="22"
-                                                        y2="12"></line><path
-                                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Public</h3>
-                                                    <small>Anyone can see this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-users"><path
-                                                        d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle
-                                                        cx="9" cy="7"
-                                                        r="4"></circle><path
-                                                        d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path
-                                                        d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Friends</h3>
-                                                    <small>only friends can see
-                                                        this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-user"><path
-                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle
-                                                        cx="12" cy="7"
-                                                        r="4"></circle></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Specific friends</h3>
-                                                    <small>Don't show it to some
-                                                        friends.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <hr class="dropdown-divider">
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-lock"><rect
-                                                        x="3" y="11" width="18"
-                                                        height="11" rx="2"
-                                                        ry="2"></rect><path
-                                                        d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Only me</h3>
-                                                    <small>Only me can see this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="inner-content">
-
-                            <div class="live-stats">
-
-                                <div class="social-count">
-
-                                    <div class="likes-count"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-heart"><path
-                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                        <span>58</span></div>
-
-                                    <div class="comments-count"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-message-circle"><path
-                                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                        <span>9</span></div>
-
-                                </div>
-
-                                <div class="social-count ml-auto">
-
-                                    <div class="views-count">
-                                        <span>927</span> <span
-                                            class="views"><small>comments</small></span>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="actions">
-
-                                <div class="action"> <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="feather feather-thumbs-up"><path
-                                            d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
-                                    <span>Like</span></div>
-
-                                <div class="action"> <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="feather feather-message-circle"><path
-                                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                    <span>Comment</span></div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="comments-list has-slimscroll">
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/milly.jpg"
-                                            alt data-user-popover="7"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Milly Augustine</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>1h</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>1</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/edward.jpeg"
-                                            alt data-user-popover="5"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Edward Mayers</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit, sed do eiusmod tempo
-                                        incididunt ut labore et dolore magna
-                                        aliqua.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>30m</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>1</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/elise.jpg"
-                                            alt data-user-popover="6"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Elise Walker</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit, sed do eiusmod tempo
-                                        incididunt ut labore et dolore magna
-                                        aliqua.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>15m</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>0</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/stella.jpg"
-                                            alt data-user-popover="2"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Stella Bergmann</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit, sed do eiusmod
-                                        tempo.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>1h</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>5</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/stella.jpg"
-                                            alt data-user-popover="0"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Stella Bergmann</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit, sed do eiusmod
-                                        tempo.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>30m</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>5</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/edward.jpeg"
-                                            alt data-user-popover="5"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Edward Mayers</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit, sed do eiusmod tempo
-                                        incididunt ut labore et dolore magna
-                                        aliqua.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>1d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>1</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/nelly.png"
-                                            alt data-user-popover="9"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Nelly Schwartz</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>2d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>0</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/jenna.png"
-                                            alt data-user-popover="0"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Stella Bergmann</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit, sed do eiusmod
-                                        tempo.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>2d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>5</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media is-comment">
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/elise.jpg"
-                                            alt data-user-popover="6"></p>
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Elise Walker</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit, sed do eiusmod tempo
-                                        incididunt ut labore et dolore magna
-                                        aliqua.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>2d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>0</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="comment-controls has-lightbox-emojis">
-
-                            <div class="controls-inner"
-                                id="lightbox-post-comment-wrapper-5">
-                                <img src="https://via.placeholder.com/300x300"
-                                    data-demo-src="assets/img/avatars/jenna.png"
-                                    alt>
-                                <div class="control"> <textarea
-                                        class="textarea comment-textarea is-rounded"
-                                        rows="1"
-                                        id="lightbox-post-comment-textarea-5"></textarea>
-                                    <button class="emoji-button"
-                                        id="lightbox-post-comment-button-5">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-smile"><circle
-                                                cx="12" cy="12"
-                                                r="10"></circle><path
-                                                d="M8 14s1.5 2 4 2 4-2 4-2"></path><line
-                                                x1="9" y1="9" x2="9.01"
-                                                y2="9"></line><line x1="15"
-                                                y1="9" x2="15.01"
-                                                y2="9"></line></svg></button></div>
-
-                            </div>
-
-                        </div>
-                        ",g='
-                        <div class="header">
-                            <img src="https://via.placeholder.com/300x300"
-                                data-demo-src="assets/img/avatars/jenna.png"
-                                alt>
-                            <div class="user-meta">
-                                <span>Jenna Davis</span> <span><small>oct 17
-                                        2018</small></span>
-                            </div>
-                            <button type="button" class="button">Follow</button>
-                            <div
-                                class="dropdown is-spaced is-right dropdown-trigger">
-
-                                <div>
-
-                                    <div class="button"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-more-vertical"><circle
-                                                cx="12" cy="12"
-                                                r="1"></circle><circle cx="12"
-                                                cy="5" r="1"></circle><circle
-                                                cx="12" cy="19"
-                                                r="1"></circle></svg></div>
-
-                                </div>
-
-                                <div class="dropdown-menu" role="menu">
-
-                                    <div class="dropdown-content">
-
-                                        <div
-                                            class="dropdown-item is-title has-text-left">
-                                            Who can see this ?</div>
-
-                                        <a href="#" class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-globe"><circle
-                                                        cx="12" cy="12"
-                                                        r="10"></circle><line
-                                                        x1="2" y1="12" x2="22"
-                                                        y2="12"></line><path
-                                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Public</h3>
-                                                    <small>Anyone can see this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-users"><path
-                                                        d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle
-                                                        cx="9" cy="7"
-                                                        r="4"></circle><path
-                                                        d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path
-                                                        d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Friends</h3>
-                                                    <small>only friends can see
-                                                        this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-user"><path
-                                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle
-                                                        cx="12" cy="7"
-                                                        r="4"></circle></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Specific friends</h3>
-                                                    <small>Don't show it to some
-                                                        friends.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                        <hr class="dropdown-divider">
-
-                                        <a class="dropdown-item">
-
-                                            <div class="media">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-lock"><rect
-                                                        x="3" y="11" width="18"
-                                                        height="11" rx="2"
-                                                        ry="2"></rect><path
-                                                        d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                                                <div class="media-content">
-
-                                                    <h3>Only me</h3>
-                                                    <small>Only me can see this
-                                                        publication.</small>
-                                                </div>
-
-                                            </div>
-
-                                        </a>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="inner-content">
-
-                            <div class="live-stats">
-
-                                <div class="social-count">
-
-                                    <div class="likes-count"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-heart"><path
-                                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                        <span>33</span></div>
-
-                                    <div class="comments-count"> <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="feather feather-message-circle"><path
-                                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                        <span>8</span></div>
-
-                                </div>
-
-                                <div class="social-count ml-auto">
-
-                                    <div class="views-count">
-                                        <span>8</span> <span
-                                            class="views"><small>comments</small></span>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="actions">
-
-                                <div class="action"> <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="feather feather-thumbs-up"><path
-                                            d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
-                                    <span>Like</span></div>
-
-                                <div class="action"> <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="feather feather-message-circle"><path
-                                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                    <span>Comment</span></div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="comments-list has-slimscroll">
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/stella.jpg"
-                                            alt data-user-popover="2"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Stella Bergmann</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Proin ornare magna
-                                        eros.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>17d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>0</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/jenna.png"
-                                            alt data-user-popover="0"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Jenna Davis</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit, sed do eiusmod
-                                        tempo.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>17d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>4</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/david.jpg"
-                                            alt data-user-popover="4"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">David Kim</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit, sed do eiusmod tempo
-                                        incididunt ut labore.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>17d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>0</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/milly.jpg"
-                                            alt data-user-popover="7"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Milly Augustine</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit, sed do eiusmod
-                                        tempo.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>17d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>5</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/daniel.jpg"
-                                            alt data-user-popover="3"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Daniel
-                                        Wellington</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit, sed do eiusmod
-                                        tempo.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>17d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>1</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/david.jpg"
-                                            alt data-user-popover="4"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">David Kim</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit, sed do eiusmod tempo
-                                        incididunt ut labore, consectetur
-                                        adipisicing elit, sed do eiusmod
-                                        tempo.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>18d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>0</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/jenna.png"
-                                            alt data-user-popover="0"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Stella Bergmann</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit, sed do eiusmod
-                                        tempo.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>18d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>8</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media is-comment">
-
-                                <figure class="media-left">
-
-                                    <p class="image is-32x32"> <img
-                                            src="https://via.placeholder.com/300x300"
-                                            data-demo-src="assets/img/avatars/mike.jpg"
-                                            alt data-user-popover="12"></p>
-
-                                </figure>
-
-                                <div class="media-content">
-
-                                    <div class="username">Mike Lasalle</div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit, sed do eiusmod tempo
-                                        incididunt ut labore et dolore magna
-                                        aliqua.</p>
-
-                                    <div class="comment-actions">
-                                        <a href="javascript:void(0);"
-                                            class="is-inverted">Like</a>
-                                        <span>18d</span>
-                                        <div class="likes-count"> <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="feather feather-heart"><path
-                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                                            <span>0</span></div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="comment-controls has-lightbox-emojis">
-
-                        </div>
-                    </div></div></div></div>`;
-                $('.fancybox-caption__body').append(lightboxing);
-            });
-        });
         //  alert('adasd');
         $(document).ready(function() {
             $(".hki").click(function() {
@@ -6695,26 +3016,279 @@
         });
         // yahan khatam
     </script>
+    {{-- <script src="{{asset('assets/friendkit/js/get-comments.js')}}"></script> --}}
+    <script>
+        function getComments(data) {
+            let comments = '';
+            data.data.comments.forEach(function(data, index) {
+                let child = '';
+                if (data.child_comments.length > 0) {
+                    comments += `
+                            <div class="media is-comment com_container" data-id="${data._id}">
+                                <div class="comment-line"></div>
+                                <figure class="media-left">
+                                    <p class="image is-32x32">
+                                        <img src="/public/storage/${data?.user?.image}" alt="" data-user-popover="${data?.user?.id}">
+                                    </p>
+                                </figure>
+
+                                <div class="media-content pb-0">
+                                    <div class="d-flex justify-content-between comment-actions mb-2" style="margin-top:-7px;">
+                                        <div class="username">${data?.user?.name} ${data?.user?.last_name}</div>
+                                        <span>${moment(data.created_at).fromNow()}</span>
+                                    </div>
+                                    <p class="mb-2">${data.comment}</p>
+                                </div>
+                                <a href="javascript:void(0)" class="comment-reply" data-username="@${data?.user?.username}" data-parent_id="${data._id}"><i class="fas fa-reply"></i></a>
+                            </div>`;
+
+                    data.child_comments.forEach(function(child, index) {
+                        ++index;
+
+                        let height = 65;
+                        if (child.child_comments.length > 0) {
+                            height += 85 * child.child_comments.length;
+                            let commentLine2 =
+                                `<div class="comment-line-2" style="height:calc(${height}px)"></div>`;
+                            let commentLine3 =
+                                '<div class="comment-line-3"></div>';
+                            comments +=
+                                `<div class="media is-comment is-nested com_container"  data-id="${child._id}">
+                                    ${index == data.child_comments.length ? '' : commentLine2}
+
+                                    ${commentLine3}
+
+                                    <div class="arrow-line 3"></div>
+                                    <figure class="media-left">
+                                        <p class="image is-32x32">
+                                            <img src="/public/storage/${child?.user?.image}" alt="" data-user-popover="${child?.user?.id}">
+                                        </p>
+                                    </figure>
+
+                                    <div class="media-content pb-0">
+                                        <div class="d-flex justify-content-between comment-actions mb-2" style="margin-top:-7px;">
+                                            <div class="username">${child?.user?.name} ${child?.user?.last_name}</div>
+                                            <span>${moment(child?.created_at).fromNow()}</span>
+                                        </div>
+                                        <p class="mb-2">${child?.comment}</p>
+                                    </div>
+                                    <a href="javascript:void(0)" class="comment-reply" data-username="@${child?.user?.username}" data-parent_id="${child._id}"><i class="fas fa-reply"></i></a>
+                                </div>`;
+                            child.child_comments.forEach(function(childUltra,
+                                index3) {
+                                ++index3
+
+                                let commentLine2 =
+                                    `<div class="comment-line-2" ></div>`;
+                                comments +=
+                                    `<div class="media is-comment is-nested com_container" data-id="${childUltra._id}" style="margin-left: 38.5px !important">
+                                    ${index3 == child.child_comments.length ? '' : commentLine2}
+
+                                    <div class="arrow-line"></div>
+                                    <figure class="media-left">
+                                        <p class="image is-32x32">
+                                            <img src="/public/storage/${childUltra?.user?.image}" alt="" data-user-popover="${childUltra?.user?.id}">
+                                        </p>
+                                    </figure>
+
+                                    <div class="media-content pb-0">
+                                        <div class="d-flex justify-content-between comment-actions mb-2" style="margin-top:-7px;">
+                                            <div class="username">${childUltra?.user?.name} ${childUltra?.user?.last_name}</div>
+                                            <span>${moment(childUltra?.created_at).fromNow()}</span>
+                                        </div>
+                                        <p class="mb-2">${childUltra?.comment}</p>
+                                    </div>
+                                    <a href="javascript:void(0)" class="comment-reply" data-username="@${childUltra?.user?.username}" data-parent_id="${childUltra.parent_id}"><i class="fas fa-reply"></i></a>
+                                </div>`;
+                            });
+
+                        } else {
+                            let commentLine2 =
+                                `<div class="comment-line-2" style="height:calc(${height}px)"></div>`;
+                            comments += `<div class="media is-comment is-nested com_container"  data-id="${child._id}">
+
+                                    ${index == data.child_comments.length ? '' : commentLine2}
+
+                                    <div class="arrow-line"></div>
+                                    <figure class="media-left">
+                                        <p class="image is-32x32">
+                                            <img src="/public/storage/${child?.user?.image}" alt="" data-user-popover="${child?.user?.id}">
+                                        </p>
+                                    </figure>
+
+                                    <div class="media-content pb-0">
+                                        <div class="d-flex justify-content-between comment-actions mb-2" style="margin-top:-7px;">
+                                            <div class="username">${child?.user?.name} ${child?.user?.last_name}</div>
+                                            <span>${moment(child?.created_at).fromNow()}</span>
+                                        </div>
+                                        <p class="mb-2">${child?.comment}</p>
+                                    </div>
+                                    <a href="javascript:void(0)" class="comment-reply" data-username="@${child?.user?.username}" data-parent_id="${child._id}"><i class="fas fa-reply"></i></a>
+                                </div>`;
+                        }
+
+                    });
+                } else {
+                    comments += `
+                            <div class="media is-comment" data-id="${data._id}">
+                                <figure class="media-left">
+                                    <p class="image is-32x32">
+                                        <img src="/public/storage/${data?.user?.image}" alt="" data-user-popover="${data?.user?.id}">
+                                    </p>
+                                </figure>
+
+                                <div class="media-content pb-0">
+                                    <div class="d-flex justify-content-between comment-actions mb-2" style="margin-top:-7px;">
+                                        <div class="username">${data?.user?.name} ${data?.user?.last_name}</div>
+                                        <span>${moment(data.created_at).fromNow()}</span>
+                                    </div>
+                                    <p class="mb-2">${data.comment}</p>
+                                </div>
+                                <a href="javascript:void(0)" class="comment-reply" data-username="@${data?.user?.username}" data-parent_id="${data._id}"><i class="fas fa-reply"></i></a>
+                            </div>`;
+                }
+
+
+            });
+
+            return comments;
+        }
+    </script>
+    <script>
+        function closeFancyBox() {
+            $('body').css('position', 'relative');
+            $('.comments-list').html('');
+        }
+
+        $('.view-post').click(function() {
+            $('#feed_id').val($(this).attr('data-id'));
+            $.ajax({
+                url: "{{ route('get.comments') }}",
+                type: 'GET',
+                data: {
+                    feed_id: $('#feed_id').val(),
+                    feed_type: $('#feed_type').val()
+                },
+                success: function(response) {
+                    let comments = '';
+                    $('.comment-controls img').attr('src', '/public/storage/' + response?.data?.user
+                        ?.image);
+                    $('.comment-controls img').css('display', 'block');
+                    $('.fancybox-caption__body .header img').attr('src', '/public/storage/' + response
+                        ?.data
+                        ?.feed?.user?.image);
+                    $('.fancybox-caption__body .header img').css('display', 'block')
+                    $('.fancybox-caption__body .user-meta .name').text(response?.data?.feed?.user
+                        ?.name + ' ' + response?.data?.feed?.user?.last_name);
+                    $('.post-date').text(moment(response?.data?.feed?.created_at).fromNow())
+                    $('.views-count-1').text(response?.data?.comments_count);
+
+                    comments = getComments(response);
+
+                    if (response.data.liked == true) {
+                        $('.like-btn').addClass('liked');
+                    } else {
+                        $('.like-btn').removeClass('liked');
+                    }
+                    $('.likes-count span').text(response?.data?.like_count);
+                    $('.comments-list').html(comments);
+                    $('.comments-list').animate({
+                        scrollTop: $('.comments-list')[0].scrollHeight
+                    }, 500);
+                    $('body').css('position', 'fixed');
+                }
+
+            });
+        })
+
+        $('body').on('click', '.send-comment', function() {
+            $.ajax({
+                url: "{{ route('post.comments') }}",
+                type: 'POST',
+                data: {
+                    comment: $('.comment-textarea').val(),
+                    feed_id: $('#feed_id').val(),
+                    feed_type: $('#feed_type').val(),
+                    parent_id: $('#comment_parent_id').val(),
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    let comments = '';
+
+                    comments = getComments(response);
+
+                    if (response.data.liked == true) {
+                        $('.like-btn').addClass('liked');
+                    } else {
+                        $('.like-btn').removeClass('liked');
+                    }
+                    $('.likes-count span').text(response?.data?.like_count);
+                    $('.views-count-1').text(response.data.comments_count);
+                    $('.comment-textarea').val('');
+                    $('.comments-list').html(comments);
+                    if ($('#comment_parent_id').val() == "" || $('#comment_parent_id').val() == null) {
+                        $('.comments-list').animate({
+                            scrollTop: $('.comments-list')[0].scrollHeight
+                        }, 500);
+                    }
+                    $('#comment_parent_id').val('');
+                }
+
+            });
+        })
+
+        $('body').on('click', '.comment-reply', function() {
+            $('.comment-textarea').val('');
+            $('.comment-textarea').attr('autofocus', true);
+            $('.comment-textarea').val($(this).attr('data-username') + ' ');
+            $('#comment_parent_id').val($(this).attr('data-parent_id'));
+        });
+
+
+        $(document).on('click', '.like-btn', function() {
+            let button = $(this);
+            let postId = $('#feed_id').val();
+
+            $.ajax({
+                url: "{{ route('post.like') }}",
+                type: "POST",
+                data: {
+                    feed_id: postId,
+                    feed_type: $('#feed_type').val(),
+                    _token: "{{ csrf_token() }}"
+                },
+                success: function(response) {
+                    if (response.data.liked == true) {
+                        button.addClass('liked');
+                    } else {
+                        button.removeClass('liked');
+                    }
+                    $('.likes-count span').text(response?.data?.like_count);
+                },
+                error: function(xhr) {
+                    alert("Something went wrong!");
+                }
+            });
+        });
+    </script>
+
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+    <script>
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher("{{env('PUSHER_APP_KEY')}}", {
+            cluster: "{{env('PUSHER_APP_CLUSTER')}}"
+        });
+
+        var channel = pusher.subscribe('admin_feeds-channel');
+        channel.bind('admin_feeds-event', function(data) {
+            let comments = '';
+            comments = getComments(data);
+            $('.views-count-1').text(data.data.comments_count);
+            $('.comments-list').html(comments);
+            $('.likes-count span').text(data?.data?.like_count);
+        });
+    </script>
 @endsection
-@endsection
-
-<!--// $('.tab-content').hide();-->
-<!--// $('.tab-content:first').hide();-->
-<!--// // $(document).find('.classone').hide();-->
-<!--// // Click function-->
-<!--// $(document).on('click','.classone',function(){-->
-
-<!--//     alert('sad');-->
-<!--//   $('.classone').removeClass('checked');-->
-<!--//   $(this).addClass('checked');-->
-<!--//   $('.tab-content').hide();-->
-
-<!--//   var activeTab = $(this).attr('data-king');-->
-<!--//   $(activeTab).fadeIn();-->
-<!--//   return false;-->
-<!--// });-->
-
-@section('page-script')
-
-<script></script>
 @endsection
