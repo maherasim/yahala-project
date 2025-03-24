@@ -23,12 +23,25 @@ class PopFeeds extends Model
         'date_start',
         'date_ends',
         'image',
+        'audio',
+        'video',
         'share_option',
         'status',
         'is_comments',
         'is_share',
         'is_emoji',
-        'type'
+        'type',
+        'limited',
+        'is_paypal',
+        'is_gpay',
+        'is_pay_office',
+        'is_pay_other',
+        'icon1',
+        'icon2',
+        'icon3',
+        'txt1',
+        'txt2',
+        'txt3'
     ];
 
     public function getActivitylogOptions(): LogOptions
@@ -54,18 +67,18 @@ class PopFeeds extends Model
     public function user(){
         return $this->belongsTo(User::class );
     }
-    
+
     /*
     public function reactions(){
 
         return $this->hasMany(Reaction::class , 'feed_id');
     }
         */
- 
+
     public function users()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
- 
+
 }
