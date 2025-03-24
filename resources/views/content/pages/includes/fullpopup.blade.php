@@ -1543,7 +1543,7 @@ margin-top: 5px;
   border-radius: 7px;
   transition: transform 0.2s ease;
 ">
-                          <img src="{{ asset('assets/svg/svg-dialog/educated.svg') }}" alt="Educated"
+                          <img src="{{ asset('assets/svg/edu.svg') }}" alt="Educated"
                               style="width: 55px; height: 55px;" />
                           <span
                               style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
@@ -1566,7 +1566,7 @@ margin-top: 5px;
   border-radius: 7px;
   transition: transform 0.2s ease;
 ">
-                          <img src="{{ asset('assets/svg/svg-dialog/cultivated.svg') }}" alt="Cultivated"
+                          <img src="{{ asset('assets/svg/cul.svg') }}" alt="Cultivated"
                               style="width: 55px; height: 55px;" />
                           <span
                               style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Cultivated</span>
@@ -1589,7 +1589,7 @@ margin-top: 5px;
   border-radius: 7px;
   transition: transform 0.2s ease;
 ">
-                          <img src="{{ asset('assets/svg/svg-dialog/academic.svg') }}" alt="Academic"
+                          <img src="{{ asset('assets/svg/aca.svg') }}" alt="Academic"
                               style="width: 55px; height: 55px;" />
                           <span
                               style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Academic</span>
@@ -2162,7 +2162,7 @@ margin-top: 5px;
                                   value="educated">
 
 
-                              <img src="{{ asset('assets/svg/svg-dialog/educated.svg') }}" alt="Educated"
+                              <img src="{{ asset('assets/svg/edu.svg') }}" alt="Educated"
                                   style="width: 55px; height: 55px;" />
                               <span
                                   style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
@@ -2172,7 +2172,7 @@ margin-top: 5px;
                               onclick="toggleColor('button3Modal8_2')">
                               <input class="options_btns button3Modal8" type="radio" name="option_2"
                                   value="cultivated">
-                              <img src="{{ asset('assets/svg/svg-dialog/cultivated.svg') }}" alt="Cultivated"
+                              <img src="{{ asset('assets/svg/cul.svg') }}" alt="Cultivated"
                                   style="width: 55px; height: 55px;" />
                               <span
                                   style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Cultivated</span>
@@ -2182,7 +2182,7 @@ margin-top: 5px;
                               onclick="toggleColor('button4Modal8_2')">
                               <input class="options_btns button4Modal8" type="radio" name="option_2"
                                   value="academic">
-                              <img src="{{ asset('assets/svg/svg-dialog/academic.svg') }}" alt="Academic"
+                              <img src="{{ asset('assets/svg/aca.svg') }}" alt="Academic"
                                   style="width: 55px; height: 55px;" />
                               <span
                                   style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Academic</span>
@@ -3367,7 +3367,7 @@ margin-top: 5px;
                                   value="educated">
 
 
-                              <img src="{{ asset('assets/svg/svg-dialog/educated.svg') }}" alt="Educated"
+                              <img src="{{ asset('assets/svg/edu.svg') }}" alt="Educated"
                                   style="width: 55px; height: 55px;" />
                               <span
                                   style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
@@ -3377,7 +3377,7 @@ margin-top: 5px;
                               onclick="toggleColor('button3Modal8')">
                               <input class="options_btns button3Modal8" type="radio" name="option"
                                   value="cultivated">
-                              <img src="{{ asset('assets/svg/svg-dialog/cultivated.svg') }}" alt="Cultivated"
+                              <img src="{{ asset('assets/svg/cul.svg') }}" alt="Cultivated"
                                   style="width: 55px; height: 55px;" />
                               <span
                                   style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Cultivated</span>
@@ -3387,7 +3387,7 @@ margin-top: 5px;
                               onclick="toggleColor('button4Modal8')">
                               <input class="options_btns button4Modal8" type="radio" name="option"
                                   value="academic">
-                              <img src="{{ asset('assets/svg/svg-dialog/academic.svg') }}" alt="Academic"
+                              <img src="{{ asset('assets/svg/aca.svg') }}" alt="Academic"
                                   style="width: 55px; height: 55px;" />
                               <span
                                   style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Academic</span>
@@ -3744,7 +3744,7 @@ margin-top: 5px;
                                   value="educated">
 
 
-                              <img src="{{ asset('assets/svg/svg-dialog/educated.svg') }}" alt="Educated"
+                              <img src="{{ asset('assets/svg/edu.svg') }}" alt="Educated"
                                   style="width: 55px; height: 55px;" />
                               <span
                                   style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
@@ -3754,7 +3754,7 @@ margin-top: 5px;
                               onclick="toggleColor('button3Modal8_3')">
                               <input class="options_btns button3Modal8_3" type="radio" name="option_3"
                                   value="cultivated">
-                              <img src="{{ asset('assets/svg/svg-dialog/cultivated.svg') }}" alt="Cultivated"
+                              <img src="{{ asset('assets/svg/cul.svg') }}" alt="Cultivated"
                                   style="width: 55px; height: 55px;" />
                               <span
                                   style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Cultivated</span>
@@ -3764,7 +3764,7 @@ margin-top: 5px;
                               onclick="toggleColor('button4Modal8_3')">
                               <input class="options_btns button4Modal8_3" type="radio" name="option_3"
                                   value="academic">
-                              <img src="{{ asset('assets/svg/svg-dialog/academic.svg') }}" alt="Academic"
+                              <img src="{{ asset('assets/svg/aca.svg') }}" alt="Academic"
                                   style="width: 55px; height: 55px;" />
                               <span
                                   style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Academic</span>
@@ -4332,7 +4332,7 @@ margin-top: 5px;
                                   value="educated">
 
 
-                              <img src="{{ asset('assets/svg/svg-dialog/educated.svg') }}" alt="Educated"
+                              <img src="{{ asset('assets/svg/edu.svg') }}" alt="Educated"
                                   style="width: 55px; height: 55px;" />
                               <span
                                   style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
@@ -4342,7 +4342,7 @@ margin-top: 5px;
                               onclick="toggleColor('button3Modal8_3')">
                               <input class="options_btns button3Modal8_3" type="radio" name="option_3"
                                   value="cultivated">
-                              <img src="{{ asset('assets/svg/svg-dialog/cultivated.svg') }}" alt="Cultivated"
+                              <img src="{{ asset('assets/svg/cul.svg') }}" alt="Cultivated"
                                   style="width: 55px; height: 55px;" />
                               <span
                                   style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Cultivated</span>
@@ -4352,7 +4352,7 @@ margin-top: 5px;
                               onclick="toggleColor('button4Modal8_3')">
                               <input class="options_btns button4Modal8_3" type="radio" name="option_3"
                                   value="academic">
-                              <img src="{{ asset('assets/svg/svg-dialog/academic.svg') }}" alt="Academic"
+                              <img src="{{ asset('assets/svg/aca.svg') }}" alt="Academic"
                                   style="width: 55px; height: 55px;" />
                               <span
                                   style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Academic</span>
@@ -4713,7 +4713,7 @@ margin-top: 5px;
                                   value="educated">
 
 
-                              <img src="{{ asset('assets/svg/svg-dialog/educated.svg') }}" alt="Educated"
+                              <img src="{{ asset('assets/svg/edu.svg') }}" alt="Educated"
                                   style="width: 55px; height: 55px;" />
                               <span
                                   style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
@@ -4723,7 +4723,7 @@ margin-top: 5px;
                               onclick="toggleColor('button3Modal8_4')">
                               <input class="options_btns button3Modal8_4" type="radio" name="option_4"
                                   value="cultivated">
-                              <img src="{{ asset('assets/svg/svg-dialog/cultivated.svg') }}" alt="Cultivated"
+                              <img src="{{ asset('assets/svg/cul.svg') }}" alt="Cultivated"
                                   style="width: 55px; height: 55px;" />
                               <span
                                   style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Cultivated</span>
@@ -4733,7 +4733,7 @@ margin-top: 5px;
                               onclick="toggleColor('button4Modal8_4')">
                               <input class="options_btns button4Modal8_4" type="radio" name="option_4"
                                   value="academic">
-                              <img src="{{ asset('assets/svg/svg-dialog/academic.svg') }}" alt="Academic"
+                              <img src="{{ asset('assets/svg/aca.svg') }}" alt="Academic"
                                   style="width: 55px; height: 55px;" />
                               <span
                                   style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Academic</span>
@@ -5674,7 +5674,7 @@ gap: 5px;">
     border-radius: 7px;
     transition: transform 0.2s ease;
   ">
-                          <img src="{{ asset('assets/svg/svg-dialog/educated.svg') }}" alt="Educated"
+                          <img src="{{ asset('assets/svg/edu.svg') }}" alt="Educated"
                               style="width: 55px; height: 55px;" />
                           <span
                               style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
@@ -5697,7 +5697,7 @@ gap: 5px;">
     border-radius: 7px;
     transition: transform 0.2s ease;
   ">
-                          <img src="{{ asset('assets/svg/svg-dialog/cultivated.svg') }}" alt="Cultivated"
+                          <img src="{{ asset('assets/svg/cul.svg') }}" alt="Cultivated"
                               style="width: 55px; height: 55px;" />
                           <span
                               style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Cultivated</span>
@@ -5720,7 +5720,7 @@ gap: 5px;">
     border-radius: 7px;
     transition: transform 0.2s ease;
   ">
-                          <img src="{{ asset('assets/svg/svg-dialog/academic.svg') }}" alt="Academic"
+                          <img src="{{ asset('assets/svg/aca.svg') }}" alt="Academic"
                               style="width: 55px; height: 55px;" />
                           <span
                               style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Academic</span>
@@ -6086,7 +6086,7 @@ gap: 5px;">
                               style="background:rgb(242, 242, 242)"
                               onclick='toggleColor("button2Modal8_9")'><input class="options_btns button2Modal8"
                                   type="radio" name="option_5" value="educated"> <img
-                                  src="{{ asset('assets/svg/svg-dialog/educated.svg') }}" alt="Educated"
+                                  src="{{ asset('assets/svg/edu.svg') }}" alt="Educated"
                                   style="width:55px;height:55px"><span
                                   style="font-size:12px;font-weight:700;margin-top:5px;font-family:Genos;color:gray">Educated</span></label>
 
@@ -6094,7 +6094,7 @@ gap: 5px;">
                               style="background:rgb(242, 242, 242)"
                               onclick='toggleColor("button3Modal8_9")'><input class="options_btns button3Modal8"
                                   type="radio" name="option_5" value="cultivated"> <img
-                                  src="{{ asset('assets/svg/svg-dialog/cultivated.svg') }}" alt="Cultivated"
+                                  src="{{ asset('assets/svg/cul.svg') }}" alt="Cultivated"
                                   style="width:55px;height:55px"><span
                                   style="font-size:12px;font-weight:700;margin-top:5px;font-family:Genos;color:gray">Cultivated</span></label>
 
@@ -6102,7 +6102,7 @@ gap: 5px;">
                               style="background:rgb(242, 242, 242)"
                               onclick='toggleColor("button4Modal8_9")'><input class="options_btns button4Modal8"
                                   type="radio" name="option_5" value="academic"> <img
-                                  src="{{ asset('assets/svg/svg-dialog/academic.svg') }}" alt="Academic"
+                                  src="{{ asset('assets/svg/aca.svg') }}" alt="Academic"
                                   style="width:55px;height:55px"><span
                                   style="font-size:12px;font-weight:700;margin-top:5px;font-family:Genos;color:gray">Academic</span></label>
                       </div>
@@ -6885,7 +6885,7 @@ margin-top: 5px;
   border-radius: 7px;
   transition: transform 0.2s ease;
 ">
-                          <img src="{{ asset('assets/svg/svg-dialog/educated.svg') }}" alt="Educated"
+                          <img src="{{ asset('assets/svg/edu.svg') }}" alt="Educated"
                               style="width: 55px; height: 55px;" />
                           <span
                               style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Educated</span>
@@ -6908,7 +6908,7 @@ margin-top: 5px;
   border-radius: 7px;
   transition: transform 0.2s ease;
 ">
-                          <img src="{{ asset('assets/svg/svg-dialog/cultivated.svg') }}" alt="Cultivated"
+                          <img src="{{ asset('assets/svg/cul.svg') }}" alt="Cultivated"
                               style="width: 55px; height: 55px;" />
                           <span
                               style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Cultivated</span>
@@ -6931,7 +6931,7 @@ margin-top: 5px;
   border-radius: 7px;
   transition: transform 0.2s ease;
 ">
-                          <img src="{{ asset('assets/svg/svg-dialog/academic.svg') }}" alt="Academic"
+                          <img src="{{ asset('assets/svg/aca.svg') }}" alt="Academic"
                               style="width: 55px; height: 55px;" />
                           <span
                               style="font-size: 12px; font-weight:bold; margin-top: 5px; font-family: Genos; color: gray;">Academic</span>
