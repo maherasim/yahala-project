@@ -108,10 +108,9 @@ use App\Http\Controllers\AvatarsController;
 use App\Http\Controllers\GreetingsController;
 use App\Http\Controllers\CountryLocationController;
 use App\Http\Controllers\StateController;
+use App\Mail\TestMail;
 use Illuminate\Support\Facades\Artisan;
-
-
-
+use Illuminate\Support\Facades\Mail;
 
 //use App\Http\Controllers\GreetingsController;
 
@@ -153,7 +152,10 @@ Route::get('/db-seed/{cmd}', function ($cmd) {
     echo $output;
 });
 
-
+Route::get('/send-test-email', function () {
+    Mail::to('usmanshoaib362@gmail.com')->send(new TestMail());
+    return 'Test email sent successfully!';
+});
 
 
 
@@ -161,7 +163,7 @@ Route::get('/db-seed/{cmd}', function ($cmd) {
 //Route::get('/avatars/{id}', [AvatarsController::class, 'edit']);
 
 
- 
+
 Route::group(['middleware' => 'permission:avatars.read'], function () {
 
     //Route::resource('/avatars', AvatarsController::class);
@@ -232,7 +234,7 @@ Route::middleware('check.role:Super Admin')->group(function () {
 
 
 
- 
+
 
     Route::get('/manage-user-feeds', [FeedsController::class, 'index'])->name('manage.user.feeds');
     Route::get("/feeds/comments", [FeedsController::class, 'getComments'])->name('get.comments');
