@@ -13,11 +13,12 @@ return [
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
             'auth_mode' => null,
+            'verify_peer'       => false,
         ],
     ],
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'itsyahala.gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'itsyahala@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'Yahala'),
     ],
 
