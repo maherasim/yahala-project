@@ -43,6 +43,9 @@ class ArtistController extends Controller
             return DataTables::of($artists)
                 ->addIndexColumn() // Adds the index column (auto-increment)
                 ->addColumn('artist_info', function ($artist) {
+                    $baseUrl = config('app.url');
+                    $image2 = $artist->origin ? $baseUrl . '/' . ltrim($artist->origin, '/') : asset('storage/default-avatar.png');
+
                     $image = $artist->image ? asset('storage/' . $artist->image) : 'https://www.w3schools.com/w3images/avatar2.png';
                     $info = '<div class="d-flex justify-content-start align-items-center user-name">
                             <div class="avatar-wrapper">
@@ -54,7 +57,9 @@ class ArtistController extends Controller
                                 <a href="javascript:void(0)" class="text-body text-truncate">
                                     <span class="fw-semibold">' . e($artist->name) . '</span>
                                 </a>
-                                <small class="fw-semibold">' . e($artist->gender) . ' - ' . ($artist->province->name ?? 'N/A') . '</small>
+                                 <small class="fw-semibold">' . e($artist->gender) . '</small>
+                                <img src="' . $image2 . '" alt="origin" width="50" height="50" class="rounded">
+                               
                             </div>
                         </div>';
                     return $info;
@@ -63,14 +68,14 @@ class ArtistController extends Controller
                     return '<a href="javascript:void(0)" class="text-black artistDetail" data-id="' . $artist->id . '" data-section="songs" data-bs-toggle="modal"
                                 data-image="' . asset('storage/' . $artist->image) . '" data-name="' . $artist->name . '"
                                 data-gender="' . $artist->gender . '"
-                                data-province="' . ($artist->province->name ?? 'N/A') . '"
+                                data-province="' . ($artist->origin ?? 'N/asim') . '"
                                 data-bs-target="#artistDetailModal">' . $artist->songs->count() . '</a>';
                 })
                 ->addColumn('total_videos', function ($artist) {
                     return '<a href="javascript:void(0)" class="text-black artistDetail" data-id="' . $artist->id . '" data-section="videos" data-bs-toggle="modal"
                                 data-name="' . $artist->name . '" data-image="' . asset('storage/' . $artist->image) . '"
                                 data-gender="' . $artist->gender . '"
-                                data-province="' . ($artist->province->name ?? 'N/A') . '"
+                                data-province="' . ($artist->origin ?? 'N/Asim') . '"
                                 data-bs-target="#artistDetailModal">' . $artist->videos->count() . '</a>';
                 })
                 ->addColumn('like', function () {
