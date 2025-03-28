@@ -56,7 +56,7 @@ class ArtistController extends Controller
                             </div>
                              <div class="d-flex flex-column " style="margin-top: 13px;">
                                 <small class="fw-semibold">
-                                    ' . e($artist->gender) . ' 
+                                    ' . e($artist->gender) . ' -
                                     <img src="' . $image2 . '" alt="origin" width="25" height="25" class="rounded">
                                 </small>
                             </div>
