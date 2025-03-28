@@ -74,6 +74,7 @@ class ArtistController extends Controller
                 })
                 ->addColumn('total_videos', function ($artist) {
                     return '<a href="javascript:void(0)" class="text-black artistDetail" data-id="' . $artist->id . '" data-section="videos" data-bs-toggle="modal"
+                     data-country="Germany"
                                 data-name="' . $artist->name . '" data-image="' . asset('storage/' . $artist->image) . '"
                                 data-gender="' . $artist->gender . '"
                                 data-province="' . ($artist->origin ?? 'N/Asim') . '"
