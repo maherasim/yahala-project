@@ -44,8 +44,9 @@ class ArtistController extends Controller
                 ->addIndexColumn() // Adds the index column (auto-increment)
                 ->addColumn('artist_info', function ($artist) {
                     $baseUrl = config('app.url');
-                    $image2 = $artist->origin ? $baseUrl . '/' . ltrim($artist->origin, '/') : asset('storage/default-avatar.png');
-
+                    $imagePath = $artist->origin ? str_replace('public/', '', $artist->origin) : 'storage/default-avatar.png';
+                    $image2 = $baseUrl . '/' . ltrim($imagePath, '/');
+                   
                     $image = $artist->image ? asset('storage/' . $artist->image) : 'https://www.w3schools.com/w3images/avatar2.png';
                     $info = '<div class="d-flex justify-content-start align-items-center user-name">
                             <div class="avatar-wrapper">
