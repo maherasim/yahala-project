@@ -50,7 +50,7 @@ class ArtistController extends Controller
     
                     return '<div class="d-flex align-items-center">
                                 <img src="' . $image2 . '" alt="origin" width="25" height="25" class="rounded me-2">
-                                <span>Germany</span>
+                                
                             </div>';
                 })
     
