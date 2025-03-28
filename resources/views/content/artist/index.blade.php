@@ -78,8 +78,8 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>#</th>
                         <th>Country</th>
+                        <th>Artist</th>
                         <th>Total Songs</th>
                         <th>Total Video Clips</th>
                         <th>Like</th>
