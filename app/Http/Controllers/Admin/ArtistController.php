@@ -51,7 +51,7 @@ class ArtistController extends Controller
                     $info = '<div class="d-flex justify-content-start align-items-center user-name">
                             <div class="avatar-wrapper">
                                 <div class="avatar avatar-sm me-3">
-                                    <img src="' . $image . '" alt="' . e($artist->name) . '" class="rounded-circle">
+                                    <img src="' . $image . '" alt="' . e($artist->first_name) . '" class="rounded-circle">
                                 </div>
                             </div>
                              <div class="d-flex flex-column " style="margin-top: 13px;">
@@ -68,14 +68,14 @@ class ArtistController extends Controller
                     return '<a href="javascript:void(0)" class="text-black artistDetail" data-id="' . $artist->id . '" data-section="songs" data-bs-toggle="modal"
                                 data-image="' . asset('storage/' . $artist->image) . '" data-name="' . $artist->name . '"
                                 data-gender="' . $artist->gender . '"
-                                data-province="' . ($artist->origin ?? 'N/asim') . '"
+                                data-province="' . ($artist->origin ?? 'N/A') . '"
                                 data-bs-target="#artistDetailModal">' . $artist->songs->count() . '</a>';
                 })
                 ->addColumn('total_videos', function ($artist) {
                     return '<a href="javascript:void(0)" class="text-black artistDetail" data-id="' . $artist->id . '" data-section="videos" data-bs-toggle="modal"
                                 data-name="' . $artist->name . '" data-image="' . asset('storage/' . $artist->image) . '"
                                 data-gender="' . $artist->gender . '"
-                                data-province="' . ($artist->origin ?? 'N/Asim') . '"
+                                data-province="' . ($artist->origin ?? 'N/A') . '"
                                 data-bs-target="#artistDetailModal">' . $artist->videos->count() . '</a>';
                 })
                 ->addColumn('like', function () {
