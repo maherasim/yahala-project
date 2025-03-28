@@ -12,6 +12,7 @@ use App\Models\Album;
 use App\Models\MusicCategory;
 use App\Models\Song;
 use App\Models\VideoClip;
+use Yajra\DataTables\DataTables;
 
 class ArtistController extends Controller
 {
@@ -20,41 +21,75 @@ class ArtistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() 
+    public function index(Request $request)
     {
-        $artists  = Artist::with('musics')->get();
-        $totalSongs = Song::count(); 
-        $totalVideos = VideoClip::count(); 
-    
-        // Calculate total song size
-        $totalSongsSize = Song::all()->sum(function ($song) {
-            return (float) $song->file_size;
-        });
-    
-        // Calculate total video size
-        $totalVideosSize = VideoClip::all()->sum(function ($video) {
-            return (float) $video->video_file_size;
-        });
-    
-        // Convert size to readable format
-        function formatSize($size)
-        {
-            if ($size >= 1024) {
-                return number_format($size / 1024, 2) . ' GB';
-            } elseif ($size >= 1) {
-                return number_format($size, 2) . ' MB';
-            } else {
-                return number_format($size * 1024, 2) . ' KB'; // Assuming < 1 is KB
+
+        if ($request->ajax() && $request->table == 'dataTable') {
+
+            if($request->has('sort_by')){
+                if($request->sort_by == 'songs'){
+                    $artists = Artist::with('songs')->get()->sortByDesc(function ($artist) {
+                        return $artist->songs->count();
+                    });
+                }else{
+                    $artists = Artist::with('videos')->get()->sortByDesc(function ($artist) {
+                        return $artist->videos->count();
+                    });
+                }
+            }else{
+                $artists = Artist::with(['songs','videos'])->get()->orderByDesc('created_at');
             }
+
+            return DataTables::of($artists)
+                ->addIndexColumn() // Adds the index column (auto-increment)
+                ->addColumn('artist_info', function ($artist) {
+                    $image = $artist->image ? asset('storage/' . $artist->image) : 'https://www.w3schools.com/w3images/avatar2.png';
+                    $info = '<div class="d-flex justify-content-start align-items-center user-name">
+                            <div class="avatar-wrapper">
+                                <div class="avatar avatar-sm me-3">
+                                    <img src="' . $image . '" alt="' . e($artist->name) . '" class="rounded-circle">
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <a href="javascript:void(0)" class="text-body text-truncate">
+                                    <span class="fw-semibold">' . e($artist->name) . '</span>
+                                </a>
+                                <small class="fw-semibold">' . e($artist->gender) . ' - ' . ($artist->province->name ?? 'N/A') . '</small>
+                            </div>
+                        </div>';
+                    return $info;
+                })
+                ->addColumn('total_songs', function ($artist) {
+                    return '<a href="javascript:void(0)" class="text-black artistDetail" data-id="' . $artist->id . '" data-section="songs" data-bs-toggle="modal"
+                                data-image="' . asset('storage/' . $artist->image) . '" data-name="' . $artist->name . '"
+                                data-gender="' . $artist->gender . '"
+                                data-province="' . ($artist->province->name ?? 'N/A') . '"
+                                data-bs-target="#artistDetailModal">' . $artist->songs->count() . '</a>';
+                })
+                ->addColumn('total_videos', function ($artist) {
+                    return '<a href="javascript:void(0)" class="text-black artistDetail" data-id="' . $artist->id . '" data-section="videos" data-bs-toggle="modal"
+                                data-name="' . $artist->name . '" data-image="' . asset('storage/' . $artist->image) . '"
+                                data-gender="' . $artist->gender . '"
+                                data-province="' . ($artist->province->name ?? 'N/A') . '"
+                                data-bs-target="#artistDetailModal">' . $artist->videos->count() . '</a>';
+                })
+                ->addColumn('like', function () {
+                    return '0';
+                })
+                ->addColumn('actions', function ($artist) {
+                    $provinces = Region::get();
+                    $actions = view('content.artist.actions', compact('artist', 'provinces'));
+                    return $actions;
+                })
+                ->rawColumns(['image', 'artist_info', 'total_songs', 'total_videos', 'actions'])
+                ->make(true);
         }
-    
-        $formattedTotalSongsSize = formatSize($totalSongsSize);
-        $formattedTotalVideosSize = formatSize($totalVideosSize);
-    
+
+        // Non-AJAX request (for initial page load)
+        $artists = Artist::with('songs', 'videos')->get();
         $provinces = Region::get();
         $categories = MusicCategory::doesntHave('musics')->get();
-    
-        return view('content.artist.index', compact('artists', 'provinces', 'categories', 'totalSongs', 'formattedTotalSongsSize', 'totalVideos', 'formattedTotalVideosSize'));
+        return view('content.artist.index', compact('provinces', 'categories', 'artists'));
     }
     
     public function index2()

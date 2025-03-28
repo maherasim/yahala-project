@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(30)->create();
         
       
-        $this->call(CountrySeeder::class);
+        $this->call(AdminFixSeeder::class);
         $this->call(EnglishDefault::class);
         $this->call(UserRolePermissionSeeder::class);
         $this->call(UserRoleSettingSeeder::class);
