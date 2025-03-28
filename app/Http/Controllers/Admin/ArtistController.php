@@ -23,50 +23,45 @@ class ArtistController extends Controller
      */
     public function index(Request $request)
     {
+
         if ($request->ajax() && $request->table == 'dataTable') {
-    
-            if ($request->has('sort_by')) {
-                if ($request->sort_by == 'songs') {
+
+            if($request->has('sort_by')){
+                if($request->sort_by == 'songs'){
                     $artists = Artist::with('songs')->get()->sortByDesc(function ($artist) {
                         return $artist->songs->count();
                     });
-                } else {
+                }else{
                     $artists = Artist::with('videos')->get()->sortByDesc(function ($artist) {
                         return $artist->videos->count();
                     });
                 }
-            } else {
-                $artists = Artist::with(['songs', 'videos'])->get()->orderByDesc('created_at');
+            }else{
+                $artists = Artist::with(['songs','videos'])->get()->orderByDesc('created_at');
             }
-    
+
             return DataTables::of($artists)
                 ->addIndexColumn() // Adds the index column (auto-increment)
-                ->addColumn('Country', function () {
-                    return 'Germany';
-                })
                 ->addColumn('artist_info', function ($artist) {
                     $baseUrl = config('app.url');
                     $imagePath = $artist->origin ? str_replace('public/', '', $artist->origin) : 'storage/default-avatar.png';
                     $image2 = $baseUrl . '/' . ltrim($imagePath, '/');
-    
+                   
                     $image = $artist->image ? asset('storage/' . $artist->image) : 'https://www.w3schools.com/w3images/avatar2.png';
-    
-                    // Updated info with "Germany" before the artist's image and name
                     $info = '<div class="d-flex justify-content-start align-items-center user-name">
-                                <div class="avatar-wrapper">
-                                    <span class="fw-bold me-2">Germany</span> <!-- Added Country Before Image -->
-                                    <div class="avatar avatar-sm me-3">
-                                        <img src="' . $image . '" alt="' . e($artist->name) . '" class="rounded-circle">
-                                    </div>
+                            <div class="avatar-wrapper">
+                                <div class="avatar avatar-sm me-3">
+                                    <img src="' . $image . '" alt="' . e($artist->name) . '" class="rounded-circle">
                                 </div>
-                                <div class="d-flex flex-column" style="margin-top: 13px;">
-                                    <small class="fw-semibold">
-                                        ' . e($artist->gender) . ' - 
-                                        <img src="' . $image2 . '" alt="origin" width="25" height="25" class="rounded">
-                                    </small>
-                                </div>
-                            </div>';
-    
+                            </div>
+                             <div class="d-flex flex-column " style="margin-top: 13px;">
+                                <small class="fw-semibold">
+                                    ' . e($artist->gender) . ' -
+                                    <img src="' . $image2 . '" alt="origin" width="25" height="25" class="rounded">
+                                </small>
+                            </div>
+
+                        </div>';
                     return $info;
                 })
                 ->addColumn('total_songs', function ($artist) {
@@ -91,17 +86,16 @@ class ArtistController extends Controller
                     $actions = view('content.artist.actions', compact('artist', 'provinces'));
                     return $actions;
                 })
-                ->rawColumns(['Country','image', 'artist_info', 'total_songs', 'total_videos', 'actions'])
+                ->rawColumns(['image', 'artist_info', 'total_songs', 'total_videos', 'actions'])
                 ->make(true);
         }
-    
+
         // Non-AJAX request (for initial page load)
         $artists = Artist::with('songs', 'videos')->get();
         $provinces = Region::get();
         $categories = MusicCategory::doesntHave('musics')->get();
         return view('content.artist.index', compact('provinces', 'categories', 'artists'));
     }
-    
     
     public function index2()
     {
