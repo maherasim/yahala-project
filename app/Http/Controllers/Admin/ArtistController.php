@@ -23,51 +23,56 @@ class ArtistController extends Controller
      */
     public function index(Request $request)
     {
-
         if ($request->ajax() && $request->table == 'dataTable') {
-
-            if($request->has('sort_by')){
-                if($request->sort_by == 'songs'){
+    
+            if ($request->has('sort_by')) {
+                if ($request->sort_by == 'songs') {
                     $artists = Artist::with('songs')->get()->sortByDesc(function ($artist) {
                         return $artist->songs->count();
                     });
-                }else{
+                } else {
                     $artists = Artist::with('videos')->get()->sortByDesc(function ($artist) {
                         return $artist->videos->count();
                     });
                 }
-            }else{
-                $artists = Artist::with(['songs','videos'])->get()->orderByDesc('created_at');
+            } else {
+                $artists = Artist::with(['songs', 'videos'])->get()->orderByDesc('created_at');
             }
-
+    
             return DataTables::of($artists)
                 ->addIndexColumn() // Adds the index column (auto-increment)
-                ->addColumn('artist_info', function ($artist) {
+                
+                // Country column (Moved Image2 here)
+                ->addColumn('country', function ($artist) {
                     $baseUrl = config('app.url');
                     $imagePath = $artist->origin ? str_replace('public/', '', $artist->origin) : 'storage/default-avatar.png';
                     $image2 = $baseUrl . '/' . ltrim($imagePath, '/');
-                   
-                    $image = $artist->image ? asset('storage/' . $artist->image) : 'https://www.w3schools.com/w3images/avatar2.png';
-                    $info = '<div class="d-flex justify-content-start align-items-center user-name">
-                            <div class="avatar-wrapper">
-                                <div class="avatar avatar-sm me-3">
-                                    <img src="' . $image . '" alt="' . e($artist->first_name) . '" class="rounded-circle">
-                                </div>
-                            </div>
-                             <div class="d-flex flex-column " style="margin-top: 13px;">
-                              <a href="javascript:void(0)" class="text-body text-truncate">
-                                    <span class="fw-semibold">' . e($artist->first_name) . '</span>
-                                </a>
-
-                                <small class="fw-semibold">
-                                    ' . e($artist->gender) . ' -
-                                    <img src="' . $image2 . '" alt="origin" width="25" height="25" class="rounded">
-                                </small>
-                            </div>
-
-                        </div>';
-                    return $info;
+    
+                    return '<div class="d-flex align-items-center">
+                                <img src="' . $image2 . '" alt="origin" width="25" height="25" class="rounded me-2">
+                                <span>Germany</span>
+                            </div>';
                 })
+    
+                // Artist Info (Removed Image2 from Here)
+                ->addColumn('artist_info', function ($artist) {
+                    $image = $artist->image ? asset('storage/' . $artist->image) : 'https://www.w3schools.com/w3images/avatar2.png';
+    
+                    return '<div class="d-flex justify-content-start align-items-center user-name">
+                                <div class="avatar-wrapper">
+                                    <div class="avatar avatar-sm me-3">
+                                        <img src="' . $image . '" alt="' . e($artist->first_name) . '" class="rounded-circle">
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column" style="margin-top: 13px;">
+                                    <a href="javascript:void(0)" class="text-body text-truncate">
+                                        <span class="fw-semibold">' . e($artist->first_name) . '</span>
+                                    </a>
+                                    <small class="fw-semibold">' . e($artist->gender) . '</small>
+                                </div>
+                            </div>';
+                })
+    
                 ->addColumn('total_songs', function ($artist) {
                     return '<a href="javascript:void(0)" class="text-black artistDetail" data-id="' . $artist->id . '" data-section="songs" data-bs-toggle="modal"
                                 data-image="' . asset('storage/' . $artist->image) . '" data-name="' . $artist->first_name . '"
@@ -90,16 +95,17 @@ class ArtistController extends Controller
                     $actions = view('content.artist.actions', compact('artist', 'provinces'));
                     return $actions;
                 })
-                ->rawColumns(['image', 'artist_info', 'total_songs', 'total_videos', 'actions'])
+                ->rawColumns(['country', 'artist_info', 'total_songs', 'total_videos', 'actions'])
                 ->make(true);
         }
-
+    
         // Non-AJAX request (for initial page load)
         $artists = Artist::with('songs', 'videos')->get();
         $provinces = Region::get();
         $categories = MusicCategory::doesntHave('musics')->get();
         return view('content.artist.index', compact('provinces', 'categories', 'artists'));
     }
+    
     
     public function index2()
     {
