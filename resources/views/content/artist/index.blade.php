@@ -608,6 +608,10 @@
                         searchable: false
                     },
                     {
+                        data: 'country',
+                        name: 'country'
+                    },
+                    {
                         data: 'artist_info',
                         name: 'artist_info'
                     },
