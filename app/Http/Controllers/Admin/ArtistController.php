@@ -91,7 +91,7 @@ class ArtistController extends Controller
                     $actions = view('content.artist.actions', compact('artist', 'provinces'));
                     return $actions;
                 })
-                ->rawColumns(['image', 'artist_info', 'total_songs', 'total_videos', 'actions'])
+                ->rawColumns(['Country','image', 'artist_info', 'total_songs', 'total_videos', 'actions'])
                 ->make(true);
         }
     
