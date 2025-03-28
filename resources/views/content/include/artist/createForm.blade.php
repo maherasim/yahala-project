@@ -171,7 +171,7 @@
     document.querySelector(".options").style.display = "none";
 
     // Convert URL to Laravel storage format
-    let storagePath = img.replace(window.location.origin + "/storage", "public/storage");
+    let storagePath = img.replace(window.location.origin + "/storage", "/storage");
 
     document.getElementById("origin").value = storagePath; // Store corrected path
 }
