@@ -66,14 +66,14 @@ class ArtistController extends Controller
                 })
                 ->addColumn('total_songs', function ($artist) {
                     return '<a href="javascript:void(0)" class="text-black artistDetail" data-id="' . $artist->id . '" data-section="songs" data-bs-toggle="modal"
-                                data-image="' . asset('storage/' . $artist->image) . '" data-name="' . $artist->name . '"
+                                data-image="' . asset('storage/' . $artist->image) . '" data-name="' . $artist->first_name . '"
                                 data-gender="' . $artist->gender . '"
                                 data-province="' . ($artist->origin ?? 'N/A') . '"
                                 data-bs-target="#artistDetailModal">' . $artist->songs->count() . '</a>';
                 })
                 ->addColumn('total_videos', function ($artist) {
                     return '<a href="javascript:void(0)" class="text-black artistDetail" data-id="' . $artist->id . '" data-section="videos" data-bs-toggle="modal"
-                                data-name="' . $artist->name . '" data-image="' . asset('storage/' . $artist->image) . '"
+                                data-name="' . $artist->first_name . '" data-image="' . asset('storage/' . $artist->image) . '"
                                 data-gender="' . $artist->gender . '"
                                 data-province="' . ($artist->origin ?? 'N/A') . '"
                                 data-bs-target="#artistDetailModal">' . $artist->videos->count() . '</a>';
