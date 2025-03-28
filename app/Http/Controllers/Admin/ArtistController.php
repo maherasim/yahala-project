@@ -54,12 +54,12 @@ class ArtistController extends Controller
                                     <img src="' . $image . '" alt="' . e($artist->name) . '" class="rounded-circle">
                                 </div>
                             </div>
-                             <div class="d-flex flex-column">
-    <small class="fw-semibold">
-        ' . e($artist->gender) . ' 
-        <img src="' . $image2 . '" alt="origin" width="25" height="25" class="rounded">
-    </small>
-</div>
+                             <div class="d-flex flex-column mt-12">
+                                <small class="fw-semibold">
+                                    ' . e($artist->gender) . ' 
+                                    <img src="' . $image2 . '" alt="origin" width="25" height="25" class="rounded">
+                                </small>
+                            </div>
 
                         </div>';
                     return $info;
