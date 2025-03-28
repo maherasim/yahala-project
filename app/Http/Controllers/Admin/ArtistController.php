@@ -41,6 +41,9 @@ class ArtistController extends Controller
     
             return DataTables::of($artists)
                 ->addIndexColumn() // Adds the index column (auto-increment)
+                ->addColumn('Country', function () {
+                    return 'Germany';
+                })
                 ->addColumn('artist_info', function ($artist) {
                     $baseUrl = config('app.url');
                     $imagePath = $artist->origin ? str_replace('public/', '', $artist->origin) : 'storage/default-avatar.png';
