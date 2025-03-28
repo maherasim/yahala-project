@@ -49,7 +49,7 @@ class ArtistController extends Controller
                     $image2 = $baseUrl . '/' . ltrim($imagePath, '/');
     
                     return '<div class="d-flex align-items-center">
-                                <img src="' . $image2 . '" alt="origin" width="25" height="25" class="rounded me-2">
+                                <img src="' . $image2 . '" alt="origin" width="50" height="50" class="rounded me-2">
                                 
                             </div>';
                 })
