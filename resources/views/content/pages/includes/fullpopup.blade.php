@@ -5882,9 +5882,10 @@ gap: 5px;">
                   </div>
               </div>
               @php
-                  $countries = App\Models\Country::all();
-                  $cities = App\Models\City::all();
-              @endphp
+              $countries = App\Models\Country::take(10)->get(); // Fetch only 10 countries
+              $cities = App\Models\City::take(10)->get(); // Fetch only 10 cities
+          @endphp
+          
               <div class="mb-3 card border-0"
                   style="width:360px;background-color:#fff;padding:5px;border-radius:10px;margin-bottom:0">
                   <label for="surveysTitle" class="form-label"
