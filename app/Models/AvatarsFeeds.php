@@ -15,12 +15,13 @@ class AvatarsFeeds extends Model
        'avatar_Id', 'title', 'image', 'content', 'forwards', 
     'comments', 'likes', 'videos', 'user_type', 'feed_type',
     'background_image', 'text_color', 'grid_style', 'description',
-    'text', 'text_properties'
+    'text', 'text_properties','textSize','user_Id','shareType','shareFrds'
     ];
 
     protected $casts = [
         'image' => 'array',
         'videos' => 'array',
+        'shareFrds' => 'array',
     ];
 }
 

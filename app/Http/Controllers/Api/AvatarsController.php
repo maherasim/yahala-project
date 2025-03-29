@@ -104,6 +104,7 @@ class AvatarsController extends Controller
 			// Create new feed
 			$feed = new AvatarsFeeds();
 			$feed->avatar_Id = $request->input('avatar');
+			$feed->user_Id = $request->input('user_Id');
 			$feed->title = $request->input('title');
 			$feed->image = $image;
 			$feed->content = $request->input('content');
@@ -111,6 +112,8 @@ class AvatarsController extends Controller
 			$feed->comments = [];
 			$feed->likes = 0;
 			$feed->videos = $videos;
+			$feed->textSize = $textSize;
+			$feed->shareType = $shareType;
 			$feed->user_type = $request->input('user_type');
 			$feed->feed_type = $request->input('feed_type');
 			$feed->background_image = $request->input('background_image');
