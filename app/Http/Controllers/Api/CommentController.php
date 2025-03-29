@@ -59,7 +59,8 @@ class CommentController extends Controller
         // Create a new comment
         $comment = new Comment();
         $comment->user_id = $request->user_id;
-        $comment->post_id = $request->post_id;
+        $comment->feed_id = $request->post_id;
+       // $comment->post_id = $request->post_id;
 
         $comment->type = $request->type;
         $comment->comment_type = 'normal';
