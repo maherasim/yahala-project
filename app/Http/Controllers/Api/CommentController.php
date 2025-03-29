@@ -60,7 +60,12 @@ class CommentController extends Controller
         $comment = new Comment();
         $comment->user_id = $request->user_id;
         $comment->post_id = $request->post_id;
+
         $comment->type = $request->type;
+        $comment->comment_type = 'normal';
+        $comment->feed_type = 'admin_feeds';
+
+
         $comment->comment = $request->comment ?? null;
         $comment->emoji = $request->emoji ?? null;
         $comment->parent_id = $request->parent_id ?? null;
