@@ -40,7 +40,7 @@ class CommentController extends Controller
         // Validate input
         $validator = Validator::make($request->all(), [
             'user_id' => 'required',
-            'post_id' => 'required',
+            'post_id' => 'nullable',
             'type' => 'required|in:text,audio,emoji,image',
             'comment' => 'nullable|string|required_if:type,text',
             'emoji' => 'nullable|string|required_if:type,emoji',
