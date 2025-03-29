@@ -43,7 +43,7 @@ class CommentController extends Controller
             'post_id' => 'nullable',
             'type' => 'nullable|in:text,audio,emoji,image',
             'comment' => 'nullable|string|required_if:type,text',
-            'emoji' => 'nullable|string|required_if:type,emoji',
+            'emoji' => 'nullable',
             'audio' => 'nullable|file|mimes:mp3,wav,aac|required_if:type,audio',
             'image' => 'nullable|file|mimes:jpeg,png,jpg,gif|required_if:type,image',
             'parent_id' => 'nullable|exists:comments,_id',
