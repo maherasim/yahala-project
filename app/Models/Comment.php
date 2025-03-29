@@ -39,7 +39,10 @@ class Comment extends Model
         "duration",
         "post_gallery_id",
         "comment_id",
-        "is_rply"
+        "is_rply",
+        'feed_type',
+        'comment_type',    
+        'image'
     ];
 
     public function getActivitylogOptions(): LogOptions
@@ -72,5 +75,14 @@ class Comment extends Model
     }
     public function parent(){
         return $this->belongsTo(Comment::class , 'comment_id');
+    }
+    public function child_comments()
+    {
+        return $this->hasMany(self::class,'parent_id');
+    }
+
+    public function parent_comment()
+    {
+        return $this->belongsTo(self::class);
     }
 }
