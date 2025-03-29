@@ -216,13 +216,13 @@ class AdminProfileController extends Controller
                     $postpop->is_share = $request->share ?? 0;
                     $postpop->is_emoji = $request->emoji ?? 0;
 
-                    if ($request->type == "Event") {
-                        $postpop->start_time = $request->start_time;
-                        $postpop->end_time = $request->end_time;
-                        $postpop->event_country = $request->event_country;
-                        $postpop->event_city = $request->event_city;
-                        $postpop->event_address = $request->event_address;
-                    }
+                    // if ($request->type == "Event") {
+                    //     $postpop->start_time = $request->start_time;
+                    //     $postpop->end_time = $request->end_time;
+                    //     $postpop->event_country = $request->event_country;
+                    //     $postpop->event_city = $request->event_city;
+                    //     $postpop->event_address = $request->event_address;
+                    // }
                     $postpop->txt1 = $request->txt1;
                     $postpop->txt2 = $request->txt2;
                     $postpop->txt3 = $request->txt3;
