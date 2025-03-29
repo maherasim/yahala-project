@@ -17,7 +17,7 @@
               <!-- Text aligned to the left -->
               <div style="text-align: left;">
                   <h5 class="modal-title" id="popupModalLabel">Welcome to:</h5>
-                  <h6>YekBun Sharing section</h6>
+                  <h6>Yahala Sharing section</h6>
               </div>
 
               <!-- Image remains centered -->
@@ -1230,7 +1230,7 @@ text-decoration-skip-ink: none;
                           ">
                                       </div>
 
-                                      YekBun Team
+                                      Yahala Team
 
                                       <div
                                           style="
@@ -1795,7 +1795,7 @@ text-decoration-skip-ink: none;
                           ">
                                           </div>
 
-                                          YekBun Team
+                                          Yahala Team
 
                                           <div
                                               style="
@@ -2325,7 +2325,7 @@ text-decoration-skip-ink: none;
                           ">
                                       </div>
 
-                                      YekBun Team
+                                      Yahala Team
 
                                       <div
                                           style="
@@ -5256,7 +5256,7 @@ text-decoration-skip-ink: none;
                             ">
                                       </div>
 
-                                      YekBun Team
+                                      Yahala Team
 
                                       <div
                                           style="
@@ -5956,7 +5956,7 @@ gap: 5px;">
                                       <div
                                           style="width:150px;height:11px;font-family:Genos;font-size:20px;font-weight:500;text-underline-position:from-font;text-decoration-skip-ink:none;display:flex;align-items:center;gap:5px">
                                           <div style="width:2px;height:2px;border-radius:45%;background:#00000066">
-                                          </div>YekBun Team<div
+                                          </div>Yahala Team<div
                                               style="width:2px;height:2px;border-radius:45%;background:#00000066">
                                           </div>
                                       </div>
@@ -6457,7 +6457,7 @@ text-decoration-skip-ink: none;
                           ">
                                       </div>
 
-                                      YekBun Team
+                                      Yahala Team
 
                                       <div
                                           style="
@@ -7521,7 +7521,7 @@ margin-top: 5px;
                         ">
                                       </div>
 
-                                      YekBun Team
+                                      Yahala Team
 
                                       <div
                                           style="
@@ -7919,7 +7919,7 @@ margin-top: 5px;
                         ">
                                       </div>
 
-                                      YekBun Team
+                                      Yahala Team
 
                                       <div
                                           style="
@@ -8247,7 +8247,7 @@ margin-top: 5px;
                         ">
                                       </div>
 
-                                      YekBun Team
+                                      Yahala Team
 
                                       <div
                                           style="
