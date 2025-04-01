@@ -112,8 +112,9 @@ class AvatarsController extends Controller
 			$feed->comments = [];
 			$feed->likes = 0;
 			$feed->videos = $videos;
-			$feed->textSize = $textSize;
-			$feed->shareType = $shareType;
+			 
+			$feed->textSize = $request->input('textSize');
+			$feed->shareType = $request->input('shareType');	 
 			$feed->user_type = $request->input('user_type');
 			$feed->feed_type = $request->input('feed_type');
 			$feed->background_image = $request->input('background_image');
