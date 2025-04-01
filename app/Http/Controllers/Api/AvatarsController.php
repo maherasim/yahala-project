@@ -108,6 +108,7 @@ class AvatarsController extends Controller
 			$feed->title = $request->input('title');
 			$feed->image = $image;
 			$feed->content = $request->input('content');
+			$feed->textemoji = $request->input('textemoji');
 			$feed->forwards = 0;
 			$feed->comments = [];
 			$feed->likes = 0;
