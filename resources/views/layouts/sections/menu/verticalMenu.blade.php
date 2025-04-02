@@ -1213,19 +1213,19 @@
             </a>
 
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::is('list-reels-cards*') ? 'active' : '' }}">
+                {{-- <li class="menu-item {{ Request::is('list-reels-cards*') ? 'active' : '' }}">
                     <a href="{{ route('list.reels.cards') }}" class="menu-link">
                         <div>Add / Manage Cards</div>
                     </a>
-                </li>
+                </li> --}}
                 <li class="menu-item {{ Request::is('reel/ManageStories') ? 'active' : '' }}">
                     <a href="{{ url('reel/ManageStories') }}" class="menu-link">
-                        <div>Manage Stories</div>
+                        <div>Manage Clips</div>
                     </a>
                 </li>
                 <li class="menu-item {{ Request::is('reel/ReportedStories') ? 'active' : '' }}">
                     <a href="{{ url('reel/ReportedStories') }}" class="menu-link">
-                        <div>Reported Stories</div>
+                        <div>Reported Clips</div>
                     </a>
                 </li>
                 <li
