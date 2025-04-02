@@ -764,7 +764,7 @@
 
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-video"></i>
-                    <div>Videos</div>
+                    <div>Clips</div>
                 </a>
 
 
@@ -774,7 +774,7 @@
 
                     <li class="menu-item  {{ Request::is('manage_video') ? 'active' : '' }}">
                         <a href="{{ url('/manage_video') }}" class="menu-link">
-                            <div>Manage Videos</div>
+                            <div>Manage Clips</div>
                         </a>
 
 
@@ -786,7 +786,7 @@
 
                     <li class="menu-item  {{ Request::is('video_request') ? 'active' : '' }}">
                         <a href="{{ url('/video_request') }}" class="menu-link">
-                            <div>Reported Videos</div>
+                            <div>Reported Clips</div>
                         </a>
 
 
@@ -1130,7 +1130,7 @@
 
 
 
-    @can('stories.read')
+    {{-- @can('stories.read')
         <li
             class="menu-item {{ Request::is('story/*') || Request::is('list-cards*') || Request::is('settings/stories/reasons*') || Request::is('settings/stories*') || Request::is('stories_time') || Request::is('settings/storysong*') ? 'active open' : '' }}">
 
@@ -1193,7 +1193,7 @@
                 </li>
             </ul>
         </li>
-    @endcan
+    @endcan --}}
 
 
 
