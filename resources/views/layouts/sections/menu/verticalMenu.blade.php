@@ -764,7 +764,7 @@
 
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-video"></i>
-                    <div>Clips</div>
+                    <div>Videos</div>
                 </a>
 
 
@@ -774,7 +774,7 @@
 
                     <li class="menu-item  {{ Request::is('manage_video') ? 'active' : '' }}">
                         <a href="{{ url('/manage_video') }}" class="menu-link">
-                            <div>Manage Clips</div>
+                            <div>Manage Videos</div>
                         </a>
 
 
@@ -786,7 +786,7 @@
 
                     <li class="menu-item  {{ Request::is('video_request') ? 'active' : '' }}">
                         <a href="{{ url('/video_request') }}" class="menu-link">
-                            <div>Reported Clips</div>
+                            <div>Reported Videos</div>
                         </a>
 
 
@@ -1209,7 +1209,7 @@
                 : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bxs-videos"></i>
-                <div>Reels</div>
+                <div>Clips</div>
             </a>
 
             <ul class="menu-sub">
