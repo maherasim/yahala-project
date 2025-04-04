@@ -9,7 +9,6 @@ use App\Helpers\ResponseHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
-use App\Models\Comment;
 use App\Models\Feed;
 use App\Models\FeedComments;
 use App\Models\FeedLikes;
@@ -182,9 +181,9 @@ class FeedsController extends Controller
 
         try {
             $feedType = $request->feed_type;
-            $comments = Comment::with(['child_comments' => function ($q) {
-                $q->with(['child_comments' => function ($q) {
-                    $q->with(['user' =>  function ($q) {
+            $comments = FeedComments::with(['emoji_data', 'child_comments' => function ($q) {
+                $q->with(['emoji_data', 'child_comments' => function ($q) {
+                    $q->with(['emoji_data', 'user' =>  function ($q) {
                         $q->select(['name', 'last_name', 'email', 'dob', 'image', 'username']);
                     }]);
                 }, 'user' =>  function ($q) {
@@ -220,7 +219,7 @@ class FeedsController extends Controller
             }
 
             $likeCount = FeedLikes::where('feed_id', $request->feed_id)->where('feed_type', $feedType)->count();
-            $commentCount = Comment::where('feed_id', $request->feed_id)->where('feed_type', $feedType)->count();
+            $commentCount = FeedComments::where('feed_id', $request->feed_id)->where('feed_type', $feedType)->count();
 
             $data = [
                 'comments' => $comments,
@@ -242,7 +241,7 @@ class FeedsController extends Controller
         $request->validate(['comment' => 'required|string', 'feed_type' => 'required']);
 
         try {
-            $comment = Comment::create([
+            $comment = FeedComments::create([
                 'user_id' => auth()->id(),
                 'feed_id' => $request->feed_id,
                 'feed_type' => $request->feed_type,
@@ -252,7 +251,7 @@ class FeedsController extends Controller
                 'status' => 1
             ]);
 
-            $comments = Comment::with(['child_comments' => function ($q) {
+            $comments = FeedComments::with(['child_comments' => function ($q) {
                 $q->with(['child_comments' => function ($q) {
                     $q->with(['user' =>  function ($q) {
                         $q->select(['name', 'last_name', 'email', 'dob', 'image', 'username']);
@@ -266,7 +265,7 @@ class FeedsController extends Controller
                 ->where('feed_id', $request->feed_id)->where('parent_id', null)->where('feed_type', $request->feed_type)->get();
 
             $user = User::select('name', 'last_name', 'email', 'dob', 'image', 'username')->find(auth()->id());
-            $commentCount = Comment::where('feed_id', $request->feed_id)->where('feed_type', $request->feed_type)->count();
+            $commentCount = FeedComments::where('feed_id', $request->feed_id)->where('feed_type', $request->feed_type)->count();
             $like = FeedLikes::where('user_id', $user->id)->where('feed_id', $request->feed_id)->where('feed_type', $request->feed_type)->first();
 
             if ($like) {
@@ -284,18 +283,6 @@ class FeedsController extends Controller
                 'like_count' => $likeCount,
                 'user' => $user
             ];
-
-            switch ($request->feed_type) {
-                case 'admin_feeds':
-                    event(new AdminFeedsComments($data));
-                    break;
-                case 'history':
-                    event(new HistoryComments($data));
-                    break;
-                default:
-                    event(new UserFeedsComments($data));
-                    break;
-            }
 
             return ResponseHelper::sendResponse($data, 'Comment has been successfully sent');
         } catch (Exception $e) {

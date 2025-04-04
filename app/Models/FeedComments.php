@@ -32,7 +32,7 @@ class FeedComments extends Model
 
     public function child_comments()
     {
-        return $this->hasMany(self::class,'parent_id');
+        return $this->hasMany(self::class, 'parent_id');
     }
 
     public function parent_comment()
@@ -40,4 +40,8 @@ class FeedComments extends Model
         return $this->belongsTo(self::class);
     }
 
+    public function emoji_data()
+    {
+        return $this->hasOne(Emoji::class, 'emoji', 'name');
+    }
 }

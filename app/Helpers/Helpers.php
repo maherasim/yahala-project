@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use App\Models\Emoji;
 use App\Models\LanguageDetail;
 use Config;
 use App\Models\Text;
@@ -234,5 +235,14 @@ class Helpers
     {
         return is_array($haystack) && in_array($needle, $haystack);
     }
-    
+
+    public static function showEmojibyName($name = null)
+    {
+        try {
+            $emoji = Emoji::where('name', $name)->first();
+            return asset('storage/' . $emoji->image);
+        } catch (Exception $e) {
+            return null;
+        }
+    }
 }

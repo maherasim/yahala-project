@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\user\Diamond;
 use App\Http\Controllers\user\Premium;
 use App\Http\Controllers\Admin\FeedsController;
+use App\Http\Controllers\Admin\VideoController;
+
 use App\Http\Controllers\user\Standard;
 use App\Http\Controllers\AdvertismentController;
 use App\Http\Controllers\fanpage\FanPage;
@@ -19,9 +21,7 @@ use App\Http\Controllers\ReelController;
 use App\Http\Controllers\ReelSongController;
 use App\Http\Controllers\ReelReasonController;
 use App\Http\Controllers\Admin\ChannelPolicyController;
-
 use App\Http\Controllers\Admin\EventController;
-
 use App\Http\Controllers\Admin\MusicController;
 use App\Http\Controllers\ProfileBannerController;
 use App\Http\Controllers\Admin\StoryController;
@@ -43,27 +43,21 @@ use App\Http\Controllers\Admin\PremiumUserController;
 use App\Http\Controllers\Admin\ReportVideoController;
 
 use App\Http\Controllers\Admin\UploadMovieController;
-
 use App\Http\Controllers\Admin\NewsCategoryController;
 use App\Http\Controllers\Admin\OrganizationController;
 use App\Http\Controllers\Admin\StandardUserController;
 use App\Http\Controllers\Admin\BazarCategoryController;
 use App\Http\Controllers\Admin\EventCategoryController;
 use App\Http\Controllers\Admin\FileController;
-
 use App\Http\Controllers\Admin\MusicCategoryController;
-
 use App\Http\Controllers\Admin\OnlineCategoryController;
-
 use App\Http\Controllers\Admin\VotingCategoryController;
 use App\Http\Controllers\laravel_example\UserManagement;
 use App\Http\Controllers\Admin\HistoryCategoryController;
-
 use App\Http\Controllers\Admin\UploadMovieCategoryController;
 use App\Http\Controllers\Admin\UploadVideoCategoryController;
 use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\PaymentOfficeController;
-
 use App\Http\Controllers\Admin\Settings\PaymentMethodController;
 use App\Http\Controllers\Admin\Settings\PricingController;
 use App\Http\Controllers\Admin\Settings\SettingController;
@@ -75,7 +69,6 @@ use App\Http\Controllers\Admin\Settings\RegionController;
 use App\Http\Controllers\Admin\SystemLogController;
 use App\Http\Controllers\Admin\MobileSettingsController;
 use App\Http\Controllers\Admin\RoleController;
-
 use App\Http\Controllers\Admin\Settings\TeamMemberController;
 use App\Http\Controllers\Admin\AnalyticsController;
 use App\Http\Controllers\Admin\AdminProfileController;
@@ -705,7 +698,23 @@ Route::delete('/list-reels-card/{card}', [ReelController::class, 'destroycard'])
     Route::delete('file/delete', [FileController::class, 'delete'])->name('file.delete');
     Route::post('file/images', [FileController::class, 'upload_bg'])->name('file.images');
 
-    Route::get('/manage_video', [ReportVideoController::class, 'manage_video']);
+    // Route::get('/manage_video', [ReportVideoController::class, 'manage_video']);
+    Route::get('/video_request', [ReportVideoController::class, 'video_request']);
+
+    Route::get('/manage_video', [VideoController::class, 'manage_video'])->name('manage_video');
+    Route::post('/manage_video', [VideoController::class, 'store'])->name('manage_video.store');
+    Route::get('/delete_video', [VideoController::class, 'destroy'])->name('delete_video');
+
+
+
+
+
+
+
+
+
+
+
     Route::resource('/history-category', HistoryCategoryController::class);
     Route::resource('/history-category', HistoryCategoryController::class);
     Route::resource('app-policy', PolicyAndTermsController::class);

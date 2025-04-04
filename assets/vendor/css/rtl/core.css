@@ -5029,7 +5029,7 @@ textarea.form-control-lg {
 }
 
 .modal-backdrop {
-  --bs-backdrop-zindex: 1089;
+  --bs-backdrop-zindex: 9999;
   --bs-backdrop-bg: #435971;
   --bs-backdrop-opacity: 0.5;
   position: fixed;
@@ -24646,4 +24646,50 @@ a.bg-vimeo:hover, a.bg-vimeo:focus {
 
 .pd-t-24px{
   padding-top: 24px;
+}
+
+.feed-card .toggle-card {
+  width: 100%; height: 62px; margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+}
+.feed-card .toggle-item {
+    width: 100%;
+  height: 47px;
+  text-align: center;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  margin: 0 4px;
+}
+.feed-card .form-switch .form-check-input {
+  width: 40px;
+  height: 20px;
+  background-color: #b4b4b4;
+  border-radius: 1.25rem;
+}
+.feed-card .form-switch .form-check-input:checked {
+  background-color: #0d6efd;
+}
+.feed-card .toggle-item span {
+  display: block;
+  margin-top: -4px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: Genos;
+  color: #1b1e34;
+}
+
+.video-thumbnail-duration{
+    font-size: 12px;
+    color: #fff;
+    background-color: black;
+    padding: 1px 5px;
+    position: absolute;
+    right: 6px;
+    border-radius: 4px;
+    bottom: 6px;
 }
