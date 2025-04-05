@@ -234,33 +234,27 @@
                 <span class="text-muted fw-light">Video /</span> All Videos
             </h4>
         </div>
-        <div class="">
+        {{-- <div class="">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createvideoModal">Add Video</button>
-        </div>
+        </div> --}}
     </div>
 
     <!-- Artist List Table -->
     <div class="card">
-        <h5 class="card-header">Video List</h5>
-        <div class="table-responsive container pb-4 text-nowrap">
+        <div class="card-header" style="display: unset;">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-6 mt-4">
-                            <button class="btn btn-primary mt-4 w-100">Reported Videos</button>
-                        </div>
-                        <div class="col-md-6">
-                        </div>
-                    </div>
+                <div class="col-md-3">
+                    <h5>Video List</h5>
                 </div>
-                <div class="col-md-6">
-                    <div class="row m-4">
-                        <div class="col-md-6">
-                            <label for="search">Search</label>
-                            <input type="search" class="form-control" id="search" name="search">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button class="btn btn-primary w-100">Reported Videos</button>
                         </div>
-                        <div class="col-md-6">
-                            <label for="sort_by">Sort By</label>
+                        <div class="col-md-4">
+                            <input type="search" class="form-control" id="search" name="search" placeholder="Search">
+                        </div>
+                        <div class="col-md-4">
                             <select name="sort_by" id="sort_by" class="form-control">
                                 <option value="">Select Sort By</option>
                                 <option value="songs">Most Songs</option>
@@ -269,10 +263,14 @@
                                 <option value="followers">Most Followers</option>
                             </select>
 
+
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="table-responsive container pb-4 text-nowrap">
+
             <div class="row container pb-4">
                 <input type="hidden" name="feed_id" id="feed_id">
                 <input type="hidden" name="feed_type" id="feed_type" value="history">
@@ -320,7 +318,7 @@
                                                                 </a>
                                                             </div>
                                                             <p class="m-0">
-                                                                {{ @$video->user->name . ' ' . @$video->user->last_name }}
+                                                                {{ @$video->user->username }}
                                                             </p>
                                                             <small class="time"><i>0 views .
                                                                     &nbsp;&nbsp;{{ \Carbon\Carbon::parse(@$video->created_at)->diffForHumans() }}</i></small>
