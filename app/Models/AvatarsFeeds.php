@@ -27,8 +27,9 @@ class AvatarsFeeds extends Model
 
 
 
-    public function user(){
-        return $this->hasMany(User::class , 'id' , 'user_id');
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_Id', '_id');
     }
 
 
