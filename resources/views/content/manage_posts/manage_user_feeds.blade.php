@@ -188,8 +188,8 @@ $feeds = \App\Models\AvatarsFeeds::with('user')->orderBy('created_at', 'desc')->
                                                     </div>
                                                     <div class="user-info">
                                                         <span class="d-flex justify-content-center align-items-center">
-                                                            <a href="#">{{ optional($feed->user)->name ?? 'N/A' }}
-                                                                {{ optional($feed->user)->last_name ?? 'N/A' }}</a>
+                                                            <a href="#">{{ optional($feed->user)->username ?? 'N/A' }}
+                                                                {{ optional($feed->user)->fname ?? 'N/A' }}</a>
                                                             &nbsp;<i class="fa fa-circle"
                                                                 style="font-size: 4px;color: #c3c3c3;padding-left: 3px;"></i>&nbsp;
                                                             <img src="{{ asset('assets/svg/edu.svg') }}"
