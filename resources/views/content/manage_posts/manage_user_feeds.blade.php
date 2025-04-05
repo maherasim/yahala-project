@@ -134,6 +134,10 @@
 
 @section('content')
 
+@php
+$feeds = \App\Models\AvatarsFeeds::with('user')->orderBy('created_at', 'desc')->paginate(10);
+@endphp
+
     <div class="content-wrapper">
 
         <!-- Content -->
@@ -171,74 +175,84 @@
                             <div class="column column is-6 tab-content" id="tab1">
 
                                 @foreach ($feeds as $feed)
-                                <div id="feed-post-1" class="card is-post">
-                                    <div class="content-wrap">
-                                        <!-- Post header -->
-                                        <div class="card-heading">
-                                            <div class="user-block">
-                                                <div class="image">
-                                                    <img src="{{ asset('storage/' . (optional($feed->user)->image ?? 'default-avatar.png')) }}"
-                                                         data-demo-src="{{ asset('storage/' . (optional($feed->user)->image ?? 'default-avatar.png')) }}"
-                                                         data-user-popover="1" alt="User Image"
-                                                         onerror="this.src='https://www.w3schools.com/w3images/avatar2.png'">
-                                                </div>
-                                                <div class="user-info">
-                                                    <span class="d-flex justify-content-center align-items-center">
-                                                        <a href="#">{{ optional($feed->user)->name ?? 'N/A' }} {{ optional($feed->user)->last_name ?? 'N/A' }}</a>
-                                                        &nbsp;<i class="fa fa-circle" style="font-size: 4px;color: #c3c3c3;padding-left: 3px;"></i>&nbsp;
-                                                        <img src="{{ asset('assets/svg/edu.svg') }}" style="width: 16px;height: 16px" alt="">
-                                                        &nbsp;<i class="fa fa-circle" style="font-size: 4px;color: #c3c3c3;"></i>
-                                                    </span>
-                                                    <span class="time d-flex">
-                                                        &nbsp; <i class="fa fa-circle pr-1" style="font-size: 4px;margin-top: 7px;color: #c3c3c3;"></i>
-                                                        {{ optional($feed->created_at)->diffForHumans() ?? 'Unknown time' }}
-                                                        &nbsp; <i class="fa fa-circle" style="font-size: 4px;margin-top: 7px;color: #c3c3c3;"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Post body -->
-                                        <div class="card-body col-sm-12">
-                                            <div class="row">
-                                                @if(isset($feed->image[0]))
-                                                    <div class="post-image col-sm-12" style="width:500px; margin:0 auto">
-                                                        <a data-fancybox="post1" data-lightbox-type="comments"
-                                                           data-thumb="{{ asset('storage/'.$feed->image[0]) }}"
-                                                           href="{{ asset('storage/'.$feed->image[0]) }}"
-                                                           data-demo-href="{{ asset('storage/'.$feed->image[0]) }}">
-                                                            <img src="{{ asset('storage/'.$feed->image[0]) }}"
-                                                                 data-demo-src="{{ asset('storage/'.$feed->image[0]) }}"
-                                                                 alt="Post Image">
-                                                        </a>
+                                    <div id="feed-post-1" class="card is-post">
+                                        <div class="content-wrap">
+                                            <!-- Post header -->
+                                            <div class="card-heading">
+                                                <div class="user-block">
+                                                    <div class="image">
+                                                        <img src="{{ asset('storage/' . (optional($feed->user)->image ?? 'default-avatar.png')) }}"
+                                                            data-demo-src="{{ asset('storage/' . (optional($feed->user)->image ?? 'default-avatar.png')) }}"
+                                                            data-user-popover="1" alt="User Image"
+                                                            onerror="this.src='https://www.w3schools.com/w3images/avatar2.png'">
                                                     </div>
-                                                @endif
+                                                    <div class="user-info">
+                                                        <span class="d-flex justify-content-center align-items-center">
+                                                            <a href="#">{{ optional($feed->user)->name ?? 'N/A' }}
+                                                                {{ optional($feed->user)->last_name ?? 'N/A' }}</a>
+                                                            &nbsp;<i class="fa fa-circle"
+                                                                style="font-size: 4px;color: #c3c3c3;padding-left: 3px;"></i>&nbsp;
+                                                            <img src="{{ asset('assets/svg/edu.svg') }}"
+                                                                style="width: 16px;height: 16px" alt="">
+                                                            &nbsp;<i class="fa fa-circle"
+                                                                style="font-size: 4px;color: #c3c3c3;"></i>
+                                                        </span>
+                                                        <span class="time d-flex">
+                                                            &nbsp; <i class="fa fa-circle pr-1"
+                                                                style="font-size: 4px;margin-top: 7px;color: #c3c3c3;"></i>
+                                                            {{ optional($feed->created_at)->diffForHumans() ?? 'Unknown time' }}
+                                                            &nbsp; <i class="fa fa-circle"
+                                                                style="font-size: 4px;margin-top: 7px;color: #c3c3c3;"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="alert alert-secondary" role="alert">
-                                                {{ $feed->description ?? 'No description available.' }}
-                                            </div>
-                                        </div>
 
-                                        <!-- Post footer -->
-                                        <div class="card-footer">
-                                            <div class="social-count">
-                                                <div class="shares-count" style="cursor: pointer">
-                                                    <img src="{{ asset('assets/svg/icons/Share.svg') }}" width="20" alt="">
-                                                    <span>12k</span>
+                                            <!-- Post body -->
+                                            <div class="card-body col-sm-12">
+                                                <div class="row">
+                                                    @if (isset($feed->image[0]))
+                                                        <div class="post-image col-sm-12"
+                                                            style="width:500px; margin:0 auto">
+                                                            <a data-fancybox="post1" data-lightbox-type="comments"
+                                                                data-thumb="{{ asset('storage/' . $feed->image[0]) }}"
+                                                                href="{{ asset('storage/' . $feed->image[0]) }}"
+                                                                data-demo-href="{{ asset('storage/' . $feed->image[0]) }}">
+                                                                <img src="{{ asset('storage/' . $feed->image[0]) }}"
+                                                                    data-demo-src="{{ asset('storage/' . $feed->image[0]) }}"
+                                                                    alt="Post Image">
+                                                            </a>
+                                                        </div>
+                                                    @endif
                                                 </div>
-                                                <div class="likes-count" style="cursor: pointer">
-                                                    <img src="{{ asset('assets/svg/icons/views.svg') }}" width="20" alt="">
-                                                    <span>1225</span>
+                                                <div class="alert alert-secondary" role="alert">
+                                                    {{ $feed->description ?? 'No description available.' }}
                                                 </div>
-                                                <div class="comments-count is-comment-light" style="cursor: pointer">
-                                                    <img src="{{ asset('assets/svg/icons/Comments.svg') }}" width="20" alt="">
-                                                    <span>123</span>
+                                            </div>
+
+                                            <!-- Post footer -->
+                                            <div class="card-footer">
+                                                <div class="social-count">
+                                                    <div class="shares-count" style="cursor: pointer">
+                                                        <img src="{{ asset('assets/svg/icons/Share.svg') }}" width="20"
+                                                            alt="">
+                                                        <span>12k</span>
+                                                    </div>
+                                                    <div class="likes-count" style="cursor: pointer">
+                                                        <img src="{{ asset('assets/svg/icons/views.svg') }}" width="20"
+                                                            alt="">
+                                                        <span>1225</span>
+                                                    </div>
+                                                    <div class="comments-count is-comment-light" style="cursor: pointer">
+                                                        <img src="{{ asset('assets/svg/icons/Comments.svg') }}"
+                                                            width="20" alt="">
+                                                        <span>123</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
 
 
                             </div>

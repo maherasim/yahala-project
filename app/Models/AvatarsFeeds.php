@@ -23,6 +23,15 @@ class AvatarsFeeds extends Model
         'videos' => 'array',
         'shareFrds' => 'array',
     ];
+
+
+
+
+    public function user(){
+        return $this->hasMany(User::class , 'id' , 'user_id');
+    }
+
+
 }
 
 

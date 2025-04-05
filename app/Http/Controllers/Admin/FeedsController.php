@@ -9,7 +9,7 @@ use App\Helpers\ResponseHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
-use App\Models\Feed;
+use App\Models\AvatarsFeeds;
 use App\Models\FeedComments;
 use App\Models\FeedLikes;
 use App\Models\History;
@@ -25,8 +25,9 @@ class FeedsController extends Controller
 
     public function index()
     {
-        $feeds = Feed::with('user')->orderBy('created_at', 'desc')->paginate(10);
+        $feeds = AvatarsFeeds::with('user')->orderBy('created_at', 'desc')->paginate(10);
         return view('content.manage_posts.manage_user_feeds', compact('feeds'));
+ 
     }
 
     public function news()
