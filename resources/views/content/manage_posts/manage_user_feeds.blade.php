@@ -210,21 +210,21 @@ $feeds = \App\Models\AvatarsFeeds::with('user')->orderBy('created_at', 'desc')->
 
                                             <!-- Post body -->
                                             <div class="card-body col-sm-12">
-                                                <div class="row">
-                                                    @if (isset($feed->image[0]))
-                                                        <div class="post-image col-sm-12"
-                                                            style="width:500px; margin:0 auto">
+                                                <div class="row"> 
+                                                    @if (!empty($feed->background_image))
+                                                        <div class="post-image col-sm-12" style="width:500px; margin:0 auto">
                                                             <a data-fancybox="post1" data-lightbox-type="comments"
-                                                                data-thumb="{{ asset('storage/' . $feed->image[0]) }}"
-                                                                href="{{ asset('storage/' . $feed->image[0]) }}"
-                                                                data-demo-href="{{ asset('storage/' . $feed->image[0]) }}">
-                                                                <img src="{{ asset('storage/' . $feed->image[0]) }}"
-                                                                    data-demo-src="{{ asset('storage/' . $feed->image[0]) }}"
+                                                                data-thumb="{{ $feed->background_image }}"
+                                                                href="{{ $feed->background_image }}"
+                                                                data-demo-href="{{ $feed->background_image }}">
+                                                                <img src="{{ $feed->background_image }}"
+                                                                    data-demo-src="{{ $feed->background_image }}"
                                                                     alt="Post Image">
                                                             </a>
                                                         </div>
                                                     @endif
                                                 </div>
+                                                
                                                 <div class="alert alert-secondary" role="alert">
                                                     {{ $feed->description ?? 'No description available.' }}
                                                 </div>
