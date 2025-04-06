@@ -793,14 +793,14 @@
                     </li> --}}
 
 
-
+{{-- 
                     <li class="menu-item  ">
                         <a href="javascript:void(0)" class="menu-link">
                             <div>Max. Upload Page</div>
                         </a>
 
 
-                    </li>
+                    </li> --}}
 
 
 
@@ -818,22 +818,14 @@
 
 
                             <li class="menu-item {{ Request::is('reason') ? 'active' : '' }}">
-                                <a href="{{ url('/reason') }}" class="menu-link">
-                                    <div>Reasons</div>
+                                <a   class="menu-link">
+                                    <div>Max. Upload page</div>
                                 </a>
 
 
                             </li>
 
-
-
-                            <li class="menu-item  {{ Request::is('policyterms') ? 'active' : '' }} ">
-                                <a href="{{ url('/policyterms') }}" class="menu-link">
-                                    <div>Policy and Terms</div>
-                                </a>
-
-
-                            </li>
+                            
 
 
 
