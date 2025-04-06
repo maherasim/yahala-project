@@ -706,6 +706,7 @@ Route::delete('/list-reels-card/{card}', [ReelController::class, 'destroycard'])
     Route::get('/delete_video', [VideoController::class, 'destroy'])->name('delete_video');
 
 
+    Route::post('/generate-thumbnail', [VideoController::class, 'generateThumbnail']);
 
 
 

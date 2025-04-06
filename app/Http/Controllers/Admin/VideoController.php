@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Video;
 use FFMpeg\Coordinate\TimeCode;
 use FFMpeg\FFMpeg;
+use Exception;
+ 
+ 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -16,6 +19,20 @@ class VideoController extends Controller
         $videos = Video::all();
         return view('content.report_video.manage_video',compact('videos'));
     }
+
+    public function generateThumbnail(Request $request)
+    {
+        $thumbnail = $this->generateThumbnailFromPath($request->video_path, $request->duration, $request->directory);
+        return response()->json(['thumbnail' => $thumbnail], 200);
+    }
+
+
+
+
+
+
+
+
 
     public function store(Request $request)
     {
@@ -93,11 +110,7 @@ class VideoController extends Controller
         return $duration;
     }
 
-    public function generateThumbnail(Request $request)
-    {
-        $thumbnail = $this->generateThumbnailFromPath($request->video_path, $request->duration);
-        return response()->json(['thumbnail' => $thumbnail], 200);
-    }
+   
 
     private function generateThumbnailFromPath($videoPath, $duration)
     {

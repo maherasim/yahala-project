@@ -296,128 +296,111 @@
                 <input type="hidden" name="feed_id" id="feed_id">
                 <input type="hidden" name="feed_type" id="feed_type" value="history">
                 <input type="hidden" name="comment_parent_id" id="comment_parent_id">
-                @foreach ($videos as $video)
-                    <div class="col-md-4">
-                        <div class="post-image">
-                            <div id="feed-post-1" class="card is-post mt-4 pt-3 pl-4 pr-4 view-post card-post"
-                                data-fancybox="post1" data-lightbox-type="comments"
-                                data-thumb="{{ asset('storage/' . $video->video[0]['path']) }}"
-                                href="{{ asset('storage/' . $video->video[0]['path']) }}" data-id="{{ $video->_id }}"
-                                data-demo-href="{{ asset('storage/' . $video->video[0]['path']) }}">
-                                <!-- Main wrap -->
-                                <div class="content-wrap">
+                <div class="col-md-4">
+                    <div class="post-image">
+                        <div   class="card is-post mt-4 pt-3 pl-4 pr-4   card-post"     data-thumb="https://admin.yekbun.net/public/storage/video/67ef065b87a6d___SampleVideo_1280x720_1mb.mp4" href="/public/storage/video/67ef065b87a6d___SampleVideo_1280x720_1mb.mp4" data-id="67ef066938c58e2bce0a4d72" data-demo-href="/public/storage/video/67ef065b87a6d___SampleVideo_1280x720_1mb.mp4">
+                            <!-- Main wrap -->
+                            <div class="content-wrap">
 
-                                    <!-- Post body -->
-                                    <div class="card-body p-0">
-                                        @php
-                                            $durationInSeconds = @$video->video[0]['duration'] ?? 0;
-                                            $minutes = floor($durationInSeconds / 60);
-                                            $seconds = round($durationInSeconds % 60);
-                                            $formattedDuration = sprintf('%d:%02d', $minutes, $seconds);
-                                        @endphp
-                                        <div style="background-image: url('{{ asset('storage/' . $video->thumbnail) }}');"
-                                            class="card-post-thumbnail">
-                                            <span class="video-thumbnail-duration">{{ @$formattedDuration }}</span>
-                                        </div>
+                                <!-- Post body -->
+                                <div class="card-body p-0">
+                                                                            <div style="background-image: url('https://admin.yekbun.net/public/storage/video/67ef065b87a6d___SampleVideo_1280x720_1mb_thumb_0.jpg');" class="card-post-thumbnail">
+                                        <span class="video-thumbnail-duration">0:05</span>
                                     </div>
-                                    <div class="card-footer mt-0">
-                                        <div class="user-block">
-                                            <div class="user-info">
-                                                <div class="row">
-                                                    <div class="col-md-2 p-0">
-                                                        <img src="{{ asset('storage/' . @$video->user->image) }}"
-                                                            style="width: 120px !important;height:50px !important;">
-                                                    </div>
-                                                    <div class="col-md-10">
-                                                        <div class="mt-2">
-                                                            <div class="d-flex" style="line-height: 0;">
-                                                                <p><b>{{ $video->title }}</b></p>
-                                                            </div>
-                                                            <p class="m-0">
-                                                                {{ @$video->user->username }}
-                                                            </p>
-                                                            <small class="time"><i>0 views .
-                                                                    &nbsp;&nbsp;{{ \Carbon\Carbon::parse(@$video->created_at)->diffForHumans() }}</i></small>
+                                </div>
+                                <div class="card-footer mt-0">
+                                    <div class="user-block">
+                                        <div class="user-info">
+                                            <div class="row">
+                                                <div class="col-md-2 p-0">
+                                                    <img src="/public/storage/images/user/67af44b5cd754___d20e96dd28ee247fbd9da2aebb371a91.jpg" style="width: 120px !important;height:50px !important;">
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="mt-2">
+                                                        <div class="d-flex" style="line-height: 0;">
+                                                            <p><b>First Video</b></p>
                                                         </div>
-
+                                                        <p class="m-0">
+                                                            superadmin
+                                                        </p>
+                                                        <small class="time"><i>0 views .
+                                                                &nbsp;&nbsp;2 days ago</i></small>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- /Post body -->
                                 </div>
-                                <!-- /Main wrap -->
+                                <!-- /Post body -->
                             </div>
-                            <div class="card-heading">
-                                <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
-                                    <div>
-                                        <div class="button">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
-                                                class="feather feather-more-vertical">
-                                                <circle cx="12" cy="12" r="1"></circle>
-                                                <circle cx="12" cy="5" r="1"></circle>
-                                                <circle cx="12" cy="19" r="1"></circle>
-                                            </svg>
-                                        </div>
+                            <!-- /Main wrap -->
+                        </div>
+                        <div class="card-heading">
+                            <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+                                <div>
+                                    <div class="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
+                                            <circle cx="12" cy="12" r="1"></circle>
+                                            <circle cx="12" cy="5" r="1"></circle>
+                                            <circle cx="12" cy="19" r="1"></circle>
+                                        </svg>
                                     </div>
-                                    <div class="dropdown-menu" role="menu">
-                                        <div class="dropdown-content">
-                                            <a href="javascript:void(0)" class="dropdown-item">
-                                                <div class="media">
-                                                    <div class="media-content">
-                                                        <h3>Remove the Feed</h3>
-                                                        <select class="form-control mt-1">
-                                                            <option value="">Select the Reason</option>
-                                                        </select>
-                                                    </div>
+                                </div>
+                                <div class="dropdown-menu" role="menu">
+                                    <div class="dropdown-content">
+                                        <a href="javascript:void(0)" class="dropdown-item">
+                                            <div class="media">
+                                                <div class="media-content">
+                                                    <h3>Remove the Feed</h3>
+                                                    <select class="form-control mt-1">
+                                                        <option value="">Select the Reason</option>
+                                                    </select>
                                                 </div>
-                                            </a>
-                                            <a href="javascript:void(0)" class="dropdown-item">
-                                                <div class="media">
-                                                    <div class="media-content">
-                                                        <h3>Remove Feed - Flag FanPage</h3>
-                                                        <select class="form-control mt-1">
-                                                            <option value="">Select the Reason</option>
-                                                        </select>
-                                                        <select class="form-control mt-1">
-                                                            <option value="">Select the Flag</option>
-                                                        </select>
-                                                    </div>
+                                            </div>
+                                        </a>
+                                        <a href="javascript:void(0)" class="dropdown-item">
+                                            <div class="media">
+                                                <div class="media-content">
+                                                    <h3>Remove Feed - Flag FanPage</h3>
+                                                    <select class="form-control mt-1">
+                                                        <option value="">Select the Reason</option>
+                                                    </select>
+                                                    <select class="form-control mt-1">
+                                                        <option value="">Select the Flag</option>
+                                                    </select>
                                                 </div>
-                                            </a>
-                                            <a href="javascript:void(0)" class="dropdown-item">
-                                                <div class="media">
-                                                    <div class="media-content">
-                                                        <h3>Remove Feed - Block FanPage</h3>
-                                                        <select class="form-control mt-1">
-                                                            <option value="">Select the Reason</option>
-                                                        </select>
-                                                        <select class="form-control mt-1">
-                                                            <option value="">Select Downgrade User</option>
-                                                        </select>
-                                                    </div>
+                                            </div>
+                                        </a>
+                                        <a href="javascript:void(0)" class="dropdown-item">
+                                            <div class="media">
+                                                <div class="media-content">
+                                                    <h3>Remove Feed - Block FanPage</h3>
+                                                    <select class="form-control mt-1">
+                                                        <option value="">Select the Reason</option>
+                                                    </select>
+                                                    <select class="form-control mt-1">
+                                                        <option value="">Select Downgrade User</option>
+                                                    </select>
                                                 </div>
-                                            </a>
-                                            <a href="javascript:void(0)" class="dropdown-item">
-                                                <div class="media">
-                                                    <div class="media-content">
-                                                        <h3>Remove FanPage</h3>
-                                                        <select class="form-control mt-1">
-                                                            <option value="">Select the Reason</option>
-                                                        </select>
-                                                    </div>
+                                            </div>
+                                        </a>
+                                        <a href="javascript:void(0)" class="dropdown-item">
+                                            <div class="media">
+                                                <div class="media-content">
+                                                    <h3>Remove FanPage</h3>
+                                                    <select class="form-control mt-1">
+                                                        <option value="">Select the Reason</option>
+                                                    </select>
                                                 </div>
-                                            </a>
-                                        </div>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                </div>
                 <x-modal id="createvideoModal" title="Create Video" saveBtnText="Create" saveBtnType="submit"
                     saveBtnForm="createForm" size="md">
                     @include('content.include.videos.createFile')
@@ -761,46 +744,46 @@
                 $('.comments-list').html('');
             }
 
-            $('.view-post').click(function() {
-                $('#feed_id').val($(this).attr('data-id'));
-                $.ajax({
-                    url: "{{ route('get.comments') }}",
-                    type: 'GET',
-                    data: {
-                        feed_id: $('#feed_id').val(),
-                        feed_type: $('#feed_type').val()
-                    },
-                    success: function(response) {
-                        let comments = '';
-                        $('.comment-controls img').attr('src', '/public/storage/' + response?.data?.user
-                            ?.image);
-                        $('.comment-controls img').css('display', 'block');
-                        $('.fancybox-caption__body .header img').attr('src', '/public/storage/' + response
-                            ?.data
-                            ?.feed?.user?.image);
-                        $('.fancybox-caption__body .header img').css('display', 'block')
-                        $('.fancybox-caption__body .user-meta .name').text(response?.data?.feed?.user
-                            ?.name + ' ' + response?.data?.feed?.user?.last_name);
-                        $('.post-date').text(moment(response?.data?.feed?.created_at).fromNow())
-                        $('.views-count-1').text(response?.data?.comments_count);
+            // $('.view-post').click(function() {
+            //     $('#feed_id').val($(this).attr('data-id'));
+            //     $.ajax({
+            //         url: "{{ route('get.comments') }}",
+            //         type: 'GET',
+            //         data: {
+            //             feed_id: $('#feed_id').val(),
+            //             feed_type: $('#feed_type').val()
+            //         },
+            //         success: function(response) {
+            //             let comments = '';
+            //             $('.comment-controls img').attr('src', '/public/storage/' + response?.data?.user
+            //                 ?.image);
+            //             $('.comment-controls img').css('display', 'block');
+            //             $('.fancybox-caption__body .header img').attr('src', '/public/storage/' + response
+            //                 ?.data
+            //                 ?.feed?.user?.image);
+            //             $('.fancybox-caption__body .header img').css('display', 'block')
+            //             $('.fancybox-caption__body .user-meta .name').text(response?.data?.feed?.user
+            //                 ?.name + ' ' + response?.data?.feed?.user?.last_name);
+            //             $('.post-date').text(moment(response?.data?.feed?.created_at).fromNow())
+            //             $('.views-count-1').text(response?.data?.comments_count);
 
-                        comments = getComments(response);
+            //             comments = getComments(response);
 
-                        if (response.data.liked == true) {
-                            $('.like-btn').addClass('liked');
-                        } else {
-                            $('.like-btn').removeClass('liked');
-                        }
-                        $('.likes-count span').text(response?.data?.like_count);
-                        $('.comments-list').html(comments);
-                        $('.comments-list').animate({
-                            scrollTop: $('.comments-list')[0].scrollHeight
-                        }, 500);
-                        $('body').css('position', 'fixed');
-                    }
+            //             if (response.data.liked == true) {
+            //                 $('.like-btn').addClass('liked');
+            //             } else {
+            //                 $('.like-btn').removeClass('liked');
+            //             }
+            //             $('.likes-count span').text(response?.data?.like_count);
+            //             $('.comments-list').html(comments);
+            //             $('.comments-list').animate({
+            //                 scrollTop: $('.comments-list')[0].scrollHeight
+            //             }, 500);
+            //             $('body').css('position', 'fixed');
+            //         }
 
-                });
-            })
+            //     });
+            // })
 
             $('body').on('click', '.send-comment', function() {
                 $.ajax({
