@@ -247,30 +247,51 @@
                     <h5>Video List</h5>
                 </div>
                 <div class="col-md-9">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <button class="btn btn-primary w-100">Reported Videos</button>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="search" class="form-control" id="search" name="search" placeholder="Search">
-                        </div>
-                        <div class="col-md-4">
-                            <select name="sort_by" id="sort_by" class="form-control">
-                                <option value="">Select Sort By</option>
-                                <option value="songs">Most Songs</option>
-                                <option value="videos">Most Videos</option>
-                                <option value="likes">Most Likes</option>
-                                <option value="followers">Most Followers</option>
-                            </select>
-
-
-                        </div>
+                    <div class="" style="display: flex;flex-direction: row-reverse;">
+                        <select name="sort_by" id="sort_by" class="form-control mr-4" style="width:200px">
+                            <option value="">Select Sort By</option>
+                            <option value="songs">Most Songs</option>
+                            <option value="videos">Most Videos</option>
+                            <option value="likes">Most Likes</option>
+                            <option value="followers">Most Followers</option>
+                        </select>
+                        <input type="search" class="form-control mr-4" id="search" name="search" style="width:200px"
+                            placeholder="Search">
+                        <button class="btn btn-primary mr-4">Reported Videos</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="table-responsive container pb-4 text-nowrap">
+            <style>
+                .card-post {
+                    box-shadow: none;
+                    cursor: pointer;
+                }
 
+                .card-post:hover {
+                    box-shadow: 0 2px 6px 0 rgba(67, 89, 113, 0.12);
+                    background-clip: padding-box;
+                    cursor: pointer;
+                    background: #f6f6f6;
+                }
+
+                .card-post-thumbnail {
+                    height: 200px;
+                    width: 100%;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    position: relative;
+                    border-radius: 12px;
+                }
+
+                .post-image {
+                    position: relative;
+                }
+                .post-image .dropdown{
+                    margin-top: -215px;
+                }
+            </style>
             <div class="row container pb-4">
                 <input type="hidden" name="feed_id" id="feed_id">
                 <input type="hidden" name="feed_type" id="feed_type" value="history">
@@ -278,12 +299,11 @@
                 @foreach ($videos as $video)
                     <div class="col-md-4">
                         <div class="post-image">
-                            <div id="feed-post-1" class="card is-post mt-4 pl-4 pr-4 view-post" data-fancybox="post1"
-                                data-lightbox-type="comments"
+                            <div id="feed-post-1" class="card is-post mt-4 pt-3 pl-4 pr-4 view-post card-post"
+                                data-fancybox="post1" data-lightbox-type="comments"
                                 data-thumb="{{ asset('storage/' . $video->video[0]['path']) }}"
                                 href="{{ asset('storage/' . $video->video[0]['path']) }}" data-id="{{ $video->_id }}"
-                                data-demo-href="{{ asset('storage/' . $video->video[0]['path']) }}"
-                                style="box-shadow: none;cursor: pointer;">
+                                data-demo-href="{{ asset('storage/' . $video->video[0]['path']) }}">
                                 <!-- Main wrap -->
                                 <div class="content-wrap">
 
@@ -295,8 +315,8 @@
                                             $seconds = round($durationInSeconds % 60);
                                             $formattedDuration = sprintf('%d:%02d', $minutes, $seconds);
                                         @endphp
-                                        <div
-                                            style="background-image: url('{{ asset('storage/' . $video->thumbnail) }}');height: 200px;width: 100%;background-size: cover;background-repeat: no-repeat;position:relative;">
+                                        <div style="background-image: url('{{ asset('storage/' . $video->thumbnail) }}');"
+                                            class="card-post-thumbnail">
                                             <span class="video-thumbnail-duration">{{ @$formattedDuration }}</span>
                                         </div>
                                     </div>
@@ -312,10 +332,6 @@
                                                         <div class="mt-2">
                                                             <div class="d-flex" style="line-height: 0;">
                                                                 <p><b>{{ $video->title }}</b></p>
-                                                                <a href="javascript:void(0)"
-                                                                    style="color: black !important;position: absolute;right: 18px;">
-                                                                    <i class="fas fa-ellipsis-vertical"></i>
-                                                                </a>
                                                             </div>
                                                             <p class="m-0">
                                                                 {{ @$video->user->username }}
@@ -332,6 +348,72 @@
                                     <!-- /Post body -->
                                 </div>
                                 <!-- /Main wrap -->
+                            </div>
+                            <div class="card-heading">
+                                <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+                                    <div>
+                                        <div class="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-more-vertical">
+                                                <circle cx="12" cy="12" r="1"></circle>
+                                                <circle cx="12" cy="5" r="1"></circle>
+                                                <circle cx="12" cy="19" r="1"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-menu" role="menu">
+                                        <div class="dropdown-content">
+                                            <a href="javascript:void(0)" class="dropdown-item">
+                                                <div class="media">
+                                                    <div class="media-content">
+                                                        <h3>Remove the Feed</h3>
+                                                        <select class="form-control mt-1">
+                                                            <option value="">Select the Reason</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="javascript:void(0)" class="dropdown-item">
+                                                <div class="media">
+                                                    <div class="media-content">
+                                                        <h3>Remove Feed - Flag FanPage</h3>
+                                                        <select class="form-control mt-1">
+                                                            <option value="">Select the Reason</option>
+                                                        </select>
+                                                        <select class="form-control mt-1">
+                                                            <option value="">Select the Flag</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="javascript:void(0)" class="dropdown-item">
+                                                <div class="media">
+                                                    <div class="media-content">
+                                                        <h3>Remove Feed - Block FanPage</h3>
+                                                        <select class="form-control mt-1">
+                                                            <option value="">Select the Reason</option>
+                                                        </select>
+                                                        <select class="form-control mt-1">
+                                                            <option value="">Select Downgrade User</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="javascript:void(0)" class="dropdown-item">
+                                                <div class="media">
+                                                    <div class="media-content">
+                                                        <h3>Remove FanPage</h3>
+                                                        <select class="form-control mt-1">
+                                                            <option value="">Select the Reason</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

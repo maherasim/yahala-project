@@ -784,13 +784,13 @@
 
 
 
-                    <li class="menu-item  {{ Request::is('video_request') ? 'active' : '' }}">
+                    {{-- <li class="menu-item  {{ Request::is('video_request') ? 'active' : '' }}">
                         <a href="{{ url('/video_request') }}" class="menu-link">
                             <div>Reported Videos</div>
                         </a>
 
 
-                    </li>
+                    </li> --}}
 
 
 
