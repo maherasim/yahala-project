@@ -22,36 +22,35 @@ class VideoController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'nullable',
-            'video_path' => 'required',
-            'video_name' => 'nullable',
-            'video_duration' => 'nullable',
-            'video_size' => 'nullable',
         ]);
-    
+        // dd($request->all());
         $video = Video::findOrNew($request->video_id);
         $video->title  = $request->title;
         $video->user_id = auth()->user()->id;
-    
+
         if (!empty($request->thumbnail)) {
-            $cleanedThumbnail = Str::after($request->thumbnail, 'storage/');
-            $cleanedThumbnail = Str::before($cleanedThumbnail, '.jpg') . '.jpg';
-            $video->thumbnail = $cleanedThumbnail;
+            if ($request->has('video_paths')) {
+                foreach ($request->video_paths as $key => $videoPath) {
+                    $videos[] = [
+                        'path' => $videoPath,
+                        'name' => $request->video_name[$key] ?? '',
+                        'duration' => $request->video_durations[$key] ?? '',
+                        'size' => $request->video_sizes[$key] ?? '',
+                    ];
+                }
+                $video->video = $videos;
+                $cleanedThumbnail = Str::after($request->thumbnail, 'storage/');
+                $cleanedThumbnail = Str::before($cleanedThumbnail, '.jpg') . '.jpg';
+                $video->thumbnail = $cleanedThumbnail;
+            }
         }
-    
-        $video->video = [
-            'path' => $request->video_path,
-            'name' => $request->video_name ?? '',
-            'duration' => $request->video_duration ?? '',
-            'size' => $request->video_size ?? '',
-        ];
-    
+
         if ($video->save()) {
-            return response()->json(['message' => 'Video has been saved successfully.']);
+            return redirect()->route('manage_video')->with('success', 'Video Has been inserted');
         } else {
-            return response()->json(['message' => 'Failed to save video.'], 500);
+            return redirect()->route('manage_video')->with('error', 'Failed to add Video');
         }
     }
-    
 
     public function destroy($id)
     {

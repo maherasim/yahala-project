@@ -234,9 +234,9 @@
                 <span class="text-muted fw-light">Video /</span> All Videos
             </h4>
         </div>
-        {{-- <div class="">
+        <div class="">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createvideoModal">Add Video</button>
-        </div> --}}
+        </div>
     </div>
 
     <!-- Artist List Table -->

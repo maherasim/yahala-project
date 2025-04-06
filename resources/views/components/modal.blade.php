@@ -2,7 +2,7 @@
     $uid = uniqid();
 @endphp
 
-<div class="modal fade modal-{{ $uid }}" {{ $attributes }} aria-modal="true" role="dialog">
+<div class="modal fade modal-{{ $uid }}" {{ $attributes }} aria-modal="true" role="dialog" style="z-index: 99999;">
     <div class="modal-dialog {{ $centered ? 'modal-dialog-centered' : '' }} modal-{{ $size }}" role="document">
         <div class="modal-content">
             <div class="modal-header">
