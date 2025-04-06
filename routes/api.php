@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\EmojiFeedController;
+use App\Http\Controllers\VideoController;
 use App\Http\Controllers\Api\FeedsController;
 use App\Http\Controllers\Api\BazarController;
 use App\Http\Controllers\Api\AdminActivityController;
@@ -131,6 +132,7 @@ Route::post('events', [FeedsController::class, 'store_event']);
 Route::get('events', [FeedsController::class, 'index']);
 
 
+Route::post('/manage_video', [VideoController::class, 'store'])->name('manage_video.store');
 
 
 
