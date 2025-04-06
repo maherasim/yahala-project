@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\EmojiFeedController;
-use App\Http\Controllers\VideoController;
+use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Api\FeedsController;
 use App\Http\Controllers\Api\BazarController;
 use App\Http\Controllers\Api\AdminActivityController;
