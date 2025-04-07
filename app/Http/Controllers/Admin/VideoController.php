@@ -17,7 +17,7 @@ class VideoController extends Controller
 {
     public function manage_video(){
         $videos = Video::all();
-        dd($videos);
+        
         return view('content.report_video.manage_video',compact('videos'));
     }
 
