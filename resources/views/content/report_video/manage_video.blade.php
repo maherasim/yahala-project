@@ -288,7 +288,8 @@
                 .post-image {
                     position: relative;
                 }
-                .post-image .dropdown{
+
+                .post-image .dropdown {
                     margin-top: -215px;
                 }
             </style>
@@ -298,13 +299,18 @@
                 <input type="hidden" name="comment_parent_id" id="comment_parent_id">
                 <div class="col-md-4">
                     <div class="post-image">
-                        <div   class="card is-post mt-4 pt-3 pl-4 pr-4   card-post"     data-thumb="https://admin.yekbun.net/public/storage/video/67ef065b87a6d___SampleVideo_1280x720_1mb.mp4" href="/public/storage/video/67ef065b87a6d___SampleVideo_1280x720_1mb.mp4" data-id="67ef066938c58e2bce0a4d72" data-demo-href="/public/storage/video/67ef065b87a6d___SampleVideo_1280x720_1mb.mp4">
+                        <div class="card is-post mt-4 pt-3 pl-4 pr-4   card-post"
+                            data-thumb="https://admin.yekbun.net/public/storage/video/67ef065b87a6d___SampleVideo_1280x720_1mb.mp4"
+                            href="/public/storage/video/67ef065b87a6d___SampleVideo_1280x720_1mb.mp4"
+                            data-id="67ef066938c58e2bce0a4d72"
+                            data-demo-href="/public/storage/video/67ef065b87a6d___SampleVideo_1280x720_1mb.mp4">
                             <!-- Main wrap -->
                             <div class="content-wrap">
 
                                 <!-- Post body -->
                                 <div class="card-body p-0">
-                                                                            <div style="background-image: url('https://admin.yekbun.net/public/storage/video/67ef065b87a6d___SampleVideo_1280x720_1mb_thumb_0.jpg');" class="card-post-thumbnail">
+                                    <div style="background-image: url('https://admin.yekbun.net/public/storage/video/67ef065b87a6d___SampleVideo_1280x720_1mb_thumb_0.jpg');"
+                                        class="card-post-thumbnail">
                                         <span class="video-thumbnail-duration">0:05</span>
                                     </div>
                                 </div>
@@ -313,7 +319,8 @@
                                         <div class="user-info">
                                             <div class="row">
                                                 <div class="col-md-2 p-0">
-                                                    <img src="/public/storage/images/user/67af44b5cd754___d20e96dd28ee247fbd9da2aebb371a91.jpg" style="width: 120px !important;height:50px !important;">
+                                                    <img src="/public/storage/images/user/67af44b5cd754___d20e96dd28ee247fbd9da2aebb371a91.jpg"
+                                                        style="width: 120px !important;height:50px !important;">
                                                 </div>
                                                 <div class="col-md-10">
                                                     <div class="mt-2">
@@ -340,7 +347,10 @@
                             <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
                                 <div>
                                     <div class="button">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-more-vertical">
                                             <circle cx="12" cy="12" r="1"></circle>
                                             <circle cx="12" cy="5" r="1"></circle>
                                             <circle cx="12" cy="19" r="1"></circle>
