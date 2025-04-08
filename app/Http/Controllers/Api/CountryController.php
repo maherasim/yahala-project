@@ -58,30 +58,29 @@ class CountryController extends Controller
         try {
             $feeds = AvatarsFeeds::all();
     
-            // Format each feed (optional: customize as needed)
             $formattedFeeds = $feeds->map(function ($feed) {
                 return [
                     'id' => $feed->_id,
                     'avatar_Id' => $feed->avatar_Id,
                     'user_Id' => $feed->user_Id,
                     'title' => $feed->title,
-                    'images' => $feed->image ?? [],
-                    'videos' => $feed->videos ?? [],
-                    'content' => $feed->content,
-                    'textemoji' => $feed->textemoji,
+                    'images' => is_array($feed->image) ? $feed->image : [],
+                    'videos' => is_array($feed->videos) ? $feed->videos : [],
+                    'content' => $feed->content ?? '',
+                    'textemoji' => $feed->textemoji ?? '',
                     'forwards' => $feed->forwards ?? 0,
-                    'comments' => $feed->comments ?? [],
+                    'comments' => is_array($feed->comments) ? $feed->comments : [],
                     'likes' => $feed->likes ?? 0,
-                    'textSize' => $feed->textSize,
-                    'shareType' => $feed->shareType,
-                    'user_type' => $feed->user_type,
-                    'feed_type' => $feed->feed_type,
-                    'background_image' => $feed->background_image,
-                    'text_color' => $feed->text_color,
-                    'grid_style' => $feed->grid_style,
-                    'description' => $feed->description,
-                    'text' => $feed->text,
-                    'text_properties' => $feed->text_properties,
+                    'textSize' => $feed->textSize ?? null,
+                    'shareType' => $feed->shareType ?? null,
+                    'user_type' => $feed->user_type ?? null,
+                    'feed_type' => $feed->feed_type ?? null,
+                    'background_image' => is_string($feed->background_image) ? $feed->background_image : null,
+                    'text_color' => $feed->text_color ?? null,
+                    'grid_style' => $feed->grid_style ?? null,
+                    'description' => $feed->description ?? null,
+                    'text' => $feed->text ?? null,
+                    'text_properties' => $feed->text_properties ?? null,
                     'created_at' => $feed->created_at,
                     'updated_at' => $feed->updated_at
                 ];

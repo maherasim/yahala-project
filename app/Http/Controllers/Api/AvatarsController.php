@@ -92,46 +92,36 @@ class AvatarsController extends Controller
 			$imagePaths = [];
 			$videoPaths = [];
 	
-			// Handle image files
+			// Handle multiple image uploads
 			if ($request->hasFile('images')) {
 				foreach ($request->file('images') as $image) {
-					$path = $image->store('feeds/images', 'public');
-					$imagePaths[] = asset('storage/' . $path);
+					if ($image->isValid()) {
+						$path = $image->store('feeds/images', 'public');
+						$imagePaths[] = asset('storage/' . $path);
+					}
 				}
 			}
 	
-			// Handle image string paths
-			$imageStrings = $request->input('images', []);
-			if (!is_array($imageStrings)) {
-				$imageStrings = [$imageStrings];
-			}
-			$imagePaths = array_merge($imagePaths, $imageStrings);
-	
-			// Handle video files
+			// Handle multiple video uploads
 			if ($request->hasFile('videos')) {
 				foreach ($request->file('videos') as $video) {
-					$path = $video->store('feeds/videos', 'public');
-					$videoPaths[] = asset('storage/' . $path);
+					if ($video->isValid()) {
+						$path = $video->store('feeds/videos', 'public');
+						$videoPaths[] = asset('storage/' . $path);
+					}
 				}
 			}
 	
-			// Handle video string paths
-			$videoStrings = $request->input('videos', []);
-			if (!is_array($videoStrings)) {
-				$videoStrings = [$videoStrings];
-			}
-			$videoPaths = array_merge($videoPaths, $videoStrings);
-	
-			// Handle background image: file or string
+			// Handle background image (file or valid string)
 			$backgroundImage = null;
 			if ($request->hasFile('background_image')) {
 				$path = $request->file('background_image')->store('feeds/backgrounds', 'public');
 				$backgroundImage = asset('storage/' . $path);
-			} elseif ($request->has('background_image') && is_string($request->input('background_image'))) {
+			} elseif ($request->filled('background_image')) {
 				$backgroundImage = $request->input('background_image');
 			}
 	
-			// Create new feed
+			// Create and save new feed
 			$feed = new AvatarsFeeds();
 			$feed->avatar_Id = $request->input('avatar');
 			$feed->user_Id = $request->input('user_Id');
@@ -158,7 +148,7 @@ class AvatarsController extends Controller
 			return response()->json([
 				'message' => 'Feed stored successfully',
 				'data' => $feed
-			], 201); // 201 = Created
+			], 201);
 	
 		} catch (\Exception $e) {
 			return response()->json([
@@ -169,6 +159,7 @@ class AvatarsController extends Controller
 			], 500);
 		}
 	}
+	
 	
 	
 	
