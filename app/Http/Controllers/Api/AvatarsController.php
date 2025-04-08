@@ -83,7 +83,6 @@ class AvatarsController extends Controller
 		
         //
     }
-
 	public function asimpostfeed(Request $request)
 	{
 		try {
@@ -121,6 +120,16 @@ class AvatarsController extends Controller
 				$backgroundImage = $request->input('background_image');
 			}
 	
+			// Handle background video
+			$backgroundVideo = null;
+			if ($request->hasFile('background_video')) {
+				$video = $request->file('background_video');
+				if ($video->isValid()) {
+					$path = $video->store('feeds/background_videos', 'public');
+					$backgroundVideo = asset('storage/' . $path);
+				}
+			}
+	
 			// Create and save new feed
 			$feed = new AvatarsFeeds();
 			$feed->avatar_Id = $request->input('avatar');
@@ -138,6 +147,7 @@ class AvatarsController extends Controller
 			$feed->user_type = $request->input('user_type');
 			$feed->feed_type = $request->input('feed_type');
 			$feed->background_image = $backgroundImage;
+			$feed->background_video = $backgroundVideo; // ✅ new field added
 			$feed->text_color = $request->input('text_color');
 			$feed->grid_style = $request->input('grid_style');
 			$feed->description = $request->input('description');
@@ -159,7 +169,6 @@ class AvatarsController extends Controller
 			], 500);
 		}
 	}
-	
 	
 	
 	

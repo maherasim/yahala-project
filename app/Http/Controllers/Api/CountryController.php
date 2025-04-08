@@ -66,6 +66,7 @@ class CountryController extends Controller
                     'title' => $feed->title,
                     'images' => is_array($feed->image) ? $feed->image : [],
                     'videos' => is_array($feed->videos) ? $feed->videos : [],
+                    'background_video' => is_string($feed->background_video) ? $feed->background_video : null, // ✅ added
                     'content' => $feed->content ?? '',
                     'textemoji' => $feed->textemoji ?? '',
                     'forwards' => $feed->forwards ?? 0,
@@ -102,7 +103,6 @@ class CountryController extends Controller
             ], 500);
         }
     }
-    
     
     
 

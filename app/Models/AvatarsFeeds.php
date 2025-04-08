@@ -14,7 +14,7 @@ class AvatarsFeeds extends Model
      protected $fillable = [
        'avatar_Id', 'title', 'image', 'content', 'forwards', 
     'comments', 'likes', 'videos', 'user_type', 'feed_type',
-    'background_image', 'text_color', 'grid_style', 'description',
+    'background_image', 'text_color', 'grid_style', 'description','background_video',
     'text', 'text_properties','textSize','user_Id','shareType','shareFrds','textemoji',
     ];
 
