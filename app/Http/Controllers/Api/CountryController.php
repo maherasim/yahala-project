@@ -56,23 +56,54 @@ class CountryController extends Controller
     public function AvatarsFeeds34()
     {
         try {
-            $Feeds = AvatarsFeeds::all();
+            $feeds = AvatarsFeeds::all();
+    
+            // Format each feed (optional: customize as needed)
+            $formattedFeeds = $feeds->map(function ($feed) {
+                return [
+                    'id' => $feed->_id,
+                    'avatar_Id' => $feed->avatar_Id,
+                    'user_Id' => $feed->user_Id,
+                    'title' => $feed->title,
+                    'images' => $feed->image ?? [],
+                    'videos' => $feed->videos ?? [],
+                    'content' => $feed->content,
+                    'textemoji' => $feed->textemoji,
+                    'forwards' => $feed->forwards ?? 0,
+                    'comments' => $feed->comments ?? [],
+                    'likes' => $feed->likes ?? 0,
+                    'textSize' => $feed->textSize,
+                    'shareType' => $feed->shareType,
+                    'user_type' => $feed->user_type,
+                    'feed_type' => $feed->feed_type,
+                    'background_image' => $feed->background_image,
+                    'text_color' => $feed->text_color,
+                    'grid_style' => $feed->grid_style,
+                    'description' => $feed->description,
+                    'text' => $feed->text,
+                    'text_properties' => $feed->text_properties,
+                    'created_at' => $feed->created_at,
+                    'updated_at' => $feed->updated_at
+                ];
+            });
     
             return response()->json([
                 'success' => true,
-                'message' => 'feedFeeds retrieved successfully.',
-                'data' => $Feeds,
-            ]);
+                'message' => 'Feeds retrieved successfully.',
+                'data' => $formattedFeeds
+            ], 200);
+    
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Error retrieving feeds',
+                'message' => 'Error retrieving feeds.',
                 'error' => $e->getMessage(),
                 'file' => $e->getFile(),
                 'line' => $e->getLine()
             ], 500);
         }
     }
+    
     
     
 
