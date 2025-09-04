@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Mail;
 use Exception;
 use App\Mail\SendCodeMail;
 use Laravel\Sanctum\HasApiTokens;
@@ -12,6 +11,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\Traits\CausesActivity;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Mail;
 use Jenssegers\Mongodb\Auth\User as Authenticatable;
 use Maklad\Permission\Traits\HasRoles;
 
@@ -36,35 +36,64 @@ class User extends Authenticatable implements MustVerifyEmail
         'level',
         'username',
         'fname',
-        'lname',
+        'last_name',
         'gender',
+        'origin',
+        'is_verfied',
         'dob',
         'address',
         'province',
-        'device_id',
         'city',
         'province_city',
         'country',
+        'location',
         'role_id',
         'roles',
-        'is_admin_user',
-        'is_superadmin',
-        'is_verfied',
-        'last_name',
-        'language',
-        'origin',
-        'location',
-        'marital_status',
-        'phone',
-        'device_type',
-        'device_imei',
+        'user_id',
+        'user_type',
         'device_name',
         'device_model',
         'device_serial',
-        'user_id',
-        'user_type'
+        'device_type',
+        'device_imei',
+        'device_id',
+        'fcm_token',
+        'is_admin_user',
+        'is_superadmin',
+        'isPrivacyPolicyAccepted',
+        'maritalStatus',
+        'is_else',
+        'is_language',
+        'is_music',
+        'family_image',
+        'friends_image',
+        'friends_request',
+        'get_greetings',
+        'public_image',
+        'search_option',
+        'info_banner',
+        'new_donation',
+        'new_events',
+        'new_history',
+        'new_music',
+        'new_news',
+        'new_videos',
+        'new_votes',
+        'live_stream',
+        'play_video',
+        'video_call',
+        'interview',
+        'upload_video',
+        'play_music',
+        'public_image',
+        'friends_image',
+        'family_image',
+        'friends_request',
+        'get_greetings',
+        'search_option',
+        'app_status',
     ];
-    
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -138,11 +167,6 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(AvatarsFeeds::class, 'user_Id', '_id');
     }
-
-
-
-
-
 
     public function permissions()
     {
